@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-require('./react-unity-webgl.css');
-
 const Message = ((gameObjectName, methodName, paramterValue) => {
     if (paramterValue == null) {
         paramterValue = "";
