@@ -4,7 +4,8 @@
   "description": "A Unity WebGL component for your React application",
   "main": "lib/react-unity-webgl.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "babel --presets react source --out-dir lib",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
     "react-dom": "15.4.2"
   },
   "devDependencies": {
+    "babel": "^4.6.0",
+    "babel-cli": "^6.5.1",
     "webpack": "2.2.1",
     "babel-core": "6.22.1",
     "babel-loader": "6.2.10",
