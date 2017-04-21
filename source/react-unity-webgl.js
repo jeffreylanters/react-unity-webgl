@@ -60,7 +60,7 @@ class Unity extends Component {
     }
     onLoadedRender () {
         return (
-            <div style={this.style}>
+            <div className="unity">
                 <div className="unity-container" id="unity-container"></div>
                 {this.state.loaded == false &&
                     <div className="unity-loader">
