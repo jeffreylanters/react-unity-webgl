@@ -1,6 +1,6 @@
 {
   "name": "react-unity-webgl",
-  "version": "5.6.0",
+  "version": "5.6.0.build-2",
   "description": "A Unity WebGL component for your React application",
   "main": "lib/react-unity-webgl.js",
   "scripts": {
