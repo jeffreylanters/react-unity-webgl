@@ -61,7 +61,9 @@ The player will be injected in the a component with the className "unity-contain
     .bar {
         /* ... */
         .fill {
-            /* ... */
+            /* the width will be set
+             * by the component
+            ... */
         }
     }
 }
