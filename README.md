@@ -14,12 +14,12 @@ To get stated import the Unity component from 'react-unity-webgl'. Once imported
 
 ```js
 import React, { Component } from 'react';
-import { Unity } from '/Projects/react-unity-webgl';
+import { Unity } from 'react-unity-webgl';
 
 export class App extends Component {
     render() {
         return (<div className="app">
-            <Unity src="Build/viewer.json" />
+            <Unity src="Build/myGame.json" />
         </div>)
     }
 }
@@ -30,7 +30,7 @@ Unity allows you to send Javascript messages to the Unity content. In order to d
 
 ```js
 import React, { Component } from 'react';
-import { Message } from '/Projects/react-unity-webgl'
+import { Message } from 'react-unity-webgl'
 
 export class Menu extends Component {
     onClick () {
