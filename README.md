@@ -1,5 +1,7 @@
 # react-unity-webgl
-A Unity WebGL component for your React application.
+Ease to use Unity 5.6 or newer WebGL player component for your React application. Embed your Unity application in your react application for writing interactive interfaces with two way Unity and react communication.
+
+<img src="http://react-etc.net/files/2016-07/logo-578x270.png" height="50px"/> <img src="http://gamepadable.com/wp-content/uploads/2016/01/Official_unity_logo.png" height="50px"/>
 
 # installation
 Install using npm. Make sure you download the version matching with your Unity version. I try to update this plugin in case of need as fast as possible.
