@@ -1,5 +1,5 @@
 # react-unity-webgl
-Ease to use Unity 5.6 or newer WebGL player component for your React application. Embed your Unity application in your react application for writing interactive interfaces with two way Unity and react communication.
+Easy to use Unity 5.6 or newer WebGL player component for your React application. Embed your Unity application in your react application for writing interactive interfaces with two way Unity and react communication.
 
 <img src="http://react-etc.net/files/2016-07/logo-578x270.png" height="50px"/> <img src="http://gamepadable.com/wp-content/uploads/2016/01/Official_unity_logo.png" height="50px"/>
 
@@ -13,6 +13,8 @@ $ npm install --save react-unity-webgl@5.6.0
 
 # usage
 To get stated import the Unity component from 'react-unity-webgl'. Once imported you can use the Unity component to load in your Unity content. Place the Unity tag along with a src to the json file Unity exported.
+
+> Don't forget to add a script tag to load the `UnityLoader.js` file, exported by Unity in your base html file.
 
 ```js
 import React, { Component } from 'react';
