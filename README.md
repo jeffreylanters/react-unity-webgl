@@ -8,7 +8,7 @@ Install using npm. Make sure you download the version matching with your Unity v
 
 ```sh
 # example
-$ npm install --save react-unity-webgl@5.6.0
+$ npm install --save react-unity-webgl
 ```
 
 # usage
