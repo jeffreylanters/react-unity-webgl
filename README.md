@@ -14,6 +14,7 @@ $ npm install --save react-unity-webgl@5.6.0
 # usage
 To get stated import the Unity component from 'react-unity-webgl'. Once imported you can use the Unity component to load in your Unity content. Place the Unity tag along with a src to the json file Unity exported.
 
+> ### Notice
 > Don't forget to add a script tag to load the `UnityLoader.js` file, exported by Unity in your base html file.
 
 ```js
