@@ -81,7 +81,7 @@ The player will be injected in the a component with the className "unity-contain
     <body>
         <div id="app"></div>
     </body>
-    <script src="build_unity/Build/UnityLoader.js"></script>
+    <script src="Build/UnityLoader.js"></script>
     <script src="compiled/bundle.js"></script>
 </html>
 ```
