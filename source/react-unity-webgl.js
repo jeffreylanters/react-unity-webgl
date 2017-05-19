@@ -9,6 +9,9 @@ const Message = ((gameObjectName, methodName, paramterValue) => {
             gameObjectName, 
             methodName, 
             paramterValue);
+    } else {
+        console.warn ("react-unity-webgl: you've sent a message to the " 
+            + "unity content, but it wasn't instantiated yet.")
     }
 });
 
@@ -25,16 +28,27 @@ class Unity extends Component {
         this.instantiateUnityLoader ();
     }
     instantiateUnityLoader () {
-        if (this.props.src == null) {
+        if (typeof UnityLoader === 'undefined') {
+            let errorText = "The UnityLoader was not defined, please add the script tag " +
+                "to the base html and embed the UnityLoader.js file Unity exported.";
+            console.error(errorText);
             this.setState({
-                error: "Please provice a path to a valid JSON in the 'src' attribute."
+                error: errorText
             });
             return;
         }
-        let instance = UnityLoader.instantiate (
+        if (this.props.src == null) {
+            let errorText = "Please provice a path to a valid JSON in the 'src' attribute.";
+            console.error(errorText);
+            this.setState({
+                error: errorText
+            });
+            return;
+        }
+        let instance = UnityLoader.instantiate(
             "unity-container", 
             this.props.src, {
-                onProgress: ((gameInstance, progress) => {
+                onProgress:((gameInstance, progress) => {
                     this.setState({
                         loaded: progress == 1,
                         progress: progress
@@ -45,14 +59,14 @@ class Unity extends Component {
     }
     render() {
         if (this.state.error == null) {
-            return this.onLoadedRender ();
+            return this.onLoadedRender();
         } else {
-            return this.onUnableToRender ();
+            return this.onUnableToRender();
         }
     }
     onUnableToRender () {
         return (
-            <div className="unity-container">
+            <div className="unity">
                 <b>React-Unity-Webgl error</b>: 
                 {this.state.error}
             </div>
