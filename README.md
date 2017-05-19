@@ -4,7 +4,7 @@ Easy to use Unity 5.6 or newer WebGL player component for your React application
 <img src="http://react-etc.net/files/2016-07/logo-578x270.png" height="50px"/> <img src="http://gamepadable.com/wp-content/uploads/2016/01/Official_unity_logo.png" height="50px"/>
 
 # installation
-Install using npm. Make sure you download the version matching with your Unity version. I try to update this plugin in case of need as fast as possible.
+Install using npm. Make sure you download the version matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version.
 
 ```sh
 # example
@@ -69,4 +69,19 @@ The player will be injected in the a component with the className "unity-contain
         }
     }
 }
+```
+
+# html example
+```html
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <title>My Unity Game</title>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script src="build_unity/Build/UnityLoader.js"></script>
+    <script src="compiled/bundle.js"></script>
+</html>
 ```
