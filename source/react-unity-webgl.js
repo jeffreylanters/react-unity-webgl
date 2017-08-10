@@ -53,7 +53,8 @@ class Unity extends Component {
                         loaded: progress == 1,
                         progress: progress
                     });
-                })
+                }),
+				Module : this.props.module
             });
         module.exports.UnityInstance = instance;
     }
