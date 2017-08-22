@@ -1,5 +1,5 @@
 # react-unity-webgl
-Easy to use Unity 5.6 or newer WebGL player component for your React application. Embed your Unity application in your react application for writing interactive interfaces with two way Unity and react communication.
+Easy to use Unity 5.6 or newer (also Unity 2017 or newer)  WebGL player component for your React application. Embed your Unity application in your react application for writing interactive interfaces with two way Unity and react communication.
 
 <img src="http://react-etc.net/files/2016-07/logo-578x270.png" height="50px"/> <img src="http://gamepadable.com/wp-content/uploads/2016/01/Official_unity_logo.png" height="50px"/>
 
@@ -30,7 +30,7 @@ export class App extends Component {
 }
 ```
 
-## Optional attributes
+## optional attributes
 
 ```js
 // Overruling the module
