@@ -30,6 +30,13 @@ export class App extends Component {
 }
 ```
 
+## Optional attributes
+
+```js
+// Overruling the module
+<Unity src="Build/myGame.json" module={this.myCustomModule} />
+```
+
 # communication
 Unity allows you to send Javascript messages to the Unity content. In order to do so using React you have to import the Message function from 'react-unity-webgl'. The first parameter is the target game object name, the next is the method name, and the last is a optional parameter value.
 
