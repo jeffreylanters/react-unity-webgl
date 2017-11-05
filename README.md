@@ -26,14 +26,10 @@ import React from 'react';
 import Unity from 'react-unity-webgl';
 
 export class App extends React.Component {
-    constructor () {
-        this.build = {
-            data: 'Build/myGame.json',
-            loader: 'Build/UnityLoader.json'
-        }
-    }
     render () {
-        return <Unity build={ this.build } />
+        return <Unity 
+            src='Build/myGame.json' 
+            loader='Build/UnityLoader.json' />
     }
 }
 ```
@@ -41,7 +37,7 @@ export class App extends React.Component {
 
 ```js
 // Overruling the module
-<Unity build={ this.build } module={ this.myCustomModule } />
+<Unity ... module={ this.myCustomModule } />
 ```
 
 
