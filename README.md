@@ -44,7 +44,7 @@ export class App extends React.Component {
 
 
 
-## Calling Unity scripts functions from JavaScript in React
+# Calling Unity scripts functions from JavaScript in React
 Sometimes you need to send some data or notification to the Unity script from the browser’s JavaScript. The recommended way of doing it is to call methods on GameObjects in your content. To get started import the function SendMessage from react-unity-webgl.
 
 ```js
@@ -81,7 +81,7 @@ public class SpawnController: MonoBehaviour {
 
 
 
-## Calling JavaScript functions within React from Unity scripts
+# Calling JavaScript functions within React from Unity scripts
 We also allow you to call JavaScript functions within React from the Unity Content. To get started import the function RegisterExternalListener from react-unity-webgl.
 ```js
 RegisterExternalListener (methodName, callback);
