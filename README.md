@@ -29,7 +29,7 @@ export class App extends React.Component {
     render () {
         return <Unity 
             src='Build/myGame.json' 
-            loader='Build/UnityLoader.json' />
+            loader='Build/UnityLoader.js' />
     }
 }
 ```
@@ -66,6 +66,7 @@ export class App extends React.Component {
     }
 }
 ```
+While in Unity, for example:
 ```cs
 using UnityEngine;
 
@@ -99,6 +100,7 @@ export class App extends React.Component {
     }
 }
 ```
+While in Unity, for example:
 ```cs
 using UnityEngine;
 
