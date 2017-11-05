@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
 
-const Message = ((gameObjectName, methodName, paramterValue) => {
-    if (paramterValue == null) {
-        paramterValue = "";
-    }
-    if (module.exports.UnityInstance != null) {
-        module.exports.UnityInstance.SendMessage (
-            gameObjectName, 
-            methodName, 
-            paramterValue);
-    } else {
-        console.warn ("react-unity-webgl: you've sent a message to the " 
-            + "unity content, but it wasn't instantiated yet.")
-    }
-});
-
-class Unity extends Component {
+export default class Unity extends Component {
     constructor (props) {
         super (props);
         this.state = {
@@ -89,7 +74,37 @@ class Unity extends Component {
     }
 }
 
-export {
-    Unity,
-    Message
-};
+/**
+ * Sends a message to the Unity content. This works the same
+ * as Unity's internal 'SendMessage' system. The paramaterValue
+ * is an optional field.
+ * @param {string} gameObjectName 
+ * @param {string} methodName 
+ * @param {object} paramterValue 
+ */
+export function SendMessage (gameObjectName, methodName, paramterValue) {
+    if (paramterValue === undefined) {
+        paramterValue = "";
+    }
+    if (module.exports.UnityInstance !== null) {
+        module.exports.UnityInstance.SendMessage (
+            gameObjectName, 
+            methodName, 
+            paramterValue);
+    } else {
+        console.warn (`Your message to object '${gameObjectName}' was send before Unity was instantiated.`)
+    }
+}
+
+/**
+ * Registers a listener to this window. When a message is sent
+ * from Unity using 'CallExternal', the listener will forward it
+ * into your React Application.
+ * @param {string} functionName 
+ * @param {function} callback 
+ */
+export function RegisterExternalListener (functionName, callback) {
+    window[functionName] = function (paramterValue) {
+        callback (paramterValue);
+    }
+}
