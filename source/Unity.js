@@ -5,8 +5,6 @@ export default class Unity extends Component {
     constructor (props) {
         super (props)
         this.state = {
-            progress: 0,
-            loaded: false,
             error: null
         }
         this.unityLoaderService = new UnityLoaderService ()
@@ -31,36 +29,27 @@ export default class Unity extends Component {
         } 
         else {
             this.unityLoaderService.append (this.props.loader).then (() => {
-                module.exports.UnityInstance = UnityLoader.instantiate ('unity-container', this.props.src, {
-                    onProgress: ((gameInstance, progress) => {
-                        this.setState({
-                            loaded: progress === 1,
-                            progress: progress
-                        })
-                    }),
+                let unityInstance = UnityLoader.instantiate ('unity-container', this.props.src, {
+                    onProgress: this.onProgress.bind (this),
                     Module : this.props.module
                 })
+                module.exports.UnityInstance = unityInstance
             })
         }
     }
+    onProgress (unityInstance, progression) {
+        if (typeof this.props.onProgress !== 'undefined') {
+            this.props.onProgress (progression)
+        }
+    }
     render () {
-        if (this.state.error !== null) { return (
-            <div className='unity'>
-                <b>React-Unity-Webgl error</b> {this.state.error}
-            </div>
-        )}
         return (
             <div className='unity'>
-                <div>
-                    <div className='unity-container' id='unity-container'></div>
-                </div>
-                {this.state.loaded === false &&
-                    <div className='unity-loader'>
-                        <div className='bar'>
-                            <div className='fill' style={{ width:`${(this.state.progress * 100)}%`}}></div>
-                        </div>
-                    </div>
-                }
+                {this.state.error !== null ? (
+                    <b>React-Unity-Webgl error {this.state.error}</b>
+                ):(
+                    <div id='unity-container'></div>
+                )}
             </div>
         )
     }

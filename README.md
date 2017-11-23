@@ -37,7 +37,16 @@ export class App extends React.Component {
 
 ```js
 // Overruling the module
+this.myCustomModule = { ... }
 <Unity ... module={ this.myCustomModule } />
+
+// Loading progression
+<Unity ... onProgress={ this.onProgress } />
+onProgress (progression) {
+    console.log (`Loading ${(progression * 100)} % ...`)
+    if (progression === 1) 
+        console.log (`Loading done!`)
+}
 ```
 
 
