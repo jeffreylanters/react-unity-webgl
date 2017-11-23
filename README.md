@@ -144,5 +144,14 @@ The following hierarchy will be applied to the React Unity WebGL component. Feel
 
 
 
+# Notes
+Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load the content in Runtime and not Compile time. 
+## 5.x to 6.x Upgrade note
+When upgrading from 5.x to 6.x, make sure you add the `loader` prop to the Unity component and remove the script tag from your HTML page refering to the UnityLoader.js file. See [Usage](#usage) for further details.
+
+
+
+
+
 # Contributing
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change. Before commiting, please compile your code using `npm run compile` and open a pull request. Thank you very much!
