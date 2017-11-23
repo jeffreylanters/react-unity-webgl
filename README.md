@@ -35,11 +35,14 @@ export class App extends React.Component {
 ```
 ## Optional attributes
 
+### Overruling the module
 ```js
-// Overruling the module
 this.myCustomModule = { ... }
 <Unity ... module={ this.myCustomModule } />
+```
 
+### Tracking progression
+```js
 // Loading progression
 <Unity ... onProgress={ this.onProgress } />
 onProgress (progression) {
