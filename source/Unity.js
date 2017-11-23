@@ -29,7 +29,7 @@ export default class Unity extends Component {
         } 
         else {
             this.unityLoaderService.append (this.props.loader).then (() => {
-                let unityInstance = UnityLoader.instantiate ('unity-container', this.props.src, {
+                let unityInstance = UnityLoader.instantiate ('unity', this.props.src, {
                     onProgress: this.onProgress.bind (this),
                     Module : this.props.module
                 })
@@ -48,7 +48,7 @@ export default class Unity extends Component {
                 {this.state.error !== null ? (
                     <b>React-Unity-Webgl error {this.state.error}</b>
                 ):(
-                    <div id='unity-container'></div>
+                    <div id='unity'></div>
                 )}
             </div>
         )
