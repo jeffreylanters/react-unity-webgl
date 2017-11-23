@@ -43,7 +43,6 @@ this.myCustomModule = { ... }
 
 ### Tracking progression
 ```js
-// Loading progression
 <Unity ... onProgress={ this.onProgress } />
 onProgress (progression) {
     console.log (`Loading ${(progression * 100)} % ...`)
