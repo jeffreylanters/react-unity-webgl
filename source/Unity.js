@@ -14,6 +14,9 @@ export default class Unity extends Component {
     componentDidMount () {
         this.instantiate ()
     }
+    componentWillUnmount () {
+        this.unityLoaderService.unmount ()
+    }
     instantiate () {
         let error = null
 
