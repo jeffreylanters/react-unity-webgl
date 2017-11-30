@@ -35,9 +35,20 @@ export class App extends React.Component {
 ```
 ## Optional attributes
 
+### Overruling the module
 ```js
-// Overruling the module
+this.myCustomModule = { ... }
 <Unity ... module={ this.myCustomModule } />
+```
+
+### Tracking progression
+```js
+<Unity ... onProgress={ this.onProgress } />
+onProgress (progression) {
+    console.log (`Loading ${(progression * 100)} % ...`)
+    if (progression === 1) 
+        console.log (`Loading done!`)
+}
 ```
 
 
@@ -120,25 +131,10 @@ Legacy ways of calling JavaScript code from Unity. You can use the Application.E
 
 
 
-# Styling
-The following hierarchy will be applied to the React Unity WebGL component. Feel free to apply any styles to the component.
-
-```scss
-.unity {
-    .unity-container {
-        canvas {
-            /* don't forget to set my width and height! */
-        }
-    }
-    .unity-loader {
-        .loading-bar {
-            .loading-fill {
-                /* the width will be set by the component */
-            }
-        }
-    }
-}
-```
+# Notes
+Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile time. 
+## 5.x to 6.x Upgrade note
+When upgrading from 5.x to 6.x, make sure you add the `loader` prop to the Unity component and remove the script tag from your HTML page refering to the UnityLoader.js file. See [Usage](#usage) for further details.
 
 
 
