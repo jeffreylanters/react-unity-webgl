@@ -1,17 +1,23 @@
 export default class UnityLoaderServer {
     constructor () {
-
+        this.documentHead = document.getElementsByTagName ('head')[0]
+        this.unityLoaderScript = null
     }
     append (src) {
         return new Promise ((resolve, reject) => {
-            let unityLoaderScript = document.createElement ('script')
-            unityLoaderScript.type = 'text/javascript'
-            unityLoaderScript.async = true
-            unityLoaderScript.src = src
-            unityLoaderScript.onload = () => {
+            this.unityLoaderScript = document.createElement ('script')
+            this.unityLoaderScript.type = 'text/javascript'
+            this.unityLoaderScript.async = true
+            this.unityLoaderScript.src = src
+            this.unityLoaderScript.onload = () => {
                 resolve ()
             }
-            document.getElementsByTagName ('head')[0].appendChild (unityLoaderScript)
+            this.documentHead.appendChild (this.unityLoaderScript)
         })
+    }
+    unmount () {
+        if (this.unityLoaderScript !== null) {
+            this.documentHead.removeChild (this.unityLoaderScript)
+        }
     }
 }
