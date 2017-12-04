@@ -28,8 +28,8 @@ import Unity from 'react-unity-webgl';
 export class App extends React.Component {
     render () {
         return <Unity 
-            src='Build/myGame.json' 
-            loader='Build/UnityLoader.js' />
+            src='Public/Build/myGame.json' 
+            loader='Public/Build/UnityLoader.js' />
     }
 }
 ```
@@ -132,7 +132,7 @@ Legacy ways of calling JavaScript code from Unity. You can use the Application.E
 
 
 # Notes
-Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile time. 
+Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile/Bundle time. 
 ## 5.x to 6.x Upgrade note
 When upgrading from 5.x to 6.x, make sure you add the `loader` prop to the Unity component and remove the script tag from your HTML page refering to the UnityLoader.js file. See [Usage](#usage) for further details.
 
