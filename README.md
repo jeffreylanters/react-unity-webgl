@@ -3,7 +3,7 @@ When building content for the web, you might need to communicate with other elem
 
 <img src="http://react-etc.net/files/2016-07/logo-578x270.png" height="50px"/> <img src="http://gamepadable.com/wp-content/uploads/2016/01/Official_unity_logo.png" height="50px"/>
 
-<img src="https://media.giphy.com/media/xT0xeA28awOB3Dtp0Q/giphy.gif" width="300px">
+<img src="https://media.giphy.com/media/3o6fIRrpHHfMXwxMSk/giphy.gif" width="300px">
 
 
 
