@@ -1,11 +1,10 @@
 {
   "name": "react-unity-webgl",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "description": "A Unity WebGL component for your React application",
   "main": "lib/index.js",
   "scripts": {
-    "compile": "babel --presets react source --out-dir lib",
-    "prepublish": "npm run compile"
+    "compile": "babel --presets react source --out-dir lib"
   },
   "repository": {
     "type": "git",
