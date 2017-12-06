@@ -38,15 +38,14 @@ export class App extends React.Component {
 ## Optional attributes
 
 ### Width and height
-> The default width and height is 100%
+The default width and height is 100%
 ```js
 <Unity ... width='500px' height='350px' />
 <Unity ... width='50%' height='50%' />
 ```
 
 ### Tracking progression
-> The loading progression of the Unity player
-> will be a value between 0 and 1
+The loading progression of the Unity player will be a value between 0 and 1
 ```js
 <Unity ... onProgress={ this.onProgress } />
 onProgress (progression) {
@@ -57,7 +56,7 @@ onProgress (progression) {
 ```
 
 ### Modules
-> Override the module
+Overrides the module object
 ```js
 this.myCustomModule = { ... }
 <Unity ... module={ this.myCustomModule } />
