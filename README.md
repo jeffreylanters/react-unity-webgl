@@ -3,15 +3,33 @@ When building content for the web, you might need to communicate with other elem
 
 <img src="http://react-etc.net/files/2016-07/logo-578x270.png" height="50px"/> <img src="http://gamepadable.com/wp-content/uploads/2016/01/Official_unity_logo.png" height="50px"/>
 
+<img src="https://media.giphy.com/media/3o6fIRrpHHfMXwxMSk/giphy.gif" width="300px">
+
+
+
+
+
+- [Installation](#installation)
+- [Usage](#usage)
+    - [Optional attributes](#optional-attributes)
+        - [Width and height](#width-and-height)
+        - [Tracking progression](#tracking-progression)
+        - [Modules](#modules)
+- [Calling Unity scripts functions from JavaScript in React](#calling-unity-scripts-functions-from-javascript-in-react)
+- [Calling JavaScript functions within React from Unity scripts](#calling-javascript-functions-within-react-from-unity-scripts)
+- [Notes](#notes)
+    - [5.x to 6.x Upgrade note](#5x-to-6x-upgrade-note)
+- [Contributing](#contributing)
+
 
 
 
 
 # Installation
-Install using npm. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version.
+Install using npm. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version or [view on NPM](https://www.npmjs.com/package/react-unity-webgl).
 
 ```sh
-$ npm install --save react-unity-webgl
+$ npm install react-unity-webgl
 ```
 
 
@@ -19,7 +37,7 @@ $ npm install --save react-unity-webgl
 
 
 # Usage
-To get started import the default Unity class from react-unity-webgl.
+To get started import the default Unity class from react-unity-webgl and include it in your render while giving the public path to your src and loader files.
 
 ```js
 import React from 'react';
@@ -28,20 +46,22 @@ import Unity from 'react-unity-webgl';
 export class App extends React.Component {
     render () {
         return <Unity 
-            src='Build/myGame.json' 
-            loader='Build/UnityLoader.js' />
+            src='Public/Build/myGame.json' 
+            loader='Public/Build/UnityLoader.js' />
     }
 }
 ```
 ## Optional attributes
 
-### Overruling the module
+### Width and height
+The default width and height is 100%
 ```js
-this.myCustomModule = { ... }
-<Unity ... module={ this.myCustomModule } />
+<Unity ... width='500px' height='350px' />
+<Unity ... width='50%' height='50%' />
 ```
 
 ### Tracking progression
+The loading progression of the Unity player will be a value between 0 and 1
 ```js
 <Unity ... onProgress={ this.onProgress } />
 onProgress (progression) {
@@ -49,6 +69,13 @@ onProgress (progression) {
     if (progression === 1) 
         console.log (`Loading done!`)
 }
+```
+
+### Modules
+Overrides the module object
+```js
+this.myCustomModule = { ... }
+<Unity ... module={ this.myCustomModule } />
 ```
 
 
@@ -132,7 +159,7 @@ Legacy ways of calling JavaScript code from Unity. You can use the Application.E
 
 
 # Notes
-Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile time. 
+Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile/Bundle time. 
 ## 5.x to 6.x Upgrade note
 When upgrading from 5.x to 6.x, make sure you add the `loader` prop to the Unity component and remove the script tag from your HTML page refering to the UnityLoader.js file. See [Usage](#usage) for further details.
 
