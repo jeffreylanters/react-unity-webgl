@@ -9,6 +9,22 @@ When building content for the web, you might need to communicate with other elem
 
 
 
+- [Installation](#installation)
+- [Usage](#usage)
+    - [Optional attributes](#optional-attributes)
+        - [Width and height](#width-and-height)
+        - [Tracking progression](#tracking-progression)
+        - [Modules](#modules)
+- [Calling Unity scripts functions from JavaScript in React](#calling-unity-scripts-functions-from-javascript-in-react)
+- [Calling JavaScript functions within React from Unity scripts](#calling-javascript-functions-within-react-from-unity-scripts)
+- [Notes](#notes)
+    - [5.x to 6.x Upgrade note](#5x-to-6x-upgrade-note)
+- [Contributing](#contributing)
+
+
+
+
+
 # Installation
 Install using npm. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version or [view on NPM](https://www.npmjs.com/package/react-unity-webgl).
 
