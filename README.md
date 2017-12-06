@@ -51,6 +51,13 @@ onProgress (progression) {
 }
 ```
 
+### Width and height
+```js
+<Unity ... width='500px' height='350px' />
+<Unity ... width='50%' height='50%' />
+// The default size is a width and height of 100%
+```
+
 
 
 
