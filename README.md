@@ -3,15 +3,17 @@ When building content for the web, you might need to communicate with other elem
 
 <img src="http://react-etc.net/files/2016-07/logo-578x270.png" height="50px"/> <img src="http://gamepadable.com/wp-content/uploads/2016/01/Official_unity_logo.png" height="50px"/>
 
+<img src="https://media.giphy.com/media/xT0xeA28awOB3Dtp0Q/giphy.gif" width="300px">
+
 
 
 
 
 # Installation
-Install using npm. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version.
+Install using npm. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version or [view on NPM](https://www.npmjs.com/package/react-unity-webgl).
 
 ```sh
-$ npm install --save react-unity-webgl
+$ npm install react-unity-webgl
 ```
 
 
