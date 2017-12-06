@@ -37,11 +37,11 @@ export class App extends React.Component {
 ```
 ## Optional attributes
 
-### Modules
-> Override the module
+### Width and height
+> The default width and height is 100%
 ```js
-this.myCustomModule = { ... }
-<Unity ... module={ this.myCustomModule } />
+<Unity ... width='500px' height='350px' />
+<Unity ... width='50%' height='50%' />
 ```
 
 ### Tracking progression
@@ -56,11 +56,11 @@ onProgress (progression) {
 }
 ```
 
-### Width and height
-> The default width and height is 100%
+### Modules
+> Override the module
 ```js
-<Unity ... width='500px' height='350px' />
-<Unity ... width='50%' height='50%' />
+this.myCustomModule = { ... }
+<Unity ... module={ this.myCustomModule } />
 ```
 
 
