@@ -2,7 +2,8 @@
   "name": "react-unity-webgl",
   "version": "6.2.2",
   "description": "A Unity WebGL component for your React application",
-  "main": "lib/index.js",
+  "main": "library/index.js",
+  "types": "source/types.d.ts",
   "scripts": {
     "compile": "babel --presets react source --out-dir lib"
   },

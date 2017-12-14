@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import UnityLoaderService from './UnityLoaderService'
+import UnityLoaderService from '../services/UnityLoaderService'
 import Styles from './Styles'
 
 export default class Unity extends Component {
@@ -8,17 +8,16 @@ export default class Unity extends Component {
         this.state = {
             error: null
         }
-        this.unityLoaderService = new UnityLoaderService ()
+        this._unityLoaderService = new UnityLoaderService ()
     }
     componentDidMount () {
-        this.instantiate ()
+        this._instantiate ()
     }
     componentWillUnmount () {
-        this.unityLoaderService.unmount ()
+        this._unityLoaderService.unmount ()
     }
-    instantiate () {
+    _instantiate () {
         let error = null
-
         if (typeof this.props.loader === 'undefined')
             error = 'Please provide Unity with a path to the UnityLoader in the loader prop.'
         if (typeof this.props.src === 'undefined')
@@ -29,21 +28,21 @@ export default class Unity extends Component {
             this.setState ({ error: error })
         } 
         else {
-            this.unityLoaderService.append (this.props.loader).then (() => {
+            this._unityLoaderService.append (this.props.loader).then (() => {
                 let unityInstance = UnityLoader.instantiate ('unity', this.props.src, {
-                    onProgress: this.onProgress.bind (this),
+                    onProgress: this._onProgress.bind (this),
                     Module : this.props.module
                 })
                 module.exports.UnityInstance = unityInstance
             })
         }
     }
-    onProgress (unityInstance, progression) {
+    _onProgress (unityInstance, progression) {
         if (typeof this.props.onProgress !== 'undefined') {
             this.props.onProgress (progression)
         }
     }
-    getContainerStyles () {
+    _getContainerStyles () {
         return {
             width: this.props.width || '100%',
             height: this.props.height || '100%'
@@ -51,7 +50,7 @@ export default class Unity extends Component {
     }
     render () {
         return (
-            <div className='unity' style={this.getContainerStyles ()}>
+            <div className='unity' style={this._getContainerStyles ()}>
                 {this.state.error !== null ? (
                     <b>React-Unity-Webgl error {this.state.error}</b>
                 ):(

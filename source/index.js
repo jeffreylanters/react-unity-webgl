@@ -1,6 +1,6 @@
-import Unity from './Unity'
-import { RegisterExternalListener } from './RegisterExternalListener'
-import { SendMessage } from './SendMessage'
+import Unity from './components/Unity'
+import { RegisterExternalListener } from './modules/RegisterExternalListener'
+import { SendMessage } from './modules/SendMessage'
 
 export default Unity
 export { RegisterExternalListener, SendMessage }
