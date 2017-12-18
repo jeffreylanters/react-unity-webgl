@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UnityLoaderService from '../services/UnityLoaderService'
-import Styles from './Styles'
+import Styles from './Unity.styles'
 
 export default class Unity extends Component {
     constructor (props) {
