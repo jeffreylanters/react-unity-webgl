@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SendMessage = SendMessage;
 
-var _Unity = require('./Unity');
+var _Unity = require('../components/Unity');
 
 /**
  * Sends a message to the Unity content. This works the same
