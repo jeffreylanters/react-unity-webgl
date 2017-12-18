@@ -1,9 +1,9 @@
 # React Unity WebGL
 When building content for the web, you might need to communicate with other elements on React Application. Or you might want to implement functionality using Web APIs which [Unity](https://unity3d.com) does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy library for Unity 5.6 / 2017 or newer with different methods to do this.
 
-<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/logo.png" width="300px">
+<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/logo.png" width="300px"><br />
 
-<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo.gif" width="300px">
+<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif" width="300px">
 
 
 
@@ -41,8 +41,8 @@ $ npm install react-unity-webgl
 To get started import the default Unity class from react-unity-webgl and include it in your render while giving the public path to your src and loader files. [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path).
 
 ```js
-import React from 'react';
-import Unity from 'react-unity-webgl';
+import React from 'react'
+import Unity from 'react-unity-webgl'
 
 export class App extends React.Component {
     render () {
@@ -92,12 +92,12 @@ SendMessage (objectName, methodName, value);
 
 Where objectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object; value can be a string, a number, or can be empty. For example:
 ```js
-import React from 'react';
-import { SendMessage } from 'react-unity-webgl';
+import React from 'react'
+import { SendMessage } from 'react-unity-webgl'
 
 export class App extends React.Component {
     spawnEnemy (count) {
-        SendMessage ('SpawnBehaviour', 'SpawnEnemies', count);
+        SendMessage ('SpawnBehaviour', 'SpawnEnemies', count)
     }
     render () {
         return <div onClick={ this.spawnEnemy.bind(this, 5) }>
@@ -127,15 +127,15 @@ RegisterExternalListener (methodName, callback);
 ```
 Where methodName is the name of a method in the script, this method will be binded to the current browser window so Unity can refer to it; callback canwill be a function, which takes one parameter with the value passed by your content. Note that it is recommended to register the callbacks before loading the Unity content. For example:
 ```js
-import React from 'react';
-import { RegisterExternalListener } from 'react-unity-webgl';
+import React from 'react'
+import { RegisterExternalListener } from 'react-unity-webgl'
 
 export class App extends React.Component {
     constructor () {
-        RegisterExternalListener ('OpenMenu', this.openMenu.bind (this));
+        RegisterExternalListener ('OpenMenu', this.openMenu.bind (this))
     }
     openMenu (menuId) {
-        console.log (`opening menu with id ${menuId$}`);
+        console.log (`opening menu with id ${menuId$}`)
     }
 }
 ```
