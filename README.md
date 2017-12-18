@@ -19,6 +19,7 @@ When building content for the web, you might need to communicate with other elem
 - [Calling JavaScript functions within React from Unity scripts](#calling-javascript-functions-within-react-from-unity-scripts)
 - [Notes](#notes)
     - [5.x to 6.x Upgrade note](#5x-to-6x-upgrade-note)
+    - [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path)
 - [Contributing](#contributing)
 
 
@@ -37,7 +38,7 @@ $ npm install react-unity-webgl
 
 
 # Usage
-To get started import the default Unity class from react-unity-webgl and include it in your render while giving the public path to your src and loader files.
+To get started import the default Unity class from react-unity-webgl and include it in your render while giving the public path to your src and loader files. [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path).
 
 ```js
 import React from 'react'
@@ -150,6 +151,16 @@ public class MenuController: MonoBehaviour {
     }
 }
 ```
+Or using the **legacy** way in Unity, for example:
+```cs
+using UnityEngine;
+
+public class MenuController: MonoBehaviour {
+    public void OpenReactMenuById (string menuId) {
+        Application.ExternalCall ("OpenMenu", menuId);
+    }
+}
+```
 Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointer_stringify helper function to convert to a JavaScript string. To return a string value you need to call _malloc_ to allocate some memory and the writeStringToMemory helper function to write a JavaScript string to it. If the string is a return value, then the il2cpp runtime will take care of freeing the memory for you. For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL context, GLctx.
 
 Legacy ways of calling JavaScript code from Unity. You can use the Application.ExternalCall () and Application.ExternalEval () functions to invoke JavaScript code on the embedding web page. Note that expressions are evaluated in the local scope of the build. If you would like to execute JavaScript code in the global scope, see the Code Visibility section below.
@@ -159,7 +170,8 @@ Legacy ways of calling JavaScript code from Unity. You can use the Application.E
 
 
 # Notes
-Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile/Bundle time. 
+## Best practices for adding the src and loader files on a public path
+Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile/Bundle time. The public folder means that the folder should be accesible via a public web adress. The path within your `src` and `loader` should be relative to the html file your app is running in.
 ## 5.x to 6.x Upgrade note
 When upgrading from 5.x to 6.x, make sure you add the `loader` prop to the Unity component and remove the script tag from your HTML page refering to the UnityLoader.js file. See [Usage](#usage) for further details.
 

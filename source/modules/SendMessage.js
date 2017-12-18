@@ -1,4 +1,4 @@
-import { UnityInstance } from './Unity'
+import { UnityInstance } from '../components/Unity'
 
 /**
  * Sends a message to the Unity content. This works the same

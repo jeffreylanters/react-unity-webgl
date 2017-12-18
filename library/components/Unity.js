@@ -10,13 +10,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _UnityLoaderService = require('./UnityLoaderService');
+var _UnityLoaderService = require('../services/UnityLoaderService');
 
 var _UnityLoaderService2 = _interopRequireDefault(_UnityLoaderService);
 
-var _Styles = require('./Styles');
+var _Unity = require('./Unity.styles');
 
-var _Styles2 = _interopRequireDefault(_Styles);
+var _Unity2 = _interopRequireDefault(_Unity);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37,27 +37,26 @@ var Unity = function (_Component) {
         _this.state = {
             error: null
         };
-        _this.unityLoaderService = new _UnityLoaderService2.default();
+        _this._unityLoaderService = new _UnityLoaderService2.default();
         return _this;
     }
 
     _createClass(Unity, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.instantiate();
+            this._instantiate();
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            this.unityLoaderService.unmount();
+            this._unityLoaderService.unmount();
         }
     }, {
-        key: 'instantiate',
-        value: function instantiate() {
+        key: '_instantiate',
+        value: function _instantiate() {
             var _this2 = this;
 
             var error = null;
-
             if (typeof this.props.loader === 'undefined') error = 'Please provide Unity with a path to the UnityLoader in the loader prop.';
             if (typeof this.props.src === 'undefined') error = 'Please provide Unity with a path to a valid JSON in the src prop.';
 
@@ -65,9 +64,9 @@ var Unity = function (_Component) {
                 console.error(error);
                 this.setState({ error: error });
             } else {
-                this.unityLoaderService.append(this.props.loader).then(function () {
+                this._unityLoaderService.append(this.props.loader).then(function () {
                     var unityInstance = UnityLoader.instantiate('unity', _this2.props.src, {
-                        onProgress: _this2.onProgress.bind(_this2),
+                        onProgress: _this2._onProgress.bind(_this2),
                         Module: _this2.props.module
                     });
                     module.exports.UnityInstance = unityInstance;
@@ -75,15 +74,15 @@ var Unity = function (_Component) {
             }
         }
     }, {
-        key: 'onProgress',
-        value: function onProgress(unityInstance, progression) {
+        key: '_onProgress',
+        value: function _onProgress(unityInstance, progression) {
             if (typeof this.props.onProgress !== 'undefined') {
                 this.props.onProgress(progression);
             }
         }
     }, {
-        key: 'getContainerStyles',
-        value: function getContainerStyles() {
+        key: '_getContainerStyles',
+        value: function _getContainerStyles() {
             return {
                 width: this.props.width || '100%',
                 height: this.props.height || '100%'
@@ -94,13 +93,13 @@ var Unity = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'unity', style: this.getContainerStyles() },
+                { className: 'unity', style: this._getContainerStyles() },
                 this.state.error !== null ? _react2.default.createElement(
                     'b',
                     null,
                     'React-Unity-Webgl error ',
                     this.state.error
-                ) : _react2.default.createElement('div', { style: _Styles2.default.unity, id: 'unity' })
+                ) : _react2.default.createElement('div', { style: _Unity2.default.unity, id: 'unity' })
             );
         }
     }]);
