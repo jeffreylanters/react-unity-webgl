@@ -8,15 +8,15 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var UnityLoaderServer = function () {
-    function UnityLoaderServer() {
-        _classCallCheck(this, UnityLoaderServer);
+var UnityLoaderService = function () {
+    function UnityLoaderService() {
+        _classCallCheck(this, UnityLoaderService);
 
         this.documentHead = document.getElementsByTagName('head')[0];
         this.unityLoaderScript = null;
     }
 
-    _createClass(UnityLoaderServer, [{
+    _createClass(UnityLoaderService, [{
         key: 'append',
         value: function append(src) {
             var _this = this;
@@ -41,7 +41,7 @@ var UnityLoaderServer = function () {
         }
     }]);
 
-    return UnityLoaderServer;
+    return UnityLoaderService;
 }();
 
-exports.default = UnityLoaderServer;
+exports.default = UnityLoaderService;

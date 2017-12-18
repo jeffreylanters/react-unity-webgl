@@ -1,4 +1,4 @@
-export default class UnityLoaderServer {
+export default class UnityLoaderService {
     constructor () {
         this.documentHead = document.getElementsByTagName ('head')[0]
         this.unityLoaderScript = null

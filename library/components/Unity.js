@@ -14,9 +14,9 @@ var _UnityLoaderService = require('../services/UnityLoaderService');
 
 var _UnityLoaderService2 = _interopRequireDefault(_UnityLoaderService);
 
-var _Styles = require('./Styles');
+var _Unity = require('./Unity.styles');
 
-var _Styles2 = _interopRequireDefault(_Styles);
+var _Unity2 = _interopRequireDefault(_Unity);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -99,7 +99,7 @@ var Unity = function (_Component) {
                     null,
                     'React-Unity-Webgl error ',
                     this.state.error
-                ) : _react2.default.createElement('div', { style: _Styles2.default.unity, id: 'unity' })
+                ) : _react2.default.createElement('div', { style: _Unity2.default.unity, id: 'unity' })
             );
         }
     }]);
