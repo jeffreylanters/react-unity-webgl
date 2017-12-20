@@ -16,7 +16,6 @@ When building content for the web, you might need to communicate with other elem
         - [Tracking progression](#tracking-progression)
         - [Modules](#modules)
 - [Calling Unity scripts functions from JavaScript in React](#calling-unity-scripts-functions-from-javascript-in-react)
-	- [**LEGACY** Make calls using ExternalCall](#legacy-make-calls-using-externalcall)
 - [Calling JavaScript functions within React from Unity scripts](#calling-javascript-functions-within-react-from-unity-scripts)
 - [Notes](#notes)
     - [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path)
