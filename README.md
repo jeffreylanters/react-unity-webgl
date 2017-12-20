@@ -16,8 +16,7 @@ When building content for the web, you might need to communicate with other elem
         - [Tracking progression](#tracking-progression)
         - [Modules](#modules)
 - [Calling Unity scripts functions from JavaScript in React](#calling-unity-scripts-functions-from-javascript-in-react)
-	-  [The modern way](#the-modern-way)
-	- [The legacy way](#the-legacy-way)
+	- [**LEGACY** Make calls using ExternalCall](#legacy-make-calls-using-externalcall)
 - [Calling JavaScript functions within React from Unity scripts](#calling-javascript-functions-within-react-from-unity-scripts)
 - [Notes](#notes)
     - [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path)
@@ -124,7 +123,6 @@ public class SpawnController: MonoBehaviour {
 
 ---
 # Calling JavaScript functions within React from Unity scripts
-## The modern way
 We also allow you to call JavaScript functions within React from the Unity Content. To get started import the function RegisterExternalListener from react-unity-webgl.
 ```js
 RegisterExternalListener (methodName: String, callback: Function): void;
@@ -163,12 +161,12 @@ public class MenuController: MonoBehaviour {
     }
 }
 ```
-## The legacy way
+## **LEGACY** Make calls using ExternalCall
 We also allow you to call JavaScript functions within React from the Unity Content using the legacy way. To get started import the function RegisterExternalListener from react-unity-webgl.
 ```js
 RegisterExternalListener (methodName: String, callback: Function): void;
 ```
-Where methodName is the name of a method in the script, this method will be binded to the current browser window so Unity can refer to it; callback will be a function, which takes one parameter with the value passed by your content. Note that it is recommended to register the callbacks before loading the Unity content. For example:
+Register a new external listener in react to expose the function to your Unity content.
 ```js
 import React from 'react'
 import { RegisterExternalListener } from 'react-unity-webgl'
@@ -189,7 +187,6 @@ using UnityEngine;
 public class MenuController: MonoBehaviour {
     public void OpenReactMenuById (string menuId) {
         Application.ExternalCall ("OpenMenu", menuId);
-        Application.ExternalEval ("OpenMenu", menuId); /* optional */
     }
 }
 ```
