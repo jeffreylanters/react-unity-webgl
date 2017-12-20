@@ -1,9 +1,9 @@
 # React Unity WebGL
-When building content for the web, you might need to communicate with other elements on React Application. Or you might want to implement functionality using Web APIs which [Unity](https://unity3d.com) does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy library for Unity 5.6 / 2017 or newer with different methods to do this.
+When building content for the web, you might need to communicate with other elements on React Application. Or you might want to implement functionality using Web APIs which [Unity](https://unity3d.com) does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy library for Unity 5.6 / 2017 or newer with different methods to do this. 
 
 <img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/logo.png" width="300px"><br />
 
-<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif" width="300px">
+[See example GIF](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif)
 
 
 
@@ -11,21 +11,24 @@ When building content for the web, you might need to communicate with other elem
 
 - [Installation](#installation)
 - [Usage](#usage)
-    - [Optional attributes](#optional-attributes)
+	- [Optional attributes](#optional-attributes)
         - [Width and height](#width-and-height)
         - [Tracking progression](#tracking-progression)
         - [Modules](#modules)
 - [Calling Unity scripts functions from JavaScript in React](#calling-unity-scripts-functions-from-javascript-in-react)
+	-  [The modern way](#the-modern-way)
+	- [The legacy way](#the-legacy-way)
 - [Calling JavaScript functions within React from Unity scripts](#calling-javascript-functions-within-react-from-unity-scripts)
 - [Notes](#notes)
-    - [5.x to 6.x Upgrade note](#5x-to-6x-upgrade-note)
     - [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path)
+    - [5.x to 6.x Upgrade note](#5x-to-6x-upgrade-note)
+    - [JavaScript to UnityScript types](#havaScript-to-unityScript-types)
 - [Contributing](#contributing)
 
 
 
 
-
+---
 # Installation
 Install using npm. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version or [view on NPM](https://www.npmjs.com/package/react-unity-webgl).
 
@@ -36,7 +39,7 @@ $ npm install react-unity-webgl
 
 
 
-
+---
 # Usage
 To get started import the default Unity class from react-unity-webgl and include it in your render while giving the public path to your src and loader files. [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path).
 
@@ -82,12 +85,12 @@ this.myCustomModule = { ... }
 
 
 
-
+---
 # Calling Unity scripts functions from JavaScript in React
 Sometimes you need to send some data or notification to the Unity script from the browser’s JavaScript. The recommended way of doing it is to call methods on GameObjects in your content. To get started import the function SendMessage from react-unity-webgl.
 
 ```js
-SendMessage (objectName, methodName, value);
+SendMessage (objectName: String, methodName: String, value: Object): void;
 ```
 
 Where objectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object; value can be a string, a number, or can be empty. For example:
@@ -119,13 +122,53 @@ public class SpawnController: MonoBehaviour {
 
 
 
-
+---
 # Calling JavaScript functions within React from Unity scripts
+## The modern way
 We also allow you to call JavaScript functions within React from the Unity Content. To get started import the function RegisterExternalListener from react-unity-webgl.
 ```js
-RegisterExternalListener (methodName, callback);
+RegisterExternalListener (methodName: String, callback: Function): void;
 ```
-Where methodName is the name of a method in the script, this method will be binded to the current browser window so Unity can refer to it; callback canwill be a function, which takes one parameter with the value passed by your content. Note that it is recommended to register the callbacks before loading the Unity content. For example:
+Where methodName is the name of a method in your JSLib, this method will be binded to the current browser UnityReactWebGL object so you can refer to it in your JSLib; callback will be a function, which takes one parameter with the value passed by your content. Note that it is recommended to register the callbacks before loading the Unity content. For example:
+```js
+import React from 'react'
+import { RegisterExternalListener } from 'react-unity-webgl'
+
+export class App extends React.Component {
+    constructor () {
+        RegisterExternalListener ('OpenMenu', this.openMenu.bind (this))
+    }
+    openMenu (menuId) {
+        console.log (`opening menu with id ${menuId$}`)
+    }
+}
+```
+In order to use the function, you have to create a JSLib file to bind the communication. The listener registered in React is now available in the UnityReactWebGL object in any JSLib file. You can now create a JSLib file and make calls`Assets/Plugins/WebGL/MyPlugin.jslib`.
+```js
+mergeInto (LibraryManager.library, {
+  OpenMenu: function (menuId) {
+    UnityReactWebGL.OpenMenu (menuId)
+  }
+})
+```
+Now you can make a call to the extern function:
+```cs
+using UnityEngine;
+
+public class MenuController: MonoBehaviour {
+    [DllImport("__Internal")]
+    private static extern void OpenMenu (string menuId);
+    public void OpenReactMenuById (string menuId) {
+        OpenMenu (menuId);
+    }
+}
+```
+## The legacy way
+We also allow you to call JavaScript functions within React from the Unity Content using the legacy way. To get started import the function RegisterExternalListener from react-unity-webgl.
+```js
+RegisterExternalListener (methodName: String, callback: Function): void;
+```
+Where methodName is the name of a method in the script, this method will be binded to the current browser window so Unity can refer to it; callback will be a function, which takes one parameter with the value passed by your content. Note that it is recommended to register the callbacks before loading the Unity content. For example:
 ```js
 import React from 'react'
 import { RegisterExternalListener } from 'react-unity-webgl'
@@ -144,40 +187,28 @@ While in Unity, for example:
 using UnityEngine;
 
 public class MenuController: MonoBehaviour {
-    [DllImport("__Internal")]
-    private static extern void OpenMenu (string menuId);
-    public void OpenReactMenuById (string menuId) {
-        OpenMenu (menuId);
-    }
-}
-```
-Or using the **legacy** way in Unity, for example:
-```cs
-using UnityEngine;
-
-public class MenuController: MonoBehaviour {
     public void OpenReactMenuById (string menuId) {
         Application.ExternalCall ("OpenMenu", menuId);
+        Application.ExternalEval ("OpenMenu", menuId); /* optional */
     }
 }
 ```
-Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointer_stringify helper function to convert to a JavaScript string. To return a string value you need to call _malloc_ to allocate some memory and the writeStringToMemory helper function to write a JavaScript string to it. If the string is a return value, then the il2cpp runtime will take care of freeing the memory for you. For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL context, GLctx.
-
-Legacy ways of calling JavaScript code from Unity. You can use the Application.ExternalCall () and Application.ExternalEval () functions to invoke JavaScript code on the embedding web page. Note that expressions are evaluated in the local scope of the build. If you would like to execute JavaScript code in the global scope, see the Code Visibility section below.
 
 
 
 
-
+---
 # Notes
 ## Best practices for adding the src and loader files on a public path
 Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile/Bundle time. The public folder means that the folder should be accesible via a public web adress. The path within your `src` and `loader` should be relative to the html file your app is running in.
 ## 5.x to 6.x Upgrade note
 When upgrading from 5.x to 6.x, make sure you add the `loader` prop to the Unity component and remove the script tag from your HTML page refering to the UnityLoader.js file. See [Usage](#usage) for further details.
+## JavaScript to UnityScript types
+Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointer_stringify helper function to convert to a JavaScript string. To return a string value you need to call _malloc_ to allocate some memory and the writeStringToMemory helper function to write a JavaScript string to it. If the string is a return value, then the il2cpp runtime will take care of freeing the memory for you. For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL context, GLctx.
 
 
 
 
-
+---
 # Contributing
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change. Before commiting, please compile your code using `npm run compile` and open a pull request. Thank you very much!
