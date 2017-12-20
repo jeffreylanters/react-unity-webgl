@@ -126,7 +126,7 @@ We also allow you to call JavaScript functions within React from the Unity Conte
 ```js
 RegisterExternalListener (methodName: String, callback: Function): void;
 ```
-Where methodName is the name of a method in your JSLib, this method will be binded to the current browser UnityReactWebGL object so you can refer to it in your JSLib; callback will be a function, which takes one parameter with the value passed by your content. Note that it is recommended to register the callbacks before loading the Unity content. For example:
+Where methodName is the name of a method in your JSLib, this method will be binded to the current browser ReactUnityWebGL object so you can refer to it in your JSLib; callback will be a function, which takes one parameter with the value passed by your content. Note that it is recommended to register the callbacks before loading the Unity content. For example:
 ```js
 import React from 'react'
 import { RegisterExternalListener } from 'react-unity-webgl'
@@ -140,11 +140,11 @@ export class App extends React.Component {
     }
 }
 ```
-In order to use the function, you have to create a JSLib file to bind the communication. The listener registered in React is now available in the UnityReactWebGL object in any JSLib file. You can now create a JSLib file and make calls`Assets/Plugins/WebGL/MyPlugin.jslib`.
+In order to use the function, you have to create a JSLib file to bind the communication. The listener registered in React is now available in the ReactUnityWebGL object in any JSLib file. You can now create a JSLib file and get started. `Assets/Plugins/WebGL/MyPlugin.jslib`.
 ```js
 mergeInto (LibraryManager.library, {
     OpenMenu: function (menuId) {
-        UnityReactWebGL.OpenMenu (menuId);
+        ReactUnityWebGL.OpenMenu (menuId);
     }
 });
 ```
