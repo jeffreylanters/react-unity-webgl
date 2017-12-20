@@ -144,12 +144,12 @@ export class App extends React.Component {
 In order to use the function, you have to create a JSLib file to bind the communication. The listener registered in React is now available in the UnityReactWebGL object in any JSLib file. You can now create a JSLib file and make calls`Assets/Plugins/WebGL/MyPlugin.jslib`.
 ```js
 mergeInto (LibraryManager.library, {
-  OpenMenu: function (menuId) {
-    UnityReactWebGL.OpenMenu (menuId)
-  }
-})
+    OpenMenu: function (menuId) {
+        UnityReactWebGL.OpenMenu (menuId);
+    }
+});
 ```
-Now you can make a call to the extern function:
+The OpenMenu function within the JSLib is now available within Unity when you import the `__Internal` DLL. You can can now make the call. For example:
 ```cs
 using UnityEngine;
 
@@ -159,33 +159,12 @@ public class MenuController: MonoBehaviour {
     public void OpenReactMenuById (string menuId) {
         OpenMenu (menuId);
     }
-}
-```
-## **LEGACY** Make calls using ExternalCall
-We also allow you to call JavaScript functions within React from the Unity Content using the legacy way. To get started import the function RegisterExternalListener from react-unity-webgl.
-```js
-RegisterExternalListener (methodName: String, callback: Function): void;
-```
-Register a new external listener in react to expose the function to your Unity content.
-```js
-import React from 'react'
-import { RegisterExternalListener } from 'react-unity-webgl'
 
-export class App extends React.Component {
-    constructor () {
-        RegisterExternalListener ('OpenMenu', this.openMenu.bind (this))
-    }
-    openMenu (menuId) {
-        console.log (`opening menu with id ${menuId$}`)
-    }
-}
-```
-While in Unity, for example:
-```cs
-using UnityEngine;
-
-public class MenuController: MonoBehaviour {
-    public void OpenReactMenuById (string menuId) {
+    /* Or use the LEGACY way, this does not require a
+        JSLib file and can make a call directly to the
+        registered listener by React. But keep in mind
+        this functionality is DEPRICATED by Unity. */
+    public void LegacyOpenReactMenuById (string menuId) {
         Application.ExternalCall ("OpenMenu", menuId);
     }
 }
