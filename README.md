@@ -27,8 +27,7 @@ When building content for the web, you might need to communicate with other elem
 
 
 
-<br/><br/>
----
+<br/><br/><br/>
 # Installation
 Install using npm. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version or [view on NPM](https://www.npmjs.com/package/react-unity-webgl).
 
@@ -39,8 +38,7 @@ $ npm install react-unity-webgl
 
 
 
-<br/><br/>
----
+<br/><br/><br/>
 # Usage
 To get started import the default Unity class from react-unity-webgl and include it in your render while giving the public path to your src and loader files. [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path).
 
@@ -86,8 +84,7 @@ this.myCustomModule = { ... }
 
 
 
-<br/><br/>
----
+<br/><br/><br/>
 # Calling Unity scripts functions from JavaScript in React
 Sometimes you need to send some data or notification to the Unity script from the browser’s JavaScript. The recommended way of doing it is to call methods on GameObjects in your content. To get started import the function SendMessage from react-unity-webgl.
 
@@ -124,8 +121,7 @@ public class SpawnController: MonoBehaviour {
 
 
 
-<br/><br/>
----
+<br/><br/><br/>
 # Calling JavaScript functions within React from Unity scripts
 We also allow you to call JavaScript functions within React from the Unity Content. To get started import the function RegisterExternalListener from react-unity-webgl.
 ```js
@@ -177,8 +173,7 @@ public class MenuController: MonoBehaviour {
 
 
 
-<br/><br/>
----
+<br/><br/><br/>
 # Notes
 ## Best practices for adding the src and loader files on a public path
 Make sure your Unity build is in your public folder, this is due to the component **and** Unity itself will load files in Runtime and not Compile/Bundle time. The public folder means that the folder should be accesible via a public web adress. The path within your `src` and `loader` should be relative to the html file your app is running in.
@@ -191,7 +186,6 @@ Simple numeric types can be passed to JavaScript in function parameters without 
 
 
 
-<br/><br/>
----
+<br/><br/><br/>
 # Contributing
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change. Before commiting, please compile your code using `npm run compile` and open a pull request. Thank you very much!
