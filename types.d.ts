@@ -196,7 +196,7 @@ interface UnityProps {
 
     /**
      * The height of the Unity component. If none
-     * is passed, the player have a width of 100%.
+     * is passed, the player have a height of 100%.
      * @type {number}
      */
     height?: number;
