@@ -1,4 +1,4 @@
-# React Unity WebGL &middot; [![license](https://img.shields.io/badge/license-MIT-red.svg)]() [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg)]() [![npm](https://img.shields.io/badge/react-v16%3E-blue.svg)]() [![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg)]()
+# React Unity WebGL &middot; [![license](https://img.shields.io/badge/license-MIT-red.svg)]() [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg)]() [![npm](https://img.shields.io/badge/react-v16%3E-blue.svg)]() [![npm](https://img.shields.io/badge/build-passing-brightgreen.svg)]() [![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg)]()
 
 When building content for the web, you might need to communicate with other elements on React Application. Or you might want to implement functionality using Web APIs which [Unity](https://unity3d.com) does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy library for Unity 5.6 / 2017 or newer with different methods to do this. 
 
