@@ -101,8 +101,12 @@ export class App extends React.Component {
     constructor () {
         this.spawnEnemies = new UnityEvent ('SpawnBehaviour', 'SpawnEnemies')
     }
+    onClickSpawnEnemies (count) {
+        if (this.spawnEnemies.canEmit () === true)
+            this.spawnEnemies.emit (count)
+    }
     render () {
-        return <div onClick={ this.spawnEnemies.emit (5) }>
+        return <div onClick={ this.onClickSpawnEnemies.bind (this, 5) }>
             Click to Spawn 5 Enemies</div>
     }
 }
