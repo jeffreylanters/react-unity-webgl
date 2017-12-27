@@ -222,3 +222,8 @@ interface UnityState {
      */
     error?: string;
 }
+
+/**
+ * Unity Module Object
+ */
+interface Module { }
