@@ -86,28 +86,28 @@ this.myCustomModule = { ... }
 
 <br/><br/><br/>
 # Calling Unity scripts functions from JavaScript in React
-Sometimes you need to send some data or notification to the Unity script from the browser’s JavaScript. The recommended way of doing it is to call methods on GameObjects in your content. To get started import the function SendMessage from react-unity-webgl.
+Sometimes you need to send some data or notification to the Unity script from the browser’s JavaScript. The recommended way of doing it is to call methods on GameObjects in your content. To get started import the class UnityEvent from react-unity-webgl.
 
 ```js
-SendMessage (objectName: String, methodName: String, value: Object): void;
+UnityEvent (objectName: String, methodName: String);
 ```
 
-Where objectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object; value can be a string, a number, or can be empty. For example:
+Where objectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object. When you've created a new UnityEvent, you can call the 'emit' function to fire it into Unity. You can pass an optional parameter value.
 ```js
 import React from 'react'
-import { SendMessage } from 'react-unity-webgl'
+import { UnityEvent } from 'react-unity-webgl'
 
 export class App extends React.Component {
-    spawnEnemy (count) {
-        SendMessage ('SpawnBehaviour', 'SpawnEnemies', count)
+    constructor () {
+        this.spawnEnemies = new UnityEvent ('SpawnBehaviour', 'SpawnEnemies')
     }
     render () {
-        return <div onClick={ this.spawnEnemy.bind(this, 5) }>
+        return <div onClick={ this.spawnEnemies.emit (5) }>
             Click to Spawn 5 Enemies</div>
     }
 }
 ```
-While in Unity, for example:
+While in Unity the following script is attached the a game object named 'SpawnBehaviour'.
 ```cs
 using UnityEngine;
 
