@@ -1,11 +1,4 @@
-/**
- * Registers a listener to this window. When a message is sent
- * from Unity using 'CallExternal', the listener will forward it
- * into your React Application.
- * @param {string} functionName 
- * @param {function} callback 
- */
-export function RegisterExternalListener (functionName, callback) {
+export function RegisterExternalListener (methodName, callback) {
     /**
      * LEGACY
      *  bind the function to the window to allow
@@ -13,8 +6,8 @@ export function RegisterExternalListener (functionName, callback) {
      *  Application.ExternalCall and
      *  Application.ExternalEval.
      */
-    window[functionName] = paramterValue => {
-        callback (paramterValue)
+    window[methodName] = parameter => {
+        callback (parameter)
     }
 
     /**
@@ -24,7 +17,7 @@ export function RegisterExternalListener (functionName, callback) {
      */
     if (typeof window.ReactUnityWebGL === 'undefined')
         window.ReactUnityWebGL = {}
-    window.ReactUnityWebGL[functionName] = paramterValue => {
-        callback (paramterValue)
+    window.ReactUnityWebGL[methodName] = parameter => {
+        callback (parameter)
     }
 }

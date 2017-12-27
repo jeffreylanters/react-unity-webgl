@@ -1,4 +1,5 @@
-# React Unity WebGL
+# React Unity WebGL &middot; [![license](https://img.shields.io/badge/license-MIT-red.svg)]() [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg)]() [![npm](https://img.shields.io/badge/react-v12%3E-blue.svg)]() [![npm](https://img.shields.io/badge/build-passing-brightgreen.svg)]() [![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg)]()
+
 When building content for the web, you might need to communicate with other elements on React Application. Or you might want to implement functionality using Web APIs which [Unity](https://unity3d.com) does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy library for Unity 5.6 / 2017 or newer with different methods to do this. 
 
 <img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/logo.png" width="300px"><br />
@@ -85,28 +86,28 @@ this.myCustomModule = { ... }
 
 <br/><br/><br/>
 # Calling Unity scripts functions from JavaScript in React
-Sometimes you need to send some data or notification to the Unity script from the browser’s JavaScript. The recommended way of doing it is to call methods on GameObjects in your content. To get started import the function SendMessage from react-unity-webgl.
+Sometimes you need to send some data or notification to the Unity script from the browser’s JavaScript. The recommended way of doing it is to call methods on GameObjects in your content. To get started import the class UnityEvent from react-unity-webgl.
 
 ```js
-SendMessage (objectName: String, methodName: String, value: Object): void;
+UnityEvent (objectName: String, methodName: String);
 ```
 
-Where objectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object; value can be a string, a number, or can be empty. For example:
+Where objectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object. When you've created a new UnityEvent, you can call the 'emit' function to fire it into Unity. You can pass an optional parameter value.
 ```js
 import React from 'react'
-import { SendMessage } from 'react-unity-webgl'
+import { UnityEvent } from 'react-unity-webgl'
 
 export class App extends React.Component {
-    spawnEnemy (count) {
-        SendMessage ('SpawnBehaviour', 'SpawnEnemies', count)
+    constructor () {
+        this.spawnEnemies = new UnityEvent ('SpawnBehaviour', 'SpawnEnemies')
     }
     render () {
-        return <div onClick={ this.spawnEnemy.bind(this, 5) }>
+        return <div onClick={ this.spawnEnemies.emit (5) }>
             Click to Spawn 5 Enemies</div>
     }
 }
 ```
-While in Unity, for example:
+While in Unity the following script is attached the a game object named 'SpawnBehaviour'.
 ```cs
 using UnityEngine;
 
