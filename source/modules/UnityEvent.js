@@ -10,7 +10,7 @@ export class UnityEvent {
             UnityInstance.SendMessage(
                 this.gameObjectName,
                 this.methodName,
-                parameter || '')
+                typeof parameter !== 'undefined' ? parameter : '')
         else
             console.warn(`Wait for Unity to be instantiated before sending an event '${this.methodName}'`)
     }
