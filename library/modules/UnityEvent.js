@@ -22,7 +22,7 @@ var UnityEvent = exports.UnityEvent = function () {
     _createClass(UnityEvent, [{
         key: 'emit',
         value: function emit(parameter) {
-            if (this.canEmit() === true) _Unity.UnityInstance.SendMessage(this.gameObjectName, this.methodName, parameter || '');else console.warn('Wait for Unity to be instantiated before sending an event \'' + this.methodName + '\'');
+            if (this.canEmit() === true) _Unity.UnityInstance.SendMessage(this.gameObjectName, this.methodName, typeof parameter !== 'undefined' ? parameter : '');else console.warn('Wait for Unity to be instantiated before sending an event \'' + this.methodName + '\'');
         }
     }, {
         key: 'canEmit',
