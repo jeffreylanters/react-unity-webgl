@@ -33,7 +33,6 @@ export default class Unity extends Component {
                     Module: this.props.module
                 })
                 module.exports.UnityInstance = unityInstance
-                window._ui = unityInstance;
             })
         }
     }

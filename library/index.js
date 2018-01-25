@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SendMessage = exports.RegisterExternalListener = undefined;
+exports.UnityEvent = exports.SendMessage = exports.RegisterExternalListener = undefined;
 
 var _Unity = require('./components/Unity');
 
@@ -13,8 +13,11 @@ var _RegisterExternalListener = require('./modules/RegisterExternalListener');
 
 var _SendMessage = require('./modules/SendMessage');
 
+var _UnityEvent = require('./modules/UnityEvent');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Unity2.default;
 exports.RegisterExternalListener = _RegisterExternalListener.RegisterExternalListener;
 exports.SendMessage = _SendMessage.SendMessage;
+exports.UnityEvent = _UnityEvent.UnityEvent;
