@@ -14,10 +14,6 @@ var _UnityLoaderService = require('../services/UnityLoaderService');
 
 var _UnityLoaderService2 = _interopRequireDefault(_UnityLoaderService);
 
-var _Unity = require('./Unity.styles');
-
-var _Unity2 = _interopRequireDefault(_Unity);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65,11 +61,12 @@ var Unity = function (_Component) {
                 this.setState({ error: error });
             } else {
                 this._unityLoaderService.append(this.props.loader).then(function () {
-                    var unityInstance = UnityLoader.instantiate('unity', _this2.props.src, {
+                    var unityInstance = UnityLoader.instantiate('__ruw', _this2.props.src, {
                         onProgress: _this2._onProgress.bind(_this2),
                         Module: _this2.props.module
                     });
                     module.exports.UnityInstance = unityInstance;
+                    window._ui = unityInstance;
                 });
             }
         }
@@ -99,7 +96,7 @@ var Unity = function (_Component) {
                     null,
                     'React-Unity-Webgl error ',
                     this.state.error
-                ) : _react2.default.createElement('div', { style: _Unity2.default.unity, id: 'unity' })
+                ) : _react2.default.createElement('div', { style: { width: '100%', height: '100%' }, id: '__ruw' })
             );
         }
     }]);

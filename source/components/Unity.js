@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import UnityLoaderService from '../services/UnityLoaderService'
-import Styles from './Unity.styles'
 
 export default class Unity extends Component {
     constructor(props) {
@@ -29,7 +28,7 @@ export default class Unity extends Component {
         }
         else {
             this._unityLoaderService.append(this.props.loader).then(() => {
-                let unityInstance = UnityLoader.instantiate('unity', this.props.src, {
+                let unityInstance = UnityLoader.instantiate('__ruw', this.props.src, {
                     onProgress: this._onProgress.bind(this),
                     Module: this.props.module
                 })
@@ -51,11 +50,11 @@ export default class Unity extends Component {
     render() {
         return (
             <div className='unity' style={this._getContainerStyles()}>
-                {this.state.error !== null ? (
+                {this.state.error !== null ?
                     <b>React-Unity-Webgl error {this.state.error}</b>
-                ) : (
-                        <div style={Styles.unity} id='unity'></div>
-                    )}
+                    :
+                    <div style={{ width: '100%', height: '100%' }} id='__ruw'></div>
+                }
             </div>
         )
     }
