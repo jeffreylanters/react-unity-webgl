@@ -56,7 +56,7 @@ The default width and height is 100%
 
 ```js
 <Unity ... width='500px' height='350px' />
-<Unity ... width='50%' height='50%' />
+<Unity .... width='50%' height='50%' />
 ```
 
 ### Tracking progression
@@ -66,9 +66,9 @@ The loading progression of the Unity player will be a value between 0 and 1
 ```js
 <Unity ... onProgress={ this.onProgress } />
 onProgress (progression) {
-    console.log (`Loading ${(progression * 100)} % ...`)
-    if (progression === 1)
-        console.log (`Loading done!`)
+  console.log (`Loading ${(progression * 100)} % ...`)
+  if (progression === 1)
+    console.log (`Loading done!`)
 }
 ```
 
@@ -120,15 +120,15 @@ While in Unity the following script is attached the a game object named 'SpawnBe
 using UnityEngine;
 
 public class SpawnController: MonoBehaviour {
-    public void SpawnEnemies (int count) {
-        Debug.Log (string.Format ("Spawning {0} enemies", count));
-    }
+  public void SpawnEnemies (int count) {
+    Debug.Log (string.Format ("Spawning {0} enemies", count));
+  }
 }
 ```
 
 <br/><br/><br/>
 
-# Calling JavaScript functions within React from Unity scripts
+# Calling JavaScript functions in React from Unity scripts
 
 We also allow you to call JavaScript functions within React from the Unity Content. To get started import the function RegisterExternalListener from react-unity-webgl.
 
@@ -199,4 +199,4 @@ Simple numeric types can be passed to JavaScript in function parameters without 
 
 # Contributing
 
-When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change. Before commiting, please compile your code using `npm run compile` and open a pull request. Thank you very much!
+When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change. Before commiting, please compile your code using `npm run compile` and open a pull request. Thank you very much!
