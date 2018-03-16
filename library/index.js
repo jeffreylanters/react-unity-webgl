@@ -23,4 +23,4 @@ exports.default = _Unity2.default;
 exports.RegisterExternalListener = _RegisterExternalListener.RegisterExternalListener;
 exports.SendMessage = _SendMessage.SendMessage;
 exports.UnityEvent = _UnityEvent.UnityEvent;
-exports.SetFullscreen = SetFullscreen;
+exports.SetFullscreen = _Fullscreen.SetFullscreen;
