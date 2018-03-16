@@ -15,9 +15,12 @@ var _SendMessage = require('./modules/SendMessage');
 
 var _UnityEvent = require('./modules/UnityEvent');
 
+var _UnityFullscreen = require('./modules/UnityFullscreen');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Unity2.default;
 exports.RegisterExternalListener = _RegisterExternalListener.RegisterExternalListener;
 exports.SendMessage = _SendMessage.SendMessage;
 exports.UnityEvent = _UnityEvent.UnityEvent;
+exports.UnityFullscreen = _UnityFullscreen.UnityFullscreen;
