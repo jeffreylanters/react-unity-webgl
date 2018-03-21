@@ -7,7 +7,12 @@ When building content for the web, you might need to communicate with other elem
 [See example GIF](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif)
 
 * [Installation](#installation)
-* [Usage](#usage) - [Optional attributes](#optional-attributes) - [Width and height](#width-and-height) - [Tracking progression](#tracking-progression) - [Modules](#modules)
+* [Usage](#usage)
+  * [Optional attributes](#optional-attributes) 
+  * [Width and height](#width-and-height) 
+  * [Tracking progression](#tracking-progression) 
+  * [Modules](#modules)
+  * [Fullscreen](#fullscreen)
 * [Calling Unity scripts functions from JavaScript in React](#calling-unity-scripts-functions-from-javascript-in-react)
 * [Calling JavaScript functions within React from Unity scripts](#calling-javascript-functions-within-react-from-unity-scripts)
 * [Notes](#notes)
