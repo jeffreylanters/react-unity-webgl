@@ -55,8 +55,8 @@ export class App extends React.Component {
 The default width and height is 100%
 
 ```js
-<Unity ... width='500px' height='350px' />
-<Unity ... width='50%' height='50%' />
+<Unity ... width="500px" height="350px" />
+<Unity ... width="50%" height="50%" />
 ```
 
 ### Tracking progression
@@ -79,6 +79,16 @@ Overrides the module object
 ```js
 this.myCustomModule = { ... }
 <Unity ... module={ this.myCustomModule } />
+```
+
+### Fullscreen
+
+Enables or disabled the fullscreen mode.
+
+```js
+import { SetFullscreen } from "react-unity-webgl";
+SetFullscreen(true);  // enabled fullscreen
+SetFullscreen(false); // disables fullscreen
 ```
 
 <br/><br/><br/>
