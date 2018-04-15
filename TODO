@@ -1,0 +1,37 @@
+// inspired by Socket IO
+
+export class Comp extends Component {
+  constructor() {
+    // Creating the object
+    this.Game = new Unity(
+      "Public/Build/myGame.json",
+      "Public/Build/UnityLoader.js"
+      /* optional module { } */
+    );
+
+    // Settings fullscreen
+    this.Game.setFullscreen(true);
+
+    // Emits an even to Unity
+    this.Game.send("EnemyController", "SpawnEnemies", 100);
+    this.Game.send("EnemyController", "LogOut");
+
+    // When unity emits an event to React
+    this.Game.on("spawnedEnemy", count => {
+      console.log("spawned enemies", count);
+    });
+
+    // Build in events
+    this.Game.on("progress", progression => {
+      console.log("loaded", progression);
+    });
+    this.Game.on("ready", () => {});
+    this.Game.on("willLoad", () => {});
+    this.Game.on("didLoad", () => {});
+    this.Game.on("willUnload", () => {});
+    this.Game.on("didUnload", () => {});
+  }
+  render() {
+    <this.Game width="100px" height="100px" />;
+  }
+}
