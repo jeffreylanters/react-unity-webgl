@@ -6,9 +6,11 @@ When building content for the web, you might need to communicate with other elem
 
 [See example GIF](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif)
 
+[Test environment](https://github.com/jeffreylanters/react-unity-webgl-test)
+
 * [Installation](#installation)
 * [Usage](#usage)
-  * [Optional attributes](#optional-attributes) 
+* [Optional attributes](#optional-attributes) 
   * [Width and height](#width-and-height) 
   * [Tracking progression](#tracking-progression) 
   * [Modules](#modules)
