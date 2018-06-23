@@ -1,9 +1,8 @@
 export class Comp extends Component {
   constructor() {
-  
     this.myUnityContent = new UnityContent(
       "Public/Build/myGame.json",
-      "Public/Build/UnityLoader.js",
+      "Public/Build/UnityLoader.js"
       // options
     );
 
@@ -23,6 +22,7 @@ export class Comp extends Component {
     this.myUnityContent.on("progress", progression => {
       console.log("loaded", progression);
     });
+
     this.myUnityContent.on("ready", () => {});
     this.myUnityContent.on("willLoad", () => {});
     this.myUnityContent.on("didLoad", () => {});
@@ -30,6 +30,11 @@ export class Comp extends Component {
     this.myUnityContent.on("didUnload", () => {});
   }
   render() {
-    <Unity content={this.myUnityContent} width="100px" height="100px" className="myGame" />;
+    <Unity
+      content={this.myUnityContent}
+      width="100px"
+      height="100px"
+      className="myGame"
+    />;
   }
 }
