@@ -18,6 +18,30 @@ var UnityContent = /** @class */ (function () {
             unityVersion: UnityVersion_1.UnityVersion.UNITY_2018
         };
     }
+    /**
+     * Binds a unity component to this content.
+     * @param unityComponentInstance the unity component that will be binded to this content.
+     */
+    UnityContent.prototype.setComponentInstance = function (unityComponentInstance) {
+        this.unityComponentInstance = unityComponentInstance;
+    };
+    /**
+     * Binds a unity player to this content.
+     * @param unityPlayerInstance the unity component that will be binded to this content.
+     */
+    UnityContent.prototype.setUnityPlayerInstance = function (unityPlayerInstance) {
+        this.unityPlayerInstance = unityPlayerInstance;
+    };
+    /**
+     * Sends an event to the Unity player that will trigger a function.
+     * @param {string} gameObjectName the name of the game object in your Unity scene.
+     * @param {string} methodName the name of the public method on the game object.
+     * @param {any} parameter an optional parameter to pass along to the method.
+     */
+    UnityContent.prototype.send = function (gameObjectName, methodName, parameter) {
+        console.log("Sending " + gameObjectName + " " + methodName + " " + parameter);
+        // this.unityPlayerInstance.sendMessage(gameObjectName, methodName); // TODO
+    };
     return UnityContent;
 }());
 exports["default"] = UnityContent;

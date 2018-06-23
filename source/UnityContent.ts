@@ -1,5 +1,6 @@
 import IUnityConfig from "./interfaces/IUnityConfig";
 import { UnityVersion } from "./enums/UnityVersion";
+import UnityComponent from "./components/Unity";
 
 export default class UnityContent {
   /**
@@ -15,6 +16,16 @@ export default class UnityContent {
    * @private
    */
   private unityLoaderJsPath: string;
+
+  /**
+   * The Unity component binded to this content.
+   */
+  private unityComponentInstance?: UnityComponent;
+
+  /**
+   * The Unity component binded to this content.
+   */
+  private unityPlayerInstance?: any;
 
   /**
    * the Unity configuration that will be used to start the player.
@@ -43,5 +54,36 @@ export default class UnityContent {
       modules: _unityConfig.modules || {},
       unityVersion: UnityVersion.UNITY_2018
     } as IUnityConfig;
+  }
+
+  /**
+   * Binds a unity component to this content.
+   * @param unityComponentInstance the unity component that will be binded to this content.
+   */
+  public setComponentInstance(unityComponentInstance: UnityComponent): void {
+    this.unityComponentInstance = unityComponentInstance;
+  }
+
+  /**
+   * Binds a unity player to this content.
+   * @param unityPlayerInstance the unity component that will be binded to this content.
+   */
+  public setUnityPlayerInstance(unityPlayerInstance: any): void {
+    this.unityPlayerInstance = unityPlayerInstance;
+  }
+
+  /**
+   * Sends an event to the Unity player that will trigger a function.
+   * @param {string} gameObjectName the name of the game object in your Unity scene.
+   * @param {string} methodName the name of the public method on the game object.
+   * @param {any} parameter an optional parameter to pass along to the method.
+   */
+  public send(
+    gameObjectName: string,
+    methodName: string,
+    parameter?: any
+  ): void {
+    console.log(`Sending ${gameObjectName} ${methodName} ${parameter}`);
+    // this.unityPlayerInstance.sendMessage(gameObjectName, methodName); // TODO
   }
 }
