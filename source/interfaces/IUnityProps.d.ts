@@ -1,5 +1,5 @@
 import UnityContent from "../UnityContent";
-
 export default interface IUnityProps {
-  content: UnityContent;
+    content: UnityContent;
 }
+//# sourceMappingURL=IUnityProps.d.ts.map

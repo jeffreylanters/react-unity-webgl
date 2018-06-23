@@ -16,6 +16,10 @@ var Unity = /** @class */ (function (_super) {
     function Unity(props) {
         return _super.call(this, props) || this;
     }
+    Unity.prototype.render = function () {
+        return React.createElement("div", null, "Fullscreen? " + this.props.content.unityConfig.isFullscreen);
+    };
     return Unity;
 }(React.Component));
 exports["default"] = Unity;
+//# sourceMappingURL=Unity.js.map

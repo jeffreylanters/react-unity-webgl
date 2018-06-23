@@ -1,6 +1,13 @@
 export default interface IUnityConfig {
   /**
-   * Unity Module injection
+   * Defines wether the unity content fullscreen.
+   * @type {boolean}
+   */
+  isFullscreen: boolean;
+
+  /**
+   * Unity Module injection.
+   * @type {Object}
    */
   modules: Object;
 }
