@@ -12,4 +12,4 @@ export declare enum UnityVersion {
      */
     UNITY_2018 = 2
 }
-//# sourceMappingURL=UnityVerions.d.ts.map
+//# sourceMappingURL=UnityVersion.d.ts.map

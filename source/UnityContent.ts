@@ -1,5 +1,5 @@
 import IUnityConfig from "./interfaces/IUnityConfig";
-import { UnityVersion } from "./enums/UnityVerions";
+import { UnityVersion } from "./enums/UnityVersion";
 
 export default class UnityContent {
   /**

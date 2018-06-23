@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-var UnityVerions_1 = require("./enums/UnityVerions");
+var UnityVersion_1 = require("./enums/UnityVersion");
 var UnityContent = /** @class */ (function () {
     /**
      * Creates a new Unity content object. This object can be used
@@ -15,7 +15,7 @@ var UnityContent = /** @class */ (function () {
         this.unityConfig = {
             isFullscreen: _unityConfig.isFullscreen || false,
             modules: _unityConfig.modules || {},
-            unityVersion: UnityVerions_1.UnityVersion.UNITY_2018
+            unityVersion: UnityVersion_1.UnityVersion.UNITY_2018
         };
     }
     return UnityContent;
