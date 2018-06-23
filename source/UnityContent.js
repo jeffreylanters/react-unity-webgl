@@ -15,7 +15,8 @@ var UnityContent = /** @class */ (function () {
         this.unityConfig = {
             isFullscreen: _unityConfig.isFullscreen || false,
             modules: _unityConfig.modules || {},
-            unityVersion: UnityVersion_1.UnityVersion.UNITY_2018
+            unityVersion: UnityVersion_1.UnityVersion.UNITY_2018,
+            id: "nill"
         };
     }
     /**

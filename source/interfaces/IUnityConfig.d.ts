@@ -1,6 +1,12 @@
 import { UnityVersion } from "../enums/UnityVersion";
 export default interface IUnityConfig {
     /**
+     * The unique identifier helps you getting the instance
+     * of your context from any other class.
+     * @type {string}
+     */
+    id?: string;
+    /**
      * Defines wether the unity content fullscreen.
      * @type {boolean}
      */
