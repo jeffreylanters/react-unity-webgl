@@ -1,4 +1,5 @@
 import IUnityConfig from "./interfaces/IUnityConfig";
+import { UnityVersion } from "./enums/UnityVerions";
 
 export default class UnityContent {
   /**
@@ -39,7 +40,8 @@ export default class UnityContent {
       typeof unityConfig === "undefined" ? ({} as IUnityConfig) : unityConfig;
     this.unityConfig = {
       isFullscreen: _unityConfig.isFullscreen || false,
-      modules: _unityConfig.modules || {}
+      modules: _unityConfig.modules || {},
+      unityVersion: UnityVersion.UNITY_2018
     } as IUnityConfig;
   }
 }
