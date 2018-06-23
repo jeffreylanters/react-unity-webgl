@@ -1,1 +1,1 @@
-{"version":3,"file":"IUnityProps.d.ts","sourceRoot":"","sources":["IUnityProps.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,iBAAiB,CAAC;AAE3C,MAAM,CAAC,OAAO,WAAW,WAAW;IAClC;;;OAGG;IACH,OAAO,EAAE,YAAY,CAAC;CACvB"}
+{"version":3,"file":"IUnityProps.d.ts","sourceRoot":"","sources":["IUnityProps.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,iBAAiB,CAAC;AAE3C,MAAM,CAAC,OAAO,WAAW,WAAW;IAClC;;;OAGG;IACH,YAAY,EAAE,YAAY,CAAC;IAE3B;;OAEG;IACH,SAAS,CAAC,EAAE,MAAM,CAAC;IAEnB;;OAEG;IACH,KAAK,CAAC,EAAE,MAAM,GAAG,MAAM,CAAC;IAExB;;OAEG;IACH,MAAM,CAAC,EAAE,MAAM,GAAG,MAAM,CAAC;CAC1B"}
