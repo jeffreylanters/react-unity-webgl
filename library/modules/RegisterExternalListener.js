@@ -13,7 +13,7 @@ function RegisterExternalListener(methodName, callback) {
      *  Application.ExternalEval.
      */
     window[methodName] = function (parameter) {
-        callback(parameter);
+        return callback(parameter);
     };
 
     /**
@@ -23,6 +23,6 @@ function RegisterExternalListener(methodName, callback) {
      */
     if (typeof window.ReactUnityWebGL === 'undefined') window.ReactUnityWebGL = {};
     window.ReactUnityWebGL[methodName] = function (parameter) {
-        callback(parameter);
+        return callback(parameter);
     };
 }
