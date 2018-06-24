@@ -7,7 +7,7 @@ export function RegisterExternalListener(methodName, callback) {
      *  Application.ExternalEval.
      */
     window[methodName] = parameter => {
-        callback(parameter)
+        return callback(parameter)
     }
 
     /**
@@ -18,6 +18,6 @@ export function RegisterExternalListener(methodName, callback) {
     if (typeof window.ReactUnityWebGL === 'undefined')
         window.ReactUnityWebGL = {}
     window.ReactUnityWebGL[methodName] = parameter => {
-        callback(parameter)
+        return callback(parameter)
     }
 }
