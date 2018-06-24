@@ -11,26 +11,40 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var React = require("react");
+var UnityLoaderService_1 = require("../services/UnityLoaderService");
+require("../Types");
 var Unity = /** @class */ (function (_super) {
     __extends(Unity, _super);
     function Unity(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {};
+        _this.unityLoaderService = new UnityLoaderService_1["default"]();
         _this.unityContent = _this.props.unityContent;
         _this.unityContent.setComponentInstance(_this);
         return _this;
-        // this.unityContent.setUnityInstance(this); // TODO
     }
+    Unity.prototype.componentDidMount = function () {
+        var _this = this;
+        var _unityContent = this.props.unityContent;
+        this.unityLoaderService.append(_unityContent.unityLoaderJsPath, function () {
+            var _unityInstance = UnityLoader.instantiate("__ReactUnityWebGL", _unityContent.buildJsonPath, {
+                // onProgress: this._onProgress.bind(this), TODO
+                Module: _unityContent.unityConfig.modules
+            });
+            _this.unityContent.setUnityInstance(_unityInstance);
+        });
+    };
     Unity.prototype.render = function () {
         var _this = this;
         return React.createElement("div", {
             className: this.props.className || "",
             ref: function (ref) { return (_this.htmlElement = ref); },
+            id: "__ReactUnityWebGL",
             style: {
                 width: this.props.width || "800px",
                 height: this.props.height || "600px"
             }
-        }, "Fullscreen!");
+        });
     };
     return Unity;
 }(React.Component));
