@@ -1,6 +1,7 @@
 import IUnityConfig from "./interfaces/IUnityConfig";
 import { UnityVersion } from "./enums/UnityVersion";
 import UnityComponent from "./components/Unity";
+import "./Types";
 
 export default class UnityContent {
   /**
@@ -8,24 +9,28 @@ export default class UnityContent {
    * @type {string}
    * @private
    */
-  private buildJsonPath: string;
+  public buildJsonPath: string;
 
   /**
    * the relative path to the unity loader javascript file.
    * @type {string}
+   * @public
+   */
+  public unityLoaderJsPath: string;
+
+  /**
+   * The Unity component binded to this content.
+   * @type {UnityComponent}
    * @private
    */
-  private unityLoaderJsPath: string;
+  private unityComponent?: UnityComponent;
 
   /**
-   * The Unity component binded to this content.
+   * The Unity instance binded to this content.
+   * @type {UnityInstance}
+   * @private
    */
-  private unityComponentInstance?: UnityComponent;
-
-  /**
-   * The Unity component binded to this content.
-   */
-  private unityPlayerInstance?: any;
+  private unityInstance?: UnityInstance;
 
   /**
    * the Unity configuration that will be used to start the player.
@@ -45,10 +50,9 @@ export default class UnityContent {
     unityLoaderJsPath: string,
     unityConfig?: IUnityConfig
   ) {
+    const _unityConfig = unityConfig || ({} as IUnityConfig);
     this.buildJsonPath = buildJsonPath;
     this.unityLoaderJsPath = unityLoaderJsPath;
-    const _unityConfig =
-      typeof unityConfig === "undefined" ? ({} as IUnityConfig) : unityConfig;
     this.unityConfig = {
       isFullscreen: _unityConfig.isFullscreen || false,
       modules: _unityConfig.modules || {},
@@ -60,17 +64,25 @@ export default class UnityContent {
   /**
    * Binds a unity component to this content.
    * @param unityComponentInstance the unity component that will be binded to this content.
+   * @public
    */
   public setComponentInstance(unityComponentInstance: UnityComponent): void {
-    this.unityComponentInstance = unityComponentInstance;
+    this.unityComponent = unityComponentInstance;
   }
 
   /**
    * Binds a unity player to this content.
    * @param unityPlayerInstance the unity component that will be binded to this content.
+   * @public
    */
-  public setUnityPlayerInstance(unityPlayerInstance: any): void {
-    this.unityPlayerInstance = unityPlayerInstance;
+  public setUnityInstance(unityInstance: UnityInstance): void {
+    this.unityInstance = unityInstance;
+  }
+
+  public setFullscreen(fullscreen: boolean): void {
+    if (this.unityInstance != null) {
+      this.unityInstance.SetFullscreen(fullscreen === true ? 1 : 0);
+    }
   }
 
   /**
@@ -78,13 +90,36 @@ export default class UnityContent {
    * @param {string} gameObjectName the name of the game object in your Unity scene.
    * @param {string} methodName the name of the public method on the game object.
    * @param {any} parameter an optional parameter to pass along to the method.
+   * @public
    */
   public send(
     gameObjectName: string,
     methodName: string,
     parameter?: any
   ): void {
-    console.log(`Sending ${gameObjectName} ${methodName} ${parameter}`);
-    // this.unityPlayerInstance.sendMessage(gameObjectName, methodName); // TODO
+    if (this.unityInstance != null) {
+      if (typeof parameter === "undefined") {
+        this.unityInstance.SendMessage(gameObjectName, methodName);
+      } else {
+        this.unityInstance.SendMessage(gameObjectName, methodName, parameter);
+      }
+    }
+  }
+
+  /**
+   * Registers an event listener for the Unity player. These can be
+   * system events like when the player is initialized or loader and
+   * your custom events from Unity.
+   * @param {string} eventName
+   * @param {Function} eventCallback
+   * @returns {any} The Function
+   * @public
+   */
+  public on(eventName: string, eventCallback: Function): any {
+    if (typeof window["ReactUnityWebGL"] === "undefined")
+      window["ReactUnityWebGL"] = {};
+    window["ReactUnityWebGL"][eventName] = (parameter: any) => {
+      return eventCallback(parameter);
+    };
   }
 }

@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var UnityVersion_1 = require("./enums/UnityVersion");
+require("./Types");
 var UnityContent = /** @class */ (function () {
     /**
      * Creates a new Unity content object. This object can be used
@@ -9,9 +10,9 @@ var UnityContent = /** @class */ (function () {
      * @param {IUnityConfig} unityConfig the Unity configuration that will be used to start the player.
      */
     function UnityContent(buildJsonPath, unityLoaderJsPath, unityConfig) {
+        var _unityConfig = unityConfig || {};
         this.buildJsonPath = buildJsonPath;
         this.unityLoaderJsPath = unityLoaderJsPath;
-        var _unityConfig = typeof unityConfig === "undefined" ? {} : unityConfig;
         this.unityConfig = {
             isFullscreen: _unityConfig.isFullscreen || false,
             modules: _unityConfig.modules || {},
@@ -22,26 +23,56 @@ var UnityContent = /** @class */ (function () {
     /**
      * Binds a unity component to this content.
      * @param unityComponentInstance the unity component that will be binded to this content.
+     * @public
      */
     UnityContent.prototype.setComponentInstance = function (unityComponentInstance) {
-        this.unityComponentInstance = unityComponentInstance;
+        this.unityComponent = unityComponentInstance;
     };
     /**
      * Binds a unity player to this content.
      * @param unityPlayerInstance the unity component that will be binded to this content.
+     * @public
      */
-    UnityContent.prototype.setUnityPlayerInstance = function (unityPlayerInstance) {
-        this.unityPlayerInstance = unityPlayerInstance;
+    UnityContent.prototype.setUnityInstance = function (unityInstance) {
+        this.unityInstance = unityInstance;
+    };
+    UnityContent.prototype.setFullscreen = function (fullscreen) {
+        if (this.unityInstance != null) {
+            this.unityInstance.SetFullscreen(fullscreen === true ? 1 : 0);
+        }
     };
     /**
      * Sends an event to the Unity player that will trigger a function.
      * @param {string} gameObjectName the name of the game object in your Unity scene.
      * @param {string} methodName the name of the public method on the game object.
      * @param {any} parameter an optional parameter to pass along to the method.
+     * @public
      */
     UnityContent.prototype.send = function (gameObjectName, methodName, parameter) {
-        console.log("Sending " + gameObjectName + " " + methodName + " " + parameter);
-        // this.unityPlayerInstance.sendMessage(gameObjectName, methodName); // TODO
+        if (this.unityInstance != null) {
+            if (typeof parameter === "undefined") {
+                this.unityInstance.SendMessage(gameObjectName, methodName);
+            }
+            else {
+                this.unityInstance.SendMessage(gameObjectName, methodName, parameter);
+            }
+        }
+    };
+    /**
+     * Registers an event listener for the Unity player. These can be
+     * system events like when the player is initialized or loader and
+     * your custom events from Unity.
+     * @param {string} eventName
+     * @param {Function} eventCallback
+     * @returns {any} The Function
+     * @public
+     */
+    UnityContent.prototype.on = function (eventName, eventCallback) {
+        if (typeof window["ReactUnityWebGL"] === "undefined")
+            window["ReactUnityWebGL"] = {};
+        window["ReactUnityWebGL"][eventName] = function (parameter) {
+            return eventCallback(parameter);
+        };
     };
     return UnityContent;
 }());
