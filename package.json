@@ -4,7 +4,8 @@
   "description": "React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.",
   "main": "source/index.js",
   "scripts": {
-    "start": "tsc source/index.ts --watch --declaration --declarationMap --sourceMap --module CommonJS"
+    "start": "tsc source/index.ts --declaration --declarationMap --sourceMap --module CommonJS  --watch",
+    "compile": "tsc source/index.ts --declaration --declarationMap --sourceMap --module CommonJS"
   },
   "repository": {
     "type": "git",
