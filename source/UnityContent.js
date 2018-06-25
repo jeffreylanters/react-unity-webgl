@@ -39,6 +39,7 @@ var UnityContent = /** @class */ (function () {
     /**
      * Sets the unity players fullscreen mode.
      * @param {boolean} fullscreen
+     * @public
      */
     UnityContent.prototype.setFullscreen = function (fullscreen) {
         if (this.unityInstance != null) {

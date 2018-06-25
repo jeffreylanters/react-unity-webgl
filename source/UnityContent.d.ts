@@ -60,6 +60,7 @@ export default class UnityContent {
     /**
      * Sets the unity players fullscreen mode.
      * @param {boolean} fullscreen
+     * @public
      */
     setFullscreen(fullscreen: boolean): void;
     /**
