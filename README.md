@@ -4,25 +4,35 @@ When building content for the web, you might need to communicate with other elem
 
 <img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/logo.png" width="300px"><br />
 
+# Documentation
+
 👀 [Example GIF](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif)<br/>
 🚀 [Test environment](https://github.com/jeffreylanters/react-unity-webgl-test)
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Optional attributes](#optional-attributes)
-  - [Width and height](#width-and-height)
-  - [Tracking progression](#tracking-progression)
-  - [Modules](#modules)
-  - [Fullscreen](#fullscreen)
-- [Calling Unity scripts functions from JavaScript in React](#calling-unity-scripts-functions-from-javascript-in-react)
-- [Calling JavaScript functions within React from Unity scripts](#calling-javascript-functions-within-react-from-unity-scripts)
-- [Notes](#notes)
-  - [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path)
-  - [5.x to 6.x Upgrade note](#5x-to-6x-upgrade-note)
-  - [JavaScript to UnityScript types](#havaScript-to-unityScript-types)
-- [Contributing](#contributing)
+- Unity Config
 
-<br/><br/><br/>
+  - [Identifier](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-id.md)
+  - [Modules](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-modules.md)
+  - [Unity Version](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-unity-version.md)
+
+- Props
+
+  - [Unity Content](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-unity-content.md)
+  - [ClassName](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-classname.md)
+  - [Width and Height](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-width-and-height.md)
+
+- Communication
+
+  - [Calling Unity methods from React](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-calling-unity-methods-from-react.md)
+  - [Calling React methods from Unity](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-calling-react-methods-from-unity.md)
+  - [Loading progress](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-loading-progress.md)
+
+- Other
+
+  - [Best practices for adding the src and loader files on a public path]()
+  - [6.x to 7.x Upgrade note](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-6x-to-7x-upgrade-note)
+  - [JavaScript to UnityScript types](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-javascript-to-unityscript-types)
+  - [Contributing](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-contributing)
 
 # Installation
 
@@ -31,8 +41,6 @@ Install using npm. Make sure you download the release matching with your Unity v
 ```sh
 $ npm install react-unity-webgl
 ```
-
-<br/><br/><br/>
 
 # Usage
 
@@ -55,7 +63,3 @@ export class App extends React.Component {
   }
 }
 ```
-
-# Contributing
-
-When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change. Before commiting, please compile your code using `npm run compile` and open a pull request. Thank you very much!

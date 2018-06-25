@@ -63,7 +63,6 @@ export default class UnityContent {
     this.unityLoaderJsPath = unityLoaderJsPath;
     this.unityEvents = [];
     this.unityConfig = {
-      isFullscreen: _unityConfig.isFullscreen || false,
       modules: _unityConfig.modules || {},
       unityVersion: UnityVersion.UNITY_2018,
       id: "nill"
