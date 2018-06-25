@@ -19,19 +19,22 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
     this.unityContent.setComponentInstance(this);
   }
 
+  private onProgress(unityInstance: UnityInstance, progression: number): void {
+    this.unityContent.triggerUnityEvent("progress", progression);
+    if (progression === 1) this.unityContent.triggerUnityEvent("loaded");
+  }
+
   public componentDidMount(): void {
-    let _unityContent = this.props.unityContent;
-    this.unityLoaderService.append(_unityContent.unityLoaderJsPath, () => {
-      let _unityInstance = UnityLoader.instantiate(
+    // prettier-ignore
+    this.unityLoaderService.append(this.props.unityContent.unityLoaderJsPath, () => {
+      this.unityContent.setUnityInstance(UnityLoader.instantiate(
         "__ReactUnityWebGL",
-        _unityContent.buildJsonPath,
-        {
-          // onProgress: this._onProgress.bind(this), TODO
-          Module: _unityContent.unityConfig.modules
-        }
-      );
-      this.unityContent.setUnityInstance(_unityInstance);
-    });
+        this.props.unityContent.buildJsonPath, {
+          onProgress: this.onProgress.bind(this),
+          Module: this.props.unityContent.unityConfig.modules
+        }));
+      }
+    );
   }
 
   public render(): React.ReactNode {

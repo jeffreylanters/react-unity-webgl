@@ -8,6 +8,7 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
     private unityLoaderService;
     state: IUnityState;
     constructor(props: IUnityProps);
+    private onProgress;
     componentDidMount(): void;
     render(): React.ReactNode;
 }

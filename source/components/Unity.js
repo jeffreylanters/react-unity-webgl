@@ -23,15 +23,19 @@ var Unity = /** @class */ (function (_super) {
         _this.unityContent.setComponentInstance(_this);
         return _this;
     }
+    Unity.prototype.onProgress = function (unityInstance, progression) {
+        this.unityContent.triggerUnityEvent("progress", progression);
+        if (progression === 1)
+            this.unityContent.triggerUnityEvent("loaded");
+    };
     Unity.prototype.componentDidMount = function () {
         var _this = this;
-        var _unityContent = this.props.unityContent;
-        this.unityLoaderService.append(_unityContent.unityLoaderJsPath, function () {
-            var _unityInstance = UnityLoader.instantiate("__ReactUnityWebGL", _unityContent.buildJsonPath, {
-                // onProgress: this._onProgress.bind(this), TODO
-                Module: _unityContent.unityConfig.modules
-            });
-            _this.unityContent.setUnityInstance(_unityInstance);
+        // prettier-ignore
+        this.unityLoaderService.append(this.props.unityContent.unityLoaderJsPath, function () {
+            _this.unityContent.setUnityInstance(UnityLoader.instantiate("__ReactUnityWebGL", _this.props.unityContent.buildJsonPath, {
+                onProgress: _this.onProgress.bind(_this),
+                Module: _this.props.unityContent.unityConfig.modules
+            }));
         });
     };
     Unity.prototype.render = function () {
