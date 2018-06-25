@@ -17,17 +17,34 @@ var Unity = /** @class */ (function (_super) {
     __extends(Unity, _super);
     function Unity(props) {
         var _this = _super.call(this, props) || this;
+        /**
+         * The component state.
+         * @type {IUnityState}
+         * @public
+         */
         _this.state = {};
         _this.unityLoaderService = new UnityLoaderService_1["default"]();
         _this.unityContent = _this.props.unityContent;
         _this.unityContent.setComponentInstance(_this);
         return _this;
     }
+    /**
+     * An event that is triggered by the Unity player. This tracks
+     * the loading progression of the player. It will send '1' when
+     * the loading is completed.
+     * @param {UnityInstance} unityInstance
+     * @param {number} progression
+     * @private
+     */
     Unity.prototype.onProgress = function (unityInstance, progression) {
         this.unityContent.triggerUnityEvent("progress", progression);
         if (progression === 1)
             this.unityContent.triggerUnityEvent("loaded");
     };
+    /**
+     * Initialzied the Unity player when the component is mounted.
+     * @public
+     */
     Unity.prototype.componentDidMount = function () {
         var _this = this;
         // prettier-ignore
@@ -38,6 +55,11 @@ var Unity = /** @class */ (function (_super) {
             }));
         });
     };
+    /**
+     * Renders the unity wrapper and player.
+     * @returns {React.ReactNode} element
+     * @public
+     */
     Unity.prototype.render = function () {
         var _this = this;
         return React.createElement("div", {

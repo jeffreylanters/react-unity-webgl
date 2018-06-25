@@ -2,6 +2,11 @@
 exports.__esModule = true;
 var UnityLoaderService = /** @class */ (function () {
     function UnityLoaderService() {
+        /**
+         * Reference to the document head.
+         * @type {HTMLHeadElement}
+         * @private
+         */
         this.documentHead = document.getElementsByTagName("head")[0];
     }
     /**

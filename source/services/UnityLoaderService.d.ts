@@ -1,7 +1,16 @@
 export default class UnityLoaderService {
+    /**
+     * Reference to the document head.
+     * @type {HTMLHeadElement}
+     * @private
+     */
     private documentHead;
+    /**
+     * Reference to the unity loader script.
+     * @type {HTMLScriptElement}
+     * @private
+     */
     private unityLoaderScript?;
-    constructor();
     /**
      * Appends the Unity loader script to the window. When it's loaded a callback will
      * be triggered. NOTE: This can't be a promisse due to JavaScript compatibilty.
