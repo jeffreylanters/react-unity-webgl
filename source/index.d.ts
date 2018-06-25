@@ -4,4 +4,3 @@ import Unity from "./components/Unity";
 import { UnityVersion } from "./enums/UnityVersion";
 export { IUnityConfig, UnityContent, UnityVersion };
 export default Unity;
-//# sourceMappingURL=index.d.ts.map

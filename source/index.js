@@ -6,3 +6,4 @@ var Unity_1 = require("./components/Unity");
 var UnityVersion_1 = require("./enums/UnityVersion");
 exports.UnityVersion = UnityVersion_1.UnityVersion;
 exports["default"] = Unity_1["default"];
+//# sourceMappingURL=index.js.map

@@ -29,3 +29,4 @@ var UnityLoaderService = /** @class */ (function () {
     return UnityLoaderService;
 }());
 exports["default"] = UnityLoaderService;
+//# sourceMappingURL=UnityLoaderService.js.map

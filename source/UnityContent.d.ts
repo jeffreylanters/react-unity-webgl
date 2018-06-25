@@ -90,4 +90,3 @@ export default class UnityContent {
      */
     triggerUnityEvent(eventName: string, eventValue?: any): void;
 }
-//# sourceMappingURL=UnityContent.d.ts.map
