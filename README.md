@@ -28,7 +28,7 @@ $ npm install react-unity-webgl
 
 # Usage
 
-To get started import the default Unity class from react-unity-webgl and include it in your render while giving the public path to your src and loader files. [Best practices for adding the src and loader files on a public path](#best-practices-for-adding-the-src-and-loader-files-on-a-public-path).
+To get started import the Unity and Unity Content class from the React Unity WebGL library. Create a new content object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/jeffreylanters/react-unity-webgl/wiki) or open an [issue](https://github.com/jeffreylanters/react-unity-webgl/issues).
 
 ```jsx
 import React from "react";
