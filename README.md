@@ -4,8 +4,6 @@ When building content for the web, you might need to communicate with other elem
 
 <img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/logo.png" width="300px"><br />
 
-# Documentation
-
 👀 [Example GIF](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif)<br/>
 🚀 [Test environment](https://github.com/jeffreylanters/react-unity-webgl-test)
 📖 [Documentation](https://github.com/jeffreylanters/react-unity-webgl/wiki)
