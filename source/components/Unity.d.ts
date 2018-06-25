@@ -53,3 +53,4 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
      */
     render(): React.ReactNode;
 }
+//# sourceMappingURL=Unity.d.ts.map

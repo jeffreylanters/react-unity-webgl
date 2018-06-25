@@ -19,3 +19,4 @@ export default interface IUnityConfig {
      */
     unityVersion?: UnityVersion;
 }
+//# sourceMappingURL=IUnityConfig.d.ts.map

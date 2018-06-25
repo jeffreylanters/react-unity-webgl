@@ -20,3 +20,4 @@ export default class UnityLoaderService {
      */
     append(source: string, onLoad: Function): void;
 }
+//# sourceMappingURL=UnityLoaderService.d.ts.map
