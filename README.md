@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/logo.png" height="50px">
+<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/logo.png" height="70px">
 
 [![license](https://img.shields.io/badge/license-MIT-red.svg)]()
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg)]()
