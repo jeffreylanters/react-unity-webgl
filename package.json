@@ -1,20 +1,20 @@
 {
   "name": "react-unity-webgl",
-  "version": "6.5.1",
-  "description": "A Unity WebGL component for your React application",
-  "main": "library/index.js",
-  "types": "./types.d.ts",
+  "version": "7.0.0",
+  "description": "React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.",
+  "main": "source/index.js",
   "scripts": {
-    "compile": "babel --presets react source --out-dir library"
+    "start": "tsc source/index.ts --declaration --declarationMap --sourceMap --module CommonJS  --watch",
+    "compile": "tsc source/index.ts --declaration --declarationMap --sourceMap --module CommonJS"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jeffreylanters/react-unity-webgl.git"
   },
   "keywords": [
-    "react",
-    "unity",
-    "webgl"
+    "React",
+    "Unity",
+    "WebGL"
   ],
   "author": "Jeffrey Lanters",
   "license": "ISC",
@@ -23,15 +23,10 @@
   },
   "homepage": "https://jeffreylanters.nl/react-unity-webgl",
   "dependencies": {
-    "react": "16.0.0",
-    "react-dom": "16.0.0"
+    "react": "16.4.1"
   },
   "devDependencies": {
-    "babel": "6.23.0",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
-    "babel-loader": "7.1.2",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-react": "6.24.1"
+    "@types/react": "16.4.1",
+    "typescript": "2.9.1"
   }
 }
