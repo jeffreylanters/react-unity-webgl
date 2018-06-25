@@ -32,6 +32,7 @@ Other
 - [Best practices for adding the src and loader files on a public path]()
 - [6.x to 7.x Upgrade note](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-6x-to-7x-upgrade-note)
 - [JavaScript to UnityScript types](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-javascript-to-unityscript-types)
+- [TypeScript and JSDocs](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-typescript-and-jsdocs)
 - [Contributing](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-contributing)
 
 # Installation
