@@ -12,7 +12,7 @@ When building content for the web, you might need to communicate with other elem
 
 **&Lt;**
 [**Documentation**](https://github.com/jeffreylanters/react-unity-webgl/wiki) &middot;
-[**Test environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
+[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
 [**Example Video**](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif) &middot;
 [**Buy me a Coffee**](https://paypal.me/jeffreylanters)
 **&Gt;**

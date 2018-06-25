@@ -1,3 +1,35 @@
+👀 [Example GIF](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif)<br/>
+🚀 [Test environment](https://github.com/jeffreylanters/react-unity-webgl-test)
+
+Props
+
+- [Unity Content](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-unity-content.md)
+- [Class Name](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-class-name.md)
+- [Width and Height](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-width-and-height.md)
+
+Unity Config
+
+- [Identifier](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-id.md)
+- [Modules](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-modules.md)
+- [Unity Version](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-unity-version.md)
+
+Communication
+
+- [Calling Unity methods from React](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-calling-unity-methods-from-react.md)
+- [Calling React methods from Unity](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-calling-react-methods-from-unity.md)
+- [Unity Loading Event](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-unity-loading-event.md)
+- [Unity Ready Event](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-unity-ready-event.md)
+
+Other
+
+- [Unity Loader Best practices]()
+- [6.x to 7.x Upgrade note](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-6x-to-7x-upgrade-note)
+- [JavaScript to UnityScript types](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-javascript-to-unityscript-types)
+- [TypeScript and JSDocs](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-typescript-and-jsdocs)
+- [Contributing](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-contributing)
+
+---
+
 # React Unity WebGL &middot; [![license](https://img.shields.io/badge/license-MIT-red.svg)]() [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg)]() [![npm](https://img.shields.io/badge/build-passing-brightgreen.svg)]() [![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg)]() [![npm](https://img.shields.io/badge/typescript-supported-2a507e.svg)]()
 
 When building content for the web, you might need to communicate with other elements on React Application. Or you might want to implement functionality using Web APIs which [Unity](https://unity3d.com) does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy library for Unity 5.6^, 2017 and 2018 with different methods to do this.
