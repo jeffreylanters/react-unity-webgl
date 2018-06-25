@@ -1,1 +1,0 @@
-{"version":3,"file":"UnityLoaderService.d.ts","sourceRoot":"","sources":["UnityLoaderService.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO;IACZ,OAAO,CAAC,YAAY,CAAkB;IACtC,OAAO,CAAC,iBAAiB,CAAC,CAAoB;;IAM9C;;;;;;OAMG;IACI,MAAM,CAAC,MAAM,EAAE,MAAM,EAAE,MAAM,EAAE,QAAQ,GAAG,IAAI;CAUtD"}
