@@ -34,6 +34,10 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
    */
   public state: IUnityState = {};
 
+  /**
+   * Initialized the component.
+   * @param {IUnityProps} props
+   */
   constructor(props: IUnityProps) {
     super(props);
     this.unityLoaderService = new UnityLoaderService();

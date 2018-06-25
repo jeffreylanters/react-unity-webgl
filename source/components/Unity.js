@@ -15,6 +15,10 @@ var UnityLoaderService_1 = require("../services/UnityLoaderService");
 require("../Types");
 var Unity = /** @class */ (function (_super) {
     __extends(Unity, _super);
+    /**
+     * Initialized the component.
+     * @param {IUnityProps} props
+     */
     function Unity(props) {
         var _this = _super.call(this, props) || this;
         /**
