@@ -22,4 +22,3 @@ export default interface IUnityProps {
      */
     height?: string | number;
 }
-//# sourceMappingURL=IUnityProps.d.ts.map

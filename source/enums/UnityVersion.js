@@ -15,4 +15,3 @@ var UnityVersion;
      */
     UnityVersion[UnityVersion["UNITY_2018"] = 2] = "UNITY_2018";
 })(UnityVersion = exports.UnityVersion || (exports.UnityVersion = {}));
-//# sourceMappingURL=UnityVersion.js.map

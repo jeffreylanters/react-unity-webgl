@@ -29,4 +29,3 @@ declare class UnityInstance {
 }
 declare class ReactUnityWebGL {
 }
-//# sourceMappingURL=Types.d.ts.map

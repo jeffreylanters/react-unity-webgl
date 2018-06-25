@@ -79,4 +79,3 @@ var Unity = /** @class */ (function (_super) {
     return Unity;
 }(React.Component));
 exports["default"] = Unity;
-//# sourceMappingURL=Unity.js.map

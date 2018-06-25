@@ -11,4 +11,3 @@ export default interface IUnityEvent {
      */
     eventCallback: Function;
 }
-//# sourceMappingURL=IUnityEvent.d.ts.map
