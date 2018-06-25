@@ -40,11 +40,13 @@ import Unity, { UnityContent } from "react-unity-webgl";
 export class App extends React.Component {
   constructor(props) {
     super(props);
+    
     this.unityContent = new UnityContent(
       "MyGame/Build.json",
       "MyGame/UnityLoader.js"
     );
   }
+  
   render() {
     return <Unity unityContent={this.unityContent} />;
   }
