@@ -5,3 +5,6 @@ logs
 *.log
 npm-debug.log*
 .DS_Store
+
+*.d.ts.map
+*.js.map
