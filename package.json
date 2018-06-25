@@ -5,7 +5,7 @@
   "main": "source/index.js",
   "scripts": {
     "start": "tsc source/index.ts --declaration --declarationMap --sourceMap --module CommonJS  --watch",
-    "compile": "tsc source/index.ts --declaration --declarationMap --sourceMap --module CommonJS"
+    "compile": "tsc source/index.ts --declaration --module CommonJS"
   },
   "repository": {
     "type": "git",
