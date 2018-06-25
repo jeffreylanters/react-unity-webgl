@@ -14,7 +14,7 @@ When building content for the web, you might need to communicate with other elem
 [**Documentation**](https://github.com/jeffreylanters/react-unity-webgl/wiki) &middot;
 [**Test environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
 [**Example Video**](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif) &middot;
-[**Buy me a coffee**](paypal.me/jeffreylanters)
+[**Buy me a Coffee**](https://paypal.me/jeffreylanters)
 **&Gt;**
 
 <span style="color:#f6f8fa">Made with <span style="color:#ec4746">&hearts;</span> by Jeffrey Lanters</span>
