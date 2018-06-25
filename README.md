@@ -17,6 +17,11 @@ When building content for the web, you might need to communicate with other elem
 [**Buy me a Coffee**](https://paypal.me/jeffreylanters)
 **&Gt;**
 
+**&Lt;**
+[**Quick Start Guide**](https://github.com/jeffreylanters/react-unity-webgl/wiki/Quick-Start-Guide) &middot;
+[**Communication Guide**](https://github.com/jeffreylanters/react-unity-webgl/wiki/Communication-Guide)
+**&Gt;**
+
 <span style="color:#f6f8fa">Made with <span style="color:#ec4746">&hearts;</span> by Jeffrey Lanters</span>
 
 </div></br></br>
