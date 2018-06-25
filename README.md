@@ -17,7 +17,7 @@ When building content for the web, you might need to communicate with other elem
 [**Buy me a coffee**](paypal.me/jeffreylanters)
 **&Gt;**
 
-<span style="opacity: 0.5;">Made with &hearts; by Jeffrey Lanters</span>
+<span style="color:#f6f8fa">Made with <span style="color:#ec4746">&hearts;</span> by Jeffrey Lanters</span>
 
 </div></br></br>
 
