@@ -42,10 +42,10 @@ export default class UnityContent {
 
   /**
    * The registered Unity Events.
-   * @type {IUnityEvent}
+   * @type {IUnityEvent[]}
    * @public
    */
-  private unityEvents: IUnityEvent;
+  private unityEvents: IUnityEvent[];
 
   /**
    * Creates a new Unity content object. This object can be used
@@ -122,16 +122,33 @@ export default class UnityContent {
    * Registers an event listener for the Unity player. These can be
    * system events like when the player is initialized or loader and
    * your custom events from Unity.
-   * @param {string} eventName
-   * @param {Function} eventCallback
+   * @param {string} eventName the event name
+   * @param {Function} eventCallback the event function
    * @returns {any} The Function
    * @public
    */
   public on(eventName: string, eventCallback: Function): any {
+    this.unityEvents.push({
+      eventName: eventName,
+      eventCallback: eventCallback
+    });
     if (typeof window["ReactUnityWebGL"] === "undefined")
       window["ReactUnityWebGL"] = {};
     window["ReactUnityWebGL"][eventName] = (parameter: any) => {
       return eventCallback(parameter);
     };
+  }
+
+  /**
+   * Triggers an event that has been registered by the on
+   * function.
+   * @param {string} eventName the event name
+   * @param {Function} eventValue the event value
+   * @public
+   */
+  public triggerUnityEvent(eventName: string, eventValue: any): void {
+    for (let _i = 0; _i < this.unityEvents.length; _i++)
+      if (this.unityEvents[_i].eventName === eventName)
+        this.unityEvents[_i].eventCallback(eventValue);
   }
 }

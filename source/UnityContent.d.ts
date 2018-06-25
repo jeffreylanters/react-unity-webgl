@@ -34,7 +34,7 @@ export default class UnityContent {
     unityConfig: IUnityConfig;
     /**
      * The registered Unity Events.
-     * @type {IUnityEvent}
+     * @type {IUnityEvent[]}
      * @public
      */
     private unityEvents;
@@ -74,11 +74,19 @@ export default class UnityContent {
      * Registers an event listener for the Unity player. These can be
      * system events like when the player is initialized or loader and
      * your custom events from Unity.
-     * @param {string} eventName
-     * @param {Function} eventCallback
+     * @param {string} eventName the event name
+     * @param {Function} eventCallback the event function
      * @returns {any} The Function
      * @public
      */
     on(eventName: string, eventCallback: Function): any;
+    /**
+     * Triggers an event that has been registered by the on
+     * function.
+     * @param {string} eventName the event name
+     * @param {Function} eventValue the event value
+     * @public
+     */
+    triggerUnityEvent(eventName: string, eventValue: any): void;
 }
 //# sourceMappingURL=UnityContent.d.ts.map
