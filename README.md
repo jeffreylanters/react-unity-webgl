@@ -16,7 +16,7 @@ When building content for the web, you might need to communicate with other elem
 
 Made with &hearts;
 
-</div>
+</div></br></br>
 
 # Installation
 
