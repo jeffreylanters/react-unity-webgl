@@ -8,32 +8,7 @@ When building content for the web, you might need to communicate with other elem
 
 👀 [Example GIF](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif)<br/>
 🚀 [Test environment](https://github.com/jeffreylanters/react-unity-webgl-test)
-
-Props
-
-- [Unity Content](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-unity-content.md)
-- [ClassName](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-classname.md)
-- [Width and Height](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/props-width-and-height.md)
-
-Unity Config
-
-- [Identifier](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-id.md)
-- [Modules](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-modules.md)
-- [Unity Version](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/unity-options-unity-version.md)
-
-Communication
-
-- [Calling Unity methods from React](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-calling-unity-methods-from-react.md)
-- [Calling React methods from Unity](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-calling-react-methods-from-unity.md)
-- [Events](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/communication-other-events.md)
-
-Other
-
-- [Best practices for adding the src and loader files on a public path]()
-- [6.x to 7.x Upgrade note](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-6x-to-7x-upgrade-note)
-- [JavaScript to UnityScript types](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-javascript-to-unityscript-types)
-- [TypeScript and JSDocs](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-typescript-and-jsdocs)
-- [Contributing](https://github.com/jeffreylanters/react-unity-webgl/blob/master/wiki/other-contributing)
+📖 [Documentation](https://github.com/jeffreylanters/react-unity-webgl/wiki)
 
 # Installation
 
