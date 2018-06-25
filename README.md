@@ -10,11 +10,11 @@
 
 When building content for the web, you might need to communicate with other elements on React Application. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy library for Unity 5.6.x, 2017 and 2018 with different methods to do this.
 
-&Lt;
+**&Lt;**
 [**Documentation**](https://github.com/jeffreylanters/react-unity-webgl/wiki) &middot;
 [**Example Video**](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/resources/readme/demo-video.gif) &middot;
 [**Test environment**](https://github.com/jeffreylanters/react-unity-webgl-test)
-&Gt; 
+**&Gt;**
 
 Made with &hearts;
 
