@@ -9,7 +9,7 @@
 [![npm](https://img.shields.io/badge/supported-typescript-2a507e.svg)]()
 [![npm](https://img.shields.io/badge/supported-babel-yellow.svg)]()
 
-When building content for the web, you might need to communicate with other elements on React Application. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy library for Unity 5.6.x, 2017 and 2018 with different methods to do this.
+When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
 **&Lt;**
 [**Documentation**](https://github.com/jeffreylanters/react-unity-webgl/wiki) &middot;
@@ -18,7 +18,7 @@ When building content for the web, you might need to communicate with other elem
 [**Buy me a Coffee**](https://paypal.me/jeffreylanters)
 **&Gt;**
 
-<span style="color:#f6f8fa">Made with <span style="color:#ec4746">&hearts;</span> by Jeffrey Lanters</span>
+Made with &hearts; by Jeffrey Lanters
 
 </div></br></br>
 
@@ -32,7 +32,7 @@ $ npm install react-unity-webgl
 
 # Usage
 
-To get started import the Unity and Unity Content class from the React Unity WebGL library. Create a new content object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/jeffreylanters/react-unity-webgl/wiki) or open an [issue](https://github.com/jeffreylanters/react-unity-webgl/issues).
+To get started import the Unity and Unity Content class from the React Unity WebGL library. Create a new content object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/jeffreylanters/react-unity-webgl/wiki), follow the [quick start guide](https://github.com/jeffreylanters/react-unity-webgl/wiki/Quick-Start-Guide) or open an [issue](https://github.com/jeffreylanters/react-unity-webgl/issues) on this repository.
 
 ```jsx
 import React from "react";
@@ -41,13 +41,13 @@ import Unity, { UnityContent } from "react-unity-webgl";
 export class App extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.unityContent = new UnityContent(
       "MyGame/Build.json",
       "MyGame/UnityLoader.js"
     );
   }
-  
+
   render() {
     return <Unity unityContent={this.unityContent} />;
   }
