@@ -13,6 +13,7 @@ var UnityContent = /** @class */ (function () {
         var _unityConfig = unityConfig || {};
         this.buildJsonPath = buildJsonPath;
         this.unityLoaderJsPath = unityLoaderJsPath;
+        this.unityEvents = [];
         this.unityConfig = {
             isFullscreen: _unityConfig.isFullscreen || false,
             modules: _unityConfig.modules || {},

@@ -87,6 +87,6 @@ export default class UnityContent {
      * @param {Function} eventValue the event value
      * @public
      */
-    triggerUnityEvent(eventName: string, eventValue: any): void;
+    triggerUnityEvent(eventName: string, eventValue?: any): void;
 }
 //# sourceMappingURL=UnityContent.d.ts.map

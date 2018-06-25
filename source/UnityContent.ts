@@ -61,6 +61,7 @@ export default class UnityContent {
     const _unityConfig = unityConfig || ({} as IUnityConfig);
     this.buildJsonPath = buildJsonPath;
     this.unityLoaderJsPath = unityLoaderJsPath;
+    this.unityEvents = [];
     this.unityConfig = {
       isFullscreen: _unityConfig.isFullscreen || false,
       modules: _unityConfig.modules || {},
@@ -146,7 +147,7 @@ export default class UnityContent {
    * @param {Function} eventValue the event value
    * @public
    */
-  public triggerUnityEvent(eventName: string, eventValue: any): void {
+  public triggerUnityEvent(eventName: string, eventValue?: any): void {
     for (let _i = 0; _i < this.unityEvents.length; _i++)
       if (this.unityEvents[_i].eventName === eventName)
         this.unityEvents[_i].eventCallback(eventValue);
