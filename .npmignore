@@ -10,3 +10,5 @@ npm-debug.log*
 *.js.map
 
 .github
+LICENSE.md
+PULL_REQUEST_TEMPLASTE.md
