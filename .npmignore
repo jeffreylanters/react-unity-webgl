@@ -6,7 +6,5 @@ logs
 npm-debug.log*
 .DS_Store
 
-wiki
-
 *.d.ts.map
 *.js.map
