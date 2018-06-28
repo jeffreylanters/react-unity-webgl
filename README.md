@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/wiki/resources/logo.png" height="100px"></br>
+<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/.github/WIKI/logo.png" height="100px"></br>
 
 [![license](https://img.shields.io/badge/license-Apache_2.0-red.svg)]()
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg)]()
@@ -14,7 +14,7 @@ When building content for the web, you might need to communicate with elements o
 **&Lt;**
 [**Documentation**](https://github.com/jeffreylanters/react-unity-webgl/wiki) &middot;
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
-[**Example Video**](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/wiki/resources/demo.gif) &middot;
+[**Example Video**](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/.github/WIKI/demo.gif) &middot;
 [**Buy me a Coffee**](https://paypal.me/jeffreylanters)
 **&Gt;**
 
