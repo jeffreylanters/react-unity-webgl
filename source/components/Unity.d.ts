@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import * as React from "react";
 import IUnityProps from "../interfaces/IUnityProps";
 import IUnityState from "../interfaces/IUnityState";
@@ -40,7 +41,7 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
      * @param {number} progression
      * @private
      */
-    private onProgress;
+    private onProgress(unityInstance, progression);
     /**
      * Initialzied the Unity player when the component is mounted.
      * @public

@@ -10,5 +10,5 @@ export declare enum UnityVersion {
     /**
      * Unity 2018
      */
-    UNITY_2018 = 2
+    UNITY_2018 = 2,
 }
