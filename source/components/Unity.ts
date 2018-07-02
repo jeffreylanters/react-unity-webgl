@@ -66,7 +66,7 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
     // prettier-ignore
     this.unityLoaderService.append(this.props.unityContent.unityLoaderJsPath, () => {
       this.unityContent.setUnityInstance(UnityLoader.instantiate(
-        "__ReactUnityWebGL",
+        `__ReactUnityWebGL_${this.props.unityContent.uniqueID}__`,
         this.props.unityContent.buildJsonPath, {
           onProgress: this.onProgress.bind(this),
           Module: this.props.unityContent.unityConfig.modules
@@ -84,7 +84,7 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
     return React.createElement("div", {
       className: this.props.className || "",
       ref: ref => (this.htmlElement = ref!),
-      id: "__ReactUnityWebGL",
+      id: `__ReactUnityWebGL_${this.props.unityContent.uniqueID}__`,
       style: {
         width: this.props.width || "800px",
         height: this.props.height || "600px"
