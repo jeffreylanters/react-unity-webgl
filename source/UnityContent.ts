@@ -51,7 +51,7 @@ export default class UnityContent {
    * The unique ID helps seperating multiple
    * Unity player instances in your react
    * application.
-   * @type {string}
+   * @type {number}
    * @public
    */
   public uniqueID: number;
@@ -59,6 +59,9 @@ export default class UnityContent {
   /**
    * the statis unique ID keeps track of the
    * unique ID's made by other instances.
+   * @type {number}
+   * @static
+   * @public
    */
   public static uniqueID: number = 0;
 
