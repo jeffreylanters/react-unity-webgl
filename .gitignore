@@ -8,3 +8,5 @@ npm-debug.log*
 
 *.d.ts.map
 *.js.map
+*.d.ts
+*.js
