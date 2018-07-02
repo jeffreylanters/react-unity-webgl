@@ -1,14 +1,12 @@
-node_modules
-.npm
 .node_repl_history
-logs
-*.log
 npm-debug.log*
+node_modules
 .DS_Store
+*.log
+.npm
+logs
 
 *.d.ts.map
 *.js.map
 
 .github
-LICENSE.md
-PULL_REQUEST_TEMPLASTE.md
