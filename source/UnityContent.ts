@@ -83,8 +83,8 @@ export default class UnityContent {
     this.unityEvents = [];
     this.unityConfig = {
       modules: _unityConfig.modules || {},
-      unityVersion: UnityVersion.UNITY_2018,
-      id: "nill"
+      unityVersion: _unityConfig.unityVersion || UnityVersion.UNITY_2018,
+      id: _unityConfig.id || "nill"
     } as IUnityConfig;
   }
 
