@@ -84,6 +84,7 @@ export default class UnityContent {
     this.unityConfig = {
       modules: _unityConfig.modules || {},
       unityVersion: _unityConfig.unityVersion || UnityVersion.UNITY_2018,
+      adjustOnWindowResize: _unityConfig.adjustOnWindowResize,
       id: _unityConfig.id || "nill"
     } as IUnityConfig;
   }
