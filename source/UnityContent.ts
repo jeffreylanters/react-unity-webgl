@@ -153,9 +153,9 @@ export default class UnityContent {
       eventName: eventName,
       eventCallback: eventCallback
     });
-    if (typeof window["ReactUnityWebGL"] === "undefined")
-      window["ReactUnityWebGL"] = {};
-    window["ReactUnityWebGL"][eventName] = (parameter: any) => {
+    if (typeof (window as any).ReactUnityWebGL === "undefined")
+      (window as any).ReactUnityWebGL = {};
+    (window as any).ReactUnityWebGL[eventName] = (parameter: any) => {
       return eventCallback(parameter);
     };
   }
