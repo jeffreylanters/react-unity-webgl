@@ -1,16 +1,16 @@
 {
   "name": "react-unity-webgl",
-  "version": "7.0.6",
+  "version": "7.0.7",
   "description": "React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.",
   "main": "source/index.js",
   "scripts": {
-    "start": "tsc source/index.ts --declaration --declarationMap --sourceMap --module CommonJS  --watch",
-    "compile": "tsc source/index.ts --declaration --declarationMap --sourceMap --module CommonJS",
+    "start": "tsc --watch",
+    "compile": "tsc",
     "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeffreylanters/react-unity-webgl.git"
+    "url": "git+https://github.com/elraccoone/react-unity-webgl.git"
   },
   "keywords": [
     "React",
@@ -18,11 +18,11 @@
     "WebGL"
   ],
   "author": "Jeffrey Lanters",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/jeffreylanters/react-unity-webgl/issues"
+    "url": "https://github.com/elraccoone/react-unity-webgl/issues"
   },
-  "homepage": "https://jeffreylanters.nl/react-unity-webgl",
+  "homepage": "https://github.com/elraccoone/react-unity-webgl/wiki",
   "dependencies": {
     "react": "16.4.1"
   },
