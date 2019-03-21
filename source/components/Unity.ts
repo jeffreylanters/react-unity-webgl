@@ -4,6 +4,8 @@ import IUnityState from "../interfaces/IUnityState";
 import UnityContent from "../UnityContent";
 import UnityLoaderService from "../services/UnityLoaderService";
 import "../declarations/UnityLoader";
+import "./declarations/UnityInstance";
+import "./declarations/ReactUnityWebgl";
 
 export default class Unity extends React.Component<IUnityProps, IUnityState> {
   /**

@@ -3,6 +3,8 @@ import IUnityEvent from "./interfaces/IUnityEvent";
 import { UnityVersion } from "./enums/UnityVersion";
 import UnityComponent from "./components/Unity";
 import "./declarations/UnityLoader";
+import "./declarations/UnityInstance";
+import "./declarations/ReactUnityWebgl";
 
 export default class UnityContent {
   /**
