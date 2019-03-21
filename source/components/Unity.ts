@@ -3,7 +3,7 @@ import IUnityProps from "../interfaces/IUnityProps";
 import IUnityState from "../interfaces/IUnityState";
 import UnityContent from "../UnityContent";
 import UnityLoaderService from "../services/UnityLoaderService";
-import "../Types";
+import "../declarations/UnityLoader";
 
 export default class Unity extends React.Component<IUnityProps, IUnityState> {
   /**

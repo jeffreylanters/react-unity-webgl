@@ -2,7 +2,7 @@ import IUnityConfig from "./interfaces/IUnityConfig";
 import IUnityEvent from "./interfaces/IUnityEvent";
 import { UnityVersion } from "./enums/UnityVersion";
 import UnityComponent from "./components/Unity";
-import "./Types";
+import "./declarations/UnityLoader";
 
 export default class UnityContent {
   /**
