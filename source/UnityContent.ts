@@ -1,6 +1,6 @@
 import IUnityConfig from "./interfaces/IUnityConfig";
 import IUnityEvent from "./interfaces/IUnityEvent";
-import { UnityVersion } from "./enums/UnityVersion";
+import { UnityVersion } from "./declarations/UnityVersion";
 import UnityComponent from "./components/Unity";
 import "./declarations/UnityLoader";
 import "./declarations/UnityInstance";
@@ -85,7 +85,7 @@ export default class UnityContent {
     this.unityEvents = [];
     this.unityConfig = {
       modules: _unityConfig.modules || {},
-      unityVersion: _unityConfig.unityVersion || UnityVersion.UNITY_2018,
+      unityVersion: _unityConfig.unityVersion || "undefined",
       adjustOnWindowResize: _unityConfig.adjustOnWindowResize,
       id: _unityConfig.id || "nill"
     } as IUnityConfig;
@@ -118,6 +118,20 @@ export default class UnityContent {
     if (this.unityInstance != null) {
       this.unityInstance.SetFullscreen(fullscreen === true ? 1 : 0);
     }
+  }
+
+  /**
+   * Quits the Unity Instance and removes it from memory.
+   */
+  public remove(): void {
+    if (
+      typeof this.unityInstance !== "undefined" &&
+      typeof this.unityInstance.Quit === "function"
+    )
+      this.unityInstance.Quit(() => {
+        this.triggerUnityEvent("quitted");
+        this.unityInstance = undefined;
+      });
   }
 
   /**
