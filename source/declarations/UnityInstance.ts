@@ -28,5 +28,5 @@ declare class UnityInstance {
    * https://forum.unity.com/threads/quit-and-memory-cleanup.571210/
    * @param {Function} callback
    */
-  public Quit(onQuit: () => void): void;
+  public Quit(onQuitCallback: () => void): void;
 }

@@ -1,4 +1,4 @@
-import { UnityVersion } from "../enums/UnityVersion";
+import { UnityVersion } from "../declarations/UnityVersion";
 
 export default interface IUnityConfig {
   /**
