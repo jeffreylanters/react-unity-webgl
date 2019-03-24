@@ -124,7 +124,6 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
    * @public
    */
   public componentWillUnmount(): void {
-    this.unityLoaderService.remove();
     this.unityContent.remove();
     window.removeEventListener("resize", this.onWindowResizeBinding);
   }
