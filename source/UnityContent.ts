@@ -128,10 +128,17 @@ export default class UnityContent {
       typeof this.unityInstance !== "undefined" &&
       typeof this.unityInstance.Quit === "function"
     )
-      this.unityInstance.Quit(() => {
+      return this.unityInstance.Quit(() => {
         this.triggerUnityEvent("quitted");
         this.unityInstance = undefined;
       });
+    console.warn(
+      "Your version of Unity does not support unloading the WebGL Player. " +
+        "This preverts ReactUnityWebGL from unmounting this component properly. " +
+        "Please consider updating to Unity 2019.1 or newer, or reload the page " +
+        "to free the WebGL Player from the memory. See the follow link for more details: " +
+        "https://github.com/elraccoone/react-unity-webgl/issues/22"
+    );
   }
 
   /**
