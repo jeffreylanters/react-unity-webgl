@@ -4,8 +4,8 @@ import IUnityState from "../interfaces/IUnityState";
 import UnityContent from "../UnityContent";
 import UnityLoaderService from "../services/UnityLoaderService";
 import "../declarations/UnityLoader";
-import "./declarations/UnityInstance";
-import "./declarations/ReactUnityWebgl";
+import "../declarations/UnityInstance";
+import "../declarations/ReactUnityWebgl";
 
 export default class Unity extends React.Component<IUnityProps, IUnityState> {
   /**
@@ -133,7 +133,7 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
   public render(): React.ReactNode {
     return React.createElement("div", {
       className: this.props.className || "",
-      ref: ref => (this.htmlElement = ref!),
+      ref: (ref: any) => (this.htmlElement = ref!),
       id: `__ReactUnityWebGL_${this.props.unityContent.uniqueID}__`,
       style: {
         width: this.props.width || "800px",
