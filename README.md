@@ -14,9 +14,10 @@ When building content for the web, you might need to communicate with elements o
 **&Lt;**
 [**Documentation**](https://github.com/jeffreylanters/react-unity-webgl/wiki) &middot;
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
-[**My other Modules**](https://github.com/elraccoone) &middot;
-[**Buy me a Coffee**](https://paypal.me/jeffreylanters)
+[**My other Modules**](https://github.com/elraccoone)
 **&Gt;**
+
+This package is a open source hobby project with ongoing development. A result of a long road since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://paypal.me/jeffreylanters) to support the project. Thank you!
 
 Made with &hearts; by Jeffrey Lanters
 
