@@ -12,4 +12,7 @@ logs
 *.js
 #.ts
 
+dist/
+*.tgz
+
 #.github
