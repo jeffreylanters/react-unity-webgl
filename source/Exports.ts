@@ -1,6 +1,6 @@
-import { UnityVersion } from "./enums/UnityVersion";
-import UnityContent from "./UnityContent";
 import Unity from "./components/Unity";
+import UnityContent from "./UnityContent";
+import { UnityVersion } from "./declarations/UnityVersion";
 
-export { UnityContent, UnityVersion };
 export default Unity;
+export { UnityContent, UnityVersion };

@@ -71,8 +71,10 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
    * When the window is resized.
    */
   private onWindowResize(): void {
-    if (this.unityContent.unityConfig.adjustOnWindowResize === true)
+    if (this.unityContent.unityConfig.adjustOnWindowResize === true) {
+      this.unityContent.triggerUnityEvent("resized");
       this.adjustCanvasToContainer();
+    }
   }
 
   /**
@@ -122,6 +124,7 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
    * @public
    */
   public componentWillUnmount(): void {
+    this.unityContent.remove();
     window.removeEventListener("resize", this.onWindowResizeBinding);
   }
 

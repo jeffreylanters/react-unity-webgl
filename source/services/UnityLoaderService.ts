@@ -23,13 +23,18 @@ export default class UnityLoaderService {
    * @public
    */
   public append(source: string, onLoad: Function): void {
+    if (typeof this.unityLoaderScript !== "undefined") {
+      if (source === this.unityLoaderScript.src) {
+        return onLoad();
+      } else {
+        this.unityLoaderScript.remove();
+      }
+    }
     this.unityLoaderScript = document.createElement("script");
     this.unityLoaderScript.type = "text/javascript";
     this.unityLoaderScript.async = true;
     this.unityLoaderScript.src = source;
-    this.unityLoaderScript.onload = () => {
-      onLoad();
-    };
+    this.unityLoaderScript.onload = () => onLoad();
     this.documentHead.appendChild(this.unityLoaderScript);
   }
 }

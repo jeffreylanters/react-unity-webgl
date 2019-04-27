@@ -20,4 +20,13 @@ declare class UnityInstance {
    * @public
    */
   public SetFullscreen(fullScreen: number): void;
+
+  /**
+   * Quits the Unity WebGL application
+   * and removes it from the memory.
+   * Omly for Unity 2019.1 and newer!
+   * https://forum.unity.com/threads/quit-and-memory-cleanup.571210/
+   * @param {Function} callback
+   */
+  public Quit(onQuitCallback: () => void): void;
 }

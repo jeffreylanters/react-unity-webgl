@@ -6,8 +6,7 @@
   "scripts": {
     "start": "tsc --watch",
     "compile": "tsc",
-    "prepublish": "npm run compile",
-    "test": "echo \"Use Test repo to run tests.\""
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
