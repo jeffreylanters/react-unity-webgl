@@ -1,12 +1,12 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "declaration": true,
-        "declarationMap": true,
-        "sourceMap": true,
-        "strict": true,
-        "esModuleInterop": true,
-        "outDir": "dist"
-    }
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "distrubition"
+  }
 }

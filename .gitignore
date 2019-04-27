@@ -1,18 +1,7 @@
-.node_repl_history
-npm-debug.log*
-node_modules
-.DS_Store
-*.log
-.npm
-logs
+distrubition
 
-*.d.ts.map
-*.js.map
-*.d.ts
-*.js
-#.ts
 
-dist/
 *.tgz
-
-#.github
+.node_repl_history
+.DS_Store
+node_modules
