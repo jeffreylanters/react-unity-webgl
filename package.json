@@ -5,8 +5,8 @@
   "main": "./distribution/Exports.js",
   "scripts": {
     "start": "tsc --watch",
-    "compile": "tsc",
-    "prepublish": "npm run compile"
+    "test": "tsc",
+    "prepublish": "npm run test"
   },
   "repository": {
     "type": "git",

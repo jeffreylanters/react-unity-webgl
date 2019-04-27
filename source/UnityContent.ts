@@ -89,6 +89,9 @@ export default class UnityContent {
       adjustOnWindowResize: _unityConfig.adjustOnWindowResize,
       id: _unityConfig.id || "nill"
     } as IUnityConfig;
+
+    if (typeof (window as any).ReactUnityWebGL === "undefined")
+      (window as any).ReactUnityWebGL = {};
   }
 
   /**
@@ -172,12 +175,11 @@ export default class UnityContent {
    * @public
    */
   public on(eventName: string, eventCallback: Function): any {
+    console.log("HELLO!", eventName);
     this.unityEvents.push({
       eventName: eventName,
       eventCallback: eventCallback
     });
-    if (typeof (window as any).ReactUnityWebGL === "undefined")
-      (window as any).ReactUnityWebGL = {};
     (window as any).ReactUnityWebGL[eventName] = (parameter: any) => {
       return eventCallback(parameter);
     };
