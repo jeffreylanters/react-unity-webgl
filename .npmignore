@@ -1,8 +1,3 @@
+node_modules
 source
 .github
-
-
-*.tgz
-.node_repl_history
-.DS_Store
-node_modules
