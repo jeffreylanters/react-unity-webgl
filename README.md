@@ -11,7 +11,7 @@
 
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
-> _This package is a open source hobby project with ongoing development. A result of a long road since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://paypal.me/jeffreylanters) to support the project. Thank you!_ 🥳
+__This package is a open source hobby project with ongoing development. A result of a long road since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://paypal.me/jeffreylanters) to support the project. Thank you!__ 🥳
 
 **&Lt;**
 [**Documentation**](https://github.com/jeffreylanters/react-unity-webgl/wiki) &middot;
