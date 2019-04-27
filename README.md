@@ -53,21 +53,3 @@ export class App extends React.Component {
   }
 }
 ```
-
-# Development and test cycle
-
-If you want to modify this package and iteratively test it in inside your application, use the following steps while you're inside the directory of your own application:
-
-```sh
-cd ../react-unity-webgl/
-npm pack
-cd ../yourapp
-npm remove react-unity-webgl
-npm install ../react-unity-webgl/react-unity-webgl-x.y.z.tgz
-```
-
-The "npm pack" command creates a .tgz file exactly the way it would if you were going to publish the package to npm. You can use that .tgz file to install it in your app. That way you can be sure that everything works exactly as it will do when you publish the package, later.
-
-Do not use a symlink-based technique (e.g. with the "npm link" command) because [npm link breaks libraries that are based on React](https://dev.to/vcarl/testing-npm-packages-before-publishing-h7o).
-
-This package here _must not_ have a dependency on React, only a dev dependency on @types/react. Otherwise, the users of this package might install two different versions of React which will lead to problems.
