@@ -175,7 +175,6 @@ export default class UnityContent {
    * @public
    */
   public on(eventName: string, eventCallback: Function): any {
-    console.log("HELLO!", eventName);
     this.unityEvents.push({
       eventName: eventName,
       eventCallback: eventCallback
