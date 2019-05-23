@@ -1,3 +1,5 @@
+import { loggingService } from "./LoggingService";
+
 export default class UnityLoaderService {
   /**
    * Reference to the document head.
@@ -23,19 +25,29 @@ export default class UnityLoaderService {
    * @public
    */
   public append(source: string, onLoad: Function): void {
-    if (typeof this.unityLoaderScript !== "undefined") {
+    if (typeof this.unityLoaderScript !== "undefined")
       if (source === this.unityLoaderScript.src) {
-        onLoad();
-        return;
+        return onLoad();
       } else {
         this.unityLoaderScript.remove();
       }
-    }
-    this.unityLoaderScript = document.createElement("script");
-    this.unityLoaderScript.type = "text/javascript";
-    this.unityLoaderScript.async = true;
-    this.unityLoaderScript.src = source;
-    this.unityLoaderScript.onload = () => onLoad();
-    this.documentHead.appendChild(this.unityLoaderScript);
+    window.fetch(source).then(_response => {
+      if (_response.status >= 400)
+        return loggingService.errorUnityLoaderNotFound();
+      _response.text().then(_text => {
+        if (_text.trim().charAt(0) === "<")
+          return loggingService.errorUnityLoaderNotFound();
+        this.unityLoaderScript = document.createElement("script");
+        this.unityLoaderScript.type = "text/javascript";
+        this.unityLoaderScript.async = true;
+        this.unityLoaderScript.src = source;
+        this.unityLoaderScript.onload = () => {
+          if (typeof (window as any).UnityLoader === "undefined")
+            return loggingService.errorUnityLoaderNotFound();
+          onLoad();
+        };
+        this.documentHead.appendChild(this.unityLoaderScript);
+      });
+    });
   }
 }
