@@ -1,10 +1,10 @@
 import IUnityConfig from "./interfaces/IUnityConfig";
 import IUnityEvent from "./interfaces/IUnityEvent";
-import { UnityVersion } from "./declarations/UnityVersion";
 import UnityComponent from "./components/Unity";
 import "./declarations/UnityLoader";
 import "./declarations/UnityInstance";
 import "./declarations/ReactUnityWebgl";
+import { loggingService } from "./services/LoggingService";
 
 export default class UnityContent {
   /**
@@ -135,13 +135,7 @@ export default class UnityContent {
         this.triggerUnityEvent("quitted");
         this.unityInstance = undefined;
       });
-    console.warn(
-      "Your version of Unity does not support unloading the WebGL Player. " +
-        "This preverts ReactUnityWebGL from unmounting this component properly. " +
-        "Please consider updating to Unity 2019.1 or newer, or reload the page " +
-        "to free the WebGL Player from the memory. See the follow link for more details: " +
-        "https://github.com/elraccoone/react-unity-webgl/issues/22"
-    );
+    return loggingService.warnUnityContentRemoveNotAvailable();
   }
 
   /**
