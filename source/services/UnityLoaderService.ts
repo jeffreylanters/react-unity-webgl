@@ -25,7 +25,8 @@ export default class UnityLoaderService {
   public append(source: string, onLoad: Function): void {
     if (typeof this.unityLoaderScript !== "undefined") {
       if (source === this.unityLoaderScript.src) {
-        return onLoad();
+        onLoad();
+        return;
       } else {
         this.unityLoaderScript.remove();
       }
