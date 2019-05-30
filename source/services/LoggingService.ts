@@ -10,7 +10,13 @@ class LoggingService {
   }
 
   public errorUnityLoaderNotFound(): void {
-    // TODO
+    this.warn(
+      "Unable to use the Unity Loader, please make sure you've imported",
+      "the Unity Loader the correct way. You might have entered an incorrect",
+      "path to the UnityLoader.js. The path is not relative to your bundle,",
+      "but to your index html file. See the follow link for more details: ",
+      "https://github.com/elraccoone/react-unity-webgl/issues/31"
+    );
   }
 
   private warn(...messages: string[]): void {
