@@ -35,12 +35,12 @@ export default class UnityLoaderService {
       .fetch(source)
       .then(_response => {
         if (_response.status >= 400)
-          return loggingService.errorUnityLoaderNotFound();
+          return loggingService.errorUnityLoaderNotFound(_response.status);
         _response
           .text()
           .then(_text => {
             if (_text.trim().charAt(0) === "<")
-              return loggingService.errorUnityLoaderNotFound();
+              return loggingService.errorUnityLoaderNotFound("error doc");
             this.unityLoaderScript = document.createElement("script");
             this.unityLoaderScript.type = "text/javascript";
             this.unityLoaderScript.async = true;
@@ -52,8 +52,8 @@ export default class UnityLoaderService {
             };
             this.documentHead.appendChild(this.unityLoaderScript);
           })
-          .catch(_reason => loggingService.errorUnityLoaderNotFound());
+          .catch(_reason => loggingService.errorUnityLoaderNotFound(_reason));
       })
-      .catch(_reason => loggingService.errorUnityLoaderNotFound());
+      .catch(_reason => loggingService.errorUnityLoaderNotFound(_reason));
   }
 }
