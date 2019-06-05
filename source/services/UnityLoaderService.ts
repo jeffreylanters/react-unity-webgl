@@ -31,23 +31,29 @@ export default class UnityLoaderService {
       } else {
         this.unityLoaderScript.remove();
       }
-    window.fetch(source).then(_response => {
-      if (_response.status >= 400)
-        return loggingService.errorUnityLoaderNotFound();
-      _response.text().then(_text => {
-        if (_text.trim().charAt(0) === "<")
+    window
+      .fetch(source)
+      .then(_response => {
+        if (_response.status >= 400)
           return loggingService.errorUnityLoaderNotFound();
-        this.unityLoaderScript = document.createElement("script");
-        this.unityLoaderScript.type = "text/javascript";
-        this.unityLoaderScript.async = true;
-        this.unityLoaderScript.src = source;
-        this.unityLoaderScript.onload = () => {
-          if (typeof (window as any).UnityLoader === "undefined")
-            return loggingService.errorUnityLoaderNotFound();
-          onLoad();
-        };
-        this.documentHead.appendChild(this.unityLoaderScript);
-      });
-    });
+        _response
+          .text()
+          .then(_text => {
+            if (_text.trim().charAt(0) === "<")
+              return loggingService.errorUnityLoaderNotFound();
+            this.unityLoaderScript = document.createElement("script");
+            this.unityLoaderScript.type = "text/javascript";
+            this.unityLoaderScript.async = true;
+            this.unityLoaderScript.src = source;
+            this.unityLoaderScript.onload = () => {
+              if (typeof (window as any).UnityLoader === "undefined")
+                return loggingService.errorUnityLoaderNotFound();
+              onLoad();
+            };
+            this.documentHead.appendChild(this.unityLoaderScript);
+          })
+          .catch(_reason => loggingService.errorUnityLoaderNotFound());
+      })
+      .catch(_reason => loggingService.errorUnityLoaderNotFound());
   }
 }
