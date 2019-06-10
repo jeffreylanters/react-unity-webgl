@@ -106,9 +106,9 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
     window.addEventListener("resize", this.onWindowResizeBinding);
     // prettier-ignore
     this.unityLoaderService.append(this.props.unityContent.unityLoaderJsPath, () => {
-      UnityLoader.Error.handler = (_error) => {
-        this.unityContent.triggerUnityEvent("error", _error);
-        console.error("React Unity WebGL", _error);
+      UnityLoader.Error.handler = (_message) => {
+        this.unityContent.triggerUnityEvent("error", _message);
+        console.error("React Unity WebGL", _message);
       };
       this.unityContent.setUnityInstance(UnityLoader.instantiate(
         `__ReactUnityWebGL_${ this.props.unityContent.uniqueID}__`,
