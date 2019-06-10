@@ -14,4 +14,11 @@ declare class UnityLoader {
     source: string,
     options?: Object
   ): UnityInstance;
+
+  /**
+   * Unity error handler.
+   */
+  public static Error: {
+    handler: (error: string) => void;
+  };
 }
