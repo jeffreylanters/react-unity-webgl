@@ -6,8 +6,6 @@ declare class UnityLoader {
    * @param elementId the element ID where to bind the player.
    * @param source the path to the build json source.
    * @param options optional options to pass to the player.
-   * @public
-   * @static
    */
   public static instantiate(
     elementId: string,
@@ -16,9 +14,12 @@ declare class UnityLoader {
   ): UnityInstance;
 
   /**
-   * Unity error handler.
+   * Unity Error class.
    */
   public static Error: {
+    /**
+     * The error event handler.
+     */
     handler: (error: string) => void;
   };
 
