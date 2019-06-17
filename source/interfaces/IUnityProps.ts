@@ -15,6 +15,12 @@ export default interface IUnityProps {
   className?: string;
 
   /**
+   * The class name for the canvas.
+   * @type {string}
+   */
+  canvasClassName?: string;
+
+  /**
    * The width of the element.
    * @type {string | number}
    */
