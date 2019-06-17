@@ -6,7 +6,6 @@ declare class UnityInstance {
    * @param gameObjectName the game object name.
    * @param methodName the public method name.
    * @param parameter an optional parameter.
-   * @public
    */
   public SendMessage(
     gameObjectName: string,
@@ -17,7 +16,6 @@ declare class UnityInstance {
   /**
    * Sets the player to fullscreen.
    * @param {boolean} fullScreen
-   * @public
    */
   public SetFullscreen(fullScreen: number): void;
 
