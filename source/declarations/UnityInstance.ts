@@ -27,4 +27,18 @@ declare class UnityInstance {
    * @param {Function} callback
    */
   public Quit(onQuitCallback: () => void): void;
+
+  /**
+   * Loads JS code blob into the memory.
+   * @param url the url to the js blob code
+   * @param onLoad on load callback
+   */
+  public LoadJSCodeBlob(url: string, onLoad: () => void): void;
+
+  /**
+   * Loads JS code into the memory.
+   * @param url the url to the js code
+   * @param onLoad on load callback
+   */
+  public LoadJSCode(url: string, onLoad: () => void): void;
 }
