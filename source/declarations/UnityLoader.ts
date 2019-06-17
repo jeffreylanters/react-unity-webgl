@@ -21,4 +21,24 @@ declare class UnityLoader {
   public static Error: {
     handler: (error: string) => void;
   };
+
+  /**
+   * Unity system info.
+   */
+  public static SystemInfo: {
+    /**
+     * Does the current system support webGL?
+     */
+    hasWebGL: boolean;
+
+    /**
+     * Is the current system a mobile device?
+     */
+    mobile: boolean;
+
+    /**
+     * The current systems browser.
+     */
+    browser: string;
+  };
 }
