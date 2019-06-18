@@ -2,12 +2,10 @@
 
 <img src="https://raw.githubusercontent.com/elraccoone/react-unity-webgl/master/.github/WIKI/logo.png" height="300px"></br>
 
-[![license](https://img.shields.io/badge/license-Apache_2.0-red.svg)]()
-[![npm](https://img.shields.io/npm/v/react-unity-webgl.svg)]()
-[![npm](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
-[![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg)]()
-[![npm](https://img.shields.io/badge/supported-typescript-2a507e.svg)]()
-[![npm](https://img.shields.io/badge/supported-babel-yellow.svg)]()
+[![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)]()
 
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
