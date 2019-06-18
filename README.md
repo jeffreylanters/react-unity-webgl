@@ -9,7 +9,7 @@
 
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
-**This package is an open source hobby project with ongoing development. A result of a long road since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://paypal.me/jeffreylanters) to support the project. Thank you!** 🥳
+**This package is an open source hobby project with ongoing development. A result of a long road since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://paypal.me/jeffreylanters) to support the the project. Thank you!** 🥳
 
 **&Lt;**
 [**Documentation**](https://github.com/jeffreylanters/react-unity-webgl/wiki) &middot;
@@ -23,7 +23,7 @@ Made with &hearts; by Jeffrey Lanters
 
 # Installation
 
-Install using npm. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version or [view on NPM](https://www.npmjs.com/package/react-unity-webgl).
+Install using npm for your JavaScript (babel) and TypeScript React Project. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. For the corresponding, check the releases on [GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) or [NPM](https://www.npmjs.com/package/react-unity-webgl).
 
 ```sh
 $ npm install react-unity-webgl
@@ -31,7 +31,7 @@ $ npm install react-unity-webgl
 
 # Usage
 
-To get started import the Unity and Unity Content class from the React Unity WebGL library. Create a new content object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/jeffreylanters/react-unity-webgl/wiki), follow the [quick start guide](https://github.com/jeffreylanters/react-unity-webgl/wiki/Quick-Start-Guide) or open an [issue](https://github.com/jeffreylanters/react-unity-webgl/issues) on this repository.
+To get started import the Unity and Unity Content class from the React Unity WebGL library. Create a new content object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/jeffreylanters/react-unity-webgl/wiki) or go straight to the [quick start guide](https://github.com/jeffreylanters/react-unity-webgl/wiki/Quick-Start-Guide). Have fun coding!
 
 ```jsx
 import React from "react";
