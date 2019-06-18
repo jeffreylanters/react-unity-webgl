@@ -23,7 +23,7 @@ Made with &hearts; by Jeffrey Lanters
 
 # Installation
 
-Install using npm for your JavaScript (babel) and TypeScript React Project. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. Check the [releases on GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) for the corresponding version or [view on NPM](https://www.npmjs.com/package/react-unity-webgl).
+Install using npm for your JavaScript (babel) and TypeScript React Project. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. For the corresponding, check the releases on [GitHub](https://github.com/jeffreylanters/react-unity-webgl/releases) or [NPM](https://www.npmjs.com/package/react-unity-webgl).
 
 ```sh
 $ npm install react-unity-webgl
