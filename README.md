@@ -5,6 +5,7 @@
 [![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)]()
+
 [![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/github/stars/elraccoone/react-unity-webgl.svg?style=for-the-badge)]()
 
