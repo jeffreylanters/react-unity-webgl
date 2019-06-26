@@ -1,5 +1,6 @@
 export type UnityVersion =
   | "undefined"
+  | "2019.1.6"
   | "2019.1.5"
   | "2019.1.4"
   | "2019.1.3"
