@@ -6,7 +6,8 @@
   "scripts": {
     "start": "tsc --watch",
     "test": "tsc",
-    "prepublish": "npm run test"
+    "prepublish": "npm run test",
+    "postinstall": "opencollective-postinstall || true"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,12 @@
   "devDependencies": {
     "@types/react": "16.8.14",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "opencollective-postinstall": "^2.0.2"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/react-unity-webgl"
   }
 }
