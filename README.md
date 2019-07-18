@@ -15,13 +15,14 @@ When building content for the web, you might need to communicate with elements o
 
 **&Lt;**
 [**Documentation**](https://github.com/elraccoone/react-unity-webgl/wiki) &middot;
-[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
-[**My other Modules**](https://github.com/elraccoone)
+[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test)
 **&Gt;**
 
 Made with &hearts; by Jeffrey Lanters
 
-</div></br></br>
+</div><br/><br/>
+
+> Pssst... Need a simple and light-weight **router** for you React Application? Try [Alakazam](https://github.com/elraccoone/alakazam)!
 
 # Installation
 
