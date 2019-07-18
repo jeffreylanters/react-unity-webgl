@@ -20,9 +20,11 @@ When building content for the web, you might need to communicate with elements o
 
 Made with &hearts; by Jeffrey Lanters
 
-</div><br/><br/>
+<br/><br/>
 
-> Pssst... Need a simple and light-weight **router** for you React Application? Try [Alakazam](https://github.com/elraccoone/alakazam)!
+_Pssst... Need a simple and light-weight **router** for you React Application? Try [Alakazam](https://github.com/elraccoone/alakazam)!_
+
+</div>
 
 # Installation
 
