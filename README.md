@@ -22,7 +22,7 @@ Made with &hearts; by Jeffrey Lanters
 
 <br/><br/>
 
-_Pssst... Need a simple and lightweight **router** for you React Application? Try [Alakazam](https://github.com/elraccoone/alakazam)!_
+[_Pssst... Need a simple and lightweight **router** for you React Application?_](https://github.com/elraccoone/alakazam)
 
 </div>
 
