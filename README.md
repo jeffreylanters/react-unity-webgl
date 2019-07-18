@@ -22,8 +22,8 @@ Made with &hearts; by Jeffrey Lanters
 
 <br/><br/>
 
-_Pssst... Need a simple and lightweight **router** for you React Application?_ <br/>
-[_Try Alakazam_](https://github.com/elraccoone/alakazam)
+_Pssst... Need a simple and lightweight **router** for your React Application?_ <br/>
+[_Try Alakazam!_](https://github.com/elraccoone/alakazam)
 
 </div>
 
