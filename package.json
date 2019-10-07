@@ -13,9 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/elraccoone/react-unity-webgl.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "keywords": [
     "React",
     "Unity",
