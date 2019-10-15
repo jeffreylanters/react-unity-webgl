@@ -9,10 +9,6 @@
     "prepublish": "npm run build",
     "build": "tsc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/elraccoone/react-unity-webgl.git"
-  },
   "keywords": [
     "React",
     "Unity",
@@ -20,6 +16,7 @@
   ],
   "author": "Jeffrey Lanters",
   "license": "Apache-2.0",
+  "repository": "git://github.com/elraccoone/react-unity-webgl.git",
   "bugs": "https://github.com/elraccoone/react-unity-webgl/issues",
   "homepage": "https://github.com/elraccoone/react-unity-webgl/wiki",
   "devDependencies": {
