@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elraccoone/react-unity-webgl.git"
+    "url": "git://github.com/elraccoone/react-unity-webgl.git"
   },
   "keywords": [
     "React",
