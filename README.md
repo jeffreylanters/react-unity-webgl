@@ -46,19 +46,13 @@ To get started import the Unity and Unity Content class from the React Unity Web
 import React from "react";
 import Unity, { UnityContent } from "react-unity-webgl";
 
-export class App extends React.Component {
-  constructor(props) {
-    super(props);
+const unityContent = new UnityContent(
+  "MyGame/Build.json",
+  "MyGame/UnityLoader.js"
+);
 
-    this.unityContent = new UnityContent(
-      "MyGame/Build.json",
-      "MyGame/UnityLoader.js"
-    );
-  }
-
-  render() {
-    return <Unity unityContent={this.unityContent} />;
-  }
+const App = () => {
+  return <Unity unityContent={unityContent} />;
 }
 ```
 
