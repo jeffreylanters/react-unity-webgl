@@ -16,7 +16,7 @@ When building content for the web, you might need to communicate with elements o
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test)
 **&Gt;**
 
-<br/>
+<br/><br/>
 
 [![npm](https://img.shields.io/badge/support_the_project-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
 
