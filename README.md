@@ -20,9 +20,11 @@ When building content for the web, you might need to communicate with elements o
 
 [![npm](https://img.shields.io/badge/support_the_project-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
 
-**This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider donating to support the project. Thank you!** 🥳
+This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider donating to support the project. Thank you!
 
+**&Lt;**
 Made with &hearts; by Jeffrey Lanters
+**&Gt;**
 
 <br/><br/>
 
