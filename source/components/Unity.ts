@@ -85,16 +85,14 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
    * @private
    */
   private adjustCanvasToContainer(): void {
-    const _width = this.htmlElement!.offsetWidth;
-    const _height = this.htmlElement!.offsetHeight;
-    const _canvas = this.htmlElement!.getElementsByTagName("canvas")[0];
-    if (_canvas != null) {
-      if (_canvas.height !== _height) {
+    if (typeof this.htmlElement !== "undefined") {
+      const _width = this.htmlElement.offsetWidth;
+      const _height = this.htmlElement.offsetHeight;
+      const _canvas = this.htmlElement.getElementsByTagName("canvas")[0];
+      if (typeof _canvas !== "undefined" && _canvas.height !== _height)
         _canvas.height = _height;
-      }
-      if (_canvas.width !== _width) {
+      if (typeof _canvas !== "undefined" && _canvas.width !== _width)
         _canvas.width = _width;
-      }
     }
   }
 
