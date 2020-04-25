@@ -44,9 +44,9 @@ $ npm install react-unity-webgl
 # Unity 2018 and 2019
 $ npm install react-unity-webgl@7.x
 # Unity 2017
-$ npm install react-unity-webgl@7.0.x
-# Unity 5.6
 $ npm install react-unity-webgl@6.x
+# Unity 5.6
+$ npm install react-unity-webgl@5.x
 ```
 
 # Usage
