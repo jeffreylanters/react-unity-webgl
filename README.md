@@ -36,13 +36,13 @@ Install using npm for your JavaScript (babel) and TypeScript React Project. Make
 
 ```sh
 # Unity 2020
-$ npm install react-unity-webgl
+$ npm install react-unity-webgl@8.x
 # Unity 2018 and 2019
 $ npm install react-unity-webgl@7.x
 # Unity 2017
-$ npm install react-unity-webgl@7.0.9
+$ npm install react-unity-webgl@7.0.x
 # Unity 5.6
-$ npm install react-unity-webgl@6.0.0
+$ npm install react-unity-webgl@6.x
 ```
 
 # Usage
