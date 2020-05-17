@@ -41,7 +41,7 @@ $ npm install react-unity-webgl
 $ npm install react-unity-webgl@7.x
 # Unity 2017 (Long Time Service)
 $ npm install react-unity-webgl@6.x
-# Unity 5.6 (No Longer Maintained)
+# Unity 5.6 (Unity No Longer Maintained)
 $ npm install react-unity-webgl@5.x
 ```
 
