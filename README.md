@@ -32,7 +32,7 @@ This package is an open source hobby project with ongoing development. A result 
 
 # Installation
 
-Install using npm for your JavaScript (babel) and TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. 
+Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. 
 
 ```sh
 $ npm install react-unity-webgl@8.x    # For Unity 2020
