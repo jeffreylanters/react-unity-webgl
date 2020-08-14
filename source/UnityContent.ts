@@ -3,7 +3,7 @@ import IUnityEvent from "./interfaces/IUnityEvent";
 import UnityComponent from "./components/Unity";
 import "./declarations/UnityLoader";
 import "./declarations/UnityInstance";
-import "./declarations/ReactUnityWebgl";
+import "./declarations/ReactUnityWebGL";
 import { loggingService } from "./services/LoggingService";
 
 export default class UnityContent {

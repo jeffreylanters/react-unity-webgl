@@ -5,7 +5,7 @@ import UnityContent from "../UnityContent";
 import UnityLoaderService from "../services/UnityLoaderService";
 import "../declarations/UnityLoader";
 import "../declarations/UnityInstance";
-import "../declarations/ReactUnityWebgl";
+import "../declarations/ReactUnityWebGL";
 
 export default class Unity extends React.Component<IUnityProps, IUnityState> {
   /**
