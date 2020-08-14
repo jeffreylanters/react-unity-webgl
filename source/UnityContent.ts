@@ -1,6 +1,6 @@
 import IUnityConfig from "./interfaces/IUnityConfig";
-import IUnityEvent from "./interfaces/IUnityEvent";
 import UnityComponent from "./components/Unity";
+import UnityEvents from "./UnityEvents";
 import "./declarations/UnityLoader";
 import "./declarations/UnityInstance";
 import "./declarations/ReactUnityWebGL";
@@ -43,11 +43,18 @@ export default class UnityContent {
   public unityConfig: IUnityConfig;
 
   /**
-   * The registered Unity Events.
-   * @type {IUnityEvent[]}
-   * @public
+   * The registered instance Unity Events.
+   * @type {UnityEvents}
+   * @private
    */
-  private unityEvents: IUnityEvent[];
+  private unityInstanceEvents: UnityEvents;
+
+  /**
+   * The registered global Unity Events associated with ReactUnityWebGL object.
+   * @type {UnityEvents}
+   * @private
+   */
+  static unityGlobalEvents: UnityEvents = new UnityEvents();
 
   /**
    * The unique ID helps seperating multiple
@@ -82,7 +89,7 @@ export default class UnityContent {
     this.buildJsonPath = buildJsonPath;
     this.unityLoaderJsPath = unityLoaderJsPath;
     this.uniqueID = ++UnityContent.uniqueID;
-    this.unityEvents = [];
+    this.unityInstanceEvents = new UnityEvents();
     this.unityConfig = {
       modules: _unityConfig.modules || {},
       unityVersion: _unityConfig.unityVersion || "undefined",
@@ -169,13 +176,13 @@ export default class UnityContent {
    * @public
    */
   public on(eventName: string, eventCallback: Function): any {
-    this.unityEvents.push({
-      eventName: eventName,
-      eventCallback: eventCallback
-    });
-    (window as any).ReactUnityWebGL[eventName] = (parameter: any) => {
-      return eventCallback(parameter);
-    };
+    this.unityInstanceEvents.AddEventListener(eventName, eventCallback);
+
+    UnityContent.unityGlobalEvents.AddEventListener(eventName, eventCallback);
+    if (typeof (window as any).ReactUnityWebGL[eventName] === 'undefined') {
+      (window as any).ReactUnityWebGL[eventName] = (parameter: any) =>
+        UnityContent.unityGlobalEvents.DispatchEvent(eventName, parameter);
+    }
   }
 
   /**
@@ -186,8 +193,6 @@ export default class UnityContent {
    * @public
    */
   public triggerUnityEvent(eventName: string, eventValue?: any): void {
-    for (let _i = 0; _i < this.unityEvents.length; _i++)
-      if (this.unityEvents[_i].eventName === eventName)
-        this.unityEvents[_i].eventCallback(eventValue);
+    this.unityInstanceEvents.DispatchEvent(eventName, eventValue);
   }
 }
