@@ -27,7 +27,6 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
    * An event that is triggered by the Unity player. This tracks
    * the loading progression of the player. It will send '1' when
    * the loading is completed.
-   * @param {UnityInstance} unityInstance
    * @param {number} progression
    */
   private onProgress(progression: number): void {
@@ -70,7 +69,6 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
    * Renders the unity wrapper and player.
    * @returns {React.ReactNode} element
-   * @public
    */
   public render(): React.ReactNode {
     return createElement("canvas", {
