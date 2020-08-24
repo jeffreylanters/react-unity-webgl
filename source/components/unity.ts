@@ -31,9 +31,9 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
    * @param {number} progression
    */
   private onProgress(progression: number): void {
-    this.unityContext.triggerUnityEvent("progress", progression);
+    this.unityContext.invokeEventListener("progress", progression);
     if (progression === 1) {
-      this.unityContext.triggerUnityEvent("loaded");
+      this.unityContext.invokeEventListener("loaded");
     }
   }
 

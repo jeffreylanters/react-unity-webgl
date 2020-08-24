@@ -56,7 +56,7 @@ export default class UnityContext {
   public quitUnityInstance(): void {
     if (typeof this.unityInstance !== "undefined")
       this.unityInstance.Quit().then(() => {
-        this.triggerUnityEvent("quitted");
+        this.invokeEventListener("quitted");
         this.unityInstance = undefined;
       });
   }
@@ -84,21 +84,21 @@ export default class UnityContext {
    * system events like when the player is initialized or loader and
    * your custom events from Unity.
    * @param {string} eventName the event name
-   * @param {Function} eventCallback the event function
+   * @param {Function} eventListener the event function
    * @returns {any} The Function
    */
-  public on(eventName: string, eventCallback: Function): any {
-    this.unityEvents.push({ eventName, eventCallback });
+  public on(eventName: string, eventListener: Function): any {
+    this.unityEvents.push({ eventName, eventCallback: eventListener });
     (window as any).ReactUnityWebGL[eventName] = (parameter: any) =>
-      eventCallback(parameter);
+      eventListener(parameter);
   }
 
   /**
-   * Triggers an event that has been registered by the on function.
+   * Invokes an event listener that has been registered using the on function.
    * @param {string} eventName the event name
    * @param {Function} eventValue the event value
    */
-  public triggerUnityEvent(eventName: string, eventValue?: any): void {
+  public invokeEventListener(eventName: string, eventValue?: any): void {
     for (let _unityEvent of this.unityEvents)
       if (_unityEvent.eventName === eventName)
         _unityEvent.eventCallback(eventValue);
