@@ -32,10 +32,10 @@ This package is an open source hobby project with ongoing development. A result 
 
 # Installation
 
-Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. 
+Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible.
 
 ```sh
-$ npm install react-unity-webgl@8.x    # For Unity 2020
+$ npm install react-unity-webgl        # For Unity 2020
 $ npm install react-unity-webgl@7.x    # For Unity 2018 and 2019 (LTS)
 $ npm install react-unity-webgl@6.x    # For Unity 2017 (LTS)
 $ npm install react-unity-webgl@5.x    # For Unity 5.6 (LTS)
@@ -43,22 +43,23 @@ $ npm install react-unity-webgl@5.x    # For Unity 5.6 (LTS)
 
 # Usage
 
-To get started import the Unity and Unity Content class from the React Unity WebGL library. Create a new content object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/elraccoone/react-unity-webgl/wiki) or go straight to the [quick start guide](https://github.com/elraccoone/react-unity-webgl/wiki/Quick-Start-Guide). Have fun coding!
+To get started import the Unity and Unity Context class from the React Unity WebGL library. Create a new context object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/elraccoone/react-unity-webgl/wiki) or go straight to the [quick start guide](https://github.com/elraccoone/react-unity-webgl/wiki/Quick-Start-Guide). Have fun coding!
 
 ```jsx
 import React from "react";
 import Unity, { UnityContent } from "react-unity-webgl";
 
-const unityContent = new UnityContent(
-  "MyGame/Build.json",
-  "MyGame/UnityLoader.js"
-);
+const unityContext = new unityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
 const App = () => {
-  return <Unity unityContent={unityContent} />;
-}
+  return <Unity unityContext={unityContext} />;
+};
 ```
-
 
 # Backers
 
