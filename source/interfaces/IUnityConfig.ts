@@ -1,5 +1,3 @@
-import { UnityVersion } from "../declarations/UnityVersion";
-
 export default interface IUnityConfig {
   /**
    * The unique identifier helps you getting the instance
@@ -13,14 +11,6 @@ export default interface IUnityConfig {
    * @type {Object}
    */
   modules?: Object;
-
-  /**
-   * You can default your Unity Version. The library may
-   * contain future patches for specific Unity versions.
-   * It's not needed but is recommended to define a version.
-   * @type {UnityVersion}
-   */
-  unityVersion?: UnityVersion;
 
   /**
    * Since the Unity canvas itself does not respond to the resizing
