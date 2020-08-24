@@ -1,29 +1,27 @@
-import "../declarations/UnityLoader";
-import "../declarations/UnityInstance";
-import "../declarations/ReactUnityWebgl";
-import IUnityConfig from "../interfaces/IUnityConfig";
-import IUnityEvent from "../interfaces/IUnityEvent";
-import UnityComponent from "../components/Unity";
+import "../declarations/window";
+import IUnityConfig from "../interfaces/unityConfig";
+import IUnityEvent from "../interfaces/unityEvent";
+import UnityComponent from "../components/unity";
 
-export default class UnityContent {
+/**
+ * The Unity Context.
+ */
+export default class UnityContext {
   /**
-   * A reference to the Unity Component binded to this UnityContent.
+   * A reference to the Unity Component binded to this unityContext.
    * @type {UnityComponent}
-   * @private
    */
   private unityComponentReference?: UnityComponent;
 
   /**
-   * A reference to the Unity Instance binded to this UnityContent.
+   * A reference to the Unity Instance binded to this unityContext.
    * @type {UnityInstance}
-   * @private
    */
   private unityInstance?: UnityInstance;
 
   /**
-   * A list of the UnityEvents binded to this UnityContent.
+   * A list of the UnityEvents binded to this unityContext.
    * @type {IUnityEvent[]}
-   * @public
    */
   private unityEvents: IUnityEvent[] = [];
 
@@ -35,8 +33,7 @@ export default class UnityContent {
 
   /**
    * Sets the reference to the UnityComponent.
-   * @param unityComponentReference the unity component that will be binded to this content.
-   * @public
+   * @param {UnityComponent} unityComponentReference the unity component that will be binded to this content.
    */
   public setComponentReference(unityComponentReference: UnityComponent): void {
     this.unityComponentReference = unityComponentReference;
@@ -44,30 +41,18 @@ export default class UnityContent {
 
   /**
    * Sets the reference of the UnityInstance.
-   * @param unityInstance the unity component that will be binded to this content.
-   * @public
+   * @param {UnityInstance} unityInstance the unity component that will be binded to this content.
    */
   public setUnityInstance(unityInstance: UnityInstance): void {
     this.unityInstance = unityInstance;
   }
 
   /**
-   * Enables or disabled the fullscreen mode of the UnityInstance.
-   * @param {boolean} enabled
-   * @public
-   */
-  public setFullscreen(enabled: boolean): void {
-    if (this.unityInstance != null) {
-      this.unityInstance.SetFullscreen(enabled === true ? 1 : 0);
-    }
-  }
-
-  /**
    * Quits the Unity Instance and removes it from memory.
    */
-  public remove(): void {
+  public quitUnityInstance(): void {
     if (typeof this.unityInstance !== "undefined")
-      this.unityInstance.Quit(() => {
+      this.unityInstance.Quit().then(() => {
         this.triggerUnityEvent("quitted");
         this.unityInstance = undefined;
       });
@@ -78,14 +63,13 @@ export default class UnityContent {
    * @param {string} gameObjectName the name of the game object in your Unity scene.
    * @param {string} methodName the name of the public method on the game object.
    * @param {string | number | boolean} parameter an optional parameter to pass along to the method.
-   * @public
    */
   public send(
     gameObjectName: string,
     methodName: string,
     parameter?: string | number | boolean
   ): void {
-    if (this.unityInstance != null)
+    if (typeof this.unityInstance !== "undefined")
       if (typeof parameter === "undefined")
         this.unityInstance.SendMessage(gameObjectName, methodName);
       else
@@ -99,7 +83,6 @@ export default class UnityContent {
    * @param {string} eventName the event name
    * @param {Function} eventCallback the event function
    * @returns {any} The Function
-   * @public
    */
   public on(eventName: string, eventCallback: Function): any {
     this.unityEvents.push({ eventName, eventCallback });
@@ -114,11 +97,19 @@ export default class UnityContent {
    * function.
    * @param {string} eventName the event name
    * @param {Function} eventValue the event value
-   * @public
    */
   public triggerUnityEvent(eventName: string, eventValue?: any): void {
     for (let _unityEvent of this.unityEvents)
       if (_unityEvent.eventName === eventName)
         _unityEvent.eventCallback(eventValue);
+  }
+
+  /**
+   * Enables or disabled the fullscreen mode of the UnityInstance.
+   * @param {boolean} enabled
+   */
+  public setFullscreen(enabled: boolean): void {
+    if (typeof this.unityInstance !== "undefined")
+      this.unityInstance.SetFullscreen(enabled === true ? 1 : 0);
   }
 }
