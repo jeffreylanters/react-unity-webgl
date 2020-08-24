@@ -26,14 +26,14 @@ export default class UnityContext {
   private unityEvents: IUnityEvent[] = [];
 
   /**
-   * Creates a new instance of the Unity Content model.
+   * Creates a new instance of the Unity context model.
    * @param {IUnityConfig} unityConfig The Unity config used to build the player.
    */
   constructor(public unityConfig: IUnityConfig) {}
 
   /**
    * Sets the reference to the UnityComponent.
-   * @param {UnityComponent} unityComponentReference the unity component that will be binded to this content.
+   * @param {UnityComponent} unityComponentReference the target unity component.
    */
   public setComponentReference(unityComponentReference: UnityComponent): void {
     this.unityComponentReference = unityComponentReference;
@@ -41,7 +41,7 @@ export default class UnityContext {
 
   /**
    * Sets the reference of the UnityInstance.
-   * @param {UnityInstance} unityInstance the unity component that will be binded to this content.
+   * @param {UnityInstance} unityInstance the target unityInstance.
    */
   public setUnityInstance(unityInstance: UnityInstance): void {
     this.unityInstance = unityInstance;
@@ -62,7 +62,7 @@ export default class UnityContext {
    * Sends a message to the UnityInstance to invoke a public method.
    * @param {string} gameObjectName the name of the game object in your Unity scene.
    * @param {string} methodName the name of the public method on the game object.
-   * @param {string | number | boolean} parameter an optional parameter to pass along to the method.
+   * @param {string | number | boolean} parameter an optional method parameter.
    */
   public send(
     gameObjectName: string,
@@ -93,8 +93,7 @@ export default class UnityContext {
   }
 
   /**
-   * Triggers an event that has been registered by the on
-   * function.
+   * Triggers an event that has been registered by the on function.
    * @param {string} eventName the event name
    * @param {Function} eventValue the event value
    */

@@ -2,8 +2,7 @@ import UnityContext from "../models/unityContext";
 
 export default interface IUnityProps {
   /**
-   * The content that should be rendered within
-   * the Unity component.
+   * The context that should be rendered within the Unity component.
    * @type {UnityContext}
    */
   unityContext: UnityContext;

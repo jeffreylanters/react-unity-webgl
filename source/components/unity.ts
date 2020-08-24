@@ -7,7 +7,7 @@ import UnityLoaderService from "../services/unityLoaderService";
 
 export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
-   * The Unity content passed by the props.
+   * The Unity context passed by the props.
    * @type {UnityContext}
    */
   private unityContext: UnityContext = this.props.unityContext;
