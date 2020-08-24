@@ -5,9 +5,9 @@
   "main": "./distribution/Exports.js",
   "scripts": {
     "start": "tsc --watch",
-    "test": "npm run build",
-    "prepublish": "npm run build",
-    "build": "tsc"
+    "test": "tsc -d",
+    "prepublish": "tsc",
+    "package": "npm pack"
   },
   "keywords": [
     "React",
