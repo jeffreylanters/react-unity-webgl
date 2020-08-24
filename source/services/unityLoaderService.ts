@@ -23,8 +23,7 @@ export default class UnityLoaderService {
     return new Promise<void>((resolve, reject) => {
       if (typeof this.unityLoaderScript !== "undefined")
         if (url === this.unityLoaderScript.src) {
-          resolve();
-          return;
+          return resolve();
         } else {
           this.unityLoaderScript.remove();
         }
