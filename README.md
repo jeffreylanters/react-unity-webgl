@@ -35,10 +35,13 @@ Hi! My name is Jeffrey Lanters, thanks for visiting! This package is an open sou
 Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. Please keep in mind that some documentation may not be accurate when using an older version of this module.
 
 ```sh
-$ npm install react-unity-webgl        # For Unity 2020
-$ npm install react-unity-webgl@7.x    # For Unity 2018 and 2019 (LTS)
-$ npm install react-unity-webgl@6.x    # For Unity 2017 (LTS)
-$ npm install react-unity-webgl@5.x    # For Unity 5.6 (LTS)
+$ npm install react-unity-webgl
+```
+
+```sh
+$ npm install react-unity-webgl@7.x  # For Unity 2018 and 2019 (LTS)
+$ npm install react-unity-webgl@6.x  # For Unity 2017 (LTS)
+$ npm install react-unity-webgl@5.x  # For Unity 5.6 (LTS)
 ```
 
 # Usage
