@@ -52,7 +52,7 @@ To get started import the Unity and Unity Context class from the React Unity Web
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-const unityContext = new unityContext({
+const unityContext = new UnityContext({
   loaderUrl: "build/myunityapp.loader.js",
   dataUrl: "build/myunityapp.data",
   frameworkUrl: "build/myunityapp.framework.js",
