@@ -20,7 +20,7 @@ When building content for the web, you might need to communicate with elements o
 
 [![npm](https://img.shields.io/badge/sponsor_the_project-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
 
-This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider donating to support the project. Thank you!
+Hi! My name is Jeffrey Lanters, thanks for visiting! This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider donating to support the project. Thank you!
 
 **&Lt;**
 **Made with &hearts; by Jeffrey Lanters**
@@ -32,32 +32,34 @@ This package is an open source hobby project with ongoing development. A result 
 
 # Installation
 
-Install using npm for your JavaScript (babel) and TypeScript React Project. Make sure you download the release matching with your Unity version. I try to update this plugin in case of need as fast as possible. For the corresponding, check the releases on [GitHub](https://github.com/elraccoone/react-unity-webgl/releases) or [NPM](https://www.npmjs.com/package/react-unity-webgl).
-
-**IMPORTANT NOTE** Since development and maintaining this modules takes a lot of time and Unity [decided](https://forum.unity.com/threads/changes-to-the-webgl-loader-and-templates-introduced-in-unity-2020-1.817698/) to change their entire system of how WebGL builds work. I've decided to drop support for every Unity below 2020.1 from version `8.0.0`. If your project in build with this version of Unity, please either upgrade your project, or use version `7.x.x` of the React Unity WebGL package. I will release patches for Unity LTS builds, but since Unity rarely makes any big changes in their LTS builds, I do not expect to have to publish any patches. Development takes a lot of time, if you're using this module for production, please consider donating to support the project. You can follow the development `8.0.0` in this [issue](https://github.com/elraccoone/react-unity-webgl/issues/96). Thank you! 
+Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. Please keep in mind that some documentation may not be accurate when using an older version of this module.
 
 ```sh
-$ npm install react-unity-webgl
+$ npm install react-unity-webgl        # For Unity 2020
+$ npm install react-unity-webgl@7.x    # For Unity 2018 and 2019 (LTS)
+$ npm install react-unity-webgl@6.x    # For Unity 2017 (LTS)
+$ npm install react-unity-webgl@5.x    # For Unity 5.6 (LTS)
 ```
 
 # Usage
 
-To get started import the Unity and Unity Content class from the React Unity WebGL library. Create a new content object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/elraccoone/react-unity-webgl/wiki) or go straight to the [quick start guide](https://github.com/elraccoone/react-unity-webgl/wiki/Quick-Start-Guide). Have fun coding!
+To get started import the Unity and Unity Context class from the React Unity WebGL library. Create a new context object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/elraccoone/react-unity-webgl/wiki) or go straight to the [quick start guide](https://github.com/elraccoone/react-unity-webgl/wiki/Quick-Start-Guide). Have fun coding!
 
 ```jsx
 import React from "react";
-import Unity, { UnityContent } from "react-unity-webgl";
+import Unity, { UnityContext } from "react-unity-webgl";
 
-const unityContent = new UnityContent(
-  "MyGame/Build.json",
-  "MyGame/UnityLoader.js"
-);
+const unityContext = new unityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
 const App = () => {
-  return <Unity unityContent={unityContent} />;
-}
+  return <Unity unityContext={unityContext} />;
+};
 ```
-
 
 # Backers
 

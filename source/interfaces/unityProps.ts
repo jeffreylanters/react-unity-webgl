@@ -1,12 +1,11 @@
-import UnityContent from "../UnityContent";
+import UnityContext from "../models/unityContext";
 
 export default interface IUnityProps {
   /**
-   * The content that should be rendered within
-   * the Unity component.
-   * @type {UnityContent}
+   * The context that should be rendered within the Unity component.
+   * @type {UnityContext}
    */
-  unityContent: UnityContent;
+  unityContext: UnityContext;
 
   /**
    * The class name for the canvas wrapper.
