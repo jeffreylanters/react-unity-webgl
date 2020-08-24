@@ -29,7 +29,10 @@ export default class UnityContext {
    * Creates a new instance of the Unity context model.
    * @param {IUnityConfig} unityConfig The Unity config used to build the player.
    */
-  constructor(public unityConfig: IUnityConfig) {}
+  constructor(public unityConfig: IUnityConfig) {
+    if (typeof (window as any).ReactUnityWebGL === "undefined")
+      (window as any).ReactUnityWebGL = {};
+  }
 
   /**
    * Sets the reference to the UnityComponent.
@@ -86,8 +89,6 @@ export default class UnityContext {
    */
   public on(eventName: string, eventCallback: Function): any {
     this.unityEvents.push({ eventName, eventCallback });
-    if (typeof (window as any).ReactUnityWebGL === "undefined")
-      (window as any).ReactUnityWebGL = {};
     (window as any).ReactUnityWebGL[eventName] = (parameter: any) =>
       eventCallback(parameter);
   }
