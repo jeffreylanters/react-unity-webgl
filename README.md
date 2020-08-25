@@ -13,7 +13,8 @@ When building content for the web, you might need to communicate with elements o
 
 **&Lt;**
 [**Documentation**](https://github.com/elraccoone/react-unity-webgl/wiki) &middot;
-[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test)
+[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
+[**Buy me a Coffee**](https://paypal.me/jeffreylanters)
 **&Gt;**
 
 <br/><br/>
