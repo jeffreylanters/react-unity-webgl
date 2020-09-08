@@ -51,7 +51,7 @@ export default class UnityContext {
   }
 
   /**
-   * Quits the Unity Instance and removes it from memory.
+   * Quits the Unity Instance and clears it from memory.
    */
   public quitUnityInstance(): void {
     if (typeof this.unityInstance !== "undefined")

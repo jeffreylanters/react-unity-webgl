@@ -32,6 +32,7 @@ export default class UnityLoaderService {
       this.unityLoaderScript.async = true;
       this.unityLoaderScript.src = url;
       this.unityLoaderScript.onload = () => resolve();
+      this.unityLoaderScript.onerror = () => reject(`Unable to load ${url}`);
       this.documentHead.appendChild(this.unityLoaderScript);
     });
   }

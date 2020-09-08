@@ -7,13 +7,13 @@ import UnityLoaderService from "../services/unityLoaderService";
 
 export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
-   * The Unity context passed by the props.
+   * The UnityContext passed by the props.
    * @type {UnityContext}
    */
   private unityContext: UnityContext = this.props.unityContext;
 
   /**
-   * The Unity Loader service instance.
+   * The UnityLoader service instance.
    * @type {UnityLoaderService}
    */
   private unityLoaderService: UnityLoaderService = new UnityLoaderService();
@@ -24,9 +24,9 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
   private htmlCanvasElementReference?: HTMLCanvasElement;
 
   /**
-   * An event that is triggered by the Unity player. This tracks
-   * the loading progression of the player. It will send '1' when
-   * the loading is completed.
+   * Event invoked by the UnityInstance when the initialization is progressing.
+   * Will be used to track the loading progression and invokes the event listeners
+   * for both 'progress' and 'loaded' when the progression hits a value of '1'.
    * @param {number} progression
    */
   private onProgress(progression: number): void {
@@ -37,33 +37,51 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
   }
 
   /**
-   * Initialzied the Unity player when the component is mounted.
+   * Event invoked when the component is mounted. This sets the component
+   * reference and starts the mounting of the UnityInstance.
    */
-  public async componentDidMount(): Promise<void> {
+  public componentDidMount(): void {
     this.unityContext.setComponentReference(this);
-    await this.unityLoaderService.load(this.unityContext.unityConfig.loaderUrl);
-    const _unityInstanceParamters = {
-      dataUrl: this.unityContext.unityConfig.dataUrl,
-      frameworkUrl: this.unityContext.unityConfig.frameworkUrl,
-      codeUrl: this.unityContext.unityConfig.codeUrl,
-      streamingAssetsUrl: this.unityContext.unityConfig.streamingAssetsUrl,
-      companyName: this.unityContext.unityConfig.companyName,
-      productName: this.unityContext.unityConfig.productName,
-      productVersion: this.unityContext.unityConfig.productVersion,
-    };
-    const _unityInstance = await window.createUnityInstance(
-      this.htmlCanvasElementReference!,
-      _unityInstanceParamters,
-      this.onProgress.bind(this)
-    );
-    this.unityContext.setUnityInstance(_unityInstance);
+    this.mountUnityInstance();
   }
 
   /**
-   * When the component will be unmounted, the UnityInstance will quit.
+   * Event invoked when the component will unmount. This force quits the
+   * UnityInstance which will clear it from the memory.
    */
   public componentWillUnmount(): void {
     this.unityContext.quitUnityInstance();
+  }
+
+  /**
+   * Initialized the Unity Loader and mounts the UnityInstance to the component.
+   */
+  private async mountUnityInstance(): Promise<void> {
+    try {
+      await this.unityLoaderService.load(
+        this.unityContext.unityConfig.loaderUrl
+      );
+      const _unityInstanceParamters = {
+        dataUrl: this.unityContext.unityConfig.dataUrl,
+        frameworkUrl: this.unityContext.unityConfig.frameworkUrl,
+        codeUrl: this.unityContext.unityConfig.codeUrl,
+        streamingAssetsUrl: this.unityContext.unityConfig.streamingAssetsUrl,
+        companyName: this.unityContext.unityConfig.companyName,
+        productName: this.unityContext.unityConfig.productName,
+        productVersion: this.unityContext.unityConfig.productVersion,
+      };
+      const _unityInstance = await window.createUnityInstance(
+        this.htmlCanvasElementReference!,
+        _unityInstanceParamters,
+        this.onProgress.bind(this)
+      );
+      this.unityContext.setUnityInstance(_unityInstance);
+    } catch (error) {
+      console.warn(
+        "Something went wrong while mouting the UnityInstance",
+        error
+      );
+    }
   }
 
   /**
