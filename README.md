@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/elraccoone/react-unity-webgl/master/.github/WIKI/logo.png" height="300px"></br>
+# React Unity WebGL
 
 [![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)]()
