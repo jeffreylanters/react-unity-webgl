@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://raw.githubusercontent.com/elraccoone/unity-entity-component-system/master/.github/WIKI/logo.png" height="100px">
+
 # React Unity WebGL
 
 [![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)]()
