@@ -89,7 +89,7 @@ function send(
 ```
 
 ```jsx
-// Example.jsx
+// Example code: App.jsx
 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
@@ -128,7 +128,7 @@ function on(eventName: string, eventListener: Function): any;
 ```
 
 ```jsx
-// Example.jsx
+// Example code: App.jsx
 
 import React, { Component } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
@@ -165,7 +165,7 @@ class App extends Component {
 In order to trigger the event we've just created, you have to create a JSLib file to bind the communication. The listener registered in React is now available in the ReactUnityWebGL object in any JSLib file by the name you've registered it on the Unity Context instance. You can now create a JSLib file and get started. We're going to create a new JSLib file in the following directory. `Assets/Plugins/WebGL/MyPlugin.jslib`.
 
 ```js
-// MyPlugin.jslib
+// Example code: MyPlugin.jslib
 
 mergeInto(LibraryManager.library, {
   GameOver: function (score) {
@@ -179,7 +179,7 @@ Finally, to trigger to event within your CSharp code. Import the JSLib using Uni
 > Prevent invoking the method when the Application is not running the WebGL environment, e.g The Unity Editor.
 
 ```csharp
-/// GameController.cs
+/// Example code: GameController.cs
 
 using UnityEngine;
 using System.Runtime.InteropServices;
