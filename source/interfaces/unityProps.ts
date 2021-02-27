@@ -24,4 +24,13 @@ export default interface IUnityProps {
    * @type {string | number}
    */
   height?: string | number;
+
+  /**
+   * The tabIndex of the element.
+   * Mitigates the issue that once WebGL is loaded, the keyboard is captured
+   * and HTML inputs are not reacting to keyboard strokes anymore.
+   * @type {number}
+   * @see https://stackoverflow.com/a/60854680
+   */
+  tabIndex?: number;
 }

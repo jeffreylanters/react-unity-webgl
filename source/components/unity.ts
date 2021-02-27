@@ -91,6 +91,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
   public render(): React.ReactNode {
     return createElement("canvas", {
       className: this.props.className || "",
+      tabIndex: this.props.tabIndex,
       ref: (r: HTMLCanvasElement) => (this.htmlCanvasElementReference = r),
       style: {
         width: this.props.width || "800px",
