@@ -193,9 +193,9 @@ public class GameController : MonoBehaviour {
 
 ### Built-in events
 
-#### On Progress
+#### On Progress event
 
-On Progress is emitted while the Unity player is being loaded. The parameter contains the progression from 0 to 1. When the game is fully loaded into memory and will start execution, the progression will hit 1.
+On Progress is emitted while the Unity player is being loaded. The parameter contains the progression from 0 to 1. When the game is fully loaded into memory and will start execution, the progression will hit 1. The event will invoke everytime the progression advances.
 
 ```ts
 function on(
@@ -204,10 +204,30 @@ function on(
 ): any;
 ```
 
-#### On Loaded
+#### On Loaded event
 
-On Progress is emitted when the Unity player is loaded into memory.
+On Loaded is emitted when the Unity player is loaded into memory and execution is started. Event will be invoked only once.
 
 ```ts
 function on(eventName: "loaded", eventListener: () => void): any;
+```
+
+#### On Quitted event
+
+On Progress is emitted while the Unity player is quitted. Event will be invoked when Application.Quit is invoked from within the Unity process or when the Unity Component will Unmount.
+
+> This event listener is supported since Unity 2020.1
+
+```ts
+function on(eventName: "quitted", eventListener: () => void): any;
+```
+
+#### On Error event
+
+On Error is emitted while the Unity Player runs into an error. This is most likely a runtime error. The error details and stack trace are passed along via the parameter.
+
+> Keep in mind that Unity WebGL production builds contain obfuscation code which might be hard to debug.
+
+```ts
+function on(eventName: "error", eventListener: (message: string) => void): any;
 ```
