@@ -1,9 +1,9 @@
-import "../declarations/unityInstance";
+import "../declarations/unity-instance";
 import "../declarations/window";
 import { createElement, PureComponent } from "react";
-import IUnityProps from "../interfaces/unityProps";
-import UnityContext from "../models/unityContext";
-import UnityLoaderService from "../services/unityLoaderService";
+import IUnityProps from "../interfaces/unity-props";
+import UnityContext from "../models/unity-context";
+import UnityLoaderService from "../services/unity-loader-service";
 
 export default class Unity extends PureComponent<IUnityProps, {}> {
   /**

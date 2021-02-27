@@ -1,4 +1,4 @@
-import UnityContext from "../models/unityContext";
+import UnityContext from "../models/unity-context";
 
 export default interface IUnityProps {
   /**
