@@ -14,7 +14,7 @@
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
 **&Lt;**
-[**Documentation**](https://github.com/elraccoone/react-unity-webgl/wiki) &middot;
+[**Documentation**](https://github.com/elraccoone/react-unity-webgl#readme) &middot;
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
 [**Buy me a Coffee**](https://paypal.me/jeffreylanters)
 **&Gt;**
@@ -44,9 +44,13 @@ $ npm install react-unity-webgl@6.x  # For Unity 2017 (LTS)
 $ npm install react-unity-webgl@5.x  # For Unity 5.6 (LTS)
 ```
 
-# Usage
+# Documentation
 
-To get started import the Unity and Unity Context class from the React Unity WebGL library. Create a new context object and assign it in your render function. For further intructions please head to the [documentation](https://github.com/elraccoone/react-unity-webgl/wiki) or go straight to the [quick start guide](https://github.com/elraccoone/react-unity-webgl/wiki/Quick-Start-Guide). Have fun coding!
+## Getting Started
+
+It's really quick and easy to get your first React Unity project up-and-running. Just make sure you have your Unity WebGL build ready, and have your React project set up. There are not specific React requirements, any project will do. If it's the first time working with React, I recommend checking out [Create React App](https://reactjs.org/docs/create-a-new-react-app.html). Both JavaScript and TypeScript are compatible.
+
+Get started by import the Unity and Unity Context classes from the React Unity WebGL module. The Unity Context model will house all of your configuration, event listeners and references. Create a new Context Object, pass along the paths to your Unity build and assign it to the Unity componentin your Render Method.
 
 ```jsx
 import React from "react";
@@ -64,11 +68,22 @@ const App = () => {
 };
 ```
 
-# Donators
+Happy Coding!
 
-This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://paypal.me/jeffreylanters) to support the project. Thank you!
+## Communication between React and Unity
 
-[<img src="https://i.ibb.co/w43CV2q/Unknown.jpg" height="50" />](https://www.callit.com.au)
-[<img src="https://avatars2.githubusercontent.com/u/2016308?s=460&v=4" width="50" height="50" />](https://github.com/mrniket)
-[<img src="https://avatars3.githubusercontent.com/u/20756439?s=460&v=4" width="50" height="50" />](https://github.com/webbertakken)
-[<img src="https://avatars3.githubusercontent.com/u/1134186?s=460&v=4" width="50" height="50" />](https://github.com/hawksprite)
+The Unity Context model consists of a set of methods and event listeners allow for you to have full control of your Unity Application using the messaging system.
+
+### Communication from React to Unity
+
+Sending messages from React to Unity is done using the Send method available via the Unity Context instance. The Send Method is simalar to the SendMessage Method found internally in Unity.
+
+The Method will invoke a public Method on an active GameObject in your Scene. Where gameObjectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object; value can be a string, a number, boolean or not defined at all.
+
+```tsx
+function send(
+  gameObjectName: string,
+  methodName: string,
+  parameter?: string | number | boolean
+): void;
+```
