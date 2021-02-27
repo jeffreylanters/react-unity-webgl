@@ -80,10 +80,35 @@ Sending messages from React to Unity is done using the Send method available via
 
 The Method will invoke a public Method on an active GameObject in your Scene. Where gameObjectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object; value can be a string, a number, boolean or not defined at all.
 
-```tsx
+```ts
 function send(
   gameObjectName: string,
   methodName: string,
   parameter?: string | number | boolean
 ): void;
+```
+
+```jsx
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+function spawnEnemies(amount) {
+  unityContext.send("GameController", "SpawnEnemies", amount);
+}
+
+const App = () => {
+  return (
+    <div>
+      <button onClick={() => spawnEnemies(100)} />
+      <Unity unityContext={unityContext} />
+    </div>
+  );
+};
 ```
