@@ -70,11 +70,7 @@ const App = () => {
 
 Happy Coding!
 
-## Communication between React and Unity
-
-The Unity Context model consists of a set of methods and event listeners allow for you to have full control of your Unity Application using the messaging system.
-
-### Communication from React to Unity
+## Communication from React to Unity
 
 Sending messages from React to Unity is done using the Send method available via the Unity Context instance. The Send Method is simalar to the SendMessage Method found internally in Unity.
 
@@ -115,7 +111,7 @@ const App = () => {
 };
 ```
 
-### Communication from Unity to React
+## Communication from Unity to React
 
 Communicating to other way around is quite different. Sending messages is done via JSLib files which will interface directly the React Unity WebGL module which will invoke event listeners.
 
@@ -193,4 +189,25 @@ public class GameController : MonoBehaviour {
     GameOver (100);
   }
 }
+```
+
+### Built-in events
+
+#### On Progress
+
+On Progress is emitted while the Unity player is being loaded. The parameter contains the progression from 0 to 1. When the game is fully loaded into memory and will start execution, the progression will hit 1.
+
+```ts
+function on(
+  eventName: "progress",
+  eventListener: (progression: number) => void
+): any;
+```
+
+#### On Loaded
+
+On Progress is emitted when the Unity player is loaded into memory.
+
+```ts
+function on(eventName: "loaded", eventListener: () => void): any;
 ```
