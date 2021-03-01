@@ -137,10 +137,10 @@ On the React side of your project an Event Listeners can be registered to the Un
 > Keep in mind communication from Unity to React is global, so Event Listeners with the same name will overwrite one another.
 
 ```ts
-function on(eventName: string, eventListener: Function): any;
+function on(eventName: string, eventListener: Function): void;
 ```
 
-In order to invoke Event Listeners, a JSLib file has to be created within your Unity Project "Plugins/WebGL" directory. The React Unity WebGL module exposes a global Object which allows for the invoking of the Event Listeners. When writing your JSLib file, simply invoke the eventName as a member of the "ReactUnityWebGL" object within any method.
+In order to emit Event Listeners, a JSLib file has to be created within your Unity Project "Plugins/WebGL" directory. The React Unity WebGL module exposes a global Object which allows for the emitting of the Event Listeners. When writing your JSLib file, simply invoke the eventName as a member of the "ReactUnityWebGL" object within any method.
 
 ```js
 ReactUnityWebGL[eventName: string];
@@ -148,7 +148,7 @@ ReactUnityWebGL[eventName: string];
 
 #### Example implementation
 
-A basic implementation could look something like this. In the following example we'll create a new Event Listener with the event name "GameOver" which passes along an interger container the score. When the Event is invoked we'll change the State.
+A basic implementation could look something like this. In the following example we'll create a new Event Listener with the event name "GameOver" which passes along an interger container the score. When the Event is emitted we'll change the State.
 
 ```jsx
 // File: App.jsx
@@ -192,9 +192,9 @@ class App extends Component {
 }
 ```
 
-To invoke the Event Listener we've just created, we'll have to create a new JSLib file within our Unity Project first. This JSLib file will be places within the "Assets/Plugins/WebGL" directory. The JSLib itself has nothing to do with this module, it is natively supported by Unity.
+To emit the Event Listener we've just created, we'll have to create a new JSLib file within our Unity Project first. This JSLib file will be places within the "Assets/Plugins/WebGL" directory. The JSLib itself has nothing to do with this module, it is natively supported by Unity.
 
-We'll start of by creating a new method inside of our JSLib. The name of this method can be anything, but in this example we'll give it it the same name as our Event Name to keep things clean. In the body of the method, we'll invoke our Event Listener by calling a method on the "ReactUnityWebGL" object exposed by the module. All of your Event Listeners are available as a property using the Event Name on the object. We'll pass along the score.
+We'll start of by creating a new method inside of our JSLib. The name of this method can be anything, but in this example we'll give it it the same name as our Event Name to keep things clean. In the body of the method, we'll emit our Event Listener by invoking a method on the "ReactUnityWebGL" object exposed by the module. All of your Event Listeners are available as a property using the Event Name on the object. We'll pass along the score.
 
 ```js
 // File: MyPlugin.jslib
@@ -206,9 +206,9 @@ mergeInto(LibraryManager.library, {
 });
 ```
 
-Finally, to trigger to Event Listener within your CSharp code. We're importing the JSLib using Unity's DllImporter as following. When the name of imported Method matches with the Method's name in the JSLib, you can invoke it.
+Finally, to emit to Event Listener within your CSharp code. We're importing the JSLib using Unity's DllImporter as following. When the name of imported Method matches with the Method's name in the JSLib, you can invoke it.
 
-> Prevent invoking the method when the Application is not running the WebGL environment, e.g The Unity Editor.
+> WebGL methods in general are not available in the Unity Editor. Prevent invoking these methods when the Application is not running the WebGL environment, e.g The Unity Editor.
 
 ```csharp
 /// File: GameController.cs
@@ -237,7 +237,7 @@ While your game is being downloaded from the server and loaded into memory, you 
 function on(
   eventName: "progress",
   eventListener: (progression: number) => void
-): any;
+): void;
 ```
 
 #### Example implementation
@@ -289,7 +289,7 @@ class App extends Component {
 While your application is being downloaded from the server and loaded into memory, you might want to display some sort of overlay or loading screen. The built-in loaded event listeners can be used for such cases. On Loaded is emitted when the Unity player is loaded into memory and execution is started. Event will be invoked only once.
 
 ```ts
-function on(eventName: "loaded", eventListener: () => void): any;
+function on(eventName: "loaded", eventListener: () => void): void;
 ```
 
 #### Example implementation
@@ -342,7 +342,7 @@ When your Applications run into a runtime error, you might want to display your 
 > Keep in mind that Unity WebGL production builds contain obfuscation code which might be hard to debug.
 
 ```ts
-function on(eventName: "error", eventListener: (message: string) => void): any;
+function on(eventName: "error", eventListener: (message: string) => void): void;
 ```
 
 #### Example implementation
@@ -395,5 +395,5 @@ class App extends Component {
 The quitted event is emitted in two cases, when the Unity component is unmounted, and when Application.Quit is invoked from within your Unity Application. In both cases the Unity Player will be unloaded from memory.
 
 ```ts
-function on(eventName: "quitted", eventListener: () => void): any;
+function on(eventName: "quitted", eventListener: () => void): void;
 ```
