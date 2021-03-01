@@ -223,19 +223,9 @@ public class GameController : MonoBehaviour {
 }
 ```
 
----
+## Tracking the loading progression
 
----
-
----
-
----
-
-### Built-in events
-
-#### On Progress event
-
-On Progress is emitted while the Unity player is being loaded. The parameter contains the progression from 0 to 1. When the game is fully loaded into memory and will start execution, the progression will hit 1. The event will invoke everytime the progression advances.
+While your game is being downloaded from the server and loaded into memory, you might want to display some sort of loading indicator informing the user of the progression. The built-in progression event listeners can be used for such cases. On Progress is emitted while the Unity player is being loaded. The parameter contains the progression from 0 to 1. When the game is fully loaded into memory and will start execution, the progression will hit 1. The event will invoke everytime the progression advances.
 
 ```ts
 function on(
@@ -243,6 +233,65 @@ function on(
   eventListener: (progression: number) => void
 ): any;
 ```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll track the loading progression and show a loading indicator.
+
+```jsx
+// File: App.jsx
+
+import React, { Component } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      progression: 0,
+    };
+
+    this.unityContext = new UnityContext({
+      loaderUrl: "build/myunityapp.loader.js",
+      dataUrl: "build/myunityapp.data",
+      frameworkUrl: "build/myunityapp.framework.js",
+      codeUrl: "build/myunityapp.wasm",
+    });
+
+    this.unityContext.on("progress", (progression) => {
+      this.setState({
+        progression: progression,
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Loading... {this.state.progression * 100}%</p>
+        <Unity unityContext={this.unityContext} />
+      </div>
+    );
+  }
+}
+```
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+# OLD OLD OLD OLD OLD OLD OLD
 
 #### On Loaded event
 
