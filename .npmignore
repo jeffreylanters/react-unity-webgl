@@ -1,3 +1,5 @@
-node_modules
-source
-.github
+/node_modules
+/source
+/.github
+/*.tgz
+.DS_Store
