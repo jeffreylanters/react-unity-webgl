@@ -46,6 +46,25 @@ $ npm install react-unity-webgl@5.x  # For Unity 5.6 (LTS)
 
 # Documentation
 
+Table of contents
+
+- [Getting Started](#getting-started)
+- [Communication from React to Unity](#communication-from-react-to-unity)
+- [Communication from Unity to React](#communication-from-unity-to-react)
+- [Tracking the loading progression](#tracking-the-loading-progression)
+- [Handeling on when the Application is loaded](#handeling-on-when-the-application-is-loaded)
+- [Entering or Leaving Fullscreen](#entering-or-leaving-fullscreen)
+- [Setting the Canvas's Height and Width](#setting-the-canvass-height-and-width)
+- [Setting the Canvas's ClassName](#setting-the-canvass-classname)
+- [Device Pixel Ratio and Retina Support](#device-pixel-ratio-and-retina-support)
+- [Tab Index and Keyboard Capturing](#tab-index-and-keyboard-capturing)
+- [Catching Runtime errors](#catching-runtime-errors)
+- [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
+- [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
+- [Overwriting the Unity Modules](#overwriting-the-unity-modules)
+- [Providing Application Meta Data](#providing-application-meta-data)
+- [JavaScript to UnityScript types](#javascript-to-unityscript-types)
+
 ## Getting Started
 
 It's easy and quick to get your first React Unity project up-and-running. Just make sure you have your Unity WebGL build ready, and have your React project all set up. There are no specific React requirements, any project will do. If it's the first time working with React, I recommend checking out [Create React App](https://reactjs.org/docs/create-a-new-react-app.html). Both JavaScript and TypeScript are compatible.
