@@ -474,6 +474,42 @@ const App = () => {
 };
 ```
 
+## Tab Index and Keyboard Capturing
+
+The tabIndex of the element. Mitigates the issue that once WebGL is loaded, the keyboard is captured and HTML inputs are not reacting to keyboard strokes anymore because by default, Unity WebGL builds capture the keyboard as soon as it's loaded. This means that all keyboard input on your React Application is captured by the Unity Application. Doing so will result in a focus and blur on all keyboard events when clicking on, or around the Unity Application.
+
+```tsx
+<Unity tabIndex={number} />
+```
+
+In order for this to work, Capture All Keyboard Input has to be set to false within your Unity Application. Preferably as soon as the Application is loaded.
+
+```csharp
+WebGLInput.captureAllKeyboardInput = false;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll set the canvas's tab index to a specific value allowing other elements such as HTML Input Elements and HTML TextArea Elements to capture input too.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} tabIndex={1} />;
+};
+```
+
 ## Catching Runtime errors
 
 > Available since version 7.0.5
