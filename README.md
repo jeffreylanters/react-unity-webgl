@@ -335,6 +335,145 @@ class App extends Component {
 }
 ```
 
+## Setting Fullscreen
+
+> Available since version 6.0.6
+
+The Unity context object allows you to enable and disable the fullscreen mode of your application. Cursor locking (using Cursor.lockState) and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox and Chrome. Safari cannot currently use full-screen and cursor locking. An implementation could look something like:
+
+```js
+function setFullscreen(enabled: boolean): void;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example a button is added to the Render. When it's being clicked, the application will enter fullscreen mode.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+function handleOnClickFullscreen() {
+  unityContext.setFullscreen(true);
+}
+
+const App = () => {
+  return (
+    <div>
+      <button onClick={() => handleOnClickFullscreen()}>Fullscreen</button>
+      <Unity unityContext={unityContext} />
+    </div>
+  );
+};
+```
+
+## Canvas Height and Width
+
+> Available since version 5.6.0
+
+The default size is 800px width to 600px height. You can easily overrule them by passing the following props. The height and width properties are used to set the height and width of the wrapper element.
+
+The height and width can be set to auto (Means that the browser calculates the height and width), or be specified in length values, like px, cm, etc., or in percent of the containing block. Note that the height and width properties do not include padding, borders, or margins; they set the height/width of the area inside the padding, border, and margin of the element!
+
+```tsx
+<Unity height={number | string} width={number | string} />
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll set the canvas's width to 100%, and the height to a fixed 950px.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} width="100%" height="950px" />;
+};
+```
+
+## Canvas Classname
+
+> Available since version 6.0.1
+
+You can add an optional class name to the Unity component. The class name attribute specifies one or more class names for the HTML Canvas Element. The class attribute is mostly used to point to a class in a style sheet. However, it can also be used by a JavaScript (via the HTML DOM) to make changes to HTML elements with a specified class.
+
+```tsx
+<Unity className={string} />
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll set the canvas's class name to a spefic value.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} className={"game-canvas"} />;
+};
+```
+
+## Device Pixel Ratio and Retina Support
+
+> Available since version 8.1.1 and requires Unity 2020.1 or newer
+
+The Canvas can appear too blurry on retina screens. The device pixel ratio determines how much extra pixel density should be added to allow for a sharper image. The value will be used as a multiplier to the actual canvas scale and will have a big impact on the performance of your application.
+
+```tsx
+<Unity devicePixelRatio={number} />
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll set the canvas's device pixel ratio to a value of "2" for sharper images on Retina screens.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} devicePixelRatio={2} />;
+};
+```
+
 ## Catching Runtime errors
 
 > Available since version 7.0.5
@@ -400,6 +539,40 @@ The quitted event is emitted in two cases, when the Unity component is unmounted
 function on(eventName: "quitted", eventListener: () => void): void;
 ```
 
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll listen to the event but don't act on it yet.
+
+```jsx
+// File: App.jsx
+
+import React, { Component } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      didError: false,
+      errorMessage: "",
+    };
+
+    this.unityContext = new UnityContext({
+      loaderUrl: "build/myunityapp.loader.js",
+      dataUrl: "build/myunityapp.data",
+      frameworkUrl: "build/myunityapp.framework.js",
+      codeUrl: "build/myunityapp.wasm",
+    });
+
+    this.unityContext.on("quitted", () => {});
+  }
+
+  render() {
+    return <Unity unityContext={this.unityConext} />;
+  }
+}
+```
+
 ## JavaScript to UnityScript types
 
 when sending messages to your Unity Player through a Unity Context object, there are various restrictions to the parameter types.
@@ -428,17 +601,17 @@ When contributing to this repository, please first discuss the change you wish t
 
 If you want to modify this package and iteratively test it in inside your application, use the following steps while you're inside the directory of your own application:
 
+> Do not use a symlink-based technique (e.g. with the "npm link" command) because [npm link breaks libraries that are based on React](https://dev.to/vcarl/testing-npm-packages-before-publishing-h7o).
+
 ```sh
 cd ../react-unity-webgl/
 npm pack
-cd ../yourapp
+cd ../your-app
 npm remove react-unity-webgl
 npm install ../react-unity-webgl/react-unity-webgl-x.y.z.tgz
 ```
 
 The "npm pack" command creates a .tgz file exactly the way it would if you were going to publish the package to npm. You can use that .tgz file to install it in your app. That way you can be sure that everything works exactly as it will do when you publish the package, later.
-
-Do not use a symlink-based technique (e.g. with the "npm link" command) because [npm link breaks libraries that are based on React](https://dev.to/vcarl/testing-npm-packages-before-publishing-h7o).
 
 This package here _must not_ have a dependency on React, only a dev dependency on @types/react. Otherwise, the users of this package might install two different versions of React which will lead to problems.
 
