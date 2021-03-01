@@ -410,7 +410,7 @@ To return a string value you need to call \_malloc to allocate some memory and t
 
 For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL context, GLctx.
 
-## Contribution and Development
+# Contribution and Development
 
 When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change. Before commiting, please compile your code using npm run compile and open a pull request.
 
@@ -418,15 +418,13 @@ When contributing to this repository, please first discuss the change you wish t
 
 - Fork [the repository](https://github.com/elraccoone/react-unity-webgl) and create your branch from `master`.
 - Run `npm install` in the repository root.
-- If you've fixed a bug or added code that should be tested, using the [test environment](https://github.com/jeffreylanters/react-unity-webgl-test).
-- Ensure the test suite passes using `npm test` on the library.
-- Ensure the test suite passes using `npm start` on the test environment and check if everything works.
+- Ensure the [test environment](https://github.com/jeffreylanters/react-unity-webgl-test) passes using `npm start` on the library.
 - Format your code with [prettier](https://github.com/prettier/prettier).
 - Make sure your code lints (`ts lint`).
 - Typecheck all of your changes and make sure JSDocs are provided.
 - If you haven't already, complete the CLA.
 
-#### Development and test cycle
+## Development and test cycle
 
 If you want to modify this package and iteratively test it in inside your application, use the following steps while you're inside the directory of your own application:
 
