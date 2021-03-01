@@ -19,11 +19,11 @@ export default class UnityLoaderService {
    * @param {Function} onLoad when the script is loaded
    * @returns A promise when resolving when the file is loaded.
    */
-  public load(url: string): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
+  public load(url: string): Promise<HTMLScriptElement> {
+    return new Promise<HTMLScriptElement>((resolve, reject) => {
       if (typeof this.unityLoaderScript !== "undefined")
         if (url === this.unityLoaderScript.src) {
-          return resolve();
+          return resolve(this.unityLoaderScript);
         } else {
           this.unityLoaderScript.remove();
         }
@@ -31,7 +31,7 @@ export default class UnityLoaderService {
       this.unityLoaderScript.type = "text/javascript";
       this.unityLoaderScript.async = true;
       this.unityLoaderScript.src = url;
-      this.unityLoaderScript.onload = () => resolve();
+      this.unityLoaderScript.onload = () => resolve(this.unityLoaderScript!);
       this.unityLoaderScript.onerror = () => reject(`Unable to load ${url}`);
       this.documentHead.appendChild(this.unityLoaderScript);
     });
