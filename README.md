@@ -14,7 +14,7 @@
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
 **&Lt;**
-[**Documentation**](https://github.com/elraccoone/react-unity-webgl#readme) &middot;
+[**Documentation**](#documentation) &middot;
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
 [**Buy me a Coffee**](https://paypal.me/jeffreylanters)
 **&Gt;**
@@ -135,6 +135,8 @@ Sending messages from Unity to React is done using Event Listeners via the Unity
 On the React side of your project an Event Listeners can be registered to the Unity Context instance. Register the Event Listener using the "on" method as following, where "eventName" is the name of your listener, and the "eventListener" method is the Method which will be Invoked which may or may not pass along any Arguments based on your implementation.
 
 > Keep in mind communication from Unity to React is global, so Event Listeners with the same name will overwrite one another.
+
+> When using parameters, some types might need the usage of special methods in order to read their values. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
 
 ```ts
 function on(eventName: string, eventListener: Function): void;
@@ -397,3 +399,58 @@ The quitted event is emitted in two cases, when the Unity component is unmounted
 ```ts
 function on(eventName: "quitted", eventListener: () => void): void;
 ```
+
+## JavaScript to UnityScript types
+
+when sending messages to your Unity Player through a Unity Context object, there are various restrictions to the parameter types.
+
+Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string.
+
+To return a string value you need to call \_malloc to allocate some memory and the writeStringToMemory helper function to write a JavaScript string to it. If the string is a return value, then the il2cpp runtime will take care of freeing the memory for you.
+
+For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL context, GLctx.
+
+## Contribution and Development
+
+When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change. Before commiting, please compile your code using npm run compile and open a pull request.
+
+**Before submitting a pull request,** please make sure the following is done:
+
+- Fork [the repository](https://github.com/elraccoone/react-unity-webgl) and create your branch from `master`.
+- Run `npm install` in the repository root.
+- If you've fixed a bug or added code that should be tested, using the [test environment](https://github.com/jeffreylanters/react-unity-webgl-test).
+- Ensure the test suite passes using `npm test` on the library.
+- Ensure the test suite passes using `npm start` on the test environment and check if everything works.
+- Format your code with [prettier](https://github.com/prettier/prettier).
+- Make sure your code lints (`ts lint`).
+- Typecheck all of your changes and make sure JSDocs are provided.
+- If you haven't already, complete the CLA.
+
+#### Development and test cycle
+
+If you want to modify this package and iteratively test it in inside your application, use the following steps while you're inside the directory of your own application:
+
+```sh
+cd ../react-unity-webgl/
+npm pack
+cd ../yourapp
+npm remove react-unity-webgl
+npm install ../react-unity-webgl/react-unity-webgl-x.y.z.tgz
+```
+
+The "npm pack" command creates a .tgz file exactly the way it would if you were going to publish the package to npm. You can use that .tgz file to install it in your app. That way you can be sure that everything works exactly as it will do when you publish the package, later.
+
+Do not use a symlink-based technique (e.g. with the "npm link" command) because [npm link breaks libraries that are based on React](https://dev.to/vcarl/testing-npm-packages-before-publishing-h7o).
+
+This package here _must not_ have a dependency on React, only a dev dependency on @types/react. Otherwise, the users of this package might install two different versions of React which will lead to problems.
+
+Thanks for your contribution!
+
+# Donators
+
+This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://paypal.me/jeffreylanters) to support the project. Thank you!
+
+[<img src="https://i.ibb.co/w43CV2q/Unknown.jpg" height="50" />](https://www.callit.com.au)
+[<img src="https://avatars2.githubusercontent.com/u/2016308?s=460&v=4" width="50" height="50" />](https://github.com/mrniket)
+[<img src="https://avatars3.githubusercontent.com/u/20756439?s=460&v=4" width="50" height="50" />](https://github.com/webbertakken)
+[<img src="https://avatars3.githubusercontent.com/u/1134186?s=460&v=4" width="50" height="50" />](https://github.com/hawksprite)
