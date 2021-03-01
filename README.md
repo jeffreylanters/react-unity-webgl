@@ -84,8 +84,10 @@ function send(
 
 #### Example implementation
 
+A basic implementation could look something like this. In the following example a button is added to the Render. When it's being clicked, a method is invoked telling the Unity Context to send a message to a Game Object named "GameController" to invoke the method "SpawnEnemies" with an Int parameter.
+
 ```jsx
-// Example code: App.jsx
+// File: App.jsx
 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
@@ -104,11 +106,22 @@ function spawnEnemies(amount) {
 const App = () => {
   return (
     <div>
-      <button onClick={() => spawnEnemies(100)} />
+      <button onClick={() => spawnEnemies(100)}>Spawn!</button>
       <Unity unityContext={unityContext} />
     </div>
   );
 };
+```
+
+```csharp
+// File: GameController.cs
+// Attached to GameObject "GameController"
+
+public class GameController : MonoBehaviour {
+  public void SpawnEnemies (int amount) {
+    Debug.Log ($"Spawning {amount} enemies!");
+  }
+}
 ```
 
 ## Communication from Unity to React
