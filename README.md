@@ -70,6 +70,8 @@ const App = () => {
 
 ## Communication from React to Unity
 
+> Available since version 5.6.1
+
 Sending messages from React to Unity is done using the Send method available via the Unity Context instance. The Send Method is similar to the SendMessage Method found internally in Unity.
 
 The Method will invoke a public Method on an active GameObject in your Scene. Where gameObjectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object; value can be a string, a number, boolean or not defined at all.
@@ -125,6 +127,8 @@ public class EnemyController : MonoBehaviour {
 ```
 
 ## Communication from Unity to React
+
+> Available since version 6.0.0
 
 Sending messages from Unity to React is done using Event Listeners via the Unity Context instance. Invoking these Event Listeners from your Unity Project is quite different.
 
@@ -225,6 +229,8 @@ public class GameController : MonoBehaviour {
 
 ## Tracking the loading progression
 
+> Available since version 6.0.1
+
 While your game is being downloaded from the server and loaded into memory, you might want to display some sort of loading indicator informing the user of the progression. The built-in progression event listeners can be used for such cases. On Progress is emitted while the Unity player is being loaded. The parameter contains the progression from 0 to 1. When the game is fully loaded into memory and will start execution, the progression will hit 1. The event will invoke everytime the progression advances.
 
 ```ts
@@ -276,47 +282,118 @@ class App extends Component {
 }
 ```
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+## Handeling on when the application is loaded
 
-# OLD OLD OLD OLD OLD OLD OLD
+> Available since version 6.0.2
 
-#### On Loaded event
-
-On Loaded is emitted when the Unity player is loaded into memory and execution is started. Event will be invoked only once.
+While your application is being downloaded from the server and loaded into memory, you might want to display some sort of overlay or loading screen. The built-in loaded event listeners can be used for such cases. On Loaded is emitted when the Unity player is loaded into memory and execution is started. Event will be invoked only once.
 
 ```ts
 function on(eventName: "loaded", eventListener: () => void): any;
 ```
 
-#### On Quitted event
+#### Example implementation
 
-On Progress is emitted while the Unity player is quitted. Event will be invoked when Application.Quit is invoked from within the Unity process or when the Unity Component will Unmount.
+A basic implementation could look something like this. In the following example we'll set the games visibility to hidden until it's loaded.
 
-> This event listener is supported since Unity 2020.1
+```jsx
+// File: App.jsx
 
-```ts
-function on(eventName: "quitted", eventListener: () => void): any;
+import React, { Component } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded: false,
+    };
+
+    this.unityContext = new UnityContext({
+      loaderUrl: "build/myunityapp.loader.js",
+      dataUrl: "build/myunityapp.data",
+      frameworkUrl: "build/myunityapp.framework.js",
+      codeUrl: "build/myunityapp.wasm",
+    });
+
+    this.unityContext.on("loaded", () => {
+      this.setState({
+        isLoaded: true,
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div style={{ visibility: this.state.isLoaded ? "visible" : "hidden" }}>
+        <Unity unityContext={this.unityContext} />
+      </div>
+    );
+  }
+}
 ```
 
-#### On Error event
+## Catching Runtime errors
 
-On Error is emitted while the Unity Player runs into an error. This is most likely a runtime error. The error details and stack trace are passed along via the parameter.
+> Available since version 7.0.5
+
+When your Applications run into a runtime error, you might want to display your players any kind of error screen, or debug the problem yourself. The built-in error event listeners can be used for such cases. On Error is emitted while the Unity Player runs into an error. This is most likely a runtime error. The error details and stack trace are passed along via the parameter.
 
 > Keep in mind that Unity WebGL production builds contain obfuscation code which might be hard to debug.
 
 ```ts
 function on(eventName: "error", eventListener: (message: string) => void): any;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll display the application until an error occurs, then we'll unmount the application and show the error message instead.
+
+```jsx
+// File: App.jsx
+
+import React, { Component } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      didError: false,
+      errorMessage: "",
+    };
+
+    this.unityContext = new UnityContext({
+      loaderUrl: "build/myunityapp.loader.js",
+      dataUrl: "build/myunityapp.data",
+      frameworkUrl: "build/myunityapp.framework.js",
+      codeUrl: "build/myunityapp.wasm",
+    });
+
+    this.unityContext.on("error", (message) => {
+      this.setState({
+        didError: true,
+        errorMessage: message,
+      });
+    });
+  }
+
+  render() {
+    return this.state.didError == true ? (
+      <div>Oops, that's an error {this.state.errorMessage}</div>
+    ) : (
+      <Unity unityContext={this.unityConext} />
+    );
+  }
+}
+```
+
+## Unmounting, Unloading and Quitting
+
+> Available since version 8.0.0 and requires Unity 2020.1 or newer
+
+The quitted event is emitted in two cases, when the Unity component is unmounted, and when Application.Quit is invoked from within your Unity Application. In both cases the Unity Player will be unloaded from memory.
+
+```ts
+function on(eventName: "quitted", eventListener: () => void): any;
 ```
