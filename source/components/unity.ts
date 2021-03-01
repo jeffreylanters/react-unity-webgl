@@ -1,10 +1,9 @@
 import "../declarations/unity-instance";
-import "../declarations/window";
+import "../declarations/global";
 import { createElement, PureComponent } from "react";
 import IUnityProps from "../interfaces/unity-props";
 import UnityContext from "../models/unity-context";
 import UnityLoaderService from "../services/unity-loader-service";
-import IUnityInstanceParameters from "../interfaces/unity-instance-parameters";
 
 export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
@@ -62,7 +61,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
       await this.unityLoaderService.load(
         this.unityContext.unityConfig.loaderUrl
       );
-      const _unityInstance = await window.createUnityInstance(
+      const _unityInstance = await createUnityInstance(
         this.htmlCanvasElementReference!,
         this.unityContext.unityConfig,
         this.onProgress.bind(this)

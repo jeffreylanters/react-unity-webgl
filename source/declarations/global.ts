@@ -3,11 +3,11 @@ import IUnityInstanceParameters from "../interfaces/unity-instance-parameters";
 /**
  * Type declaration for global types.
  */
-interface Window {
+declare global {
   /**
    * Type declaration for the ReactUnityWebGL object.
    */
-  ReactUnityWebGL: Object;
+  var ReactUnityWebGL: Object;
 
   /**
    * Creates a new UnityInstance.
@@ -15,7 +15,7 @@ interface Window {
    * @param parameters The paramters needed to load Unity.
    * @param onProgress The on progress event listener.
    */
-  createUnityInstance(
+  function createUnityInstance(
     canvasHtmlElement: HTMLCanvasElement,
     parameters: IUnityInstanceParameters,
     onProgress?: (progression: number) => void

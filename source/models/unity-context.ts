@@ -1,4 +1,4 @@
-import "../declarations/window";
+import "../declarations/global";
 import IUnityConfig from "../interfaces/unity-config";
 import IUnityEvent from "../interfaces/unity-event";
 import UnityComponent from "../components/unity";
