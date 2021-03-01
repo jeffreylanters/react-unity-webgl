@@ -4,6 +4,7 @@ import { createElement, PureComponent } from "react";
 import IUnityProps from "../interfaces/unity-props";
 import UnityContext from "../models/unity-context";
 import UnityLoaderService from "../services/unity-loader-service";
+import IUnityInstanceParameters from "../interfaces/unity-instance-parameters";
 
 export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
@@ -61,18 +62,9 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
       await this.unityLoaderService.load(
         this.unityContext.unityConfig.loaderUrl
       );
-      const _unityInstanceParamters = {
-        dataUrl: this.unityContext.unityConfig.dataUrl,
-        frameworkUrl: this.unityContext.unityConfig.frameworkUrl,
-        codeUrl: this.unityContext.unityConfig.codeUrl,
-        streamingAssetsUrl: this.unityContext.unityConfig.streamingAssetsUrl,
-        companyName: this.unityContext.unityConfig.companyName,
-        productName: this.unityContext.unityConfig.productName,
-        productVersion: this.unityContext.unityConfig.productVersion,
-      };
       const _unityInstance = await window.createUnityInstance(
         this.htmlCanvasElementReference!,
-        _unityInstanceParamters,
+        this.unityContext.unityConfig,
         this.onProgress.bind(this)
       );
       this.unityContext.setUnityInstance(_unityInstance);
