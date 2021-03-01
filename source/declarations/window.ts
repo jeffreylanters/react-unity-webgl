@@ -1,3 +1,5 @@
+import IUnityInstanceParameters from "../interfaces/unity-instance-parameters";
+
 /**
  * Type declaration for global types.
  */
@@ -15,15 +17,7 @@ interface Window {
    */
   createUnityInstance(
     canvasHtmlElement: HTMLCanvasElement,
-    parameters: {
-      dataUrl: string;
-      frameworkUrl: string;
-      codeUrl: string;
-      companyName?: string;
-      productName?: string;
-      productVersion?: string;
-      streamingAssetsUrl?: string;
-    },
+    parameters: IUnityInstanceParameters,
     onProgress?: (progression: number) => void
   ): Promise<UnityInstance>;
 }
