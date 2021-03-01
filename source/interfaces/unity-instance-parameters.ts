@@ -52,7 +52,7 @@ export default interface IUnityInstanceParameters {
   modules?: Object;
 
   /**
-   * A Canvas can appear too blurry on retina screens. The devicePixelRatio
+   * The Canvas can appear too blurry on retina screens. The devicePixelRatio
    * determines how much extra pixel density should be added to allow for a
    * sharper image.
    * @type {number}

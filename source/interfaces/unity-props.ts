@@ -33,4 +33,13 @@ export default interface IUnityProps {
    * @see https://stackoverflow.com/a/60854680
    */
   tabIndex?: number;
+
+  /**
+   * The Canvas can appear too blurry on retina screens. The devicePixelRatio
+   * determines how much extra pixel density should be added to allow for a
+   * sharper image.
+   * @type {number}
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio
+   */
+  devicePixelRatio?: number;
 }
