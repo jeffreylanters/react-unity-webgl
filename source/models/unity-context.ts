@@ -87,7 +87,7 @@ export default class UnityContext {
    * @param {Function} eventListener the event function
    * @returns {any} The Function
    */
-  public on(eventName: string, eventListener: Function): any {
+  public on(eventName: string, eventListener: Function): void {
     this.unityEvents.push({ eventName, eventCallback: eventListener });
     (window as any).ReactUnityWebGL[eventName] = (parameter: any) =>
       eventListener(parameter);
