@@ -7,7 +7,7 @@ declare global {
   /**
    * Type declaration for the ReactUnityWebGL object.
    */
-  var ReactUnityWebGL: Object;
+  var ReactUnityWebGL: { [eventName: string]: Function };
 
   /**
    * Creates a new UnityInstance.
