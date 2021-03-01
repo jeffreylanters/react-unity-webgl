@@ -114,10 +114,10 @@ const App = () => {
 ```
 
 ```csharp
-// File: GameController.cs
+// File: EnemyController.cs
 // Attached to GameObject "GameController"
 
-public class GameController : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
   public void SpawnEnemies (int amount) {
     Debug.Log ($"Spawning {amount} enemies!");
   }
@@ -126,18 +126,28 @@ public class GameController : MonoBehaviour {
 
 ## Communication from Unity to React
 
-Communicating to other way around is quite different. Sending messages is done via JSLib files which will interface directly the React Unity WebGL module which will invoke event listeners.
+Sending messages from Unity to React is done using Event Listeners via the Unity Context instance. Invoking these Event Listeners from your Unity Project is quite different.
 
-On the React side of your project event listeners can be bound to the Unity Context instance. Register the event listener as following, where eventName is the name of your listener, and the eventListener method is the method which will be invoked which may or may not pass along any arguments based on your implementation.
+On the React side of your project an Event Listeners can be registered to the Unity Context instance. Register the Event Listener using the "on" method as following, where "eventName" is the name of your listener, and the "eventListener" method is the Method which will be Invoked which may or may not pass along any Arguments based on your implementation.
 
-> Keep in mind communication from Unity to React is global, so event listeners with the same name will overwrite one another.
+> Keep in mind communication from Unity to React is global, so Event Listeners with the same name will overwrite one another.
 
 ```ts
 function on(eventName: string, eventListener: Function): any;
 ```
 
+In order to invoke Event Listeners, a JSLib file has to be created within your Unity Project "Plugins/WebGL" directory. The React Unity WebGL module exposes a global Object which allows for the invoking of the Event Listeners. When writing your JSLib file, simply invoke the eventName as a member of the "ReactUnityWebGL" object within any method.
+
+```js
+ReactUnityWebGL[eventName: string];
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll create a new Event Listener with the event name "GameOver" which passes along an interger container the score. When the Event is invoked we'll change the State.
+
 ```jsx
-// Example code: App.jsx
+// File: App.jsx
 
 import React, { Component } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
@@ -166,15 +176,24 @@ class App extends Component {
   }
 
   render() {
-    return <Unity unityContext={this.unityContext} />;
+    return (
+      <div>
+        {this.state.isGameOver == true && (
+          <p>Game over! Your score: {this.state.score}</p>
+        )}
+        <Unity unityContext={this.unityContext} />
+      </div>
+    );
   }
 }
 ```
 
-In order to trigger the event we've just created, you have to create a JSLib file to bind the communication. The listener registered in React is now available in the ReactUnityWebGL object in any JSLib file by the name you've registered it on the Unity Context instance. You can now create a JSLib file and get started. We're going to create a new JSLib file in the following directory. `Assets/Plugins/WebGL/MyPlugin.jslib`.
+To invoke the Event Listener we've just created, we'll have to create a new JSLib file within our Unity Project first. This JSLib file will be places within the "Assets/Plugins/WebGL" directory. The JSLib itself has nothing to do with this module, it is natively supported by Unity.
+
+We'll start of by creating a new method inside of our JSLib. The name of this method can be anything, but in this example we'll give it it the same name as our Event Name to keep things clean. In the body of the method, we'll invoke our Event Listener by calling a method on the "ReactUnityWebGL" object exposed by the module. All of your Event Listeners are available as a property using the Event Name on the object. We'll pass along the score.
 
 ```js
-// Example code: MyPlugin.jslib
+// File: MyPlugin.jslib
 
 mergeInto(LibraryManager.library, {
   GameOver: function (score) {
@@ -183,12 +202,12 @@ mergeInto(LibraryManager.library, {
 });
 ```
 
-Finally, to trigger to event within your CSharp code. Import the JSLib using Unity's DllImporter as following. When the name of imported Method matches with the name in the JSLib, you can invoke it.
+Finally, to trigger to Event Listener within your CSharp code. We're importing the JSLib using Unity's DllImporter as following. When the name of imported Method matches with the Method's name in the JSLib, you can invoke it.
 
 > Prevent invoking the method when the Application is not running the WebGL environment, e.g The Unity Editor.
 
 ```csharp
-/// Example code: GameController.cs
+/// File: GameController.cs
 
 using UnityEngine;
 using System.Runtime.InteropServices;
@@ -203,6 +222,14 @@ public class GameController : MonoBehaviour {
   }
 }
 ```
+
+---
+
+---
+
+---
+
+---
 
 ### Built-in events
 
