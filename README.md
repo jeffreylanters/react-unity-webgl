@@ -48,9 +48,9 @@ $ npm install react-unity-webgl@5.x  # For Unity 5.6 (LTS)
 
 ## Getting Started
 
-It's really quick and easy to get your first React Unity project up-and-running. Just make sure you have your Unity WebGL build ready, and have your React project set up. There are not specific React requirements, any project will do. If it's the first time working with React, I recommend checking out [Create React App](https://reactjs.org/docs/create-a-new-react-app.html). Both JavaScript and TypeScript are compatible.
+It's easy and quick to get your first React Unity project up-and-running. Just make sure you have your Unity WebGL build ready, and have your React project all set up. There are no specific React requirements, any project will do. If it's the first time working with React, I recommend checking out [Create React App](https://reactjs.org/docs/create-a-new-react-app.html). Both JavaScript and TypeScript are compatible.
 
-Get started by import the Unity and Unity Context classes from the React Unity WebGL module. The Unity Context model will house all of your configuration, event listeners and references. Create a new Context Object, pass along the paths to your Unity build and assign it to the Unity componentin your Render Method.
+Get started by import the Unity and Unity Context classes from the module. The Unity Context model will house all of your configuration, event listeners and references. Create a new Unity Context Object, pass along the paths to your Unity build and assign it to the Unity component in your Render Method. A basic implementation should look something like this.
 
 ```jsx
 import React from "react";
@@ -68,11 +68,9 @@ const App = () => {
 };
 ```
 
-Happy Coding!
-
 ## Communication from React to Unity
 
-Sending messages from React to Unity is done using the Send method available via the Unity Context instance. The Send Method is simalar to the SendMessage Method found internally in Unity.
+Sending messages from React to Unity is done using the Send method available via the Unity Context instance. The Send Method is similar to the SendMessage Method found internally in Unity.
 
 The Method will invoke a public Method on an active GameObject in your Scene. Where gameObjectName is the name of an object in your scene; methodName is the name of a method in the script, currently attached to that object; value can be a string, a number, boolean or not defined at all.
 
@@ -83,6 +81,8 @@ function send(
   parameter?: string | number | boolean
 ): void;
 ```
+
+#### Example implementation
 
 ```jsx
 // Example code: App.jsx
