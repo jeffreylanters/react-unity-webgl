@@ -284,7 +284,7 @@ class App extends Component {
 }
 ```
 
-## Handeling on when the application is loaded
+## Handeling on when the Application is loaded
 
 > Available since version 6.0.2
 
@@ -335,7 +335,7 @@ class App extends Component {
 }
 ```
 
-## Setting Fullscreen
+## Entering or Leaving Fullscreen
 
 > Available since version 6.0.6
 
@@ -376,7 +376,7 @@ const App = () => {
 };
 ```
 
-## Canvas Height and Width
+## Setting the Canvas's Height and Width
 
 > Available since version 5.6.0
 
@@ -410,7 +410,7 @@ const App = () => {
 };
 ```
 
-## Canvas Classname
+## Setting the Canvas's ClassName
 
 > Available since version 6.0.1
 
@@ -607,6 +607,115 @@ class App extends Component {
     return <Unity unityContext={this.unityConext} />;
   }
 }
+```
+
+## Defining the Streaming Assets URL
+
+> Available since version 6.1.0
+
+When using Streaming Assets, a URL (or Path) can be defined where your Unity Application can find these files. The URL will be used as the base of every Streaming Asset request.
+
+```tsx
+<IUnityConfig>{
+  streamingAssetsUrl: string,
+};
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll set the streaming assets url to the "streamingassets" directory.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+  streamingAssetsUrl: "streamingassets",
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} />;
+};
+```
+
+## Overwriting the Unity Modules
+
+> Available since version 6.1.1
+
+Overwrites the Unity Modules.
+
+```tsx
+<IUnityConfig>{
+  module: Object,
+};
+```
+
+#### Example implementation
+
+A basic implementation could look something like this.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+  module: {},
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} />;
+};
+```
+
+## Providing Application Meta Data
+
+> Available since version 8.0.1
+
+Sets the application meta data.
+
+```tsx
+<IUnityConfig>{
+  productName: string,
+  productVersion: string,
+  companyName: string,
+};
+```
+
+#### Example implementation
+
+A basic implementation could look something like this.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+  productName: "My Game",
+  productVersion: "1.0.0",
+  companyName: "El Raccoone",
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} />;
+};
 ```
 
 ## JavaScript to UnityScript types
