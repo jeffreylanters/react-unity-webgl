@@ -8,7 +8,7 @@
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)]()
 <br/>
-[![npm](https://img.shields.io/github/stars/elraccoone/react-unity-webgl.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/github/stars/elraccoone/react-unity-webgl.svg?style=for-the-badge&color=fe8523)]()
 [![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/bundlephobia/minzip/react-unity-webgl?style=for-the-badge&label=size)]()
 
