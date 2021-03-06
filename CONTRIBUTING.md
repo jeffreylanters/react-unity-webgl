@@ -1,1 +1,1 @@
-Please view [Contribution and Development](https://github.com/elraccoone/react-unity-webgl/wiki/Contribution-and-Development) in the Wiki.
+For more information about contribution please head over to the [documentation](https://github.com/elraccoone/react-unity-webgl#contribution-and-development).
