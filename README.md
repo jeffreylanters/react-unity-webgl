@@ -56,7 +56,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Tracking the loading progression](#tracking-the-loading-progression)
 - [Handeling on when the Application is loaded](#handeling-on-when-the-application-is-loaded)
 - [Entering or Leaving Fullscreen](#entering-or-leaving-fullscreen)
-- [Adding Styles to the Canvas Component](#adding-styles-to-the-canvas-component)
+- [Adding Styles to the Canvas Element](#adding-styles-to-the-canvas-element)
 - [Setting the Canvas's ClassName](#setting-the-canvass-classname)
 - [Device Pixel Ratio and Retina Support](#device-pixel-ratio-and-retina-support)
 - [Tab Index and Keyboard Capturing](#tab-index-and-keyboard-capturing)
@@ -397,7 +397,7 @@ const App = () => {
 };
 ```
 
-## Adding Styles to the Canvas Component
+## Adding Styles to the Canvas Element
 
 > Available since version 8.2.0
 
