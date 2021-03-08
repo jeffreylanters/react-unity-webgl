@@ -22,10 +22,6 @@
     {
       "type": "individual",
       "url": "https://jeffreylanters.nl/donate"
-    },
-    {
-      "type": "individual",
-      "url": "https://paypal.me/jeffreylanters"
     }
   ],
   "main": "./distribution/exports.js",
