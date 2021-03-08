@@ -1,29 +1,24 @@
+import { CSSProperties } from "react";
 import UnityContext from "../models/unity-context";
 
 export default interface IUnityProps {
   /**
-   * The context that should be rendered within the Unity component.
+   * The Context which should be rendered be the Unity Component.
    * @type {UnityContext}
    */
   unityContext: UnityContext;
 
   /**
-   * The class name for the canvas wrapper.
+   * The Class Name will be applied to the Canvas.
    * @type {string}
    */
   className?: string;
 
   /**
-   * The width of the element.
-   * @type {string | number}
+   * The styles will be applied to the Canvas.
+   * @type {CSSProperties}
    */
-  width?: string | number;
-
-  /**
-   * The height of the element.
-   * @type {string | number}
-   */
-  height?: string | number;
+  style?: CSSProperties;
 
   /**
    * The tabIndex of the element. Mitigates the issue that once WebGL is loaded,
