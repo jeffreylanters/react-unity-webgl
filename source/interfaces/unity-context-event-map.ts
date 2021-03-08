@@ -12,7 +12,7 @@ export default interface IUnityContextEventMap {
    * is fully loaded into memory and will start execution, the progression will
    * hit 1. The event will invoke everytime the progression advances.
    */
-  progress: number;
+  progress: [number];
 
   /**
    * While your application is being downloaded from the server and loaded into
@@ -21,7 +21,7 @@ export default interface IUnityContextEventMap {
    * is emitted when the Unity player is loaded into memory and execution is
    * started. Event will be invoked only once.
    */
-  loaded: void;
+  loaded: [void];
 
   /**
    * When your Applications run into a runtime error, you might want to display
@@ -31,12 +31,12 @@ export default interface IUnityContextEventMap {
    * runtime error. The error details and stack trace are passed along via the
    * parameter.
    */
-  error: string;
+  error: [string];
 
   /**
    * The quitted event is emitted in two cases, when the Unity component is
    * unmounted, and when Application.Quit is invoked from within your Unity
    * Application. In both cases the Unity Player will be unloaded from memory.
    */
-  quitted: void;
+  quitted: [void];
 }
