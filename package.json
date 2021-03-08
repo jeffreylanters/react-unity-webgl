@@ -2,25 +2,58 @@
   "name": "react-unity-webgl",
   "version": "8.1.6",
   "description": "React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.",
+  "keywords": [
+    "React",
+    "Unity",
+    "WebGL"
+  ],
+  "homepage": "https://github.com/elraccoone/react-unity-webgl#readme",
+  "bugs": {
+    "url": "https://github.com/elraccoone/react-unity-webgl/issues",
+    "email": "jeffreylanters@me.com"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Jeffrey Lanters",
+    "email": "jeffreylanters@me.com",
+    "url": "https://jeffreylanters.nl/"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://jeffreylanters.nl/donate"
+    },
+    {
+      "type": "individual",
+      "url": "https://paypal.me/jeffreylanters"
+    }
+  ],
   "main": "./distribution/exports.js",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elraccoone/react-unity-webgl.git"
+  },
   "scripts": {
     "start": "tsc --watch",
     "test": "tsc -d && echo 'Please use the test environment'",
     "prepublish": "tsc",
     "package": "npm pack"
   },
-  "keywords": [
-    "React",
-    "Unity",
-    "WebGL"
-  ],
-  "author": "Jeffrey Lanters",
-  "license": "Apache-2.0",
-  "repository": "git://github.com/elraccoone/react-unity-webgl.git",
-  "bugs": "https://github.com/elraccoone/react-unity-webgl/issues",
-  "homepage": "https://github.com/elraccoone/react-unity-webgl/wiki",
   "devDependencies": {
     "@types/react": "17.0.1",
     "typescript": "4.1.3"
-  }
+  },
+  "private": false
 }
