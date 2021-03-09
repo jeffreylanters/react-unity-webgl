@@ -400,7 +400,7 @@ export class App extends React.Component {
 
   render() {
     // Finally render the Unity component and pass
-    // the Unity context through the props. Along
+    // the Unity content through the props. Along
     // with a loading progression text to inform
     // the user how fare the app is loaded.
 
@@ -441,13 +441,13 @@ You can add an optional class name to the Unity component. The class name attrib
 <Unity unityContent={unityContent} className="my-unity-app" />
 ```
 
-# Unity Context
+# Unity Content
 
-When rendering a Unity Component, you have to specify which Unity build to run within the context. To do so you have to create an Unity Context object. Within the object you can specify various parameters to tell the component how to render, what to render and how to handle events.
+When rendering a Unity Component, you have to specify which Unity build to run within the Content. To do so you have to create an Unity Content object. Within the object you can specify various parameters to tell the component how to render, what to render and how to handle events.
 
-## Creating the Context
+## Creating the Content
 
-Creating a Unity Context object is simple, just create a new unityContent model and pass your UnityConfig with it.
+Creating a Unity Content object is simple, just create a new unityContent model and pass your UnityConfig with it.
 
 ```js
 let unityContent = new UnityContent({
@@ -460,7 +460,7 @@ let unityContent = new UnityContent({
 
 ## Adding event listeners
 
-You can add event listeners to each Unity Context. These event listeners can be invoked by our Unity application's JSLib file located in your Plugins directory, or by any of the Build in events. Click here to learn more about event system. An implementation could look something like:
+You can add event listeners to each Unity Content. These event listeners can be invoked by our Unity application's JSLib file located in your Plugins directory, or by any of the Build in events. Click here to learn more about event system. An implementation could look something like:
 
 ```js
 unityContent.on("GameOver", (score) => {
@@ -468,9 +468,9 @@ unityContent.on("GameOver", (score) => {
 });
 ```
 
-## Sending messages to your Unity Context
+## Sending messages to your Unity Content
 
-The Unity Context object allows you to send messages back to your Unity Instance. The first paramater contains the name of the Game Object you want to send your message to. The seconds parameter contains the name of the public method attached to the game object in any of its components.
+The Unity Content object allows you to send messages back to your Unity Instance. The first paramater contains the name of the Game Object you want to send your message to. The seconds parameter contains the name of the public method attached to the game object in any of its components.
 
 These message can contain an optional value to take full control of the two-way communication. You can read more about parameters and JavaScript to Unityscript types here. An implementation could look something like:
 
@@ -481,7 +481,7 @@ unityContent.send("SpawnController", "SpawnEnemies", 100);
 
 ## Setting Fullscreen
 
-The Unity context object allows you to enable and disable the fullscreen mode of your application. Cursor locking (using Cursor.lockState) and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox and Chrome. Safari cannot currently use full-screen and cursor locking. An implementation could look something like:
+The Unity Content object allows you to enable and disable the fullscreen mode of your application. Cursor locking (using Cursor.lockState) and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox and Chrome. Safari cannot currently use full-screen and cursor locking. An implementation could look something like:
 
 ```js
 unityContent.setFullscreen(true);
@@ -568,7 +568,7 @@ Simple numeric types can be passed to JavaScript in function parameters without 
 
 To return a string value you need to call \_malloc to allocate some memory and the writeStringToMemory helper function to write a JavaScript string to it. If the string is a return value, then the il2cpp runtime will take care of freeing the memory for you.
 
-For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL context, GLctx.
+For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL Context, GLctx.
 
 # Contribution and Development
 
