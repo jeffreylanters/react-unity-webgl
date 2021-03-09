@@ -4,7 +4,6 @@
 
 Since version 7.x did use a Wiki instead of the ReadMe, this file is here to preservate the legacy documentation.
 
-- [React Unity WebGL 7.X Wiki](#react-unity-webgl-7x-wiki)
 - [Home](#home)
 - [Getting Started](#getting-started)
 - [Communication from React to Unity](#communication-from-react-to-unity)
