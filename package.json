@@ -25,6 +25,7 @@
     }
   ],
   "main": "./distribution/exports.js",
+  "types": "./distribution/exports.d.ts",
   "browserslist": {
     "production": [
       ">0.2%",
