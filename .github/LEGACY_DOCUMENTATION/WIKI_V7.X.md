@@ -4,6 +4,46 @@
 
 Since version 7.x did use a Wiki instead of the ReadMe, this file is here to preservate the legacy documentation.
 
+- [React Unity WebGL 7.X Wiki](#react-unity-webgl-7x-wiki)
+- [Home](#home)
+- [Getting Started](#getting-started)
+- [Communication from React to Unity](#communication-from-react-to-unity)
+  * [JavaScript Example](#javascript-example)
+- [Communication from Unity to React](#communication-from-unity-to-react)
+  * [JavaScript example](#javascript-example)
+  * [JSLib Example](#jslib-example)
+  * [CSharp Example](#csharp-example)
+- [Communication Unity on Progress](#communication-unity-on-progress)
+  * [JavaScript Example](#javascript-example-1)
+- [Communication Unity on Loaded](#communication-unity-on-loaded)
+  * [JavaScript Example](#javascript-example-2)
+- [Communication Unity on Quitted](#communication-unity-on-quitted)
+  * [JavaScript Example](#javascript-example-3)
+- [Communication Unity on Error](#communication-unity-on-error)
+  * [JavaScript Example](#javascript-example-4)
+- [Communication Unity on Resize](#communication-unity-on-resize)
+- [Unity Component](#unity-component)
+  * [Assigning the Unity Content](#assigning-the-unity-content)
+  * [Other optional props](#other-optional-props)
+    + [Height and Weight](#height-and-weight)
+    + [ClassName](#classname)
+- [Unity Content](#unity-content)
+  * [Creating the Content](#creating-the-content)
+  * [Adding event listeners](#adding-event-listeners)
+  * [Sending messages to your Unity Content](#sending-messages-to-your-unity-content)
+  * [Setting Fullscreen](#setting-fullscreen)
+- [Unity Config](#unity-config)
+  * [Modules](#modules)
+  * [Adjust On Window Resize](#adjust-on-window-resize)
+  * [Unity Version](#unity-version)
+  * [ID](#id)
+- [JavaScript to UnityScript types](#javascript-to-unityscript-types)
+- [Contribution and Development](#contribution-and-development)
+  * [Development and test cycle](#development-and-test-cycle)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # Home
 
 Welcome to the React Unity WebGL documentation. I'm happy to announce version 7 of my library finally released! I've put a lot of work into this library so if you've found any errors feel free to edit the documentation or create a pull request. To learn more about contributing please look at the contribution page on this wiki. Have a great day!
