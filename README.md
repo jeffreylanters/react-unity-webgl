@@ -37,7 +37,7 @@ Hi! My name is Jeffrey Lanters, thanks for visiting! This package is an open sou
 
 # Installation
 
-Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. Please keep in mind that some documentation may not be accurate when using an older version of this module.
+Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. Please keep in mind that some documentation in the readme may not be accurate when using an older version of this module, visit the [legacy documentation](https://github.com/elraccoone/react-unity-webgl/tree/master/.github/LEGACY_DOCUMENTATION) to see older versions of the Wiki.
 
 ```sh
 $ npm install react-unity-webgl@8.x  # For Unity 2020 and 2021
