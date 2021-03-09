@@ -41,9 +41,6 @@ Since version 7.x did use a Wiki instead of the ReadMe, this file is here to pre
 - [Contribution and Development](#contribution-and-development)
   * [Development and test cycle](#development-and-test-cycle)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
 # Home
 
 Welcome to the React Unity WebGL documentation. I'm happy to announce version 7 of my library finally released! I've put a lot of work into this library so if you've found any errors feel free to edit the documentation or create a pull request. To learn more about contributing please look at the contribution page on this wiki. Have a great day!
