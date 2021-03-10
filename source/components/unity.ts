@@ -59,7 +59,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
    */
   private async mountUnityInstance(): Promise<void> {
     try {
-      await this.unityLoaderService.load(
+      await this.unityLoaderService.addFromUrl(
         this.unityContext.unityConfig.loaderUrl
       );
       const _unityInstanceParameters: IUnityInstanceParameters = {
@@ -73,10 +73,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
       );
       this.unityContext.setUnityInstance(_unityInstance);
     } catch (error) {
-      console.warn(
-        "Something went wrong while mouting the UnityInstance",
-        error
-      );
+      console.error("Error while creating the Unity Instance", error);
     }
   }
 
