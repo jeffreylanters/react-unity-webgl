@@ -7,6 +7,7 @@ export default class UnityLoaderService {
     url: string;
     htmlScriptElement: HTMLScriptElement;
   }> = new Array();
+
   /**
    * A reference to the document head.
    * @type {HTMLHeadElement}
