@@ -16,7 +16,6 @@ export default class UnityLoaderService {
    * is already appended, we'll skip right away. When another loader is try to
    * append, the previous will be removed first.
    * @param {string} url the path to the Unity loader file
-   * @param {Function} onLoad when the script is loaded
    * @returns A promise when resolving when the file is loaded.
    */
   public load(url: string): Promise<HTMLScriptElement> {
