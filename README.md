@@ -43,7 +43,7 @@ Install using npm for your JavaScript or TypeScript React Project. Make sure you
 $ npm install react-unity-webgl@8.x  # For Unity 2020 and 2021
 $ npm install react-unity-webgl@7.x  # For Unity 2018 and 2019 (LTS)
 $ npm install react-unity-webgl@6.x  # For Unity 2017 (LTS)
-$ npm install react-unity-webgl@5.x  # For Unity 5.6 (LTS)
+$ npm install react-unity-webgl@5.x  # For Unity 5.6^ (LTS)
 ```
 
 # Documentation
