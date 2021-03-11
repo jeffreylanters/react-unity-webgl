@@ -62,7 +62,7 @@ export default interface IUnityInstanceParameters {
 
   /**
    * When disabling the match WebGL to canvas size flag, the canvas allows for
-   * client side customization of the WebGL canvas target size instad of
+   * client side customization of the WebGL canvas target size instead of
    * requiring it to always match 1:1 with the High DPI CSS size of the canvas.
    * Supported since Unity 2021.1b
    * @requires Unity_2021_1b
