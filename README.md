@@ -771,6 +771,13 @@ const App = () => {
 
 To get a reference to the canvas, we have to wait for the Unity Instance to be loaded, and the Canvas to be appended to the DOM. This is where the Canvas event comes in. The Canvas event is invoked on this exact moment and passes along a reference to the actual Unity Canvas.
 
+```ts
+function on(
+  eventName: "canvas",
+  eventListener: (canvas: HTMLCanvasElement) => void
+): void;
+```
+
 #### Example implementation
 
 A basic implementation could look something like this.
@@ -802,6 +809,10 @@ const App = () => {
 > Available since version 8.2.3 and requires Unity 2021.1 beta 8 or newer
 
 To customize the WebGL canvas target render size instead of requiring it to always match 1:1 with the High DPI CSS size of the canvas, the match WebGL to canvas size flag can be set to false. Allowing full control over the Canvas Render size using JavaScript.
+
+```jsx
+<Unity matchWebGLToCanvasSize={boolean} />
+```
 
 #### Example implementation
 
