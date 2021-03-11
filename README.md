@@ -59,7 +59,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Adding Styles to the Canvas Element](#adding-styles-to-the-canvas-element)
 - [Setting the Canvas's ClassName](#setting-the-canvass-classname)
 - [Device Pixel Ratio and Retina Support](#device-pixel-ratio-and-retina-support)
-- [Tab Index and Keyboard Capturing](#tab-index-and-keyboard-capturing)
+- [Tab Index and Input Keyboard Capturing](#tab-index-and-input-keyboard-capturing)
 - [Catching Runtime errors](#catching-runtime-errors)
 - [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
@@ -505,15 +505,15 @@ const App = () => {
 };
 ```
 
-## Tab Index and Keyboard Capturing
+## Tab Index and Input Keyboard Capturing
 
-The tabIndex of the element. Mitigates the issue that once WebGL is loaded, the keyboard is captured and HTML inputs are not reacting to keyboard strokes anymore because by default, Unity WebGL builds capture the keyboard as soon as it's loaded. This means that all keyboard input on your React Application is captured by the Unity Application. Doing so will result in a focus and blur on all keyboard events when clicking on, or around the Unity Application.
+By default, Unity WebGL builds capture the keyboard as soon as it's loaded. This means that all keyboard input on your React Application is captured by the Unity Application instead. Doing so will result in a focus and blur on all keyboard events when clicking on, or around the Unity Application. Implementing the tabIndex of the element mitigates this issue and allows for other elements to be selected.
 
 ```tsx
 <Unity tabIndex={number} />
 ```
 
-In order for this to work, Capture All Keyboard Input has to be set to false within your Unity Application. Preferably as soon as the Application is loaded.
+In order for this to work, Capture All Keyboard Input has to be set to false within your Unity Application. Preferably as soon as the Application is loaded. This property determines whether keyboard inputs are captured by WebGL. If this is enabled (default), all inputs will be received by the WebGL canvas regardless of focus, and other elements in the webpage will not receive keyboard inputs. You need to disable this property if you need inputs to be received by other html input elements.
 
 ```csharp
 WebGLInput.captureAllKeyboardInput = false;
@@ -539,6 +539,20 @@ const unityContext = new UnityContext({
 const App = () => {
   return <Unity unityContext={unityContext} tabIndex={1} />;
 };
+```
+
+```csharp
+/// File: GameController.cs
+
+using UnityEngine;
+
+public class GameController : MonoBehaviour {
+  private void Start () {
+#if !UNITY_EDITOR && UNITY_WEBGL
+    WebGLInput.captureAllKeyboardInput = false;
+#endif
+  }
+}
 ```
 
 ## Catching Runtime errors
