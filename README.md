@@ -65,6 +65,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
 - [Overwriting the Unity Modules](#overwriting-the-unity-modules)
 - [Providing Application Meta Data](#providing-application-meta-data)
+- [Getting a Reference to the Unity Canvas](#getting-a-reference-to-the-unity-canvas)
 - [Change the Render Size of WebGL Canvas](#change-the-render-size-of-webgl-canvas)
 - [JavaScript to UnityScript types](#javascript-to-unityscript-types)
 
