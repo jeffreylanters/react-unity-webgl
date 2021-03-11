@@ -65,6 +65,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
 - [Overwriting the Unity Modules](#overwriting-the-unity-modules)
 - [Providing Application Meta Data](#providing-application-meta-data)
+- [Change the Render Size of WebGL Canvas](#change-the-render-size-of-webgl-canvas)
 - [JavaScript to UnityScript types](#javascript-to-unityscript-types)
 
 ## Getting Started
@@ -760,6 +761,77 @@ const unityContext = new UnityContext({
 
 const App = () => {
   return <Unity unityContext={unityContext} />;
+};
+```
+
+## Getting a Reference to the Unity Canvas
+
+> Available since version 8.2.3
+
+To get a reference to the canvas, we have to wait for the Unity Instance to be loaded, and the Canvas to be appended to the DOM. This is where the Canvas event comes in. The Canvas event is invoked on this exact moment and passes along a reference to the actual Unity Canvas.
+
+#### Example implementation
+
+A basic implementation could look something like this.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+unityContext.on("canvas", (canvas) => {
+  canvas...
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} />;
+};
+```
+
+## Change the Render Size of WebGL Canvas
+
+> Available since version 8.2.3 and requires Unity 2021.1 beta 8 or newer
+
+To customize the WebGL canvas target render size instead of requiring it to always match 1:1 with the High DPI CSS size of the canvas, the match WebGL to canvas size flag can be set to false. Allowing full control over the Canvas Render size using JavaScript.
+
+#### Example implementation
+
+A basic implementation could look something like this. In this example the canvas will be styled to have a width and height of 100 pixels while setting the actual canvas's renderer size to a width of 100 pixels, and a height of 50 pixels resulting in the image to get stretched.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+unityContext.on("canvas", (canvas) => {
+  canvas.width = 100;
+  canvas.height = 50;
+});
+
+const App = () => {
+  return (
+    <Unity
+      unityContext={unityContext}
+      matchWebGLToCanvasSize={true}
+      style={{ width: "100px", height: "100px" }}
+    />
+  );
 };
 ```
 
