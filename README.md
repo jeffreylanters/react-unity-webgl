@@ -788,7 +788,7 @@ const unityContext = new UnityContext({
 });
 
 unityContext.on("canvas", (canvas) => {
-  canvas...
+  canvas.getContext("webgl");
 });
 
 const App = () => {
