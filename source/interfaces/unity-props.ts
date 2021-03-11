@@ -37,4 +37,15 @@ export default interface IUnityProps {
    * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio
    */
   devicePixelRatio?: number;
+
+  /**
+   * When disabling the match WebGL to canvas size flag, the canvas allows for
+   * client side customization of the WebGL canvas target size instad of
+   * requiring it to always match 1:1 with the High DPI CSS size of the canvas.
+   * Supported since Unity 2021.1b
+   * @requires Unity_2021_1b
+   * @type {boolean}
+   * @see https://issuetracker.unity3d.com/issues/webgl-builds-dont-allow-separate-control-on-canvas-render-buffer-size
+   */
+  matchWebGLToCanvasSize?: boolean;
 }

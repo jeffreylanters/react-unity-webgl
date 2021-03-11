@@ -65,6 +65,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
       const _unityInstanceParameters: IUnityInstanceParameters = {
         ...this.unityContext.unityConfig,
         devicePixelRatio: this.props.devicePixelRatio || undefined,
+        matchWebGLToCanvasSize: this.props.matchWebGLToCanvasSize || undefined,
       };
       const _unityInstance = await createUnityInstance(
         this.htmlCanvasElementReference!,
