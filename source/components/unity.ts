@@ -34,6 +34,11 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
     this.unityContext.invokeEventListener("progress", progression);
     if (progression === 1) {
       this.unityContext.invokeEventListener("loaded");
+      if (typeof this.htmlCanvasElementReference !== "undefined")
+        this.unityContext.invokeEventListener(
+          "canvas",
+          this.htmlCanvasElementReference!
+        );
     }
   }
 

@@ -39,4 +39,11 @@ export default interface IUnityContextEventMap {
    * Application. In both cases the Unity Player will be unloaded from memory.
    */
   quitted: [void];
+
+  /**
+   * The canvas event is invoked when the actual game is ready and the canvas
+   * has been loaded and appended to the DOM. The event will pass along a
+   * reference to the canvas.
+   */
+  canvas: [HTMLCanvasElement];
 }
