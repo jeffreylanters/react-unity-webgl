@@ -18,7 +18,7 @@ When building content for the web, you might need to communicate with elements o
 [**Documentation**](#documentation) &middot;
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
 [**Buy me a Coffee**](https://jeffreylanters.nl/donate) &middot;
-[**Join Discord**](https://discord.gg/UTKeNAD78x)
+[**Discussion Board**](https://github.com/elraccoone/react-unity-webgl/discussions)
 **&Gt;**
 
 <br/><br/>
