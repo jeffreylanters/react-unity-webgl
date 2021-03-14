@@ -31,7 +31,10 @@ export default class UnityContext {
    * @param {IUnityConfig} unityConfig The Unity config used to build the player.
    */
   constructor(public unityConfig: IUnityConfig) {
-    if (typeof window !== "undefined" && typeof (window as any).ReactUnityWebGL === "undefined")
+    if (
+      typeof window !== "undefined" &&
+      typeof (window as any).ReactUnityWebGL === "undefined"
+    )
       (window as any).ReactUnityWebGL = {};
   }
 
