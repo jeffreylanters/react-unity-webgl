@@ -31,7 +31,7 @@ export default class UnityContext {
    * @param {IUnityConfig} unityConfig The Unity config used to build the player.
    */
   constructor(public unityConfig: IUnityConfig) {
-    if (typeof (window as any).ReactUnityWebGL === "undefined")
+    if (typeof window !== "undefined" && typeof (window as any).ReactUnityWebGL === "undefined")
       (window as any).ReactUnityWebGL = {};
   }
 
@@ -97,8 +97,9 @@ export default class UnityContext {
     ) => void
   ): void {
     this.unityEvents.push({ eventName, eventCallback: eventListener });
-    (window as any).ReactUnityWebGL[eventName] = (...parameters: any) =>
-      eventListener(...parameters);
+    if (typeof window !== "undefined")
+      (window as any).ReactUnityWebGL[eventName] = (...parameters: any) =>
+        eventListener(...parameters);
   }
 
   /**
