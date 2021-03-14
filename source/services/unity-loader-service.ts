@@ -12,7 +12,10 @@ export default class UnityLoaderService {
    * A reference to the document head.
    * @type {HTMLHeadElement}
    */
-  private documentHead: HTMLHeadElement = document.querySelector("head")!;
+  private documentHead: HTMLHeadElement | undefined =
+    typeof document !== "undefined"
+      ? document.querySelector("head")!
+      : undefined;
 
   /**
    * Adds the Unity loader script to the window. When a version of the loader
@@ -45,13 +48,16 @@ export default class UnityLoaderService {
    */
   private appendAndLoadScript(url: string): Promise<HTMLScriptElement> {
     return new Promise<HTMLScriptElement>((resolve, reject) => {
-      var _scriptTag = document.createElement("script");
-      _scriptTag.type = "text/javascript";
-      _scriptTag.async = true;
-      _scriptTag.src = url;
-      _scriptTag.onload = () => resolve(_scriptTag!);
-      _scriptTag.onerror = (error) => reject(`Unable to load ${url} ${error}`);
-      this.documentHead.appendChild(_scriptTag);
+      if (typeof this.documentHead !== "undefined") {
+        var _scriptTag = document.createElement("script");
+        _scriptTag.type = "text/javascript";
+        _scriptTag.async = true;
+        _scriptTag.src = url;
+        _scriptTag.onload = () => resolve(_scriptTag!);
+        _scriptTag.onerror = (error) =>
+          reject(`Unable to load ${url} ${error}`);
+        this.documentHead.appendChild(_scriptTag);
+      }
     });
   }
 }
