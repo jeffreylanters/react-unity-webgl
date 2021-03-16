@@ -9,12 +9,6 @@ import IUnityContextEventMap from "../interfaces/unity-context-event-map";
  */
 export default class UnityContext {
   /**
-   * A reference to the Unity Component binded to this unityContext.
-   * @type {UnityComponent}
-   */
-  private unityComponentReference?: UnityComponent;
-
-  /**
    * A reference to the Unity Instance binded to this unityContext.
    * @type {UnityInstance}
    */
@@ -36,14 +30,6 @@ export default class UnityContext {
       typeof (window as any).ReactUnityWebGL === "undefined"
     )
       (window as any).ReactUnityWebGL = {};
-  }
-
-  /**
-   * Sets the reference to the UnityComponent.
-   * @param {UnityComponent} unityComponentReference the target unity component.
-   */
-  public setComponentReference(unityComponentReference: UnityComponent): void {
-    this.unityComponentReference = unityComponentReference;
   }
 
   /**

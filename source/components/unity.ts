@@ -47,7 +47,6 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
    * reference and starts the mounting of the UnityInstance.
    */
   public componentDidMount(): void {
-    this.unityContext.setComponentReference(this);
     this.mountUnityInstance();
   }
 
