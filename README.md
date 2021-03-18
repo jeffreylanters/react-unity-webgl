@@ -17,13 +17,13 @@ When building content for the web, you might need to communicate with elements o
 **&Lt;**
 [**Documentation**](#documentation) &middot;
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
-[**Buy me a Coffee**](https://jeffreylanters.nl/donate) &middot;
+[**Buy me a Coffee**](https://jeffreylanters.nl/sponsor) &middot;
 [**Discussion Board**](https://github.com/elraccoone/react-unity-webgl/discussions)
 **&Gt;**
 
 <br/><br/>
 
-[![npm](https://img.shields.io/badge/sponsor_the_project-donate-E12C9A.svg?style=for-the-badge)](https://jeffreylanters.nl/donate)
+[![npm](https://img.shields.io/badge/sponsor_the_project-donate-E12C9A.svg?style=for-the-badge)](https://jeffreylanters.nl/sponsor)
 
 Hi! My name is Jeffrey Lanters, thanks for visiting! This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider donating to support the project. Thank you!
 
@@ -893,7 +893,7 @@ Thanks for your contribution!
 
 # Donators
 
-This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://jeffreylanters.nl/donate) to support the project. Thank you!
+This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://jeffreylanters.nl/sponsor) to support the project. Thank you!
 
 [<img src="https://avatars2.githubusercontent.com/u/28768645?s=460&v=4" height="50" />](https://github.com/mattdeitke)
 [<img src="https://i.ibb.co/w43CV2q/Unknown.jpg" height="50" />](https://www.callit.com.au)

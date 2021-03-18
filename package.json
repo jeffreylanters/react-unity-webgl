@@ -21,7 +21,7 @@
   "funding": [
     {
       "type": "individual",
-      "url": "https://jeffreylanters.nl/donate"
+      "url": "https://jeffreylanters.nl/sponsor"
     }
   ],
   "main": "./distribution/exports.js",
