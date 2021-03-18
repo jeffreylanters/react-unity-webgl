@@ -857,7 +857,7 @@ For arrays of primitive types, emscripten provides different ArrayBufferViews in
 
 #### Example implementation
 
-In the following JsLib file, a series of methods is exposed to Unity.
+A basic implementation could look something like this. In this example a series of methods is merged into the Unity library making this methods availble in CSharp. Each of these methods contain an example on how to handle specific types of data.
 
 ```js
 // File: MyPlugin.jslib
@@ -865,6 +865,9 @@ In the following JsLib file, a series of methods is exposed to Unity.
 mergeInto(LibraryManager.library, {
   LogToConsole: function () {
     console.log("Hello, world!");
+  },
+  LogNumberToConsole: function (number) {
+    console.log(number);
   },
   LogStringToConsole: function (str) {
     console.log(Pointer_stringify(str));
