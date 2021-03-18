@@ -159,7 +159,7 @@ On the React side of your project an Event Listeners can be registered to the Un
 
 > Keep in mind communication from Unity to React is global, so Event Listeners with the same name will overwrite one another.
 
-> When using parameters, some types might need the usage of special methods in order to read their values. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
+> Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
 
 ```ts
 function on(eventName: string, eventListener: Function): void;
@@ -848,8 +848,6 @@ const App = () => {
 ```
 
 ## JavaScript to UnityScript types
-
-when sending messages to your Unity Player through a Unity Context object, there are various restrictions to the parameter types.
 
 Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string.
 
