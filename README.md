@@ -855,6 +855,40 @@ To return a string value you need to call \_malloc to allocate some memory and t
 
 For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL context, GLctx.
 
+#### Example implementation
+
+In the following JsLib file, a series of methods is exposed to Unity.
+
+```js
+// File: MyPlugin.jslib
+
+mergeInto(LibraryManager.library, {
+  LogToConsole: function () {
+    console.log("Hello, world!");
+  },
+  LogStringToConsole: function (str) {
+    console.log(Pointer_stringify(str));
+  },
+  LogFloatArrayToConsole: function (array, size) {
+    for (var i = 0; i < size; i++) {
+      console.log(HEAPF32[(array >> 2) + size]);
+    }
+  },
+  AddNumbers: function (a, b) {
+    return a + b;
+  },
+  ReturnStringValue: function () {
+    var returnStr = "bla";
+    var buffer = _malloc(lengthBytesUTF8(returnStr) + 1);
+    writeStringToMemory(returnStr, buffer);
+    return buffer;
+  },
+  BindWebGLTexture: function (texture) {
+    GLctx.bindTexture(GLctx.TEXTURE_2D, GL.textures[texture]);
+  },
+});
+```
+
 # Contribution and Development
 
 When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change. Before commiting, please compile your code using npm run compile and open a pull request.
