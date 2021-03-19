@@ -878,7 +878,7 @@ mergeInto(LibraryManager.library, {
   SubmitScores: function (scoresFloatArray, arraySize) {
     var scores = [];
     for (var i = 0; i < arraySize; i++)
-      scores.push(HEAPF32[(scoresFloatArray >> 2) + arraySize]);
+      scores.push(HEAPF32[(scoresFloatArray >> 2) + i]);
     ReactUnityWebGL.SubmitScores(scores);
   },
 });
