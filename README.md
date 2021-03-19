@@ -173,7 +173,7 @@ ReactUnityWebGL[eventName: string];
 
 #### Example implementation
 
-A basic implementation could look something like this. In the following example we'll create a new Event Listener with the event name "GameOver" which passes along an interger container the score. When the Event is emitted we'll change the State.
+A basic implementation could look something like this. In the following example we'll create a new Event Listener with the event name "GameOver" which passes along a userName and an interger container the score. When the Event is emitted we'll change the State.
 
 ```jsx
 // File: App.jsx
@@ -186,6 +186,7 @@ class App extends Component {
     super(props);
     this.state = {
       isGameOver: false,
+      userName: "",
       score: 0,
     };
 
@@ -196,9 +197,10 @@ class App extends Component {
       codeUrl: "build/myunityapp.wasm",
     });
 
-    this.unityContext.on("GameOver", (score) => {
+    this.unityContext.on("GameOver", (userName, score) => {
       this.setState({
         isGameOver: true,
+        userName: userName,
         score: score,
       });
     });
@@ -207,8 +209,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.isGameOver == true && (
-          <p>Game over! Your score: {this.state.score}</p>
+        {this.state.isGameOver === true && (
+          <p>{`Game Over: ${this.state.userName} score: ${this.tate.score}`}</p>
         )}
         <Unity unityContext={this.unityContext} />
       </div>
@@ -219,14 +221,14 @@ class App extends Component {
 
 To emit the Event Listener we've just created, we'll have to create a new JSLib file within our Unity Project first. This JSLib file will be places within the "Assets/Plugins/WebGL" directory. The JSLib itself has nothing to do with this module, it is natively supported by Unity and is used for all communication between your CSharp and JavaScript in any given context.
 
-We'll start of by creating a new method inside of our JSLib. The name of this method can be anything, but in this example we'll give it it the same name as our Event Name to keep things clean. In the body of the method, we'll emit our Event Listener by invoking a method on the "ReactUnityWebGL" object exposed by the module. All of your Event Listeners are available as a property using the Event Name on the object. We'll pass along the score.
+We'll start of by creating a new method inside of our JSLib. The name of this method can be anything, but in this example we'll give it it the same name as our Event Name to keep things clean. In the body of the method, we'll emit our Event Listener by invoking a method on the "ReactUnityWebGL" object exposed by the module. All of your Event Listeners are available as a property using the Event Name on the object. We'll pass along the userName and the score. The userName has to go through the built-in "Pointer_stringify" method in order to get the value, otherwise a int pointer will be passed instead. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
 
 ```js
 // File: MyPlugin.jslib
 
 mergeInto(LibraryManager.library, {
-  GameOver: function (score) {
-    ReactUnityWebGL.GameOver(score);
+  GameOver: function (userName, score) {
+    ReactUnityWebGL.GameOver(Pointer_stringify(userName), score);
   },
 });
 ```
@@ -244,10 +246,10 @@ using System.Runtime.InteropServices;
 public class GameController : MonoBehaviour {
 
   [DllImport("__Internal")]
-  private static extern void GameOver (int score);
+  private static extern void GameOver (string userName, int score);
 
   public void SomeMethod () {
-    GameOver (100);
+    GameOver ("Player1", 100);
   }
 }
 ```
@@ -299,7 +301,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p>Loading... {this.state.progression * 100}%</p>
+        <p>{`Loading... ${this.state.progression * 100}%`}</p>
         <Unity unityContext={this.unityContext} />
       </div>
     );
@@ -350,9 +352,10 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{ visibility: this.state.isLoaded ? "visible" : "hidden" }}>
-        <Unity unityContext={this.unityContext} />
-      </div>
+      <Unity
+        style={{ visibility: this.state.isLoaded ? "visible" : "hidden" }}
+        unityContext={this.unityContext}
+      />
     );
   }
 }
@@ -603,8 +606,8 @@ class App extends Component {
   }
 
   render() {
-    return this.state.didError == true ? (
-      <div>Oops, that's an error {this.state.errorMessage}</div>
+    return this.state.didError === true ? (
+      <div>{`Oops, that's an error ${this.state.errorMessage}`}</div>
     ) : (
       <Unity unityContext={this.unityConext} />
     );
