@@ -857,37 +857,26 @@ For arrays of primitive types, emscripten provides different ArrayBufferViews in
 
 #### Example implementation
 
-A basic implementation could look something like this. In this example a series of methods is merged into the Unity library making this methods availble in CSharp. Each of these methods contain an example on how to handle specific types of data. No worries, the methods used for the conversion such as "HEAPF32" and "writeStringToMemory" are available natively.
+A basic implementation could look something like this. In this example a series of methods is merged into the Unity library making this methods availble in CSharp. Each of these methods contain an example on how to handle specific types of data. No worries, the methods used for the conversion such as "Pointer_stringify" and "HEAPF32" are available natively.
 
 ```js
 // File: MyPlugin.jslib
 
 mergeInto(LibraryManager.library, {
-  LogToConsole: function () {
-    console.log("Hello, world!");
+  GameOver: function () {
+    ReactUnityWebGL.GameOver();
   },
-  LogNumberToConsole: function (number) {
-    console.log(number);
+  NextWave: function (waveNumber) {
+    ReactUnityWebGL.NextWave(waveNumber);
   },
-  LogStringToConsole: function (str) {
-    console.log(Pointer_stringify(str));
+  ShowPopup: function (text) {
+    ReactUnityWebGL.ShowPopup(Pointer_stringify(text));
   },
-  LogFloatArrayToConsole: function (array, size) {
-    for (var i = 0; i < size; i++) {
-      console.log(HEAPF32[(array >> 2) + size]);
-    }
-  },
-  AddNumbers: function (a, b) {
-    return a + b;
-  },
-  ReturnStringValue: function () {
-    var returnStr = "bla";
-    var buffer = _malloc(lengthBytesUTF8(returnStr) + 1);
-    writeStringToMemory(returnStr, buffer);
-    return buffer;
-  },
-  BindWebGLTexture: function (texture) {
-    GLctx.bindTexture(GLctx.TEXTURE_2D, GL.textures[texture]);
+  SubmitScores: function (scoresFloatArray, arraySize) {
+    var scores = [];
+    for (var i = 0; i < arraySize; i++)
+      scores.push(HEAPF32[(scoresFloatArray >> 2) + arraySize]);
+    ReactUnityWebGL.SubmitScores(scores);
   },
 });
 ```
