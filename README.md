@@ -840,7 +840,7 @@ const App = () => {
   return (
     <Unity
       unityContext={unityContext}
-      matchWebGLToCanvasSize={true}
+      matchWebGLToCanvasSize={false}
       style={{ width: "100px", height: "100px" }}
     />
   );
