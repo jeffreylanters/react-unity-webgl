@@ -210,7 +210,7 @@ class App extends Component {
     return (
       <div>
         {this.state.isGameOver === true && (
-          <p>{`Game Over: ${this.state.userName} score: ${this.tate.score}`}</p>
+          <p>{`Game Over: ${this.state.userName} score: ${this.state.score}`}</p>
         )}
         <Unity unityContext={this.unityContext} />
       </div>
