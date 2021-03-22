@@ -53,13 +53,6 @@ export default interface IUnityInstanceParameters {
   productVersion?: string;
 
   /**
-   * Unity Module injection.
-   * @public
-   * @type {Object}
-   */
-  modules?: Object;
-
-  /**
    * The Canvas can appear too blurry on retina screens. The devicePixelRatio
    * determines how much extra pixel density should be added to allow for a
    * sharper image.
