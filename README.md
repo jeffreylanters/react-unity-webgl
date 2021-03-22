@@ -63,7 +63,6 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Catching Runtime errors](#catching-runtime-errors)
 - [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
-- [Overwriting Unity Module Properties](#overwriting-unity-module-properties)
 - [Providing Application Meta Data](#providing-application-meta-data)
 - [Getting a Reference to the Unity Canvas](#getting-a-reference-to-the-unity-canvas)
 - [Change the Render Size of WebGL Canvas](#change-the-render-size-of-webgl-canvas)
@@ -687,45 +686,6 @@ const unityContext = new UnityContext({
   frameworkUrl: "build/myunityapp.framework.js",
   codeUrl: "build/myunityapp.wasm",
   streamingAssetsUrl: "streamingassets",
-});
-
-const App = () => {
-  return <Unity unityContext={unityContext} />;
-};
-```
-
-## Overwriting Unity Module Properties
-
-> Available since version 6.1.1
-
-> See the [Unity Module interface](https://github.com/elraccoone/react-unity-webgl/blob/master/source/interfaces/unity-module.ts) for more details on which properties can be overwritten.
-
-Overwrites given Unity Module properties.
-
-```tsx
-<IUnityConfig>{
-  module: IUnityModule,
-};
-```
-
-#### Example implementation
-
-A basic implementation could look something like this. In this example the print method will be overwritten to alert all Debug Log messages.
-
-```jsx
-// File: App.jsx
-
-import React from "react";
-import Unity, { UnityContext } from "react-unity-webgl";
-
-const unityContext = new UnityContext({
-  loaderUrl: "build/myunityapp.loader.js",
-  dataUrl: "build/myunityapp.data",
-  frameworkUrl: "build/myunityapp.framework.js",
-  codeUrl: "build/myunityapp.wasm",
-  module: {
-    print: (message: string) => window.alert(message),
-  },
 });
 
 const App = () => {
