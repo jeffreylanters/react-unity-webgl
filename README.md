@@ -60,7 +60,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Setting the Canvas's ClassName](#setting-the-canvass-classname)
 - [Device Pixel Ratio and Retina Support](#device-pixel-ratio-and-retina-support)
 - [Tab Index and Input Keyboard Capturing](#tab-index-and-input-keyboard-capturing)
-- [Catching Runtime errors](#catching-runtime-errors)
+- [Catching Runtime and Loading Errors](#catching-runtime-and-loading-errors)
 - [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
 - [Providing Application Meta Data](#providing-application-meta-data)
@@ -559,11 +559,13 @@ public class GameController : MonoBehaviour {
 }
 ```
 
-## Catching Runtime errors
+## Catching Runtime and Loading Errors
 
 > Available since version 7.0.5
 
 When your Applications run into a runtime error, you might want to display your players any kind of error screen, or debug the problem yourself. The built-in error event listeners can be used for such cases. On Error is emitted while the Unity Player runs into an error. This is most likely a runtime error. The error details and stack trace are passed along via the parameter.
+
+When something goes wrong during the mounting of your application, this can be caused by various reasons such as an invalid Unity Loader or undefined variable, an error event will be dispatched as well.
 
 > Keep in mind that Unity WebGL production builds contain obfuscation code which might be hard to debug.
 
@@ -612,6 +614,42 @@ class App extends Component {
     );
   }
 }
+```
+
+## Receiving Internal and Debug Log Messages
+
+> Available since version 8.3.0
+
+Both the Unity Loader and your Unity Application Instance can send debug messages. The Internal messages, as commonly sent by the Unity Loader mostly contain information about the instanciation process of your Unity Application. The messages send from your Unity Application mostly consist of Debug Log messages invoked by the source of your CSharp project or any of your used modules. By default none of these messages are written to the console.
+
+```ts
+function on(eventName: "debug", eventListener: (message: string) => void): void;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll push all messages straight to the console.
+
+```jsx
+// File: App.jsx
+
+import React, { Component } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+unityContext.on("debug", (message) => {
+  console.log(message);
+});
+
+const App = () => {
+  return <Unity unityContext={unityContext} />;
+};
 ```
 
 ## Unmounting, Unloading and Quitting

@@ -34,6 +34,17 @@ export default interface IUnityContextEventMap {
   error: [string];
 
   /**
+   * Both the Unity Loader and your Unity Application Instance can send debug
+   * messages. The Internal messages, as commonly sent by the Unity Loader
+   * mostly contain information about the instanciation process of your Unity
+   * Application. The messages send from your Unity Application mostly consist
+   * of Debug Log messages invoked by the source of your CSharp project or any
+   * of your used modules. By default none of these messages are written to the
+   * console.
+   */
+  debug: [string];
+
+  /**
    * The quitted event is emitted in two cases, when the Unity component is
    * unmounted, and when Application.Quit is invoked from within your Unity
    * Application. In both cases the Unity Player will be unloaded from memory.
