@@ -49,7 +49,7 @@ export default class UnityContext {
   public quitUnityInstance(): void {
     if (typeof this.unityInstance !== "undefined")
       this.unityInstance.Quit().then(() => {
-        this.invokeEventListener("quitted");
+        this.dispatchEventListener("quitted");
         this.unityInstance = undefined;
       });
   }
@@ -97,12 +97,12 @@ export default class UnityContext {
   }
 
   /**
-   * Invokes an event listener that has been registered using the on function.
+   * Dispatches an event listener that has been registered using the on method.
    * @public
    * @param {string} eventName the event name
-   * @param {Function} eventValue the event value
+   * @param {any} eventValue the event value
    */
-  public invokeEventListener(eventName: string, eventValue?: any): void {
+  public dispatchEventListener(eventName: string, eventValue?: any): void {
     for (let _unityEvent of this.unityEvents)
       if (_unityEvent.eventName === eventName)
         _unityEvent.eventCallback(eventValue);

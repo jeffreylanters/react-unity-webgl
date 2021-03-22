@@ -36,11 +36,11 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
    * @param {number} progression
    */
   private onProgress(progression: number): void {
-    this.unityContext.invokeEventListener("progress", progression);
+    this.unityContext.dispatchEventListener("progress", progression);
     if (progression === 1) {
-      this.unityContext.invokeEventListener("loaded");
+      this.unityContext.dispatchEventListener("loaded");
       if (typeof this.htmlCanvasElementReference !== "undefined")
-        this.unityContext.invokeEventListener(
+        this.unityContext.dispatchEventListener(
           "canvas",
           this.htmlCanvasElementReference!
         );
@@ -85,9 +85,9 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
       const _unityInstanceParameters: IUnityInstanceParameters = {
         ...this.unityContext.unityConfig,
         printErr: (message: string) =>
-          this.unityContext.invokeEventListener("error", message),
+          this.unityContext.dispatchEventListener("error", message),
         print: (message: string) =>
-          this.unityContext.invokeEventListener("log", message),
+          this.unityContext.dispatchEventListener("debug", message),
       };
       if (this.props.devicePixelRatio !== undefined)
         _unityInstanceParameters.devicePixelRatio = this.props.devicePixelRatio;
@@ -100,7 +100,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
       );
       this.unityContext.setUnityInstance(_unityInstance);
     } catch (message) {
-      this.unityContext.invokeEventListener("error", message);
+      this.unityContext.dispatchEventListener("error", message);
       console.error("A problem occurred while mounting", message);
     }
   }
