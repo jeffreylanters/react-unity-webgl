@@ -564,11 +564,13 @@ public class GameController : MonoBehaviour {
 
 > Available since version 7.0.5
 
+> Keep in mind that Unity WebGL production builds contain obfuscation code which might be hard to debug.
+
+> By default Unity Alerts all errors thrown by the Unity Player. This can be a very annoying experience, especially for an experiences web developer. Even though the module catches all of these errors, there is sadly no way to disable the Alert behaviour from outside of your Unity Build. There are two things you can do to disable the alerts, either find and replace the alert in your generated Unity Loader, or overwrite your windows alert method. I'm trying to contact Unity about this, and when a solution is available, I'll be the first to happily implement this.
+
 When your Applications run into a runtime error, you might want to display your players any kind of error screen, or debug the problem yourself. The built-in error event listeners can be used for such cases. On Error is emitted while the Unity Player runs into an error. This is most likely a runtime error. The error details and stack trace are passed along via the parameter.
 
 When something goes wrong during the mounting of your application, this can be caused by various reasons such as an invalid Unity Loader or undefined variable, an error event will be dispatched as well.
-
-> Keep in mind that Unity WebGL production builds contain obfuscation code which might be hard to debug.
 
 ```ts
 function on(eventName: "error", eventListener: (message: string) => void): void;
