@@ -71,8 +71,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
    * using a new script tag and will continue when the script tag is loaded
    * succesfully. Then the Unity Instance Paramters will be constructed, these
    * consist out of the spreaded provided unityConfig, optional devicePixelRatio
-   * and matchWebGLToCanvasSize passed via props, en eventually the optionally
-   * provided module will be spread all over it. Finally the unity Instance
+   * and matchWebGLToCanvasSize passed via props. Finally the unity Instance
    * will be created.
    * @private
    * @async
@@ -84,11 +83,16 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
         this.unityContext.unityConfig.loaderUrl
       );
       const _unityInstanceParameters: IUnityInstanceParameters = {
-        devicePixelRatio: this.props.devicePixelRatio || undefined,
-        matchWebGLToCanvasSize: this.props.matchWebGLToCanvasSize || undefined,
         ...this.unityContext.unityConfig,
-        ...this.unityContext.unityConfig.module,
+        printErr: (message: string) =>
+          this.unityContext.invokeEventListener("error", message),
+        print: (message: string) =>
+          this.unityContext.invokeEventListener("log", message),
       };
+      if (this.props.devicePixelRatio !== undefined)
+        _unityInstanceParameters.devicePixelRatio = this.props.devicePixelRatio;
+      if (this.props.matchWebGLToCanvasSize !== undefined)
+        _unityInstanceParameters.matchWebGLToCanvasSize = this.props.matchWebGLToCanvasSize;
       const _unityInstance = await createUnityInstance(
         this.htmlCanvasElementReference!,
         _unityInstanceParameters,

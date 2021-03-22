@@ -72,4 +72,23 @@ export default interface IUnityInstanceParameters {
    * @type {boolean}
    */
   matchWebGLToCanvasSize?: boolean;
+
+  /**
+   * When assigned this method will intercept all incomming messages from the
+   * Unity Module into the console. These messages will contain both of the
+   * internal information messages as well as the debuggers log messages.
+   * @public
+   * @type {Function}
+   */
+  print?: (message: string) => void;
+
+  /**
+   * When assigned this method will intercept all incomming error logs from the
+   * Unity Module into the console. These messages will contain both of the
+   * runtime problems as well as the jslib and javascript errors thrown by the
+   * Unity Instance.
+   * @public
+   * @type {Function}
+   */
+  printErr?: (message: string) => void;
 }
