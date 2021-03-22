@@ -61,6 +61,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Device Pixel Ratio and Retina Support](#device-pixel-ratio-and-retina-support)
 - [Tab Index and Input Keyboard Capturing](#tab-index-and-input-keyboard-capturing)
 - [Catching Runtime and Loading Errors](#catching-runtime-and-loading-errors)
+- [Receiving Internal and Debug Log Messages](#receiving-internal-and-debug-log-messages)
 - [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
 - [Providing Application Meta Data](#providing-application-meta-data)
