@@ -9,12 +9,14 @@ import IUnityContextEventMap from "../interfaces/unity-context-event-map";
 export default class UnityContext {
   /**
    * A reference to the Unity Instance binded to this unityContext.
+   * @private
    * @type {UnityInstance}
    */
   private unityInstance?: UnityInstance;
 
   /**
    * A list of the UnityEvents binded to this unityContext.
+   * @private
    * @type {IUnityEvent[]}
    */
   private unityEvents: IUnityEvent[] = [];
@@ -33,6 +35,7 @@ export default class UnityContext {
 
   /**
    * Sets the reference of the UnityInstance.
+   * @public
    * @param {UnityInstance} unityInstance the target unityInstance.
    */
   public setUnityInstance(unityInstance: UnityInstance): void {
@@ -41,6 +44,7 @@ export default class UnityContext {
 
   /**
    * Quits the Unity Instance and clears it from memory.
+   * @public
    */
   public quitUnityInstance(): void {
     if (typeof this.unityInstance !== "undefined")
@@ -52,6 +56,7 @@ export default class UnityContext {
 
   /**
    * Sends a message to the UnityInstance to invoke a public method.
+   * @public
    * @param {string} gameObjectName the name of the game object in your Unity scene.
    * @param {string} methodName the name of the public method on the game object.
    * @param {string | number | boolean} parameter an optional method parameter.
@@ -72,6 +77,7 @@ export default class UnityContext {
    * Registers an event listener for the Unity player. These can be
    * system events like when the player is initialized or loader and
    * your custom events from Unity.
+   * @public
    * @param {string} eventName the event name
    * @param {Function} eventListener the event function
    * @returns {any} The Function
@@ -92,6 +98,7 @@ export default class UnityContext {
 
   /**
    * Invokes an event listener that has been registered using the on function.
+   * @public
    * @param {string} eventName the event name
    * @param {Function} eventValue the event value
    */
@@ -103,6 +110,7 @@ export default class UnityContext {
 
   /**
    * Enables or disabled the fullscreen mode of the UnityInstance.
+   * @public
    * @param {boolean} enabled
    */
   public setFullscreen(enabled: boolean): void {

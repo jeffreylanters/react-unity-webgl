@@ -1,6 +1,7 @@
 export default class UnityLoaderService {
   /**
    * A reference to all UnityLoader script tags and their respective urls.
+   * @private
    * @type {Array<{ url: string; htmlScriptElement: HTMLScriptElement; }>}
    */
   private static unityLoaderInstances: Array<{
@@ -10,6 +11,7 @@ export default class UnityLoaderService {
 
   /**
    * A reference to the document head.
+   * @private
    * @type {HTMLHeadElement}
    */
   private documentHead: HTMLHeadElement | undefined =
@@ -21,8 +23,9 @@ export default class UnityLoaderService {
    * Adds the Unity loader script to the window. When a version of the loader
    * is already appended, we'll skip to the validation right away. Before
    * resolving a type check on the createUnityInstance method is done.
+   * @public
    * @param {string} url the path to the Unity loader file
-   * @returns A promise when resolving when the file is loaded succesfulling.
+   * @returns {Promise<void>} A promise when resolving when the file is loaded succesfulling.
    */
   public async addFromUrl(url: string): Promise<void> {
     let _hasSimilarUnityLoaderUrlInstance = false;
@@ -43,6 +46,7 @@ export default class UnityLoaderService {
   /**
    * Appends a new script tag to the window. The promise resolves when the script
    * is loaded and rejects when it failed to load.
+   * @private
    * @param {string} url The url of the script
    * @returns A promise containing the HTML Script Ele,ent
    */
@@ -54,7 +58,7 @@ export default class UnityLoaderService {
         _scriptTag.async = true;
         _scriptTag.src = url;
         _scriptTag.onload = () => resolve(_scriptTag!);
-        _scriptTag.onerror = (error) =>
+        _scriptTag.onerror = (error: string | Event) =>
           reject(`Unable to load ${url} ${error}`);
         this.documentHead.appendChild(_scriptTag);
       }

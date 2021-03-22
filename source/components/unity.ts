@@ -9,18 +9,22 @@ import IUnityInstanceParameters from "../interfaces/unity-instance-parameters";
 export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
    * The UnityContext passed by the props.
+   * @private
    * @type {UnityContext}
    */
   private unityContext: UnityContext = this.props.unityContext;
 
   /**
    * The UnityLoader service instance.
+   * @private
    * @type {UnityLoaderService}
    */
   private unityLoaderService: UnityLoaderService = new UnityLoaderService();
 
   /**
    * A reference to the html canvas element the UnityInstance will use.
+   * @private
+   * @type {HTMLCanvasElement}
    */
   private htmlCanvasElementReference?: HTMLCanvasElement;
 
@@ -28,6 +32,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
    * Event invoked by the UnityInstance when the initialization is progressing.
    * Will be used to track the loading progression and invokes the event listeners
    * for both 'progress' and 'loaded' when the progression hits a value of '1'.
+   * @private
    * @param {number} progression
    */
   private onProgress(progression: number): void {
@@ -45,6 +50,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
    * Event invoked when the component is mounted. This sets the component
    * reference and starts the mounting of the UnityInstance.
+   * @public
    */
   public componentDidMount(): void {
     this.mountUnityInstance();
@@ -53,6 +59,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
    * Event invoked when the component will unmount. This force quits the
    * UnityInstance which will clear it from the memory.
+   * @public
    */
   public componentWillUnmount(): void {
     this.unityContext.quitUnityInstance();
@@ -85,6 +92,7 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
 
   /**
    * Renders the unity wrapper and player.
+   * @public
    * @returns {React.ReactNode} element
    */
   public render(): React.ReactNode {
