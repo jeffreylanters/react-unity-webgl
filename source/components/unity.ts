@@ -67,6 +67,16 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
 
   /**
    * Initialized the Unity Loader and mounts the UnityInstance to the component.
+   * During this cycle the unity loader service will append the loader script
+   * using a new script tag and will continue when the script tag is loaded
+   * succesfully. Then the Unity Instance Paramters will be constructed, these
+   * consist out of the spreaded provided unityConfig, optional devicePixelRatio
+   * and matchWebGLToCanvasSize passed via props, en eventually the optionally
+   * provided module will be spread all over it. Finally the unity Instance
+   * will be created.
+   * @private
+   * @async
+   * @returns {Promise<void>} a promise resolving when Unity loaded correctly.
    */
   private async mountUnityInstance(): Promise<void> {
     try {
@@ -74,9 +84,10 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
         this.unityContext.unityConfig.loaderUrl
       );
       const _unityInstanceParameters: IUnityInstanceParameters = {
-        ...this.unityContext.unityConfig,
         devicePixelRatio: this.props.devicePixelRatio || undefined,
         matchWebGLToCanvasSize: this.props.matchWebGLToCanvasSize || undefined,
+        ...this.unityContext.unityConfig,
+        ...this.unityContext.unityConfig.module,
       };
       const _unityInstance = await createUnityInstance(
         this.htmlCanvasElementReference!,
