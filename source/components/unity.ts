@@ -77,8 +77,9 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
         this.onProgress.bind(this)
       );
       this.unityContext.setUnityInstance(_unityInstance);
-    } catch (error) {
-      console.error("Error while creating the Unity Instance", error);
+    } catch (message) {
+      this.unityContext.invokeEventListener("error", message);
+      console.error("A problem occurred while mounting", message);
     }
   }
 
