@@ -69,6 +69,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Getting a Reference to the Unity Canvas](#getting-a-reference-to-the-unity-canvas)
 - [Change the Render Size of WebGL Canvas](#change-the-render-size-of-webgl-canvas)
 - [JavaScript to UnityScript types](#javascript-to-unityscript-types)
+- [Creating Unity WebGL builds](#creating-unity-webgl-builds)
 
 ## Getting Started
 
@@ -892,6 +893,20 @@ mergeInto(LibraryManager.library, {
   },
 });
 ```
+
+## Creating Unity WebGL builds
+
+To get started with React Unity WebGL, you'll first need a Unity WebGL build. Nowadays with Unity 2020 and new, creating WebGL builds is easier then ever before. The following sections runs you though the basic steps of creating your very first WebGL build, and covers some frequently asked questions.
+
+Start of by switching to the WebGL build platform, the target build platform can be changes from within the Build Settings window. This window can be found under the menu "File > Build Settings", or by pressing \[CMD+Shift+B\] on MacOS or \[CTRL+Shift+B\] on Windows respectively. When you've selected the WebGL build platform, proceed by clicking "Switch Platform". This process might take a while and will reimport your Assets.
+
+When creating your WebGL build, Unity will by default generate a lot of files including HTML, CSS and a series of images. The reason these files are generated alongside your actual build is a selected Template from within your projects Player Settings. The same goes for the Height and Width settings. Unity allows for Templates to be added to your Asset directory and generate builds while bundeling them with these templates. Since your React project is something entirely different, we're not going to need all these files, and we'll be focussing on the actual build instead. These files include the four files required by the Unity Context object. -- You can either use the Minimal template to reduse the number of unused file to be generated, or just ignore these files and only copy the files you'll need.
+
+By default Unity compresses the generated files using the Brotli compression algorithm based on your Unity Version. Support for compressed files has nothing to do with this module, you might need to adjust your server configuration to match your specific build setup. In particular, there might be issues if you already have another server-side configuration to compress hosted files, which could interfere with this setup. To make the browser perform decompression natively while it downloads your application, append a Content-Encoding header to the server response. This header must correspond to the type of compression Unity uses at build time. For code samples, see Server Configuration Code Samples. -- If you don't want to configure your server, you can disable compression from within the Player Setting's Publish section.
+
+When taking a look at the generated files, you'll find a lot of minified and mangled JavaScript. This might make debugging runtime issues quite challenging. Enable "Development Build" from the Player Settings window to prevent your build from becomming unreadable. This helps your debugging process, but these builds are not meant to be published since their buildsizes are hudge compaired to regular builds.
+
+If you're having more questions about creating WebGL builds, feel free to take a look and open a new question on the [Discussion Board](https://github.com/elraccoone/react-unity-webgl/discussions).
 
 # Contribution and Development
 
