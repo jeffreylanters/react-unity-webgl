@@ -46,6 +46,7 @@
     "start": "tsc --watch",
     "test": "tsc -d && echo 'Please use the test environment'",
     "prepublish": "tsc",
+    "compile": "tsc",
     "package": "npm pack"
   },
   "devDependencies": {
