@@ -250,7 +250,9 @@ public class GameController : MonoBehaviour {
   private static extern void GameOver (string userName, int score);
 
   public void SomeMethod () {
+#if (UNITY_WEBGL == true && UNITY_EDITOR == false)
     GameOver ("Player1", 100);
+#endif
   }
 }
 ```
@@ -551,10 +553,11 @@ const App = () => {
 /// File: GameController.cs
 
 using UnityEngine;
+#define REACT_UNITY_WEBGL = UNITY_WEBGL == true && UNITY_EDITOR == false;
 
 public class GameController : MonoBehaviour {
   private void Start () {
-#if !UNITY_EDITOR && UNITY_WEBGL
+#if (UNITY_WEBGL == true && UNITY_EDITOR == false)
     WebGLInput.captureAllKeyboardInput = false;
 #endif
   }
