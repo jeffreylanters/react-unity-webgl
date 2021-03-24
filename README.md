@@ -927,7 +927,7 @@ When contributing to this repository, please first discuss the change you wish t
 Before submitting a pull request, please make sure the following is done:
 
 - Create a public fork [the React Unity WebGL repository](https://github.com/elraccoone/react-unity-webgl) and and commit your changes to a new branch from the main branch.
-- Make sure the package installs using `npm install`, make sure your code lints using `ts lint` and if formatted using [prettier](https://github.com/prettier/prettier).
+- Make sure the package installs using `npm install`, your code lints using `ts lint`, is formatted using [prettier](https://github.com/prettier/prettier) and compiles using `npm test`.
 - Typecheck all of your changes and make sure the documentation in both the code, Read Me and JSDocs are provided.
 - Make sure your changes passes and are compatibly with Unity WebGL builds using the [test environment](https://github.com/jeffreylanters/react-unity-webgl-test) which provides a series of tests and basic implementations.
 
