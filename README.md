@@ -5,13 +5,13 @@
 <br/>
 <br/>
 
-[![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)]()
-[![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)]()
-[![npm](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)]()
+[![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)](https://github.com/elraccoone/react-unity-webgl/blob/master/LICENSE.md)
+[![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)](https://www.npmjs.com/package/react-unity-webgl)
+[![build](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl-test)
 <br/>
-[![npm](https://img.shields.io/github/stars/elraccoone/react-unity-webgl.svg?style=for-the-badge&color=fe8523)]()
-[![npm](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)]()
-[![npm](https://img.shields.io/bundlephobia/minzip/react-unity-webgl?style=for-the-badge&label=size)]()
+[![stars](https://img.shields.io/github/stars/elraccoone/react-unity-webgl.svg?style=for-the-badge&color=fe8523)](https://github.com/elraccoone/react-unity-webgl/stargazers)
+[![downloads](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)](https://www.npmtrends.com/react-unity-webgl)
+[![size](https://img.shields.io/bundlephobia/minzip/react-unity-webgl?style=for-the-badge&label=size)](https://bundlephobia.com/result?p=react-unity-webgl)
 
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
