@@ -12,7 +12,7 @@ export default interface IUnityContextEventMap {
    * is fully loaded into memory and will start execution, the progression will
    * hit 1. The event will invoke everytime the progression advances.
    */
-  progress: [number];
+  progress: [progression: number];
 
   /**
    * While your application is being downloaded from the server and loaded into
@@ -31,7 +31,7 @@ export default interface IUnityContextEventMap {
    * runtime error. The error details and stack trace are passed along via the
    * parameter.
    */
-  error: [string];
+  error: [message: string];
 
   /**
    * Both the Unity Loader and your Unity Application Instance can send debug
@@ -42,7 +42,7 @@ export default interface IUnityContextEventMap {
    * of your used modules. By default none of these messages are written to the
    * console.
    */
-  debug: [string];
+  debug: [message: string];
 
   /**
    * The quitted event is emitted in two cases, when the Unity component is
@@ -56,5 +56,5 @@ export default interface IUnityContextEventMap {
    * has been loaded and appended to the DOM. The event will pass along a
    * reference to the canvas.
    */
-  canvas: [HTMLCanvasElement];
+  canvas: [htmlCanvasElement: HTMLCanvasElement];
 }
