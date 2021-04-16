@@ -565,7 +565,6 @@ const App = () => {
 /// File: GameController.cs
 
 using UnityEngine;
-#define REACT_UNITY_WEBGL = UNITY_WEBGL == true && UNITY_EDITOR == false;
 
 public class GameController : MonoBehaviour {
   private void Start () {
