@@ -1,15 +1,15 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/elraccoone/react-unity-webgl/master/.github/WIKI/repository-readme-splash.png" width="100%">
+<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/.github/WIKI/repository-readme-splash.png" width="100%">
 
 <br/>
 <br/>
 
-[![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)](https://github.com/elraccoone/react-unity-webgl/blob/master/LICENSE.md)
+[![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/blob/master/LICENSE.md)
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)](https://www.npmjs.com/package/react-unity-webgl)
 [![build](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl-test)
 <br/>
-[![stars](https://img.shields.io/github/stars/elraccoone/react-unity-webgl.svg?style=for-the-badge&color=fe8523)](https://github.com/elraccoone/react-unity-webgl/stargazers)
+[![stars](https://img.shields.io/github/stars/jeffreylanters/react-unity-webgl.svg?style=for-the-badge&color=fe8523)](https://github.com/jeffreylanters/react-unity-webgl/stargazers)
 [![downloads](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)](https://www.npmtrends.com/react-unity-webgl)
 [![size](https://img.shields.io/bundlephobia/minzip/react-unity-webgl?style=for-the-badge&label=size)](https://bundlephobia.com/result?p=react-unity-webgl)
 
@@ -19,7 +19,7 @@ When building content for the web, you might need to communicate with elements o
 [**Documentation**](#documentation) &middot;
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
 [**Buy me a Coffee**](https://jeffreylanters.nl/sponsor) &middot;
-[**Discussion Board**](https://github.com/elraccoone/react-unity-webgl/discussions)
+[**Discussion Board**](https://github.com/jeffreylanters/react-unity-webgl/discussions)
 **&Gt;**
 
 <br/><br/>
@@ -38,7 +38,7 @@ Hi! My name is Jeffrey Lanters, thanks for visiting! This package is an open sou
 
 # Installation
 
-Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. Please keep in mind that some documentation in the readme may not be accurate when using an older version of this module, visit the [legacy documentation](https://github.com/elraccoone/react-unity-webgl/tree/master/.github/LEGACY_DOCUMENTATION) to see older versions of the Wiki.
+Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. Please keep in mind that some documentation in the readme may not be accurate when using an older version of this module, visit the [legacy documentation](https://github.com/jeffreylanters/react-unity-webgl/tree/master/.github/LEGACY_DOCUMENTATION) to see older versions of the Wiki.
 
 ```sh
 $ npm install react-unity-webgl@8.x  # For Unity 2020 and 2021
@@ -49,7 +49,7 @@ $ npm install react-unity-webgl@5.x  # For Unity 5.6^ (LTS)
 
 # Documentation
 
-Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here to help you build your awesome games to the web. In the table below you'll find everything there is you'll need to know when using the module. If you'll need help, feel free to open a new [discussion](https://github.com/elraccoone/react-unity-webgl/discussions), when you want to contribute or think you've found a problem, feel free to open a new [issue](https://github.com/elraccoone/react-unity-webgl/issues). Like what you see? Please consider [Starring this repository](https://github.com/elraccoone/react-unity-webgl/stargazers)! Happy coding.
+Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here to help you build your awesome games to the web. In the table below you'll find everything there is you'll need to know when using the module. If you'll need help, feel free to open a new [discussion](https://github.com/jeffreylanters/react-unity-webgl/discussions), when you want to contribute or think you've found a problem, feel free to open a new [issue](https://github.com/jeffreylanters/react-unity-webgl/issues). Like what you see? Please consider [Starring this repository](https://github.com/jeffreylanters/react-unity-webgl/stargazers)! Happy coding.
 
 - [Getting Started](#getting-started)
 - [Creating a Unity Context Object](#creating-a-unity-context-object)
@@ -928,7 +928,7 @@ When chosing to use compressed builds, you might need to adjust your server conf
 
 When taking a look at the generated files, you'll find a lot of minified and mangled JavaScript. This might make debugging runtime issues quite challenging. Enable "Development Build" from the Player Settings window to prevent your build from becomming unreadable. This helps your debugging process, but these builds are not meant to be published since their buildsizes are hudge compaired to regular builds.
 
-If you're having more questions about creating WebGL builds, feel free to take a look and open a new question on the [Discussion Board](https://github.com/elraccoone/react-unity-webgl/discussions).
+If you're having more questions about creating WebGL builds, feel free to take a look and open a new question on the [Discussion Board](https://github.com/jeffreylanters/react-unity-webgl/discussions).
 
 # Contribution and Development
 
@@ -936,7 +936,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 Before submitting a pull request, please make sure the following is done:
 
-- Create a public fork [the React Unity WebGL repository](https://github.com/elraccoone/react-unity-webgl) and and commit your changes to a new branch from the main branch.
+- Create a public fork [the React Unity WebGL repository](https://github.com/jeffreylanters/react-unity-webgl) and and commit your changes to a new branch from the main branch.
 - Make sure the package installs using `npm install`, your code lints using `ts lint`, is formatted using [prettier](https://github.com/prettier/prettier) and compiles using `npm test`.
 - Typecheck all of your changes and make sure the documentation in both the code, Read Me and JSDocs are provided.
 - Make sure your changes passes and are compatibly with Unity WebGL builds using the [test environment](https://github.com/jeffreylanters/react-unity-webgl-test) which provides a series of tests and basic implementations.

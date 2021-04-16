@@ -7,9 +7,9 @@
     "Unity",
     "WebGL"
   ],
-  "homepage": "https://github.com/elraccoone/react-unity-webgl#readme",
+  "homepage": "https://github.com/jeffreylanters/react-unity-webgl#readme",
   "bugs": {
-    "url": "https://github.com/elraccoone/react-unity-webgl/issues",
+    "url": "https://github.com/jeffreylanters/react-unity-webgl/issues",
     "email": "jeffreylanters@me.com"
   },
   "license": "Apache-2.0",
@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/elraccoone/react-unity-webgl.git"
+    "url": "https://github.com/jeffreylanters/react-unity-webgl.git"
   },
   "scripts": {
     "start": "tsc --watch",
