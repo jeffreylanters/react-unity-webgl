@@ -20,8 +20,8 @@
   },
   "funding": [
     {
-      "type": "individual",
-      "url": "https://jeffreylanters.nl/sponsor"
+      "type": "github",
+      "url": "https://github.com/sponsors/jeffreylanters"
     }
   ],
   "main": "./distribution/exports.js",
