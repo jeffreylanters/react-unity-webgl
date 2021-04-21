@@ -55,6 +55,6 @@
   },
   "private": false,
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@jeffreylanters"
+    "registry": "https://npm.pkg.github.com/jeffreylanters"
   }
 }
