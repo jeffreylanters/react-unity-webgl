@@ -1,4 +1,4 @@
-name: Publish To GPR
+name: Publish To GitHub Package Repository
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@jeffreylanters'
       - run: npm install
-      - run: npm run update-name-for-gpr
+      - run: node scripts/gpr-post-publish.js
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
