@@ -16,7 +16,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@jeffreylanters'
       - run: npm install
-      - run: npm run compile
+      - run: npm run update-name-for-gpr
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
