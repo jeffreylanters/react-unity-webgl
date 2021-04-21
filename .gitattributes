@@ -1,2 +1,2 @@
 # Excludes GitHub scripts from statistics
-.github/actions/* linguist-vendored
+.github/scripts/* linguist-vendored
