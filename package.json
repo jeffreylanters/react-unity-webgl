@@ -53,8 +53,5 @@
     "@types/react": "17.0.1",
     "typescript": "4.1.3"
   },
-  "private": false,
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/jeffreylanters"
-  }
+  "private": false
 }
