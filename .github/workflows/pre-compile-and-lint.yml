@@ -1,11 +1,10 @@
-name: Pre-Compile
+name: Pre-Compile and Lint
 on:
-  push:
-    branches:
-      - master
+  - push
+  - pull_request
 jobs:
-  pre-compile:
-    name: Pre-Compile
+  main:
+    name: Main
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

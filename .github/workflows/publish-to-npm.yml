@@ -4,8 +4,8 @@ on:
     types:
       - published
 jobs:
-  release:
-    name: Release
+  main:
+    name: Main
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
