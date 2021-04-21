@@ -16,6 +16,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@jeffreylanters'
       - run: npm install
+      - run: npm publish
       - run: node scripts/gpr-post-publish.js
       - run: npm publish
         env:
