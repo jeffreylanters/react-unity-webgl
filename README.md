@@ -964,13 +964,3 @@ npm install ../react-unity-webgl/react-unity-webgl-x.y.z.tgz
 English is my second language and I suffer from dyslexia. I try to document everything as clearly and correctly as possible. Contributions to spelling and grammar errors are more than welcome and much appreciated.
 
 Thanks for your contribution!
-
-# Donators
-
-This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider [donating](https://jeffreylanters.nl/sponsor) to support the project. Thank you!
-
-[<img src="https://avatars2.githubusercontent.com/u/28768645?s=460&v=4" height="50" />](https://github.com/mattdeitke)
-[<img src="https://i.ibb.co/w43CV2q/Unknown.jpg" height="50" />](https://www.callit.com.au)
-[<img src="https://avatars2.githubusercontent.com/u/2016308?s=460&v=4" width="50" height="50" />](https://github.com/mrniket)
-[<img src="https://avatars3.githubusercontent.com/u/20756439?s=460&v=4" width="50" height="50" />](https://github.com/webbertakken)
-[<img src="https://avatars3.githubusercontent.com/u/1134186?s=460&v=4" width="50" height="50" />](https://github.com/hawksprite)
