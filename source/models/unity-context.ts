@@ -28,9 +28,9 @@ export default class UnityContext {
   constructor(public unityConfig: IUnityConfig) {
     if (
       typeof window !== "undefined" &&
-      typeof (window as any).ReactUnityWebGL === "undefined"
+      typeof window.ReactUnityWebGL === "undefined"
     )
-      (window as any).ReactUnityWebGL = {};
+      window.ReactUnityWebGL = {};
   }
 
   /**
@@ -92,7 +92,7 @@ export default class UnityContext {
   ): void {
     this.unityEvents.push({ eventName, eventCallback: eventListener });
     if (typeof window !== "undefined")
-      (window as any).ReactUnityWebGL[eventName] = (...parameters: any) =>
+      window.ReactUnityWebGL[eventName] = (...parameters: any) =>
         eventListener(...parameters);
   }
 
