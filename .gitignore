@@ -1,4 +1,9 @@
+# Development
 /node_modules
-/distribution
 /*.tgz
+
+# Production
+/distribution
+
+# System
 .DS_Store

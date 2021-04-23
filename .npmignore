@@ -1,5 +1,11 @@
+# Development
 /node_modules
 /source
-/.github
 /*.tgz
+/tsconfig.json
+
+# Meta
+/.github
+
+# System
 .DS_Store
