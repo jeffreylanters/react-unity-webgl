@@ -49,8 +49,8 @@
     "package": "npm pack"
   },
   "devDependencies": {
-    "@types/react": "17.0.1",
-    "typescript": "4.1.3"
+    "@types/react": "17.0.5",
+    "typescript": "4.2.4"
   },
   "private": false
 }
