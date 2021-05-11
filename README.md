@@ -191,44 +191,33 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isGameOver: false,
-      userName: "",
-      score: 0,
-    };
+function App() {
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [score, setScore] = useState(0);
 
-    this.unityContext = new UnityContext({
-      loaderUrl: "build/myunityapp.loader.js",
-      dataUrl: "build/myunityapp.data",
-      frameworkUrl: "build/myunityapp.framework.js",
-      codeUrl: "build/myunityapp.wasm",
-    });
+  const unityContext = new UnityContext({
+    loaderUrl: "build/myunityapp.loader.js",
+    dataUrl: "build/myunityapp.data",
+    frameworkUrl: "build/myunityapp.framework.js",
+    codeUrl: "build/myunityapp.wasm",
+  });
 
-    this.unityContext.on("GameOver", (userName, score) => {
-      this.setState({
-        isGameOver: true,
-        userName: userName,
-        score: score,
-      });
-    });
-  }
+  this.unityContext.on("GameOver", (userName, score) => {
+    setIsGameOver(true);
+    setUserName(userName);
+    setScore(score);
+  });
 
-  render() {
-    return (
-      <div>
-        {this.state.isGameOver === true && (
-          <p>{`Game Over: ${this.state.userName} score: ${this.state.score}`}</p>
-        )}
-        <Unity unityContext={this.unityContext} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      {isGameOver === true && <p>{`Game Over! ${userName} ${score} points`}</p>}
+      <Unity unityContext={unityContext} />
+    </div>
+  );
 }
 ```
 
