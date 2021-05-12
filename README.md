@@ -206,7 +206,7 @@ function App() {
     codeUrl: "build/myunityapp.wasm",
   });
 
-  this.unityContext.on("GameOver", (userName, score) => {
+  unityContext.on("GameOver", (userName, score) => {
     setIsGameOver(true);
     setUserName(userName);
     setScore(score);
