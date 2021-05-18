@@ -298,7 +298,7 @@ function App() {
   return (
     <div>
       <p>Loading {progression * 100} percent...</p>
-      <Unity unityContext={this.unityContext} />
+      <Unity unityContext={unityContext} />
     </div>
   );
 }
@@ -341,7 +341,7 @@ function App() {
   return (
     <Unity
       style={{ visibility: isLoaded ? "visible" : "hidden" }}
-      unityContext={this.unityContext}
+      unityContext={unityContext}
     />
   );
 }
@@ -591,7 +591,7 @@ function App() {
   return didError === true ? (
     <div>Oops, that's an error {errorMessage}</div>
   ) : (
-    <Unity unityContext={this.unityConext} />
+    <Unity unityContext={unityConext} />
   );
 }
 ```
