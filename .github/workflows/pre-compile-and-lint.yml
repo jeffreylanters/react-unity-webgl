@@ -1,11 +1,7 @@
 name: Pre-Compile and Lint
 on:
-  push:
-    paths: 
-      - source
-  pull_request:
-    paths:
-      - source
+  - push
+  - pull_request
 jobs:
   main:
     name: Main
