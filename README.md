@@ -7,7 +7,7 @@
 
 [![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/blob/master/LICENSE.md)
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)](https://www.npmjs.com/package/react-unity-webgl)
-[![build](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl-test)
+[![build](https://img.shields.io/github/checks-status/jeffreylanters/react-unity-webgl/master?label=build&style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/actions)
 <br/>
 [![stars](https://img.shields.io/github/stars/jeffreylanters/react-unity-webgl.svg?style=for-the-badge&color=fe8523)](https://github.com/jeffreylanters/react-unity-webgl/stargazers)
 [![downloads](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)](https://www.npmtrends.com/react-unity-webgl)

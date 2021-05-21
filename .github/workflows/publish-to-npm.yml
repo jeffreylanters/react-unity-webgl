@@ -6,6 +6,9 @@ on:
 jobs:
   main:
     name: Main
+    environment:
+      name: Node Package Registry
+      url: https://www.npmjs.com/package/react-unity-webgl
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
