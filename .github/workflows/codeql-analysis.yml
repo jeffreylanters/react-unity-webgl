@@ -1,11 +1,11 @@
 name: CodeQL Analysis
 on:
   push:
-    branches: 
-      - master
+    paths: 
+      - source
   pull_request:
-    branches:
-      - master
+    paths:
+      - source
 jobs:
   main:
     name: Main
