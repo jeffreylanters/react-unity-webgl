@@ -5,9 +5,11 @@ import IUnityInstanceParameters from "../source/interfaces/unity-instance-parame
  */
 declare global {
   /**
-   * Type declaration for the ReactUnityWebGL object.
+   * Type declaration for the ReactUnityWebGL Object.
    */
-  var ReactUnityWebGL: { [eventName: string]: Function };
+  var ReactUnityWebGL: {
+    [eventName: string]: Function;
+  };
 
   /**
    * Creates a new UnityInstance.
