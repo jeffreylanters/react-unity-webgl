@@ -1,5 +1,5 @@
-import "../declarations/unity-instance";
-import "../declarations/global";
+import "../typings/unity-instance";
+import "../typings/global";
 import { createElement, PureComponent } from "react";
 import IUnityProps from "../interfaces/unity-props";
 import UnityContext from "../models/unity-context";
@@ -92,7 +92,8 @@ export default class Unity extends PureComponent<IUnityProps, {}> {
       if (this.props.devicePixelRatio !== undefined)
         _unityInstanceParameters.devicePixelRatio = this.props.devicePixelRatio;
       if (this.props.matchWebGLToCanvasSize !== undefined)
-        _unityInstanceParameters.matchWebGLToCanvasSize = this.props.matchWebGLToCanvasSize;
+        _unityInstanceParameters.matchWebGLToCanvasSize =
+          this.props.matchWebGLToCanvasSize;
       const _unityInstance = await createUnityInstance(
         this.htmlCanvasElementReference!,
         _unityInstanceParameters,
