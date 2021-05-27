@@ -3,6 +3,7 @@ import IUnityConfig from "../interfaces/unity-config";
 import IUnityEvent from "../interfaces/unity-event";
 import IUnityContextEventMap from "../interfaces/unity-context-event-map";
 
+// TODO remove from dir
 /**
  * The Unity Context.
  */
@@ -102,6 +103,7 @@ export default class UnityContext {
    * @example unityContext.removeEventListener("progress");
    */
   public removeEventListener(eventName: string): void {
+    // TODO refactor to "off"?
     for (let _i = 0; _i < this.unityEvents.length; _i++)
       if (this.unityEvents[_i].eventName === eventName)
         this.unityEvents.splice(_i, 1);
@@ -114,6 +116,7 @@ export default class UnityContext {
    * @example unityContext.removeAllEventListeners();
    */
   public removeAllEventListeners(): void {
+    // TODO refactor to "off"?
     for (let _i = 0; _i < this.unityEvents.length; _i++)
       delete window.ReactUnityWebGL[this.unityEvents[_i].eventName];
     this.unityEvents = [];

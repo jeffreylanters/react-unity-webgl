@@ -6,6 +6,7 @@ import UnityContext from "../models/unity-context";
 import UnityLoaderService from "../services/unity-loader-service";
 import IUnityInstanceParameters from "../interfaces/unity-instance-parameters";
 
+// TODO turn into functional component
 export default class Unity extends PureComponent<IUnityProps, {}> {
   /**
    * The UnityContext passed by the props.
