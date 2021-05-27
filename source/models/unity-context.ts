@@ -78,9 +78,8 @@ export default class UnityContext {
    * system events like when the player is initialized or loader and
    * your custom events from Unity.
    * @public
-   * @param {string} eventName the event name
-   * @param {Function} eventListener the event function
-   * @returns {any} The Function
+   * @param {string} eventName the event's name
+   * @param {Function} eventListener the event's function
    */
   public on<MapKey extends keyof IUnityContextEventMap | (string & {})>(
     eventName: keyof IUnityContextEventMap | (MapKey & {}),
@@ -97,10 +96,24 @@ export default class UnityContext {
   }
 
   /**
+   * Removes all the Event Listeners with a specific Event Name.
+   * @public
+   * @param {string} eventName the event's name
+   * @example unityContext.removeEventListener("progress");
+   */
+  public removeEventListener(eventName: string): void {
+    for (let _i = 0; _i < this.unityEvents.length; _i++)
+      if (this.unityEvents[_i].eventName === eventName)
+        this.unityEvents.splice(_i, 1);
+    delete window.ReactUnityWebGL[eventName];
+  }
+
+  /**
    * Dispatches an event listener that has been registered using the on method.
    * @public
-   * @param {string} eventName the event name
-   * @param {any} eventValue the event value
+   * @param {string} eventName the event's name
+   * @param {any} eventValue the event's value
+   * @example unityContext.dispatchEventListener("gameOver", 180);
    */
   public dispatchEventListener(eventName: string, eventValue?: any): void {
     for (let _unityEvent of this.unityEvents)
@@ -109,7 +122,7 @@ export default class UnityContext {
   }
 
   /**
-   * Enables or disabled the fullscreen mode of the UnityInstance.
+   * Enables or disabled the Fullscreen mode of the Unity Instance.
    * @public
    * @param {boolean} enabled
    */
