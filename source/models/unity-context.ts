@@ -109,6 +109,17 @@ export default class UnityContext {
   }
 
   /**
+   * Removes all the Event Listeners.
+   * @public
+   * @example unityContext.removeAllEventListeners();
+   */
+  public removeAllEventListeners(): void {
+    for (let _i = 0; _i < this.unityEvents.length; _i++)
+      delete window.ReactUnityWebGL[this.unityEvents[_i].eventName];
+    this.unityEvents = [];
+  }
+
+  /**
    * Dispatches an event listener that has been registered using the on method.
    * @public
    * @param {string} eventName the event's name
