@@ -1,4 +1,3 @@
-import "../typings/global";
 import IUnityConfig from "../interfaces/unity-config";
 import IUnityEvent from "../interfaces/unity-event";
 import IUnityContextEventMap from "../interfaces/unity-context-event-map";

@@ -1,5 +1,3 @@
-import "../typings/unity-instance";
-import "../typings/global";
 import { createElement, PureComponent } from "react";
 import IUnityProps from "../interfaces/unity-props";
 import UnityContext from "../models/unity-context";

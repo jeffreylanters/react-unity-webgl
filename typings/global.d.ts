@@ -1,4 +1,4 @@
-import IUnityInstanceParameters from "../interfaces/unity-instance-parameters";
+import IUnityInstanceParameters from "../source/interfaces/unity-instance-parameters";
 
 /**
  * Type declaration for global types.
