@@ -65,7 +65,8 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Catching Runtime and Loading Errors](#catching-runtime-and-loading-errors)
 - [Receiving Internal and Debug Log Messages](#receiving-internal-and-debug-log-messages)
 - [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
-- [Removed Event Listeners](#removing-event-listeners)
+- [Removing Specific Event Listeners](#removing-specific-event-listeners)
+- [Removing All Event Listeners](#removing-all-event-listeners)
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
 - [Providing Application Meta Data](#providing-application-meta-data)
 - [Getting a Reference to the Unity Canvas](#getting-a-reference-to-the-unity-canvas)
@@ -679,11 +680,11 @@ function App() {
 }
 ```
 
-## Removed Event Listeners
+## Removing Specific Event Listeners
 
 > Available since version 8.4.0
 
-Allows the deletion of event listeners for both built-in and custom events. This can come in handy when unmounting your component or changing your user interface. The event listener will be removed on both the React and Unity side.
+Allows the deletion of specific event listeners for both built-in and custom events. This can come in handy when unmounting your component or changing your user interface. The event listener will be removed on both the React and Unity side.
 
 ```ts
 function removeEventListener(eventName: string): void;
@@ -691,7 +692,7 @@ function removeEventListener(eventName: string): void;
 
 #### Example implementation
 
-A basic implementation could look something like this. In the following example we'll remove an event listener from the built-in progress event when the component will unmount.
+A basic implementation could look something like this. In the following example we'll remove an event listener from the built-in on progress event, when the component will unmount.
 
 ```jsx
 // File: App.jsx
@@ -713,6 +714,46 @@ function App() {
     });
     return function () {
       unityContext.removeEventListener("progress");
+    };
+  }, []);
+
+  return <Unity unityContext={unityConext} />;
+}
+```
+
+## Removing All Event Listeners
+
+> Available since version 8.4.0
+
+Allows the deletion of all event listeners for both built-in and custom events binded to a Unity Context. This can come in handy when unmounting your component or changing your user interface. The event listener will be removed on both the React and Unity side.
+
+```ts
+function removeAllEventListeners(): void;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll remove all event listeners, when the component will unmount.
+
+```jsx
+// File: App.jsx
+
+import React, { useEffect } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+function App() {
+  useEffect(function () {
+    unityContext.on("progress", function (progression) {});
+    unityContext.on("customEvent", function () {});
+    return function () {
+      unityContext.removeEventAllListeners();
     };
   }, []);
 
