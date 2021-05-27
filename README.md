@@ -138,13 +138,13 @@ const unityContext = new UnityContext({
 });
 
 function App() {
-  function spawnEnemies(amount) {
-    unityContext.send("GameController", "SpawnEnemies", amount);
+  function spawnEnemies() {
+    unityContext.send("GameController", "SpawnEnemies", 100);
   }
 
   return (
     <div>
-      <button onClick={() => spawnEnemies(100)}>Spawn!</button>
+      <button onClick={spawnEnemies}>Spawn a bunch!</button>
       <Unity unityContext={unityContext} />
     </div>
   );
@@ -206,8 +206,8 @@ function App() {
   const [userName, setUserName] = useState("");
   const [score, setScore] = useState(0);
 
-  useEffect(() => {
-    unityContext.on("GameOver", (userName, score) => {
+  useEffect(function () {
+    unityContext.on("GameOver", function (userName, score) {
       setIsGameOver(true);
       setUserName(userName);
       setScore(score);
@@ -293,8 +293,8 @@ const unityContext = new UnityContext({
 function App() {
   const [progression, setProgression] = useState(0);
 
-  useEffect(() => {
-    unityContext.on("progress", (progression) => {
+  useEffect(function () {
+    unityContext.on("progress", function (progression) {
       setProgression(progression);
     });
   }, []);
@@ -338,8 +338,8 @@ const unityContext = new UnityContext({
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    unityContext.on("loaded", () => {
+  useEffect(function () {
+    unityContext.on("loaded", function () {
       setIsLoaded(true);
     });
   }, []);
@@ -387,7 +387,7 @@ function App() {
 
   return (
     <div>
-      <button onClick={() => handleOnClickFullscreen()}>Fullscreen</button>
+      <button onClick={handleOnClickFullscreen}>Fullscreen</button>
       <Unity unityContext={unityContext} />
     </div>
   );
@@ -589,8 +589,8 @@ function App() {
   const [didError, setDidError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    unityContext.on("error", (message) => {
+  useEffect(function () {
+    unityContext.on("error", function (message) {
       setDidError(true);
       setErrorMessage(message);
     });
@@ -632,8 +632,8 @@ const unityContext = new UnityContext({
 });
 
 function App() {
-  useEffect(() => {
-    unityContext.on("debug", (message) => {
+  useEffect(function () {
+    unityContext.on("debug", function (message) {
       console.log(message);
     });
   }, []);
@@ -670,8 +670,8 @@ const unityContext = new UnityContext({
 });
 
 function App() {
-  useEffect(() => {
-    unityContext.on("quitted", () => {});
+  useEffect(function () {
+    unityContext.on("quitted", function () {});
   }, []);
 
   return <Unity unityContext={unityConext} />;
@@ -783,8 +783,8 @@ const unityContext = new UnityContext({
 });
 
 function App() {
-  useEffect(() => {
-    unityContext.on("canvas", (canvas) => {
+  useEffect(function () {
+    unityContext.on("canvas", function (canvas) {
       canvas.getContext("webgl");
     });
   }, []);
@@ -821,8 +821,8 @@ const unityContext = new UnityContext({
 });
 
 function App() {
-  useEffect(() => {
-    unityContext.on("canvas", (canvas) => {
+  useEffect(function () {
+    unityContext.on("canvas", function (canvas) {
       canvas.width = 100;
       canvas.height = 50;
     });
