@@ -82,14 +82,14 @@ Get started by import the Unity and Unity Context classes from the module. The U
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
+function App() {
   return <Unity unityContext={unityContext} />;
 }
 ```
@@ -130,14 +130,14 @@ A basic implementation could look something like this. In the following example 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
+function App() {
   function spawnEnemies(amount) {
     unityContext.send("GameController", "SpawnEnemies", amount);
   }
@@ -191,26 +191,28 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
 function App() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [userName, setUserName] = useState("");
   const [score, setScore] = useState(0);
 
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
-
-  unityContext.on("GameOver", (userName, score) => {
-    setIsGameOver(true);
-    setUserName(userName);
-    setScore(score);
-  });
+  useEffect(() => {
+    unityContext.on("GameOver", (userName, score) => {
+      setIsGameOver(true);
+      setUserName(userName);
+      setScore(score);
+    });
+  }, []);
 
   return (
     <div>
@@ -278,22 +280,24 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
 function App() {
   const [progression, setProgression] = useState(0);
 
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
-
-  unityContext.on("progress", (progression) => {
-    setProgression(progression);
-  });
+  useEffect(() => {
+    unityContext.on("progress", (progression) => {
+      setProgression(progression);
+    });
+  }, []);
 
   return (
     <div>
@@ -321,22 +325,24 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
-
-  unityContext.on("loaded", () => {
-    setIsLoaded(true);
-  });
+  useEffect(() => {
+    unityContext.on("loaded", () => {
+      setIsLoaded(true);
+    });
+  }, []);
 
   return (
     <Unity
@@ -367,14 +373,14 @@ A basic implementation could look something like this. In the following example 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
+function App() {
   function handleOnClickFullscreen() {
     unityContext.setFullscreen(true);
   }
@@ -410,14 +416,14 @@ A basic implementation could look something like this. In the following example 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
+function App() {
   return (
     <Unity
       unityContext={unityContext}
@@ -452,14 +458,14 @@ A basic implementation could look something like this. In the following example 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
+function App() {
   return <Unity unityContext={unityContext} className={"game-canvas"} />;
 }
 ```
@@ -484,14 +490,14 @@ A basic implementation could look something like this. In the following example 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
+function App() {
   return <Unity unityContext={unityContext} devicePixelRatio={2} />;
 }
 ```
@@ -520,14 +526,14 @@ A basic implementation could look something like this. In the following example 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
+function App() {
   return <Unity unityContext={unityContext} tabIndex={1} />;
 }
 ```
@@ -569,24 +575,26 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
 function App() {
   const [didError, setDidError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
-
-  unityContext.on("error", (message) => {
-    setDidError(true);
-    setErrorMessage(message);
-  });
+  useEffect(() => {
+    unityContext.on("error", (message) => {
+      setDidError(true);
+      setErrorMessage(message);
+    });
+  }, []);
 
   return didError === true ? (
     <div>Oops, that's an error {errorMessage}</div>
@@ -613,20 +621,22 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-  unityContext.on("debug", (message) => {
-    console.log(message);
-  });
+function App() {
+  useEffect(() => {
+    unityContext.on("debug", (message) => {
+      console.log(message);
+    });
+  }, []);
 
   return <Unity unityContext={unityContext} />;
 }
@@ -649,18 +659,20 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-  unityContext.on("quitted", () => {});
+function App() {
+  useEffect(() => {
+    unityContext.on("quitted", () => {});
+  }, []);
 
   return <Unity unityContext={unityConext} />;
 }
@@ -688,15 +700,15 @@ A basic implementation could look something like this. In the following example 
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-    streamingAssetsUrl: "streamingassets",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+  streamingAssetsUrl: "streamingassets",
+});
 
+function App() {
   return <Unity unityContext={unityContext} />;
 }
 ```
@@ -725,17 +737,17 @@ A basic implementation could look something like this.
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-    productName: "My Game",
-    productVersion: "1.0.0",
-    companyName: "El Raccoone",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+  productName: "My Game",
+  productVersion: "1.0.0",
+  companyName: "El Raccoone",
+});
 
+function App() {
   return <Unity unityContext={unityContext} />;
 }
 ```
@@ -760,20 +772,22 @@ A basic implementation could look something like this.
 ```jsx
 // File: App.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-  unityContext.on("canvas", (canvas) => {
-    canvas.getContext("webgl");
-  });
+function App() {
+  useEffect(() => {
+    unityContext.on("canvas", (canvas) => {
+      canvas.getContext("webgl");
+    });
+  }, []);
 
   return <Unity unityContext={unityContext} />;
 }
@@ -796,21 +810,23 @@ A basic implementation could look something like this. In this example the canva
 ```jsx
 // File: App.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-function App() {
-  const unityContext = new UnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-  unityContext.on("canvas", (canvas) => {
-    canvas.width = 100;
-    canvas.height = 50;
-  });
+function App() {
+  useEffect(() => {
+    unityContext.on("canvas", (canvas) => {
+      canvas.width = 100;
+      canvas.height = 50;
+    });
+  }, []);
 
   return (
     <Unity
