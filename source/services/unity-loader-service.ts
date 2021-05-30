@@ -1,3 +1,4 @@
+// TODO turn into hook
 export default class UnityLoaderService {
   /**
    * A reference to all UnityLoader script tags and their respective urls.

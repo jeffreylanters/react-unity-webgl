@@ -65,6 +65,8 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Catching Runtime and Loading Errors](#catching-runtime-and-loading-errors)
 - [Receiving Internal and Debug Log Messages](#receiving-internal-and-debug-log-messages)
 - [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
+- [Removing Specific Event Listeners](#removing-specific-event-listeners)
+- [Removing All Event Listeners](#removing-all-event-listeners)
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
 - [Providing Application Meta Data](#providing-application-meta-data)
 - [Getting a Reference to the Unity Canvas](#getting-a-reference-to-the-unity-canvas)
@@ -89,9 +91,9 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-const App = () => {
+function App() {
   return <Unity unityContext={unityContext} />;
-};
+}
 ```
 
 ## Creating a Unity Context Object
@@ -137,18 +139,18 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-function spawnEnemies(amount) {
-  unityContext.send("GameController", "SpawnEnemies", amount);
-}
+function App() {
+  function spawnEnemies() {
+    unityContext.send("GameController", "SpawnEnemies", 100);
+  }
 
-const App = () => {
   return (
     <div>
-      <button onClick={() => spawnEnemies(100)}>Spawn!</button>
+      <button onClick={spawnEnemies}>Spawn a bunch!</button>
       <Unity unityContext={unityContext} />
     </div>
   );
-};
+}
 ```
 
 ```csharp
@@ -191,44 +193,35 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isGameOver: false,
-      userName: "",
-      score: 0,
-    };
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-    this.unityContext = new UnityContext({
-      loaderUrl: "build/myunityapp.loader.js",
-      dataUrl: "build/myunityapp.data",
-      frameworkUrl: "build/myunityapp.framework.js",
-      codeUrl: "build/myunityapp.wasm",
+function App() {
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [score, setScore] = useState(0);
+
+  useEffect(function () {
+    unityContext.on("GameOver", function (userName, score) {
+      setIsGameOver(true);
+      setUserName(userName);
+      setScore(score);
     });
+  }, []);
 
-    this.unityContext.on("GameOver", (userName, score) => {
-      this.setState({
-        isGameOver: true,
-        userName: userName,
-        score: score,
-      });
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.isGameOver === true && (
-          <p>{`Game Over: ${this.state.userName} score: ${this.state.score}`}</p>
-        )}
-        <Unity unityContext={this.unityContext} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      {isGameOver === true && <p>{`Game Over! ${userName} ${score} points`}</p>}
+      <Unity unityContext={unityContext} />
+    </div>
+  );
 }
 ```
 
@@ -289,38 +282,31 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      progression: 0,
-    };
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-    this.unityContext = new UnityContext({
-      loaderUrl: "build/myunityapp.loader.js",
-      dataUrl: "build/myunityapp.data",
-      frameworkUrl: "build/myunityapp.framework.js",
-      codeUrl: "build/myunityapp.wasm",
+function App() {
+  const [progression, setProgression] = useState(0);
+
+  useEffect(function () {
+    unityContext.on("progress", function (progression) {
+      setProgression(progression);
     });
+  }, []);
 
-    this.unityContext.on("progress", (progression) => {
-      this.setState({
-        progression: progression,
-      });
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <p>{`Loading... ${this.state.progression * 100}%`}</p>
-        <Unity unityContext={this.unityContext} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <p>Loading {progression * 100} percent...</p>
+      <Unity unityContext={unityContext} />
+    </div>
+  );
 }
 ```
 
@@ -341,38 +327,31 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoaded: false,
-    };
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-    this.unityContext = new UnityContext({
-      loaderUrl: "build/myunityapp.loader.js",
-      dataUrl: "build/myunityapp.data",
-      frameworkUrl: "build/myunityapp.framework.js",
-      codeUrl: "build/myunityapp.wasm",
+function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(function () {
+    unityContext.on("loaded", function () {
+      setIsLoaded(true);
     });
+  }, []);
 
-    this.unityContext.on("loaded", () => {
-      this.setState({
-        isLoaded: true,
-      });
-    });
-  }
-
-  render() {
-    return (
-      <Unity
-        style={{ visibility: this.state.isLoaded ? "visible" : "hidden" }}
-        unityContext={this.unityContext}
-      />
-    );
-  }
+  return (
+    <Unity
+      style={{ visibility: isLoaded ? "visible" : "hidden" }}
+      unityContext={unityContext}
+    />
+  );
 }
 ```
 
@@ -403,18 +382,18 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-function handleOnClickFullscreen() {
-  unityContext.setFullscreen(true);
-}
+function App() {
+  function handleOnClickFullscreen() {
+    unityContext.setFullscreen(true);
+  }
 
-const App = () => {
   return (
     <div>
-      <button onClick={() => handleOnClickFullscreen()}>Fullscreen</button>
+      <button onClick={handleOnClickFullscreen}>Fullscreen</button>
       <Unity unityContext={unityContext} />
     </div>
   );
-};
+}
 ```
 
 ## Adding Styles to the Canvas Element
@@ -446,7 +425,7 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-const App = () => {
+function App() {
   return (
     <Unity
       unityContext={unityContext}
@@ -458,7 +437,7 @@ const App = () => {
       }}
     />
   );
-};
+}
 ```
 
 ## Setting the Canvas's ClassName
@@ -488,9 +467,9 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-const App = () => {
+function App() {
   return <Unity unityContext={unityContext} className={"game-canvas"} />;
-};
+}
 ```
 
 ## Device Pixel Ratio and Retina Support
@@ -520,9 +499,9 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-const App = () => {
+function App() {
   return <Unity unityContext={unityContext} devicePixelRatio={2} />;
-};
+}
 ```
 
 ## Tab Index and Input Keyboard Capturing
@@ -556,9 +535,9 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-const App = () => {
+function App() {
   return <Unity unityContext={unityContext} tabIndex={1} />;
-};
+}
 ```
 
 ```csharp
@@ -598,39 +577,32 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      didError: false,
-      errorMessage: "",
-    };
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-    this.unityContext = new UnityContext({
-      loaderUrl: "build/myunityapp.loader.js",
-      dataUrl: "build/myunityapp.data",
-      frameworkUrl: "build/myunityapp.framework.js",
-      codeUrl: "build/myunityapp.wasm",
+function App() {
+  const [didError, setDidError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(function () {
+    unityContext.on("error", function (message) {
+      setDidError(true);
+      setErrorMessage(message);
     });
+  }, []);
 
-    this.unityContext.on("error", (message) => {
-      this.setState({
-        didError: true,
-        errorMessage: message,
-      });
-    });
-  }
-
-  render() {
-    return this.state.didError === true ? (
-      <div>{`Oops, that's an error ${this.state.errorMessage}`}</div>
-    ) : (
-      <Unity unityContext={this.unityConext} />
-    );
-  }
+  return didError === true ? (
+    <div>Oops, that's an error {errorMessage}</div>
+  ) : (
+    <Unity unityContext={unityConext} />
+  );
 }
 ```
 
@@ -651,7 +623,7 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
@@ -661,13 +633,15 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-unityContext.on("debug", (message) => {
-  console.log(message);
-});
+function App() {
+  useEffect(function () {
+    unityContext.on("debug", function (message) {
+      console.log(message);
+    });
+  }, []);
 
-const App = () => {
   return <Unity unityContext={unityContext} />;
-};
+}
 ```
 
 ## Unmounting, Unloading and Quitting
@@ -687,30 +661,103 @@ A basic implementation could look something like this. In the following example 
 ```jsx
 // File: App.jsx
 
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      didError: false,
-      errorMessage: "",
-    };
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
 
-    this.unityContext = new UnityContext({
-      loaderUrl: "build/myunityapp.loader.js",
-      dataUrl: "build/myunityapp.data",
-      frameworkUrl: "build/myunityapp.framework.js",
-      codeUrl: "build/myunityapp.wasm",
+function App() {
+  useEffect(function () {
+    unityContext.on("quitted", function () {});
+  }, []);
+
+  return <Unity unityContext={unityConext} />;
+}
+```
+
+## Removing Specific Event Listeners
+
+> Available since version 8.4.0
+
+Allows the deletion of specific event listeners for both built-in and custom events. This can come in handy when unmounting your component or changing your user interface. The event listener will be removed on both the React and Unity side.
+
+```ts
+function removeEventListener(eventName: string): void;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll remove an event listener from the built-in on progress event, when the component will unmount.
+
+```jsx
+// File: App.jsx
+
+import React, { useEffect } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+function App() {
+  useEffect(function () {
+    unityContext.on("progress", function (progression) {
+      console.log(progression);
     });
+    return function () {
+      unityContext.removeEventListener("progress");
+    };
+  }, []);
 
-    this.unityContext.on("quitted", () => {});
-  }
+  return <Unity unityContext={unityConext} />;
+}
+```
 
-  render() {
-    return <Unity unityContext={this.unityConext} />;
-  }
+## Removing All Event Listeners
+
+> Available since version 8.4.0
+
+Allows the deletion of all event listeners for both built-in and custom events binded to a Unity Context. This can come in handy when unmounting your component or changing your user interface. The event listener will be removed on both the React and Unity side.
+
+```ts
+function removeAllEventListeners(): void;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll remove all event listeners, when the component will unmount.
+
+```jsx
+// File: App.jsx
+
+import React, { useEffect } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+function App() {
+  useEffect(function () {
+    unityContext.on("progress", function (progression) {});
+    unityContext.on("customEvent", function () {});
+    return function () {
+      unityContext.removeEventAllListeners();
+    };
+  }, []);
+
+  return <Unity unityContext={unityConext} />;
 }
 ```
 
@@ -744,9 +791,9 @@ const unityContext = new UnityContext({
   streamingAssetsUrl: "streamingassets",
 });
 
-const App = () => {
+function App() {
   return <Unity unityContext={unityContext} />;
-};
+}
 ```
 
 ## Providing Application Meta Data
@@ -783,9 +830,9 @@ const unityContext = new UnityContext({
   companyName: "El Raccoone",
 });
 
-const App = () => {
+function App() {
   return <Unity unityContext={unityContext} />;
-};
+}
 ```
 
 ## Getting a Reference to the Unity Canvas
@@ -808,7 +855,7 @@ A basic implementation could look something like this.
 ```jsx
 // File: App.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
@@ -818,13 +865,15 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-unityContext.on("canvas", (canvas) => {
-  canvas.getContext("webgl");
-});
+function App() {
+  useEffect(function () {
+    unityContext.on("canvas", function (canvas) {
+      canvas.getContext("webgl");
+    });
+  }, []);
 
-const App = () => {
   return <Unity unityContext={unityContext} />;
-};
+}
 ```
 
 ## Change the Render Size of WebGL Canvas
@@ -844,7 +893,7 @@ A basic implementation could look something like this. In this example the canva
 ```jsx
 // File: App.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
@@ -854,12 +903,14 @@ const unityContext = new UnityContext({
   codeUrl: "build/myunityapp.wasm",
 });
 
-unityContext.on("canvas", (canvas) => {
-  canvas.width = 100;
-  canvas.height = 50;
-});
+function App() {
+  useEffect(function () {
+    unityContext.on("canvas", function (canvas) {
+      canvas.width = 100;
+      canvas.height = 50;
+    });
+  }, []);
 
-const App = () => {
   return (
     <Unity
       unityContext={unityContext}
@@ -867,7 +918,7 @@ const App = () => {
       style={{ width: "100px", height: "100px" }}
     />
   );
-};
+}
 ```
 
 ## JavaScript to UnityScript types
