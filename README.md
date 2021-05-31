@@ -753,7 +753,7 @@ function App() {
     unityContext.on("progress", function (progression) {});
     unityContext.on("customEvent", function () {});
     return function () {
-      unityContext.removeEventAllListeners();
+      unityContext.removeAllEventListeners();
     };
   }, []);
 
