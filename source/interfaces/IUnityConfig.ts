@@ -15,6 +15,13 @@ export default interface IUnityConfig {
   modules?: Object;
 
   /**
+   * The url where the streaming assets can be found. When using a relative url,
+   * keep in mind this is relative from the path where your html file is served.
+   * @type {string}
+   */
+  streamingAssetsUrl?: string;
+
+  /**
    * You can default your Unity Version. The library may
    * contain future patches for specific Unity versions.
    * It's not needed but is recommended to define a version.
