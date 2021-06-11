@@ -1,11 +1,11 @@
 import { createElement, PureComponent } from "react";
-import IUnityProps from "../interfaces/unity-props";
-import UnityContext from "../models/unity-context";
-import UnityLoaderService from "../services/unity-loader-service";
-import IUnityInstanceParameters from "../interfaces/unity-instance-parameters";
+import { IUnityProps } from "../interfaces/unity-props";
+import { UnityContext } from "../models/unity-context";
+import { UnityLoaderService } from "../services/unity-loader-service";
+import { IUnityInstanceParameters } from "../interfaces/unity-instance-parameters";
 
 // TODO turn into functional component
-export default class Unity extends PureComponent<IUnityProps, {}> {
+export class Unity extends PureComponent<IUnityProps, {}> {
   /**
    * The UnityContext passed by the props.
    * @private

@@ -1,4 +1,4 @@
-export default interface IUnityEvent {
+export interface IUnityEvent {
   /**
    * The events name. It will be triggered by the name.
    * @public

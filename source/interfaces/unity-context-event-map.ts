@@ -2,7 +2,7 @@
  * The event map contains all of the keys and their respective parameter types
  * which can be used from adding event listeners to a Unity Context instance.
  */
-export default interface IUnityContextEventMap {
+export interface IUnityContextEventMap {
   /**
    * While your game is being downloaded from the server and loaded into memory,
    * you might want to display some sort of loading indicator informing the user
