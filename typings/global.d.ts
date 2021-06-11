@@ -16,6 +16,7 @@ declare global {
    * @param canvasHtmlElement The target html canvas element.
    * @param parameters The paramters needed to load Unity.
    * @param onProgress The on progress event listener.
+   * @returns A promise resolving when instantiated successfully.
    */
   function createUnityInstance(
     canvasHtmlElement: HTMLCanvasElement,
