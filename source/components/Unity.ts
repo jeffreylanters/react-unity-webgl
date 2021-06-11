@@ -113,6 +113,7 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
         this.props.unityContent.buildJsonPath, {
           onProgress: this.onProgress.bind(this),
           Module: this.props.unityContent.unityConfig.modules,
+          streamingAssetsUrl: this.props.unityContent.unityConfig.streamingAssetsUrl,
           width: "100%",
           height: "100%"
         }));
@@ -142,8 +143,8 @@ export default class Unity extends React.Component<IUnityProps, IUnityState> {
       id: `__ReactUnityWebGL_${this.props.unityContent.uniqueID}__`,
       style: {
         width: this.props.width || "800px",
-        height: this.props.height || "600px"
-      }
+        height: this.props.height || "600px",
+      },
     });
   }
 }
