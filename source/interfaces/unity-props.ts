@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
-import UnityContext from "../models/unity-context";
+import { UnityContext } from "../models/unity-context";
 
-export default interface IUnityProps {
+export interface IUnityProps {
   /**
    * The Context which should be rendered be the Unity Component.
    * @public

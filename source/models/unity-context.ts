@@ -1,12 +1,12 @@
-import IUnityConfig from "../interfaces/unity-config";
-import IUnityEvent from "../interfaces/unity-event";
-import IUnityContextEventMap from "../interfaces/unity-context-event-map";
+import { IUnityConfig } from "../interfaces/unity-config";
+import { IUnityEvent } from "../interfaces/unity-event";
+import { IUnityContextEventMap } from "../interfaces/unity-context-event-map";
 
 // TODO remove from dir
 /**
  * The Unity Context.
  */
-export default class UnityContext {
+export class UnityContext {
   /**
    * A reference to the Unity Instance binded to this unityContext.
    * @private
