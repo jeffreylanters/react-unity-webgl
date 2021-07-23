@@ -28,6 +28,13 @@ export class Unity extends PureComponent<IUnityProps, {}> {
   private htmlCanvasElementReference?: HTMLCanvasElement;
 
   /**
+   * A flag representing the component's mount state
+   * @private
+   * @type {boolean}
+   */
+  private mounted: boolean = false;
+
+  /**
    * Event invoked by the UnityInstance when the initialization is progressing.
    * Will be used to track the loading progression and invokes the event listeners
    * for both 'progress' and 'loaded' when the progression hits a value of '1'.
@@ -52,6 +59,7 @@ export class Unity extends PureComponent<IUnityProps, {}> {
    * @public
    */
   public componentDidMount(): void {
+    this.mounted = true;
     this.mountUnityInstance();
   }
 
@@ -62,6 +70,7 @@ export class Unity extends PureComponent<IUnityProps, {}> {
    */
   public componentWillUnmount(): void {
     this.unityContext.quitUnityInstance();
+    this.mounted = false;
   }
 
   /**
@@ -81,6 +90,9 @@ export class Unity extends PureComponent<IUnityProps, {}> {
       await this.unityLoaderService.addFromUrl(
         this.unityContext.unityConfig.loaderUrl
       );
+      if (!this.mounted) {
+        return;
+      }
       const _unityInstanceParameters: IUnityInstanceParameters = {
         ...this.unityContext.unityConfig,
         printErr: (message: string) =>
@@ -99,6 +111,9 @@ export class Unity extends PureComponent<IUnityProps, {}> {
         this.onProgress.bind(this)
       );
       this.unityContext.setUnityInstance(_unityInstance);
+      if (!this.mounted) {
+        return this.unityContext.quitUnityInstance();
+      }
     } catch (message) {
       this.unityContext.dispatchEventListener("error", message);
       console.error("A problem occurred while mounting", message);
