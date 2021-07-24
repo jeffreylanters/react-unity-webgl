@@ -46,12 +46,12 @@ export class UnityContext {
    * Quits the Unity Instance and clears it from memory.
    * @public
    */
-  public quitUnityInstance(): void {
-    if (typeof this.unityInstance !== "undefined")
-      this.unityInstance.Quit().then(() => {
-        this.dispatchEventListener("quitted");
-        this.unityInstance = undefined;
-      });
+  public async quitUnityInstance(): Promise<void> {
+    if (typeof this.unityInstance !== "undefined") {
+      await this.unityInstance.Quit();
+      this.dispatchEventListener("quitted");
+      this.unityInstance = undefined;
+    }
   }
 
   /**
