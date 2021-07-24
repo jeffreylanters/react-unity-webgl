@@ -1,28 +1,64 @@
-name: Publish To NPM
+name: Publish to NPM
+
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - "v*"
+
 jobs:
   main:
-    name: Main
-    environment:
-      name: Node Package Registry
-      url: https://www.npmjs.com/package/react-unity-webgl
+    name: Publish to NPM
+
     runs-on: ubuntu-latest
+
+    environment:
+      name: Node Package Manager
+      url: https://npmjs.com/react-unity-webgl
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Setup Node
-        uses: actions/setup-node@v1 
+        uses: actions/setup-node@master
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org
+
       - name: Install Dependencies
         run: npm install
-      - name: Compile Source
+
+      - name: Build JS
         run: npm run compile
-      - name: Publish Package
+
+      - name: Publish package
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Package build
+        run: |
+          PACKAGE_FILE_NAME=$(npm pack)
+          mv $PACKAGE_FILE_NAME react-unity-webgl.tgz
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./react-unity-webgl.tgz
+          asset_name: react-unity-webgl.tgz
+          asset_content_type: application/tar
