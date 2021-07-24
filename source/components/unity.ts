@@ -75,18 +75,14 @@ export class Unity extends PureComponent<IUnityProps, {}> {
 
   /**
    * Initialized the Unity Loader and mounts the UnityInstance to the component.
-   * During this cycle the unity loader service will append the loader script
-   * using a new script tag and will continue when the script tag is loaded
-   * succesfully. Then the Unity Instance Paramters will be constructed, these
-   * consist out of the spreaded provided unityConfig, optional devicePixelRatio
-   * and matchWebGLToCanvasSize passed via props. Finally the unity Instance
-   * will be created.
    * @private
    * @async
    * @returns {Promise<void>} a promise resolving when Unity loaded correctly.
    */
   private async mountUnityInstance(): Promise<void> {
     try {
+      // Unity requires the loader script to be appended and loaded before we
+      // can safely instantiate Unity and mount the component.
       await this.unityLoaderService.addFromUrl(
         this.unityContext.unityConfig.loaderUrl
       );
@@ -96,6 +92,8 @@ export class Unity extends PureComponent<IUnityProps, {}> {
       if (this.isComponentMounted === false) {
         return;
       }
+      // Creating the Unity Instance parameters object which will be passed down
+      // to the Unity instantiating method in order to mount correctly.
       const _unityInstanceParameters: IUnityInstanceParameters = {
         ...this.unityContext.unityConfig,
         printErr: (message: string) =>
@@ -108,11 +106,18 @@ export class Unity extends PureComponent<IUnityProps, {}> {
       if (this.props.matchWebGLToCanvasSize !== undefined)
         _unityInstanceParameters.matchWebGLToCanvasSize =
           this.props.matchWebGLToCanvasSize;
+      // Creates the actual Unity Instance and mounts it to the canvas element.
       const _unityInstance = await createUnityInstance(
         this.htmlCanvasElementReference!,
         _unityInstanceParameters,
         this.onProgress.bind(this)
       );
+      // Since the creation of the Unity Instance is async, we'll check the
+      // component's mount state right aftater instantiating. If the component
+      // is no longer mounted, we'll quit the Unity instance right away.
+      if (this.isComponentMounted === false)
+        return this.unityContext.quitUnityInstance();
+      // Finally pass the instance back to the context object.
       this.unityContext.setUnityInstance(_unityInstance);
     } catch (message) {
       this.unityContext.dispatchEventListener("error", message);
