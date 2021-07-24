@@ -114,9 +114,6 @@ export class Unity extends PureComponent<IUnityProps, {}> {
         this.onProgress.bind(this)
       );
       this.unityContext.setUnityInstance(_unityInstance);
-      if (this.isComponentMounted === false) {
-        return this.unityContext.quitUnityInstance();
-      }
     } catch (message) {
       this.unityContext.dispatchEventListener("error", message);
       console.error("A problem occurred while mounting", message);
