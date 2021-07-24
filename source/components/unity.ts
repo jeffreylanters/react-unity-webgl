@@ -112,14 +112,16 @@ export class Unity extends PureComponent<IUnityProps, {}> {
         _unityInstanceParameters,
         this.onProgress.bind(this)
       );
+      // Finally pass the instance back to the context object.
+      this.unityContext.setUnityInstance(_unityInstance);
       // Since the creation of the Unity Instance is async, we'll check the
       // component's mount state right aftater instantiating. If the component
       // is no longer mounted, we'll quit the Unity instance right away.
+      // This needs to occur after the setUnityInstance call because
+      // quitUnityInstance requires the instance to be set.
       // HACK requires type cast to boolean due to await between comparisons.
       if ((this.isComponentMounted as boolean) === false)
         return this.unityContext.quitUnityInstance();
-      // Finally pass the instance back to the context object.
-      this.unityContext.setUnityInstance(_unityInstance);
     } catch (message) {
       this.unityContext.dispatchEventListener("error", message);
       console.error("A problem occurred while mounting", message);
