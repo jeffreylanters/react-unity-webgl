@@ -7,7 +7,7 @@
 
 [![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/blob/master/LICENSE.md)
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)](https://www.npmjs.com/package/react-unity-webgl)
-[![build](https://img.shields.io/github/checks-status/jeffreylanters/react-unity-webgl/master?label=build&style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/actions)
+[![build](https://img.shields.io/github/workflow/status/jeffreylanters/react-unity-webgl/Pre-Compile%20and%20Lint?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/actions)
 <br/>
 [![stars](https://img.shields.io/github/stars/jeffreylanters/react-unity-webgl.svg?style=for-the-badge&color=fe8523)](https://github.com/jeffreylanters/react-unity-webgl/stargazers)
 [![downloads](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)](https://www.npmtrends.com/react-unity-webgl)
@@ -24,7 +24,7 @@ When building content for the web, you might need to communicate with elements o
 
 <br/><br/>
 
-[![npm](https://img.shields.io/badge/fund_this_project-sponsor-E12C9A.svg?style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
+[![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&label=sponsor%20this%20project&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
 
 Hi! My name is Jeffrey Lanters, thanks for visiting! This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider donating to support the project. Thank you!
 
