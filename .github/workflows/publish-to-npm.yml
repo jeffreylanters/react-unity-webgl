@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: Node Package Manager
+      name: Node Package Registry
       url: https://npmjs.com/react-unity-webgl
 
     steps:
