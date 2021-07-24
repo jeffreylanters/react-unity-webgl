@@ -28,11 +28,11 @@ export class Unity extends PureComponent<IUnityProps, {}> {
   private htmlCanvasElementReference?: HTMLCanvasElement;
 
   /**
-   * A flag representing the component's mount state
+   * A flag representing the component's mount state.
    * @private
    * @type {boolean}
    */
-  private mounted: boolean = false;
+  private isComponentMounted: boolean = false;
 
   /**
    * Event invoked by the UnityInstance when the initialization is progressing.
@@ -59,7 +59,7 @@ export class Unity extends PureComponent<IUnityProps, {}> {
    * @public
    */
   public componentDidMount(): void {
-    this.mounted = true;
+    this.isComponentMounted = true;
     this.mountUnityInstance();
   }
 
@@ -70,7 +70,7 @@ export class Unity extends PureComponent<IUnityProps, {}> {
    */
   public componentWillUnmount(): void {
     this.unityContext.quitUnityInstance();
-    this.mounted = false;
+    this.isComponentMounted = false;
   }
 
   /**
@@ -90,7 +90,10 @@ export class Unity extends PureComponent<IUnityProps, {}> {
       await this.unityLoaderService.addFromUrl(
         this.unityContext.unityConfig.loaderUrl
       );
-      if (!this.mounted) {
+      // When the loader service was fetching the required scripts, it is
+      // possible for the component to be unmounted. This is why we check if it
+      // is still mounted, if not, we do not proceed instantiating Unity.
+      if (this.isComponentMounted === false) {
         return;
       }
       const _unityInstanceParameters: IUnityInstanceParameters = {
@@ -111,7 +114,7 @@ export class Unity extends PureComponent<IUnityProps, {}> {
         this.onProgress.bind(this)
       );
       this.unityContext.setUnityInstance(_unityInstance);
-      if (!this.mounted) {
+      if (this.isComponentMounted === false) {
         return this.unityContext.quitUnityInstance();
       }
     } catch (message) {
