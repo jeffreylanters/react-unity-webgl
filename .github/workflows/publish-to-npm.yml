@@ -42,11 +42,23 @@ jobs:
           mv $PACKAGE_FILE_NAME react-unity-webgl.tgz
 
       - name: Create Release
-        uses: ncipollo/release-action@7461bfe83946fc198f507edec4c13f2cda9102dd
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: Release ${{ github.ref }}
-          body: React Unity WebGL Release ${{ github.ref }}
-          artifacts: react-unity-webgl.tgz
-          artifactContentType: application/tar
-          discussionCategory: Releases
-          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./react-unity-webgl.tgz
+          asset_name: react-unity-webgl.tgz
+          asset_content_type: application/tar
