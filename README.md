@@ -1,38 +1,25 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/.github/WIKI/repository-readme-splash.png" width="100%">
-
-<br/>
-<br/>
+![readme splash](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/.github/WIKI/repository-readme-splash.png)
 
 [![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/blob/master/LICENSE.md)
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)](https://www.npmjs.com/package/react-unity-webgl)
 [![build](https://img.shields.io/github/workflow/status/jeffreylanters/react-unity-webgl/Pre-Compile%20and%20Lint?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/actions)
-<br/>
-[![stars](https://img.shields.io/github/stars/jeffreylanters/react-unity-webgl.svg?style=for-the-badge&color=fe8523)](https://github.com/jeffreylanters/react-unity-webgl/stargazers)
-[![downloads](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge)](https://www.npmtrends.com/react-unity-webgl)
+[![deployment](https://img.shields.io/github/deployments/jeffreylanters/react-unity-webgl/Node%20Package%20Registry?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/deployments/activity_log?environment=Node+Package+Registry)
+[![stars](https://img.shields.io/github/stars/jeffreylanters/react-unity-webgl.svg?style=for-the-badge&color=fe8523&label=stargazers)](https://github.com/jeffreylanters/react-unity-webgl/stargazers)
+[![downloads](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge&color=40AA72)](https://www.npmtrends.com/react-unity-webgl)
 [![size](https://img.shields.io/bundlephobia/minzip/react-unity-webgl?style=for-the-badge&label=size)](https://bundlephobia.com/result?p=react-unity-webgl)
+[![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
+[![donate](https://img.shields.io/badge/donate-paypal-F23150?style=for-the-badge)](https://paypal.me/jeffreylanters)
 
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
-**&Lt;**
 [**Documentation**](#documentation) &middot;
 [**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
 [**Buy me a Coffee**](https://github.com/sponsors/jeffreylanters) &middot;
 [**Discussion Board**](https://github.com/jeffreylanters/react-unity-webgl/discussions)
-**&Gt;**
 
-<br/><br/>
-
-[![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&label=sponsor%20this%20project&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
-
-Hi! My name is Jeffrey Lanters, thanks for visiting! This package is an open source hobby project with ongoing development. A result of a long road and endless fight with Unity's updates since 2017, full of sleepless nights, working after hours, and busy weekends. If you're using this module for production, please consider donating to support the project. Thank you!
-
-**&Lt;**
 **Made with &hearts; by Jeffrey Lanters**
-**&Gt;**
-
-<br/><br/>
 
 </div>
 
