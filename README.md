@@ -14,8 +14,9 @@
 
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
+[**Live Demo**](https://jeffreylanters.github.io/react-unity-webgl-tests/) &middot;
 [**Documentation**](#documentation) &middot;
-[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
+[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-tests) &middot;
 [**Buy me a Coffee**](https://github.com/sponsors/jeffreylanters) &middot;
 [**Discussion Board**](https://github.com/jeffreylanters/react-unity-webgl/discussions)
 
@@ -977,7 +978,7 @@ Before submitting a pull request, please make sure the following is done:
 - Create a public fork [the React Unity WebGL repository](https://github.com/jeffreylanters/react-unity-webgl) and and commit your changes to a new branch from the main branch.
 - Make sure the package installs using `npm install`, your code lints using `ts lint`, is formatted using [prettier](https://github.com/prettier/prettier) and compiles using `npm test`.
 - Typecheck all of your changes and make sure the documentation in both the code, Read Me and JSDocs are provided.
-- Make sure your changes passes and are compatibly with Unity WebGL builds using the [test environment](https://github.com/jeffreylanters/react-unity-webgl-test) which provides a series of tests and basic implementations.
+- Make sure your changes passes and are compatibly with Unity WebGL builds using the [test environment](https://github.com/jeffreylanters/react-unity-webgl-tests) which provides a series of tests and basic implementations.
 
 #### Development and Test-Cycle
 
