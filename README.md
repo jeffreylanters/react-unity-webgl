@@ -928,16 +928,16 @@ mergeInto(LibraryManager.library, {
   GameOver: function () {
     ReactUnityWebGL.GameOver();
   },
-  NextWave: function (waveNumber) {
-    ReactUnityWebGL.NextWave(waveNumber);
+  NextWave: function (waveNumberValue) {
+    ReactUnityWebGL.NextWave(waveNumberValue);
   },
-  ShowPopup: function (text) {
-    ReactUnityWebGL.ShowPopup(Pointer_stringify(text));
+  ShowPopup: function (textStringPointer) {
+    ReactUnityWebGL.ShowPopup(Pointer_stringify(textStringPointer));
   },
-  SubmitScores: function (scoresFloatArray, arraySize) {
+  SubmitScores: function (scoresFloatArrayPointer, arraySize) {
     var scores = [];
     for (var i = 0; i < arraySize; i++)
-      scores.push(HEAPF32[(scoresFloatArray >> 2) + i]);
+      scores.push(HEAPF32[(scoresFloatArrayPointer >> 2) + i]);
     ReactUnityWebGL.SubmitScores(scores);
   },
 });
