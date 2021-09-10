@@ -103,6 +103,9 @@ export class Unity extends PureComponent<IUnityProps, {}> {
       };
       if (this.props.devicePixelRatio !== undefined)
         _unityInstanceParameters.devicePixelRatio = this.props.devicePixelRatio;
+      if (this.props.webglContextAttributes !== undefined)
+        _unityInstanceParameters.webglContextAttributes =
+          this.props.webglContextAttributes;
       if (this.props.matchWebGLToCanvasSize !== undefined)
         _unityInstanceParameters.matchWebGLToCanvasSize =
           this.props.matchWebGLToCanvasSize;
