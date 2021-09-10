@@ -54,13 +54,4 @@ export interface IUnityProps {
    * @type {boolean}
    */
   matchWebGLToCanvasSize?: boolean;
-
-  /**
-   * This object allow you to configure WebGLRenderingContext creation options
-   * which will be pass additional context attributes to the Unity canvas.
-   * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext
-   * @public
-   * @type {IWebGLContextAttributes}
-   */
-  webglContextAttributes?: IWebGLContextAttributes;
 }
