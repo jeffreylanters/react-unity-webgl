@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { UnityContext } from "../models/unity-context";
-import { IWebGLContextAttributes } from "./webgl-context-attributes";
 
 export interface IUnityProps {
   /**
