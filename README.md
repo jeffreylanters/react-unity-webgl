@@ -50,6 +50,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Setting the Canvas's ClassName](#setting-the-canvass-classname)
 - [Device Pixel Ratio and Retina Support](#device-pixel-ratio-and-retina-support)
 - [Tab Index and Input Keyboard Capturing](#tab-index-and-input-keyboard-capturing)
+- [Requesting Canvas Pointer Locking](#requesting-canvas-pointer-locking)
 - [Catching Runtime and Loading Errors](#catching-runtime-and-loading-errors)
 - [Receiving Internal and Debug Log Messages](#receiving-internal-and-debug-log-messages)
 - [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
@@ -490,6 +491,47 @@ const unityContext = new UnityContext({
 
 function App() {
   return <Unity unityContext={unityContext} devicePixelRatio={2} />;
+}
+```
+
+## Requesting Canvas Pointer Locking
+
+> Available since version 8.6.0
+
+Asynchronously ask for the pointer to be locked on current canvas. To track the success or failure of the request, it is necessary to listen for the pointerlockchange and pointerlockerror events at the Document level.
+
+```tsx
+function requestPointerLock(): void;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll request a pointer lock on the click of a button.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+function App() {
+  function requestPointerLock() {
+    unityContext.requestPointerLock();
+  }
+
+  return (
+    <div>
+      <button onClick={requestPointerLock}>Lock Pointer</button>
+      <Unity unityContext={unityContext} />
+    </div>
+  );
 }
 ```
 
