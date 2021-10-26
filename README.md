@@ -1014,7 +1014,7 @@ function App() {
 
 > Available since version 8.6.0
 
-Takes a screenshot of the canvas and returns a data URL containing image data. The image data is in .png format unless otherwise specified.
+Takes a screenshot of the canvas and returns a data URL containing image data. The image data is in .png format unless otherwise specified. Enabling preserve drawing buffer within the WebGL context attributes is required in order to take a screenshot.
 
 ```ts
 function takeScreenshot(
@@ -1025,7 +1025,7 @@ function takeScreenshot(
 
 #### Example implementation
 
-A basic implementation could look something like this. In the following example a button is added to the Render. When it's being clicked, a high quality JPEG screenshot will be taken and opened within a new tab. Enabling preserve drawing buffer within the WebGL context attributes is required in order to take a screenshot.
+A basic implementation could look something like this. In the following example a button is added to the Render. When it's being clicked, a high quality JPEG screenshot will be taken and opened within a new tab.
 
 ```jsx
 // File: App.jsx
