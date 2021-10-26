@@ -20,7 +20,7 @@ export function useUnityLoader(src: string): Status {
   // Effect hook will be invoked when the src changes.
   useEffect(
     function () {
-      if (!src) {
+      if (src === null) {
         setStatus(Status.Idle);
         return;
       }
@@ -31,7 +31,7 @@ export function useUnityLoader(src: string): Status {
         `script[src="${src}"]`
       );
 
-      if (!script) {
+      if (script === null) {
         // Create script
         script = document.createElement("script");
         script.src = src;
