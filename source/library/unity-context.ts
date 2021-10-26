@@ -4,10 +4,8 @@ import { IUnityConfig } from "../interfaces/unity-config";
  *
  */
 export class UnityContext {
-  /**
-   *
-   */
-  private unityInstance: UnityInstance | null = null;
+  public unityInstance: UnityInstance | null = null;
+  public htmlCanvasElement: HTMLCanvasElement | null = null;
 
   /**
    * creates a new Unity Context instance which can be fed to a Unity component
@@ -24,20 +22,20 @@ export class UnityContext {
    * @example unityContext.dispatchEventListener("gameOver", 180);
    */
   public dispatchEventListener(eventName: string, eventValue?: any): void {
-    // TODO: implement
-    // for (let _unityEvent of this.unityEvents)
-    //   if (_unityEvent.eventName === eventName)
-    //     _unityEvent.eventCallback(eventValue);
     console.log("DISPATCHING", eventName, eventValue);
   }
 
   /**
-   * Sets the reference of the UnityInstance.
+   * Asynchronously ask for the pointer to be locked on current canvas. To track
+   * the success or failure of the request, it is necessary to listen for the
+   * pointerlockchange and pointerlockerror events at the Document level.
    * @public
-   * @param {UnityInstance} unityInstance the target unityInstance.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/requestPointerLock
    */
-  public setUnityInstance(unityInstance: UnityInstance): void {
-    this.unityInstance = unityInstance;
+  public requestPointerLock(): void {
+    if (this.htmlCanvasElement !== null) {
+      this.htmlCanvasElement.requestPointerLock();
+    }
   }
 
   /**
