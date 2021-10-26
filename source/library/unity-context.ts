@@ -1,28 +1,39 @@
 import { IUnityConfig } from "../interfaces/unity-config";
 
 /**
- *
+ * A Unity Context object can be fed to a Unity component instance to configure
+ * the Unity Instance and handle the communication between the two.
  */
 export class UnityContext {
   public unityInstance: UnityInstance | null = null;
   public htmlCanvasElement: HTMLCanvasElement | null = null;
 
   /**
-   * creates a new Unity Context instance which can be fed to a Unity component
+   * Creates a new Unity Context instance which can be fed to a Unity component
    * in order to render a Unity Instance.
    * @param unityConfig The Unity Config
    */
   constructor(public unityConfig: IUnityConfig) {}
 
   /**
-   * Dispatches an event listener that has been registered using the on method.
+   * Sends a message to the UnityInstance to invoke a public method.
    * @public
-   * @param {string} eventName the event's name
-   * @param {any} eventValue the event's value
-   * @example unityContext.dispatchEventListener("gameOver", 180);
+   * @param {string} gameObjectName the name of the game object in your Unity scene.
+   * @param {string} methodName the name of the public method on the game object.
+   * @param {string | number | boolean} parameter an optional method parameter.
    */
-  public dispatchEventListener(eventName: string, eventValue?: any): void {
-    console.log("DISPATCHING", eventName, eventValue);
+  public send(
+    gameObjectName: string,
+    methodName: string,
+    parameter?: string | number | boolean
+  ): void {
+    if (this.unityInstance !== null) {
+      if (parameter === undefined) {
+        this.unityInstance.SendMessage(gameObjectName, methodName);
+      } else {
+        this.unityInstance.SendMessage(gameObjectName, methodName, parameter);
+      }
+    }
   }
 
   /**
@@ -48,5 +59,27 @@ export class UnityContext {
       this.unityInstance = null;
       this.dispatchEventListener("quitted");
     }
+  }
+
+  /**
+   * Enables or disabled the Fullscreen mode of the Unity Instance.
+   * @public
+   * @param {boolean} enabled
+   */
+  public setFullscreen(enabled: boolean): void {
+    if (this.unityInstance !== null) {
+      this.unityInstance.SetFullscreen(enabled === true ? 1 : 0);
+    }
+  }
+
+  /**
+   * Dispatches an event listener that has been registered using the on method.
+   * @public
+   * @param {string} eventName the event's name
+   * @param {any} eventValue the event's value
+   * @example unityContext.dispatchEventListener("gameOver", 180);
+   */
+  public dispatchEventListener(eventName: string, eventValue?: any): void {
+    console.log("DISPATCHING", eventName, eventValue);
   }
 }
