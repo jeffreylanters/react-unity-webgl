@@ -37,10 +37,23 @@ export function Unity(props: IUnityProps): ReactElement {
       // Unity Context.
       if (unityInstance !== null) {
         unityContext.unityInstance = unityInstance;
-        unityContext.htmlCanvasElement = htmlCanvasElement.current;
       }
     },
     [unityInstance]
+  );
+
+  // Effect hook will be called when the reference to the canvas changes.
+  useEffect(
+    function () {
+      // Whether or not the canvas has been defined, it will be set as the
+      // current html canvas element on the Unity Context.
+      unityContext.htmlCanvasElement = htmlCanvasElement.current;
+      // Only when it is defined, an event will be dispatched.
+      if (unityContext.htmlCanvasElement !== null) {
+        unityContext.dispatchEventListener("canvas", htmlCanvasElement.current);
+      }
+    },
+    [htmlCanvasElement]
   );
 
   // Effect hook will be called when the Unity Instance progession changes.
