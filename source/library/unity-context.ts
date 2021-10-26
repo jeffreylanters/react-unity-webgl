@@ -50,15 +50,26 @@ export class UnityContext {
   }
 
   /**
-   * Quits the Unity Instance and clears it from memory.
+   * Takes a screenshot of the canvas and returns a data URL containing image
+   * data. The image data is in .png format unless otherwise specified.
+   * @param dataType The image format of the screenshot
+   * @param quality The quality of the jpg or webp screenshot
+   * @returns a data URL containing image data of a snapshot of the canvas
    * @public
    */
-  public async quitUnityInstance(): Promise<void> {
-    if (this.unityInstance !== null) {
-      await this.unityInstance.Quit();
-      this.unityInstance = null;
-      this.dispatchEventListener("quitted");
+  public takeScreenshot(
+    dataType?: "image/png" | "image/jpeg" | "image/webp",
+    quality?: number
+  ): string | null {
+    if (this.htmlCanvasElement !== null) {
+      if (
+        this.unityConfig.webglContextAttributes?.preserveDrawingBuffer !== true
+      ) {
+        console.warn("Taking a screenshot requires 'preserveDrawingBuffer'.");
+      }
+      return this.htmlCanvasElement.toDataURL(dataType, quality);
     }
+    return null;
   }
 
   /**
@@ -69,6 +80,18 @@ export class UnityContext {
   public setFullscreen(enabled: boolean): void {
     if (this.unityInstance !== null) {
       this.unityInstance.SetFullscreen(enabled === true ? 1 : 0);
+    }
+  }
+
+  /**
+   * Quits the Unity Instance and clears it from memory.
+   * @public
+   */
+  public async quitUnityInstance(): Promise<void> {
+    if (this.unityInstance !== null) {
+      await this.unityInstance.Quit();
+      this.unityInstance = null;
+      this.dispatchEventListener("quitted");
     }
   }
 
