@@ -5,31 +5,34 @@
 export interface IWebGLContextAttributes {
   /**
    * If set to true, the context will have an alpha (transparency) channel.
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default true
    */
-  alpha?: boolean;
+  readonly alpha?: boolean;
 
   /**
    * If set to true, the context will attempt to perform antialiased rendering
    * if possible.
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default true
    */
-  antialias?: boolean;
+  readonly antialias?: boolean;
 
   /**
    * If set to true, the context will have a 16 bit depth buffer. Defaults to
    * true. Use gl.enable(DEPTH_TEST) to enable the depth test and
    * gl.depthFunc(), gl.depthMask(), and gl.depthRange() to configure the depth
    * test.
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default true
    */
-  depth?: boolean;
+  readonly depth?: boolean;
 
   /**
    * If the value is true, context creation will fail if the implementation
@@ -40,11 +43,12 @@ export interface IWebGLContextAttributes {
    * driver is known to be unstable. And an implementation might require reading
    * back the framebuffer from GPU memory to system memory before compositing it
    * with the rest of the page, significantly reducing performance.
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default false
    */
-  failIfMajorPerformanceCaveat?: boolean;
+  readonly failIfMajorPerformanceCaveat?: boolean;
 
   /**
    * Provides a hint to the user agent indicating what configuration of GPU is
@@ -55,20 +59,22 @@ export interface IWebGLContextAttributes {
    * choose to ignore it. WebGL implementations use context lost and restored
    * events to regulate power and memory consumption, regardless of the value of
    * this attribute.
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default "default"
    */
-  powerPreference?: "default" | "high-performance" | "low-power";
+  readonly powerPreference?: "default" | "high-performance" | "low-power";
 
   /**
    * If set to true, the color channels in the framebuffer will be stored
    * premultipled by the alpha channel to improve performance.
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default true
    */
-  premultipliedAlpha?: boolean;
+  readonly premultipliedAlpha?: boolean;
 
   /**
    * If set to false, the buffer will be cleared after rendering. If you wish to
@@ -76,19 +82,21 @@ export interface IWebGLContextAttributes {
    * immediately before calling toDataURL(), or set preserveDrawingBuffer to
    * true to keep the buffer available after the browser has displayed the
    * buffer (at the cost of increased memory use).
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default false
    */
-  preserveDrawingBuffer?: boolean;
+  readonly preserveDrawingBuffer?: boolean;
 
   /**
    *
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default false
    */
-  stencil?: boolean;
+  readonly stencil?: boolean;
 
   /**
    * If set to true, the context will have an 8 bit stencil buffer. Defaults to
@@ -96,17 +104,19 @@ export interface IWebGLContextAttributes {
    * gl.stencilFunc(), gl.stencilFuncSeparate(), gl.stencilMask(),
    * gl.stencilMaskSeparate(), gl.stencilOp(), and gl.stencilOpSeparate()
    * to configure the stencil test.
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default false
    */
-  desynchronized?: boolean;
+  readonly desynchronized?: boolean;
 
   /**
    * xrCompatible is a boolean that indicates whether the context is compatible.
-   * @type {boolean}
    * @public
+   * @readonly
+   * @type {boolean}
    * @default false
    */
-  xrCompatible?: boolean;
+  readonly xrCompatible?: boolean;
 }
