@@ -36,7 +36,8 @@ export function Unity(props: IUnityProps): ReactElement {
       // If the Unity Instance has been defined, it will be passed to the
       // Unity Context.
       if (unityInstance !== null) {
-        unityContext.setUnityInstance(unityInstance);
+        unityContext.unityInstance = unityInstance;
+        unityContext.htmlCanvasElement = htmlCanvasElement.current;
       }
     },
     [unityInstance]
