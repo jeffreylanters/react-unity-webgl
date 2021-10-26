@@ -352,7 +352,7 @@ function App() {
 
 The Unity context object allows you to enable and disable the fullscreen mode of your application. Cursor locking (using Cursor.lockState) and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox and Chrome. Safari cannot currently use full-screen and cursor locking. An implementation could look something like:
 
-```js
+```ts
 function setFullscreen(enabled: boolean): void;
 ```
 
