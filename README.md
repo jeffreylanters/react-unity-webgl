@@ -15,7 +15,8 @@
 When building content for the web, you might need to communicate with elements on a webpage. Or you might want to implement functionality using Web APIs which Unity does not currently expose by default. In both cases, you need to directly interface with the browser’s JavaScript engine. React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.
 
 [**Documentation**](#documentation) &middot;
-[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-test) &middot;
+[**Live Demo**](https://jeffreylanters.github.io/react-unity-webgl-tests/) &middot;
+[**Test Environment**](https://github.com/jeffreylanters/react-unity-webgl-tests) &middot;
 [**Buy me a Coffee**](https://github.com/sponsors/jeffreylanters) &middot;
 [**Discussion Board**](https://github.com/jeffreylanters/react-unity-webgl/discussions)
 
@@ -55,6 +56,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Removing Specific Event Listeners](#removing-specific-event-listeners)
 - [Removing All Event Listeners](#removing-all-event-listeners)
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
+- [Configuring the WebGL Rendering Context](#configuring-the-webgl-rendering-context)
 - [Providing Application Meta Data](#providing-application-meta-data)
 - [Getting a Reference to the Unity Canvas](#getting-a-reference-to-the-unity-canvas)
 - [Change the Render Size of WebGL Canvas](#change-the-render-size-of-webgl-canvas)
@@ -783,6 +785,63 @@ function App() {
 }
 ```
 
+## Configuring the WebGL Rendering Context
+
+> Available since version 8.5.0
+
+The WebGLContexAttributes allow you to configure WebGLRenderingContext creation options when passed as an additional context attributes parameter to the UnityContext. An object can be used as the WebGLContextAttributes and if the properties below are specified on it, they will be used instead of the default values. Only the options passed to the first call will apply, subsequent calls will ignore the attributes.
+
+```tsx
+<IUnityConfig>{
+  webGLContextAttributes: {
+    alpha: boolean,
+    antialias: boolean,
+    depth: boolean,
+    failIfMajorPerformanceCaveat: boolean,
+    powerPreference: "default" | "high-performance" | "low-power",
+    premultipliedAlpha: boolean,
+    preserveDrawingBuffer: boolean,
+    stencil: boolean,
+    desynchronized: boolean,
+    xrCompatible: boolean,
+  },
+};
+```
+
+#### Example implementation
+
+A basic implementation could look something like this.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+  webGLContextAttributes: {
+    alpha: true,
+    antialias: true,
+    depth: true,
+    failIfMajorPerformanceCaveat: true,
+    powerPreference: "high-performance",
+    premultipliedAlpha: true,
+    preserveDrawingBuffer: true,
+    stencil: true,
+    desynchronized: true,
+    xrCompatible: true,
+  },
+});
+
+function App() {
+  return <Unity unityContext={unityContext} />;
+}
+```
+
 ## Providing Application Meta Data
 
 > Available since version 8.0.1
@@ -977,7 +1036,7 @@ Before submitting a pull request, please make sure the following is done:
 - Create a public fork [the React Unity WebGL repository](https://github.com/jeffreylanters/react-unity-webgl) and and commit your changes to a new branch from the main branch.
 - Make sure the package installs using `npm install`, your code lints using `ts lint`, is formatted using [prettier](https://github.com/prettier/prettier) and compiles using `npm test`.
 - Typecheck all of your changes and make sure the documentation in both the code, Read Me and JSDocs are provided.
-- Make sure your changes passes and are compatibly with Unity WebGL builds using the [test environment](https://github.com/jeffreylanters/react-unity-webgl-test) which provides a series of tests and basic implementations.
+- Make sure your changes passes and are compatibly with Unity WebGL builds using the [test environment](https://github.com/jeffreylanters/react-unity-webgl-tests) which provides a series of tests and basic implementations.
 
 #### Development and Test-Cycle
 

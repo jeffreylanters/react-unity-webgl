@@ -22,6 +22,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Details (please complete the following information):**
  - React Unity WebGL Version: [e.g. 8.0.0]
+ - Unity Version: [e.g. 2021.1.5f]
  - Device and OS: [e.g. iPhone6 iOS 8.1]
  - Browser: [e.g. stock browser, safari 10.1]
  - NodeJS Version: [e.g. 12.0.0]
