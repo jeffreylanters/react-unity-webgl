@@ -23,49 +23,38 @@ export function useUnityInstance(
   // Effect invoked when the Unity Loader status or canvas reference changes.
   useEffect(
     function () {
-      if (
-        unityLoaderStatus !== UnityLoaderStatus.Loaded ||
-        htmlCanvasElement === null
-      ) {
-        // If the loader is not loaded, or the canvas is not available,
-        // we can't create the Unity instance yet.
-        setUnityInstance(null);
-        return;
-      }
+      (async function () {
+        if (
+          unityLoaderStatus !== UnityLoaderStatus.Loaded ||
+          htmlCanvasElement === null
+        ) {
+          // If the loader is not loaded, or the canvas is not available,
+          // we can't create the Unity instance yet.
+          setUnityInstance(null);
+          return;
+        }
 
-      const unityInstanceFulfilled = function (unityInstance: UnityInstance) {
-        // When the Unity Instance is created, its reference is stored in the
-        // state while the error state is cleared.
-        setUnityInstance(unityInstance);
-        setError(null);
-      };
-
-      const unityInstanceCatched = function (error: string) {
-        // When the Unity Instance catches due to a fail during the creation,
-        // the Unity Instnace reference will be cleared while the error is
-        // placed into the state.
-        setUnityInstance(null);
-        setError(error);
-      };
-
-      // Creates the Unity Instance, this method is made available globally by
-      // the Unity Loader.
-      try {
-        // TODO since unity 2021.2 the createUnityInstance takes an ID instead of a canvas element...
-        window
-          .createUnityInstance(
+        // Creates the Unity Instance, this method is made available globally by
+        // the Unity Loader.
+        try {
+          // TODO since unity 2021.2 the createUnityInstance takes an ID instead of a canvas element...
+          const unityInstance = await window.createUnityInstance(
             htmlCanvasElement,
             unityInstanceParameters,
             setProgression
-          )
-          .then(unityInstanceFulfilled)
-          .catch(unityInstanceCatched);
-      } catch (error: any) {
-        // The the create Unity Instance method was not available,
-        // the error is placed into the state.
-        setUnityInstance(null);
-        setError(`${error}`);
-      }
+          );
+          // When the Unity Instance is created, its reference is stored in the
+          // state while the error state is cleared.
+          setUnityInstance(unityInstance);
+          setError(null);
+        } catch (error: any) {
+          // When the Unity Instance catches due to a fail during the creation,
+          // the Unity Instnace reference will be cleared while the error is
+          // placed into the state.
+          setUnityInstance(null);
+          setError(error);
+        }
+      })();
     },
     [unityLoaderStatus, htmlCanvasElement]
   );
