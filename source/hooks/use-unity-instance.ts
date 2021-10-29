@@ -13,7 +13,11 @@ export function useUnityInstance(
   unityLoaderStatus: UnityLoaderStatus,
   htmlCanvasElement: HTMLCanvasElement | null,
   unityInstanceParameters: IUnityInstanceParameters
-): [UnityInstance | null, number, string | null] {
+): {
+  unityInstance: UnityInstance | null;
+  progression: number;
+  error: string | null;
+} {
   const [progression, setProgression] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
   const [unityInstance, setUnityInstance] = useState<UnityInstance | null>(

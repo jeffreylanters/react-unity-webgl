@@ -29,7 +29,7 @@ export function Unity(props: IUnityProps): ReactElement {
 
   // Creates the Unity Instance while defining a set of hooks which indicate
   // whether the Unity Instance is ready to be used among with its progression.
-  const [unityInstance, progression, error] = useUnityInstance(
+  const { unityInstance, progression, error } = useUnityInstance(
     unityLoaderStatus,
     htmlCanvasElement.current,
     unityInstanceParameters
