@@ -7,6 +7,11 @@ import { IUnityInstanceParameters } from "../interfaces/unity-instance-parameter
 // TODO turn into functional component
 export class Unity extends PureComponent<IUnityProps, {}> {
   /**
+   * A counter to track the number of times a unique identifier was generated.
+   */
+  private static uniqueIdentifiers: number = 0;
+
+  /**
    * The UnityContext passed by the props.
    * @private
    * @type {UnityContext}
@@ -138,6 +143,7 @@ export class Unity extends PureComponent<IUnityProps, {}> {
    */
   public render(): React.ReactNode {
     return createElement("canvas", {
+      id: `unity-canvas-${Unity.uniqueIdentifiers++}`,
       ref: (ref: HTMLCanvasElement) => (this.htmlCanvasElementReference = ref),
       className: this.props.className || "",
       tabIndex: this.props.tabIndex || undefined,
