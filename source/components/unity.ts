@@ -55,7 +55,7 @@ export function Unity(props: IUnityProps): ReactElement {
       unityContext.htmlCanvasElement = htmlCanvasElement.current;
       // Only when it is defined, an event will be dispatched.
       if (unityContext.htmlCanvasElement !== null) {
-        unityContext.dispatchEventListener("canvas", htmlCanvasElement.current);
+        unityContext.dispatchEvent("canvas", htmlCanvasElement.current);
       }
     },
     [htmlCanvasElement]
@@ -67,10 +67,10 @@ export function Unity(props: IUnityProps): ReactElement {
       // If the Unity Instance loading progression hits 1, then the Unity
       // Instance is ready to be used and the loaded event is dispatched.
       if (progression === 1) {
-        unityContext.dispatchEventListener("loaded");
+        unityContext.dispatchEvent("loaded");
       }
       // Dispatches an event every time the Unity Instance progression changes.
-      unityContext.dispatchEventListener("progress", progression);
+      unityContext.dispatchEvent("progress", progression);
     },
     [progression]
   );
@@ -81,7 +81,7 @@ export function Unity(props: IUnityProps): ReactElement {
       // If the Unity Instance threw an error, then the error event is
       // dispatched.
       if (error !== null) {
-        unityContext.dispatchEventListener("error", error);
+        unityContext.dispatchEvent("error", error);
       }
     },
     [error]
