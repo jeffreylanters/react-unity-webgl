@@ -120,6 +120,8 @@ export class Unity extends PureComponent<IUnityProps, {}> {
         _unityInstanceParameters,
         this.onProgress.bind(this)
       );
+      // We increment the unique identifier counter to avoid conflicts.
+      Unity.uniqueIdentifiers++;
       // Finally pass the instance back to the context object.
       this.unityContext.setUnityInstance(_unityInstance);
       // Since the creation of the Unity Instance is async, we'll check the
@@ -143,7 +145,7 @@ export class Unity extends PureComponent<IUnityProps, {}> {
    */
   public render(): React.ReactNode {
     return createElement("canvas", {
-      id: `unity-canvas-${Unity.uniqueIdentifiers++}`,
+      id: `unity-canvas-${Unity.uniqueIdentifiers}`,
       ref: (ref: HTMLCanvasElement) => (this.htmlCanvasElementReference = ref),
       className: this.props.className || "",
       tabIndex: this.props.tabIndex || undefined,
