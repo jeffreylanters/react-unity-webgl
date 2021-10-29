@@ -21,10 +21,10 @@ export function generateUnityInstanceParameters(
   // Print and printErr event hooks will be intercepted in order to catch
   // messages to the Unity Context.
   unityInstanceParameters.print = function (message: string) {
-    unityContext.dispatchEventListener("debug", message);
+    unityContext.dispatchEvent("debug", message);
   };
   unityInstanceParameters.printErr = function (error: string) {
-    unityContext.dispatchEventListener("error", error);
+    unityContext.dispatchEvent("error", error);
   };
 
   // Some preferences will be set based on props and context config.
