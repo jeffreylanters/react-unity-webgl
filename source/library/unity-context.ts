@@ -55,10 +55,10 @@ export class UnityContext extends EventSystem {
   /**
    * Takes a screenshot of the canvas and returns a data URL containing image
    * data. The image data is in .png format unless otherwise specified.
+   * @public
    * @param dataType The image format of the screenshot
    * @param quality The quality of the jpg or webp screenshot
    * @returns a data URL containing image data of a snapshot of the canvas
-   * @public
    */
   public takeScreenshot(
     dataType?: "image/png" | "image/jpeg" | "image/webp",
@@ -89,6 +89,8 @@ export class UnityContext extends EventSystem {
   /**
    * Quits the Unity Instance and clears it from memory.
    * @public
+   * @async
+   * @returns A promise that resolves when the Unity Instance is quit.
    */
   public async quitUnityInstance(): Promise<void> {
     if (this.unityInstance !== null) {
