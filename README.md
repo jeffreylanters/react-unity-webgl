@@ -246,7 +246,7 @@ public class GameController : MonoBehaviour {
   private static extern void GameOver (string userName, int score);
 
   public void SomeMethod () {
-#if (UNITY_WEBGL == true && UNITY_EDITOR == false)
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
     GameOver ("Player1", 100);
 #endif
   }
@@ -579,7 +579,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
   private void Start () {
-#if (UNITY_WEBGL == true && UNITY_EDITOR == false)
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
     WebGLInput.captureAllKeyboardInput = false;
 #endif
   }
