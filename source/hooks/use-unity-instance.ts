@@ -62,5 +62,5 @@ export function useUnityInstance(
     [unityLoaderStatus, htmlCanvasElement]
   );
 
-  return [unityInstance, progression, error];
+  return { unityInstance, progression, error };
 }
