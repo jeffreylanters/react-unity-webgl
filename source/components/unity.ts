@@ -7,6 +7,11 @@ import { UnityContext } from "../library/unity-context";
 import { generateUnityInstanceParameters } from "../utils/generate-unity-instance-parameters";
 
 /**
+ * A unique instance identifier for each mounted Unity Instance.
+ */
+let unityInstanceIdentifier: number = 0;
+
+/**
  * Renders the Unity Instance to the React DOM.
  * @param props Properties of the Unity Component.
  * @returns A React Element.
@@ -84,17 +89,27 @@ export function Unity(props: IUnityProps): ReactElement {
 
   // Event hook will be called when the component mounts and unmounts.
   useEffect(function () {
+    // Each time a component is mounted, the Unity Context identifier is
+    // incremented to ensure that each component is referenced correctly.
+    unityInstanceIdentifier++;
     return function () {
       // If the Unity Instance is defined, then it will be quitted.
       unityContext?.quitUnityInstance();
     };
   }, []);
 
-  // Renders the actual canvas element.
+  // Renders the actual canvas element which Unity will use to render.
   return createElement("canvas", {
-    className: props.className || undefined,
-    tabIndex: props.tabIndex || undefined,
-    style: props.style || {},
+    // Unity 2021.2 and above requires a unique identifier for each canvas
+    // internally. This is not documented in the Unity documentation, but
+    // it is required for the canvas to be rendered. This is further explained
+    // in https://github.com/jeffreylanters/react-unity-webgl/issues/223.
+    id: `unity-canvas-${unityInstanceIdentifier}`,
+    // A reference to the canvas element is required to create a Unity Instance.
     ref: htmlCanvasElement,
+    // Push through of some properties.
+    className: props.className || undefined,
+    style: props.style || {},
+    tabIndex: props.tabIndex || undefined,
   });
 }

@@ -37,7 +37,6 @@ export function useUnityInstance(
         // Creates the Unity Instance, this method is made available globally by
         // the Unity Loader.
         try {
-          // TODO since unity 2021.2 the createUnityInstance takes an ID instead of a canvas element...
           const unityInstance = await window.createUnityInstance(
             htmlCanvasElement,
             unityInstanceParameters,
