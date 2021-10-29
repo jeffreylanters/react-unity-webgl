@@ -93,7 +93,8 @@ export function Unity(props: IUnityProps): ReactElement {
     // incremented to ensure that each component is referenced correctly.
     unityInstanceIdentifier++;
     return function () {
-      // If the Unity Instance is defined, then it will be quitted.
+      // If the Unity Instance is defined, Quit will be invoked on the Unity
+      // Instance. This removes the Unity Loader and Framework from memory.
       unityContext?.quitUnityInstance();
     };
   }, []);
