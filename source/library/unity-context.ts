@@ -1,10 +1,11 @@
 import { IUnityConfig } from "../interfaces/unity-config";
+import { EventSystem } from "./event-system";
 
 /**
  * A Unity Context object can be fed to a Unity component instance to configure
  * the Unity Instance and handle the communication between the two.
  */
-export class UnityContext {
+export class UnityContext extends EventSystem {
   public unityInstance: UnityInstance | null = null;
   public htmlCanvasElement: HTMLCanvasElement | null = null;
 
@@ -13,7 +14,9 @@ export class UnityContext {
    * in order to render a Unity Instance.
    * @param unityConfig The Unity Config
    */
-  constructor(public unityConfig: IUnityConfig) {}
+  constructor(public unityConfig: IUnityConfig) {
+    super();
+  }
 
   /**
    * Sends a message to the UnityInstance to invoke a public method.
@@ -91,18 +94,7 @@ export class UnityContext {
     if (this.unityInstance !== null) {
       await this.unityInstance.Quit();
       this.unityInstance = null;
-      this.dispatchEventListener("quitted");
+      this.dispatchEvent("quitted");
     }
-  }
-
-  /**
-   * Dispatches an event listener that has been registered using the on method.
-   * @public
-   * @param {string} eventName the event's name
-   * @param {any} eventValue the event's value
-   * @example unityContext.dispatchEventListener("gameOver", 180);
-   */
-  public dispatchEventListener(eventName: string, eventValue?: any): void {
-    console.log("DISPATCHING", eventName, eventValue);
   }
 }
