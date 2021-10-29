@@ -28,8 +28,8 @@
       "url": "https://paypal.me/jeffreylanters"
     }
   ],
-  "main": "./distribution/exports.js",
-  "types": "./distribution/exports.d.ts",
+  "main": "./distribution/index.js",
+  "types": "./distribution/index.d.ts",
   "browserslist": {
     "production": [
       ">0.2%",

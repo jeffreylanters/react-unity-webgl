@@ -1,8 +1,8 @@
 <div align="center">
 
-![readme splash](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/master/.github/WIKI/repository-readme-splash.png)
+![readme splash](https://raw.githubusercontent.com/jeffreylanters/react-unity-webgl/main/.github/WIKI/repository-readme-splash.png)
 
-[![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/blob/master/LICENSE.md)
+[![license](https://img.shields.io/badge/license-Apache_2.0-red.svg?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/blob/main/LICENSE.md)
 [![npm](https://img.shields.io/npm/v/react-unity-webgl.svg?style=for-the-badge)](https://www.npmjs.com/package/react-unity-webgl)
 [![build](https://img.shields.io/github/workflow/status/jeffreylanters/react-unity-webgl/Pre-Compile%20and%20Lint?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/actions)
 [![deployment](https://img.shields.io/github/deployments/jeffreylanters/react-unity-webgl/Node%20Package%20Registry?style=for-the-badge)](https://github.com/jeffreylanters/react-unity-webgl/deployments/activity_log?environment=Node+Package+Registry)
@@ -50,6 +50,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Setting the Canvas's ClassName](#setting-the-canvass-classname)
 - [Device Pixel Ratio and Retina Support](#device-pixel-ratio-and-retina-support)
 - [Tab Index and Input Keyboard Capturing](#tab-index-and-input-keyboard-capturing)
+- [Requesting Canvas Pointer Locking](#requesting-canvas-pointer-locking)
 - [Catching Runtime and Loading Errors](#catching-runtime-and-loading-errors)
 - [Receiving Internal and Debug Log Messages](#receiving-internal-and-debug-log-messages)
 - [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
@@ -60,6 +61,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Providing Application Meta Data](#providing-application-meta-data)
 - [Getting a Reference to the Unity Canvas](#getting-a-reference-to-the-unity-canvas)
 - [Change the Render Size of WebGL Canvas](#change-the-render-size-of-webgl-canvas)
+- [Taking Screenshots of the Canvas](#taking-screenshots-of-the-canvas)
 - [JavaScript to UnityScript types](#javascript-to-unityscript-types)
 - [Creating Unity WebGL builds](#creating-unity-webgl-builds)
 
@@ -155,13 +157,13 @@ public class EnemyController : MonoBehaviour {
 
 ## Communication from Unity to React
 
-> Available since version 6.0.0
+> Available since version 6.0.0, refactored in 8.6.0
 
 Sending messages from Unity to React is done using Event Listeners via the Unity Context instance. Invoking these Event Listeners from your Unity Project is quite different.
 
 On the React side of your project an Event Listeners can be registered to the Unity Context instance. Register the Event Listener using the "on" method as following, where "eventName" is the name of your listener, and the "eventListener" method is the Method which will be Invoked which may or may not pass along any Arguments based on your implementation.
 
-> Keep in mind communication from Unity to React is global, so Event Listeners with the same name will overwrite one another.
+> Keep in mind communication from Unity to React is global, so Event Listeners with the same name will will be invoked on all Unity Instances.
 
 > Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
 
@@ -169,10 +171,10 @@ On the React side of your project an Event Listeners can be registered to the Un
 function on(eventName: string, eventListener: Function): void;
 ```
 
-In order to emit Event Listeners, a JSLib file has to be created within your Unity Project "Plugins/WebGL" directory. The React Unity WebGL module exposes a global Object which allows for the emitting of the Event Listeners. When writing your JSLib file, simply invoke the eventName as a member of the "ReactUnityWebGL" object within any method.
+In order to dispatch Event Listeners, a JSLib file has to be created within your Unity Project "Plugins/WebGL" directory. The React Unity WebGL module exposes a global method which allows for the dispatchment of the Event Listeners. When writing your JSLib file, simply invoke the eventName using the global methpd "dispatchReactUnityEvent" with an optional parameter.
 
-```js
-ReactUnityWebGL[eventName: string];
+```ts
+function dispatchReactUnityEvent(eventName: string, ...parameters: any);
 ```
 
 #### Example implementation
@@ -216,14 +218,14 @@ function App() {
 
 To emit the Event Listener we've just created, we'll have to create a new JSLib file within our Unity Project first. This JSLib file will be places within the "Assets/Plugins/WebGL" directory. The JSLib itself has nothing to do with this module, it is natively supported by Unity and is used for all communication between your CSharp and JavaScript in any given context.
 
-We'll start of by creating a new method inside of our JSLib. The name of this method can be anything, but in this example we'll give it it the same name as our Event Name to keep things clean. In the body of the method, we'll emit our Event Listener by invoking a method on the "ReactUnityWebGL" object exposed by the module. All of your Event Listeners are available as a property using the Event Name on the object. We'll pass along the userName and the score. The userName has to go through the built-in "Pointer_stringify" method in order to get the value, otherwise a int pointer will be passed instead. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
+We'll start of by creating a new method inside of our JSLib. The name of this method can be anything, but in this example we'll give it it the same name as our Event Name to keep things clean. In the body of the method, we'll emit our Event Listener by invoking the global method "dispatchReactUnityEvent" exposed by this module. All of your Event Listeners are available using the Event Name as the first parameter. We'll pass along the userName and the score. The userName has to go through the built-in "Pointer_stringify" method in order to get the value, otherwise a int pointer will be passed instead. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
 
 ```js
 // File: MyPlugin.jslib
 
 mergeInto(LibraryManager.library, {
   GameOver: function (userName, score) {
-    ReactUnityWebGL.GameOver(Pointer_stringify(userName), score);
+    dispatchReactUnityEvent("GameOver", Pointer_stringify(userName), score);
   },
 });
 ```
@@ -350,7 +352,7 @@ function App() {
 
 The Unity context object allows you to enable and disable the fullscreen mode of your application. Cursor locking (using Cursor.lockState) and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox and Chrome. Safari cannot currently use full-screen and cursor locking. An implementation could look something like:
 
-```js
+```ts
 function setFullscreen(enabled: boolean): void;
 ```
 
@@ -490,6 +492,47 @@ const unityContext = new UnityContext({
 
 function App() {
   return <Unity unityContext={unityContext} devicePixelRatio={2} />;
+}
+```
+
+## Requesting Canvas Pointer Locking
+
+> Available since version 8.6.0
+
+Asynchronously ask for the pointer to be locked on current canvas. To track the success or failure of the request, it is necessary to listen for the pointerlockchange and pointerlockerror events at the Document level.
+
+```tsx
+function requestPointerLock(): void;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example we'll request a pointer lock on the click of a button.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+});
+
+function App() {
+  function requestPointerLock() {
+    unityContext.requestPointerLock();
+  }
+
+  return (
+    <div>
+      <button onClick={requestPointerLock}>Lock Pointer</button>
+      <Unity unityContext={unityContext} />
+    </div>
+  );
 }
 ```
 
@@ -967,6 +1010,56 @@ function App() {
 }
 ```
 
+## Taking Screenshots of the Canvas
+
+> Available since version 8.6.0
+
+Takes a screenshot of the canvas and returns a data URL containing image data. The image data is in .png format unless otherwise specified. Enabling preserve drawing buffer within the WebGL context attributes is required in order to take a screenshot.
+
+```ts
+function takeScreenshot(
+  dataType?: "image/png" | "image/jpeg" | "image/webp",
+  quality?: number
+): string | null;
+```
+
+#### Example implementation
+
+A basic implementation could look something like this. In the following example a button is added to the Render. When it's being clicked, a high quality JPEG screenshot will be taken and opened within a new tab.
+
+```jsx
+// File: App.jsx
+
+import React from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/myunityapp.loader.js",
+  dataUrl: "build/myunityapp.data",
+  frameworkUrl: "build/myunityapp.framework.js",
+  codeUrl: "build/myunityapp.wasm",
+  webglContextAttributes: {
+    preserveDrawingBuffer: true,
+  },
+});
+
+function App() {
+  function handleOnClickTakeScreenshot() {
+    const data = unityContext.takeScreenshot("image/jpeg", 1.0);
+    if (data !== null) {
+      window.open(data, "_blank");
+    }
+  }
+
+  return (
+    <div>
+      <button onClick={handleOnClickTakeScreenshot}>Take Screenshot</button>
+      <Unity unityContext={unityContext} />
+    </div>
+  );
+}
+```
+
 ## JavaScript to UnityScript types
 
 Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string.
@@ -984,19 +1077,19 @@ A basic implementation could look something like this. In this example a series 
 
 mergeInto(LibraryManager.library, {
   GameOver: function () {
-    ReactUnityWebGL.GameOver();
+    dispatchReactUnityEvent("GameOver");
   },
   NextWave: function (waveNumberValue) {
-    ReactUnityWebGL.NextWave(waveNumberValue);
+    dispatchReactUnityEvent("NextWave", waveNumberValue);
   },
   ShowPopup: function (textStringPointer) {
-    ReactUnityWebGL.ShowPopup(Pointer_stringify(textStringPointer));
+    dispatchReactUnityEvent("ShowPopup", Pointer_stringify(textStringPointer));
   },
   SubmitScores: function (scoresFloatArrayPointer, arraySize) {
     var scores = [];
     for (var i = 0; i < arraySize; i++)
       scores.push(HEAPF32[(scoresFloatArrayPointer >> 2) + i]);
-    ReactUnityWebGL.SubmitScores(scores);
+    dispatchReactUnityEvent("SubmitScores", scores);
   },
 });
 ```
