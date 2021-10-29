@@ -29,6 +29,12 @@ const dispatchReactUnityEvent = function (
  * An event system.
  */
 export class EventSystem {
+  /**
+   * The event map contains all the events that have been registered to the
+   * event system as a key-value pair of event name and event listener.
+   * @private
+   * @readonly
+   */
   private readonly eventMap = new Map<string, Function>();
 
   constructor() {
