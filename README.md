@@ -64,7 +64,6 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Taking Screenshots of the Canvas](#taking-screenshots-of-the-canvas)
 - [JavaScript to UnityScript types](#javascript-to-unityscript-types)
 - [Creating Unity WebGL builds](#creating-unity-webgl-builds)
-<!-- - [Known Issues and Limitations](#known-issues-and-limitations) -->
 - [Contribution and Development](#contribution-and-development)
 
 ## Getting Started
