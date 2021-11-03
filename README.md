@@ -64,6 +64,8 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Taking Screenshots of the Canvas](#taking-screenshots-of-the-canvas)
 - [JavaScript to UnityScript types](#javascript-to-unityscript-types)
 - [Creating Unity WebGL builds](#creating-unity-webgl-builds)
+<!-- - [Known Issues and Limitations](#known-issues-and-limitations) -->
+- [Contribution and Development](#contribution-and-development)
 
 ## Getting Started
 
@@ -1120,7 +1122,14 @@ When taking a look at the generated files, you'll find a lot of minified and man
 
 If you're having more questions about creating WebGL builds, feel free to take a look and open a new question on the [Discussion Board](https://github.com/jeffreylanters/react-unity-webgl/discussions).
 
-# Contribution and Development
+<!-- ## Known Issues and Limitations
+
+Active known issues and limitations will be documented here and will be linked to an issue or pull request. These issues include both Unity stand-alone as well as module problems. Once these issues are fixed on either side, they will be removed from the documentation.
+
+- Builds made with Unity 2021.2 throws an error when removing the canvas before invoking Quit on the Unity Instance. Problem occurs within and outside of this module. An error is thrown when the canvas element is removed before invoking the Quit method on the Unity Instance. [#250](https://github.com/jeffreylanters/react-unity-webgl/issues/250)
+- Some browsers will in combination with hot-module-reloading or server-side-rendering rescale the canvas's height indefinitely when no width or height is defined. To prevent this from happening provide these dimensions via either the style or className tag. The issues should not occur in production builds. [#233](https://github.com/jeffreylanters/react-unity-webgl/issues/233) -->
+
+## Contribution and Development
 
 When contributing to this repository, please first discuss the change you wish to make via the discussion board with me before making a change. Before commiting, please compile your code using npm run compile and open a pull request.
 
