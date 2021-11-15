@@ -1,3 +1,8 @@
+<!-- 
+PLEASE NOTICE
+Unless your issue is an actual problem within the React-Unity-WebGL Module, please open a new Discussion instead.
+-->
+
 ---
 name: Bug report
 about: Create a report to help us improve
