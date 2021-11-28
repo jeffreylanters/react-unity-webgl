@@ -172,7 +172,7 @@ On the React side of your project an Event Listeners can be registered to the Un
 function on(eventName: string, eventListener: Function): void;
 ```
 
-In order to dispatch Event Listeners, a JSLib file has to be created within your Unity Project "Plugins/WebGL" directory. The React Unity WebGL module exposes a global method which allows for the dispatchment of the Event Listeners. When writing your JSLib file, simply invoke the eventName using the global methpd "dispatchReactUnityEvent" with an optional parameter.
+In order to dispatch Event Listeners, a JSLib file has to be created within your Unity Project "Plugins/WebGL" directory. The React Unity WebGL module exposes a global method to the window which allows for the dispatchment of the Event Listeners. When writing your JSLib file, simply invoke the eventName using the global methpd "dispatchReactUnityEvent" with an optional parameter.
 
 ```ts
 function dispatchReactUnityEvent(eventName: string, ...parameters: any);
@@ -226,7 +226,11 @@ We'll start of by creating a new method inside of our JSLib. The name of this me
 
 mergeInto(LibraryManager.library, {
   GameOver: function (userName, score) {
-    dispatchReactUnityEvent("GameOver", Pointer_stringify(userName), score);
+    window.dispatchReactUnityEvent(
+      "GameOver",
+      Pointer_stringify(userName),
+      score
+    );
   },
 });
 ```
@@ -1078,19 +1082,22 @@ A basic implementation could look something like this. In this example a series 
 
 mergeInto(LibraryManager.library, {
   GameOver: function () {
-    dispatchReactUnityEvent("GameOver");
+    window.UnityEvent("GameOver");
   },
   NextWave: function (waveNumberValue) {
-    dispatchReactUnityEvent("NextWave", waveNumberValue);
+    window.dispatchReactUnityEvent("NextWave", waveNumberValue);
   },
   ShowPopup: function (textStringPointer) {
-    dispatchReactUnityEvent("ShowPopup", Pointer_stringify(textStringPointer));
+    window.dispatchReactUnityEvent(
+      "ShowPopup",
+      Pointer_stringify(textStringPointer)
+    );
   },
   SubmitScores: function (scoresFloatArrayPointer, arraySize) {
     var scores = [];
     for (var i = 0; i < arraySize; i++)
       scores.push(HEAPF32[(scoresFloatArrayPointer >> 2) + i]);
-    dispatchReactUnityEvent("SubmitScores", scores);
+    window.dispatchReactUnityEvent("SubmitScores", scores);
   },
 });
 ```
