@@ -1,5 +1,7 @@
 # React Unity WebGL version 9 Hooks proposal
 
+This document contains a proposal for the implementation of the React hooks API in React Unity WebGL version 9. This would replace the existing UnityContext model with a custom hook which can be used to access a variety of Unity related data.
+
 ## To Do List
 
 - Adding and removing event listeners
