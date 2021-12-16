@@ -3,9 +3,7 @@
 ## To Do List
 
 - Adding and removing event listeners
-  - custom events
   - debug
-  - quitted
 
 ## Example usage
 
@@ -19,12 +17,14 @@ function App() {
     config, // Exposing the entire config, should be passed to the Unity component
     sendMessage, // A method which can be used to send messages to the Unity instance
     isLoaded, // A boolean indicating if the Unity instance has loaded
+    isQuitted, // A boolean indicating if the Unity instance has quitted
     loadingProgression, // A number between 0 and 1 indicating the loading progression
     takeScreenshot, // A method which can be used to take a screenshot of the Unity canvas
     setFullscreen, // A method which can be used to set the Unity canvas to fullscreen
     requestPointerLock, // A method which can be used to request pointer lock on the Unity canvas
     canvas, // The Unity canvas element
     error, // An error object if the Unity instance has failed to load
+    useAddEventListener, // A hook which can be used to add event listeners to the Unity context
   } = new useUnityContext({
     loaderUrl: "build/myunityapp.loader.js",
     dataUrl: "build/myunityapp.data",
@@ -48,6 +48,12 @@ function App() {
       xrCompatible: true,
     },
   });
+
+  function handleOnMyEvent() {
+    console.log("Some event is triggered");
+  }
+
+  useAddEventListener("MyEvent", handleOnMyEvent, []);
 
   function handleOnClickSendMessage() {
     sendMessage("Hello from React!");
