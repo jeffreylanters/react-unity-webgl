@@ -17,13 +17,13 @@ body:
     label: Related environment(s)
     description: Please select the environment(s) that are relevant to your bug report
     options:
-      - label: Project is built using JavaScript
-      - label: Project is built using TypeScript
-      - label: The problem seems Unity related
-      - label: The problem seems React related
-      - label: The problem seems module related
-      - label: The problem occurs during editor-Time
-      - label: The problem occurs during runtime
+      - label: Project is built using **JavaScript**
+      - label: Project is built using **TypeScript**
+      - label: The problem seems **Unity** related
+      - label: The problem seems **React** related
+      - label: The problem seems **module** related
+      - label: The problem occurs during **editor-Time**
+      - label: The problem occurs during **runtime**
 - type: input
   id: react-unity-webgl-version
   attributes:
