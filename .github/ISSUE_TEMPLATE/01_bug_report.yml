@@ -117,9 +117,7 @@ body:
     attributes:
       label: Reproducible test case
       description: If possible, please create a minimal test case that reproduces your problem.
-      placeholder: |
-        Line 1
-        line2
+      placeholder: "import Unity, { UnityContext } from \"react-unity-webgl\";"
 
   - type: checkboxes
     id: contributor
