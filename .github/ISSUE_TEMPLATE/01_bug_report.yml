@@ -4,6 +4,8 @@ name: Bug Report
 description: Something isn't working as expected
 assignees:
   - jeffreylanters
+labels:
+  - bug
 
 body:
   - type: checkboxes
@@ -115,10 +117,13 @@ body:
     attributes:
       label: Reproducible test case
       description: If possible, please create a minimal test case that reproduces your problem.
+      placeholder: |
+        Line 1
+        line2
 
   - type: checkboxes
     id: contributor
     attributes:
       label: Would you be interested in contributing a fix?
       options:
-        - label: "yes, I would like to contributing"
+        - label: yes, I would like to contribute a fix
