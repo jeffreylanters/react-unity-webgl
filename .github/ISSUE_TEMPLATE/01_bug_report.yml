@@ -1,0 +1,67 @@
+---
+name: Bug Report
+description: Something isn't working as expected
+labels: 
+  - type:bug
+body:
+- type: checkboxes
+  id: search
+  attributes:
+    label: Please avoid duplicates
+    options:
+      - label: I checked [all open issues](https://github.com/jeffreylanters/react-unity-webgl/issues) and [discussions](https://github.com/jeffreylanters/react-unity-webgl/discussions) and none of them matched my problem.
+        required: true
+- type: textarea
+  id: testcase
+  attributes:
+    label: Reproducible test case
+    description: |
+      If possible, please create a minimal test case that reproduces your problem.
+  validations:
+    required: true
+- type: checkboxes
+  id: environment
+  attributes:
+    label: Related environment(s)
+    description: Please select the environment(s) that are relevant to your bug report
+    options:
+      - label: JavaScript
+      - label: TypeScript
+      - label: Create-React-App
+      - label: Unity Related
+      - label: React Related
+      - label: Module Related
+      - label: Editor-Time
+      - label: Run-Time
+- type: input
+  id: react-unity-webgl-version
+  attributes:
+    label: React-Unity-WebGL Version
+    description: Which version of the Module is installed in your project?
+  validations:
+    required: true
+- type: input
+  id: react-version
+  attributes:
+    label: React Version
+    description: Which version of the React are you using?
+  validations:
+    required: true
+- type: input
+  id: unity-version
+  attributes:
+    label: Unity Version
+    description: Which version of the Unity did you use to create your build?
+  validations:
+    required: true
+- type: textarea
+  id: summary
+  attributes:
+    label: What happened?
+    description: Please share any other relevant information not mentioned above. What did you expect to happen? What do you think the problem might be?
+- type: checkboxes
+  id: contributor
+  attributes:
+    label: Would you be interested in contributing a fix?
+    options:
+      - label: "yes"

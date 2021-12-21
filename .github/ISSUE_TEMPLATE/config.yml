@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Feature Request
+    url: https://github.com/jeffreylanters/react-unity-webgl/discussions/categories/feature-requests
+    about: If you have a feature request, start here.
+  - name: Help Wanted
+    url: https://github.com/jeffreylanters/react-unity-webgl/discussions/categories/help-wanted
+    about: If you are stuck and need help, start here.
+  - name: Questions
+    url: https://github.com/jeffreylanters/react-unity-webgl/discussions/categories/question-and-answer
+    about: If you have a question, start here.
+  - name: Show and Tell
+    url: https://github.com/jeffreylanters/react-unity-webgl/discussions/categories/show-and-tell
+    about: If you have something to show, start here.
