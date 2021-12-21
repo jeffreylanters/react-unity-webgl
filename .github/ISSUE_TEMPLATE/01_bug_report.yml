@@ -1,63 +1,124 @@
 ---
+title: "[Bug]: "
 name: Bug Report
 description: Something isn't working as expected
+assignees:
+  - jeffreylanters
+
 body:
-- type: checkboxes
-  id: search
-  attributes:
-    label: Please avoid duplicates
-    options:
-      - label: I checked [all open issues](https://github.com/jeffreylanters/react-unity-webgl/issues) and [discussions](https://github.com/jeffreylanters/react-unity-webgl/discussions) and none of them matched my problem.
-        required: true
-- type: checkboxes
-  id: environment
-  attributes:
-    label: Related environment(s)
-    description: Please select the environment(s) that are relevant to your bug report
-    options:
-      - label: Project is built using **JavaScript**
-      - label: Project is built using **TypeScript**
-      - label: The problem seems **Unity** related
-      - label: The problem seems **React** related
-      - label: The problem seems **module** related
-      - label: The problem occurs during **editor-Time**
-      - label: The problem occurs during **runtime**
-- type: input
-  id: react-unity-webgl-version
-  attributes:
-    label: React-Unity-WebGL Version
-    description: Which version of the Module is installed in your project?
-  validations:
-    required: true
-- type: input
-  id: react-version
-  attributes:
-    label: React Version
-    description: Which version of the React are you using?
-  validations:
-    required: true
-- type: input
-  id: unity-version
-  attributes:
-    label: Unity Version
-    description: Which version of the Unity did you use to create your build?
-  validations:
-    required: true
-- type: textarea
-  id: summary
-  attributes:
-    label: What happened?
-    description: Please share any other relevant information not mentioned above. What did you expect to happen? What do you think the problem might be?
-  validations:
-    required: true
-- type: textarea
-  id: testcase
-  attributes:
-    label: Reproducible test case
-    description: If possible, please create a minimal test case that reproduces your problem.
-- type: checkboxes
-  id: contributor
-  attributes:
-    label: Would you be interested in contributing a fix?
-    options:
-      - label: "yes, I would like to contributing"
+  - type: checkboxes
+    id: avoid-duplicate-reports
+    attributes:
+      label: Please avoid duplicates
+      options:
+        - label: I checked [all open issues](https://github.com/jeffreylanters/react-unity-webgl/issues) and [discussions](https://github.com/jeffreylanters/react-unity-webgl/discussions) and none of them matched my problem.
+          required: true
+          
+  - type: dropdown
+    id: language-compiler
+    attributes:
+      label: Language and Compiler
+      description: What language and compiler do you use to build your project?
+      options:
+        - Vanilla JavaScript
+        - Babel and WebPack JavaScript
+        - Babel and WebPack TypeScript
+        - TypeScript's built-in Compiler
+        - Other JavaScript compiler
+        - Other TypeScript compiler
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: What environment are you using?
+      description: What, how and where do you deploy or run your application?
+      options:
+        - Local Development Server
+        - Static File Serving
+        - Server Side Renderering
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: occurence
+    attributes:
+      label: When does your problem occur?
+      description: At what point in your application does it occur?
+      options:
+        - While writing code
+        - When the Context is created
+        - When the Unity Component mounts
+        - When the Unity Component unmounts
+        - While the Unity App is loading
+        - When the Unity App starts
+        - When the Unity App is running
+        - When the Unity App quits
+        - I don't know
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relation
+    attributes:
+      label: What does your problem relate to?
+      description: To which of the following does your problem seem to relate to?
+      options:
+        - The problem seems React related
+        - The problem seems Unity related
+        - The problem seems Module related
+        - The problem seems Browser related
+        - The problem seems related to my project
+        - I don't know
+    validations:
+      required: true
+
+  - type: input
+    id: react-unity-webgl-version
+    attributes:
+      label: React-Unity-WebGL Version
+      description: Which version of the Module is installed in your project?
+      placeholder: 8.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: react-version
+    attributes:
+      label: React Version
+      description: Which version of the React are you using?
+      placeholder: 16.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: unity-version
+    attributes:
+      label: Unity Version
+      description: Which version of the Unity did you use to create your build?
+      placeholder: 2021.1.16f
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Please share any other relevant information not mentioned above. What did you expect to happen? What do you think the problem might be?
+    validations:
+      required: true
+
+  - type: textarea
+    id: testcase
+    attributes:
+      label: Reproducible test case
+      description: If possible, please create a minimal test case that reproduces your problem.
+
+  - type: checkboxes
+    id: contributor
+    attributes:
+      label: Would you be interested in contributing a fix?
+      options:
+        - label: "yes, I would like to contributing"
