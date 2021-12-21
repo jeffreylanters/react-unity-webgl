@@ -50,17 +50,16 @@ body:
   attributes:
     label: What happened?
     description: Please share any other relevant information not mentioned above. What did you expect to happen? What do you think the problem might be?
+  validations:
+    required: true
 - type: textarea
   id: testcase
   attributes:
     label: Reproducible test case
-    description: |
-      If possible, please create a minimal test case that reproduces your problem.
-  validations:
-    required: true
+    description: If possible, please create a minimal test case that reproduces your problem.
 - type: checkboxes
   id: contributor
   attributes:
     label: Would you be interested in contributing a fix?
     options:
-      - label: "yes"
+      - label: "yes, I would like to contributing"
