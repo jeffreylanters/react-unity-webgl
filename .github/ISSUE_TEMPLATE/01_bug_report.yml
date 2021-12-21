@@ -1,8 +1,6 @@
 ---
 name: Bug Report
 description: Something isn't working as expected
-labels: 
-  - type:bug
 body:
 - type: checkboxes
   id: search
