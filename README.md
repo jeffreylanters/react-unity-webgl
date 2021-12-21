@@ -22,6 +22,8 @@ When building content for the web, you might need to communicate with elements o
 
 **Made with &hearts; by Jeffrey Lanters**
 
+Hi there! I would like to say one more thing before you start bringing your awesome games to the web. My name is Jeffrey, I'm a Unity and Web developer with a passion for Open Source. The project you're looking at right now is one of my hobby projects. Maintaining and building this project is something I do in my spare time, and I have been doing so for the last 4 years. React-Unity-WebGL will always remain free, if you are able to, I would appreciate it if you consider [sending a donation](https://paypal.me/jeffreylanters) or [becoming a sponsor](https://github.com/sponsors/jeffreylanters) to help me keep this project going. Thanks for your time!
+
 </div>
 
 # Installation
