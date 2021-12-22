@@ -41,6 +41,12 @@ export function useUnityInstance(
         // Creates the Unity Instance, this method is made available globally by
         // the Unity Loader.
         try {
+          // It is possible for the application being rendered server side. In
+          // this scenario, the window is not available. We can't create the
+          // Unity Instance in this case.
+          if (window === undefined) {
+            return;
+          }
           const unityInstance = await window.createUnityInstance(
             htmlCanvasElement,
             unityInstanceParameters,
