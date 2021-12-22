@@ -44,7 +44,7 @@ export function useUnityInstance(
           // It is possible for the application being rendered server side. In
           // this scenario, the window is not available. We can't create the
           // Unity Instance in this case.
-          if (window === undefined) {
+          if (typeof window === "undefined") {
             return;
           }
           const unityInstance = await window.createUnityInstance(

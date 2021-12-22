@@ -31,7 +31,7 @@ export class UnityContext extends EventSystem {
     parameter?: string | number | boolean
   ): void {
     if (this.unityInstance !== null) {
-      if (parameter === undefined) {
+      if (typeof parameter === "undefined") {
         this.unityInstance.SendMessage(gameObjectName, methodName);
       } else {
         this.unityInstance.SendMessage(gameObjectName, methodName, parameter);

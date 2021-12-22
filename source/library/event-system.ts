@@ -19,7 +19,7 @@ const dispatchReactUnityEvent = function (
   // This made should be made available to the global scope. When invoked, it
   // will dispatch the given event to all event systems.
   for (let eventSystem of eventSystems) {
-    if (eventSystem !== undefined) {
+    if (typeof eventSystem !== "undefined") {
       eventSystem.dispatchEvent(eventName, ...parameters);
     }
   }
@@ -43,13 +43,13 @@ export class EventSystem {
     eventSystems.push(this);
     // If we're running inside of a browser environment, some global properties
     // will be made available on the window allowing for Unity to communicate.
-    if (window !== undefined) {
+    if (typeof window !== "undefined") {
       // Register the global dispatch method.
-      if (window.dispatchReactUnityEvent === undefined) {
+      if (typeof window.dispatchReactUnityEvent === "undefined") {
         window.dispatchReactUnityEvent = dispatchReactUnityEvent;
       }
       // Create object for legacy bindings on the window.
-      if (window.ReactUnityWebGL === undefined) {
+      if (typeof window.ReactUnityWebGL === "undefined") {
         window.ReactUnityWebGL = {};
       }
     }
@@ -73,7 +73,7 @@ export class EventSystem {
     this.eventMap.set(eventName, eventListener);
 
     // Add legacy binding to the window.
-    if (window !== undefined) {
+    if (typeof window !== "undefined") {
       window.ReactUnityWebGL[eventName] = (...parameters: any) =>
         eventListener(...parameters);
     }
@@ -90,7 +90,7 @@ export class EventSystem {
     this.eventMap.delete(eventName);
 
     // Remove legacy binding from the window.
-    if (window !== undefined) {
+    if (typeof window !== "undefined") {
       delete window.ReactUnityWebGL[eventName];
     }
   }
@@ -102,7 +102,7 @@ export class EventSystem {
    */
   public removeAllEventListeners(): void {
     // Remove legacy bindings from the window.
-    if (window !== undefined) {
+    if (typeof window !== "undefined") {
       this.eventMap.forEach(function (_value, key) {
         delete window.ReactUnityWebGL[key];
       });
@@ -121,7 +121,7 @@ export class EventSystem {
    */
   public dispatchEvent(eventName: string, ...parameters: any): void {
     const event = this.eventMap.get(eventName);
-    if (event !== undefined) {
+    if (typeof event !== "undefined") {
       event(...parameters);
     }
   }

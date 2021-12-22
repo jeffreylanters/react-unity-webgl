@@ -28,14 +28,14 @@ export function generateUnityInstanceParameters(
   };
 
   // Some preferences will be set based on props and context config.
-  if (unityProps.devicePixelRatio !== undefined) {
+  if (typeof unityProps.devicePixelRatio !== "undefined") {
     unityInstanceParameters.devicePixelRatio = unityProps.devicePixelRatio;
   }
-  if (unityContext.unityConfig.webglContextAttributes !== undefined) {
+  if (typeof unityContext.unityConfig.webglContextAttributes !== "undefined") {
     unityInstanceParameters.webglContextAttributes =
       unityContext.unityConfig.webglContextAttributes;
   }
-  if (unityProps.matchWebGLToCanvasSize !== undefined) {
+  if (typeof unityProps.matchWebGLToCanvasSize !== "undefined") {
     unityInstanceParameters.matchWebGLToCanvasSize =
       unityProps.matchWebGLToCanvasSize;
   }
