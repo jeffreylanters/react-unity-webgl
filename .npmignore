@@ -9,3 +9,6 @@
 
 # System
 .DS_Store
+
+# Documentation
+/documentation

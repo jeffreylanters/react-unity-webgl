@@ -7,3 +7,7 @@
 
 # System
 .DS_Store
+
+# Documentation
+/documentation/*.md
+/documentation/**/*.md
