@@ -1,0 +1,29 @@
+name: Publish to GitHub Pages
+
+on:
+  - push
+
+jobs:
+  main:
+    name: Generate Documentation
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@master
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org
+
+      - name: Generate Markdown
+        run: npm run generate-documentation-markdown
+        
+      - name: Push to Target Branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./documentation

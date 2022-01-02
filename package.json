@@ -50,7 +50,8 @@
     "start": "tsc --watch",
     "test": "echo 'Please use the test environment'",
     "compile": "tsc",
-    "package": "npm pack"
+    "package": "npm pack",
+    "generate-documentation-markdown": "node ./documentation/generate-markdown.js"
   },
   "devDependencies": {
     "@types/react": "17.0.18",
