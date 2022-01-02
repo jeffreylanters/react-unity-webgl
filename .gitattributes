@@ -1,2 +1,3 @@
 # Excludes Distribution from statistics
 distribution/* linguist-vendored
+scripts/* linguist-vendored
