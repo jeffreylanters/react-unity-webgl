@@ -3,10 +3,11 @@
     "target": "es5",
     "module": "commonjs",
     "lib": ["es2015", "dom"],
-    "outDir": "distribution",
+    "rootDir": "./source",
+    "outDir": "./distribution",
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,
     "esModuleInterop": true,
     "allowJs": false,
@@ -16,6 +17,6 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "pretty": true,
-    "removeComments": false,
+    "removeComments": false
   }
 }
