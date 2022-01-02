@@ -1,4 +1,4 @@
-name: Publish to GitHub Pages
+name: Generate Documentation
 
 on:
   - push
