@@ -59,7 +59,7 @@ Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here 
 - [Requesting Canvas Pointer Locking](#requesting-canvas-pointer-locking)
 - [Catching Runtime and Loading Errors](#catching-runtime-and-loading-errors)
 - [Receiving Internal and Debug Log Messages](#receiving-internal-and-debug-log-messages)
-- [Unmounting, Unloading and Quitting](#unmounting-unloading-and-quitting)
+- [Unmounting Unloading and Quitting](#unmounting-unloading-and-quitting)
 - [Removing Specific Event Listeners](#removing-specific-event-listeners)
 - [Removing All Event Listeners](#removing-all-event-listeners)
 - [Defining the Streaming Assets URL](#defining-the-streaming-assets-url)
@@ -687,7 +687,7 @@ function App() {
 }
 ```
 
-## Unmounting, Unloading and Quitting
+## Unmounting Unloading and Quitting
 
 > Available since version 8.0.0 and requires Unity 2020.1 or newer
 
