@@ -25,7 +25,7 @@
     },
     {
       "type": "paypal",
-      "url": "https://paypal.me/jeffreylanters"
+      "url": "https://jeffreylanters.nl/support"
     }
   ],
   "main": "./distribution/index.js",
