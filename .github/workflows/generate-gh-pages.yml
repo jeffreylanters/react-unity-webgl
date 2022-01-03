@@ -1,4 +1,4 @@
-name: Generate Documentation
+name: Generate GitHub Pages
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   main:
-    name: Generate Documentation
+    name: Generate GitHub Pages
 
     runs-on: ubuntu-latest
 
@@ -22,11 +22,11 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org
 
-      - name: Generate Markdown
-        run: npm run generate-documentation-markdown
+      - name: Generate GitHub Pages
+        run: npm run generate-gh-pages
         
       - name: Push to Target Branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./documentation
+          publish_dir: ./gh-pages

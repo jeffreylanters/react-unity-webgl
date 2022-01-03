@@ -67,6 +67,6 @@ const Path = require("path");
     }
   }
   // Write the sidebar.
-  const sidebarPath = Path.join(rootPath, "documentation", "_sidebar.md");
+  const sidebarPath = Path.join(outputPath, "_sidebar.md");
   await FileSystem.promises.writeFile(sidebarPath, sidebarContent);
 })();

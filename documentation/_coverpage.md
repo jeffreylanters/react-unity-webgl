@@ -5,4 +5,4 @@
 Made with ♥ by Jeffrey Lanters
 
 [GitHub](https://github.com/jeffreylanters/react-unity-webgl)
-[Get Started](#home)
+[Get Started](README.md)
