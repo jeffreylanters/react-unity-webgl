@@ -18,10 +18,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@master
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org
 
-      - name: Generate GitHub Pages
+      - name: Install and Build Docusaurus
         run: |
           cd documentation
           npm install

@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@master
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org
 
       - name: Install Dependencies
