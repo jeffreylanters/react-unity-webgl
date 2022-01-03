@@ -3,10 +3,10 @@ name: CodeQL Analysis
 on:
   push:
     paths: 
-      - source
+      - source/**
   pull_request:
     paths:
-      - source
+      - source/**
 
 jobs:
   main:

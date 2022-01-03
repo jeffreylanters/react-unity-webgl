@@ -3,7 +3,7 @@ name: Generate GitHub Pages
 on:
   push:
     paths: 
-      - documentation
+      - documentation/**
       - README.md
 
 jobs:

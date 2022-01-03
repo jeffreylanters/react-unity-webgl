@@ -3,9 +3,8 @@ name: Pre-Compile and Lint
 on:
   push:
     paths: 
-      - .github
-      - source
-      - typings
+      - source/**
+      - typings/**
       - package.json
       - tsconfig.json
   pull_request:
