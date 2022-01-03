@@ -30,7 +30,7 @@ const config = {
     announcementBar: {
       id: "support_us",
       content:
-        'Help me maintain this module, please <a target="_blank" href="https://github.com/sponsors/jeffreylanters">considing sponsoring</a>',
+        'Help me maintain this module? Please <a target="_blank" href="https://github.com/sponsors/jeffreylanters">considing sponsoring</a>',
       backgroundColor: "#fafbfc",
       textColor: "#091E42",
       isCloseable: false,
