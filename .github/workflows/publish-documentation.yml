@@ -27,11 +27,14 @@ jobs:
           path: '**/node_modules'
           key: nodemodules-${{ runner.os }}-${{ hashFiles('./documentation/package-lock.json') }}
 
-      - name: Install and Build Docusaurus
-        run: |
-          cd documentation
-          npm install
-          npm run build
+      - name: Move into Subdirectory
+        run: cd documentation
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Docusaurus
+        run: npm run build
         
       - name: Copy Build To Server
         uses: appleboy/scp-action@v0.1.2
