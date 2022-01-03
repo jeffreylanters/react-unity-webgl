@@ -1,14 +1,13 @@
-name: Generate GitHub Pages
+name: Publish Documentation
 
 on:
   push:
     paths: 
       - documentation/**
-      - README.md
 
 jobs:
   main:
-    name: Generate GitHub Pages
+    name: Publish Documentation
 
     runs-on: ubuntu-latest
 
@@ -23,10 +22,9 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Generate GitHub Pages
-        run: npm run generate-gh-pages
+        run: |
+          cd documentation
+          npm install
+          npm run build
         
-      - name: Push to Target Branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./gh-pages
+      # TODO -- Publish /documentation/build
