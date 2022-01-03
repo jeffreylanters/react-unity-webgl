@@ -33,4 +33,13 @@ jobs:
           npm install
           npm run build
         
-      # TODO -- Publish /documentation/build
+      - name: Copy Build To Server
+        uses: appleboy/scp-action@v0.1.2
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+          source: ./documentation/build
+          target: ${{ secrets.SSH_TARGET }}
+          rm: true
