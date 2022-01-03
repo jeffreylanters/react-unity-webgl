@@ -49,6 +49,11 @@ const config = {
           label: "Documentation",
         },
         {
+          to: "/made-with",
+          position: "left",
+          label: "Made With",
+        },
+        {
           href: "https://github.com/jeffreylanters/react-unity-webgl/discussions",
           docId: "introduction",
           position: "left",
