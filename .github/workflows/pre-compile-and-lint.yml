@@ -1,8 +1,14 @@
 name: Pre-Compile and Lint
 
 on:
-  - push
-  - pull_request
+  push:
+    paths: 
+      - .github
+      - source
+      - typings
+      - package.json
+      - tsconfig.json
+  pull_request:
 
 jobs:
   main:

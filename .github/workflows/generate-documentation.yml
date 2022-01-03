@@ -1,7 +1,10 @@
 name: Generate Documentation
 
 on:
-  - push
+  push:
+    paths: 
+      - documentation
+      - README.md
 
 jobs:
   main:
