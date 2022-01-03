@@ -11,7 +11,7 @@ const Path = require("path");
   const rootPath = Path.join(__dirname, "..");
   const outputPath = Path.join(rootPath, "documentation");
   // Read the readme.md file.
-  const readmePath = Path.join(rootPath, "readme.md");
+  const readmePath = Path.join(rootPath, "README.md");
   let readmeContent = await FileSystem.promises.readFile(readmePath, "utf8");
   // Replace hashtag links with file links.
   readmeContent = readmeContent.replace(
