@@ -11,6 +11,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    environment:
+      name: Documentation
+      url: https://react-unity-webgl.jeffreylanters.nl
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
