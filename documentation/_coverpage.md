@@ -4,5 +4,7 @@
 
 Made with ♥ by Jeffrey Lanters
 
+Version 8.7.2
+
 [GitHub](https://github.com/jeffreylanters/react-unity-webgl)
 [Get Started](README.md)
