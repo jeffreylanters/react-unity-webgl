@@ -2,17 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>React Unity WebGL</title>
+    <title>React Unity WebGL - Bring your Unity Games to the Web!</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="Description" />
+    <meta
+      name="description"
+      content="React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's."
+    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
-    />
+    <link rel="stylesheet" href="/source/docsify.css" />
   </head>
   <body>
     <div id="app"></div>
@@ -21,26 +21,11 @@
         name: "React Unity WebGL",
         repo: "https://github.com/jeffreylanters/react-unity-webgl",
         loadSidebar: true,
-        themeColor: "#3F51B5",
+        themeColor: "#202123",
         subMaxLevel: 0,
-        // markdown: {
-        //   renderer: {
-        //     link: function (href, title, text) {
-        //       if (href.startsWith("#") === true) {
-        //         href = href.replace("#", "#/");
-        //         return '<a href="' + href + '">' + text + "</a>";
-        //       } else {
-        //         return '<a href="' + href + '" target="blank">' + text + "</a>";
-        //       }
-        //     },
-        //   },
-        // },
+        coverpage: true,
       };
     </script>
-    <!-- Docsify v4 -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-csharp.min.js"></script>
+    <script src="/source/docsify.js"></script>
   </body>
 </html>

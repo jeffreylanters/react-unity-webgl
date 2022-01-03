@@ -1,15 +1,15 @@
 /**
- * Utility script to build the GitHub pages for the project. The GitHub pages
- * are build based on the readme.md file, which should be published to the
- * GitHub pages.
+ * Utility script to splice the README file into seperate files based on the
+ * level 0 and level 1 markdown headers. These files are then used to generate
+ * the Docsify documentation.
  */
 const FileSystem = require("fs");
 const Path = require("path");
 
-(async function build() {
+(async function () {
   let sidebarContent = "";
   const rootPath = Path.join(__dirname, "..");
-  const outputPath = Path.join(rootPath, "documentation");
+  const outputPath = Path.join(rootPath, "gh-pages");
   // Read the readme.md file.
   const readmePath = Path.join(rootPath, "README.md");
   let readmeContent = await FileSystem.promises.readFile(readmePath, "utf8");

@@ -51,7 +51,7 @@
     "test": "echo 'Please use the test environment'",
     "compile": "tsc",
     "package": "npm pack",
-    "generate-documentation-markdown": "node ./documentation/generate-markdown.js"
+    "generate-gh-pages": "rm -rf ./gh-pages && cp -r ./documentation ./gh-pages && node ./scripts/generate-markdown.js"
   },
   "devDependencies": {
     "@types/react": "17.0.18",
