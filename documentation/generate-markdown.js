@@ -49,7 +49,7 @@ const Path = require("path");
       if (header.startsWith("#") === false) {
         header = "# Home";
         title = "Home";
-        fileName = "index";
+        fileName = "README";
       }
       const level = header.split("#").length - 1;
       // Write the file
