@@ -7,8 +7,8 @@
 # Meta
 /.github
 
-# System
-.DS_Store
-
 # Documentation
 /documentation
+
+# System
+.DS_Store
