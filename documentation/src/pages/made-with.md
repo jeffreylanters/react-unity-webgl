@@ -25,3 +25,7 @@ Asgaard Saga is a treatment program in which your child explores. An own game wo
 [Visit Asgaard Saga here](https://asgaard-saga.nl)
 
 ![SolaJump](/images/made-with/asgaard-saga.png)
+
+## Get featured?
+
+Would you like to add your game to this list? Simply [open a pull request](https://github.com/jeffreylanters/react-unity-webgl/blob/main/documentation/src/pages/made-with.md) to add your own project!
