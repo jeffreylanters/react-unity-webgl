@@ -11,9 +11,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-      working-directory: ./documentation
-
     environment:
       name: Documentation
       url: https://react-unity-webgl.jeffreylanters.nl
@@ -35,9 +32,11 @@ jobs:
           key: nodemodules-${{ runner.os }}-${{ hashFiles('./documentation/package-lock.json') }}
 
       - name: Install Dependencies
+        working-directory: ./documentation
         run: npm install
 
       - name: Build Docusaurus
+        working-directory: ./documentation
         run: npm run build
         
       - name: Copy Build To Server
@@ -47,6 +46,6 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
-          source: ./build
+          source: ./documentation/build
           target: ${{ secrets.SSH_TARGET }}
           rm: true
