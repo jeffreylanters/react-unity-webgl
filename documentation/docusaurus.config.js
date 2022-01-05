@@ -30,7 +30,7 @@ const config = {
     announcementBar: {
       id: "support_us",
       content:
-        'Help me maintain this module? Please <a target="_blank" href="https://github.com/sponsors/jeffreylanters">considing sponsoring</a>',
+        'If you like this module, give it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> and considing <a target="_blank" href="https://github.com/sponsors/jeffreylanters">sponsoring</a>',
       backgroundColor: "#fafbfc",
       textColor: "#091E42",
       isCloseable: false,
