@@ -9,7 +9,11 @@ export default function Home() {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      <main>This website is under construction.</main>
+      <main>
+        This website is under construction. Feel free to look around while I'm
+        working on it. But I recommend heading over to the GitHub page for a
+        more details documentation for now.
+      </main>
     </Layout>
   );
 }
