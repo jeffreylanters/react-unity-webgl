@@ -50,14 +50,9 @@ export function Unity(props: IUnityProps): ReactElement {
   // Effect hook will be called when the reference to the canvas changes.
   useEffect(
     function () {
-      const htmlCanvaselement = htmlCanvasElement.current;
       // Whether or not the canvas has been defined, it will be set as the
       // current html canvas element on the Unity Context.
-      unityContext.htmlCanvasElement = htmlCanvaselement;
-      // But only when it is defined, an event will be dispatched.
-      if (htmlCanvaselement !== null) {
-        unityContext.dispatchEvent("canvas", htmlCanvaselement);
-      }
+      unityContext.htmlCanvasElement = htmlCanvasElement.current;
     },
     [htmlCanvasElement]
   );
@@ -65,9 +60,16 @@ export function Unity(props: IUnityProps): ReactElement {
   // Effect hook will be called when the Unity Instance progession changes.
   useEffect(
     function () {
-      // If the Unity Instance loading progression hits 1, then the Unity
-      // Instance is ready to be used and the loaded event is dispatched.
+      // If the Unity Instance loading progression hits 1, then this means that
+      //the Unity Instance is initialized successfully and is ready to be used.
       if (progression === 1) {
+        // When the application is loaded, we'll send over a reference to the
+        // canvas element. When the HTML Canvas Element ref is defined, an event
+        // will be dispatched.
+        if (htmlCanvasElement !== null) {
+          unityContext.dispatchEvent("canvas", htmlCanvasElement);
+        }
+        // The loaded event is dispatched.
         unityContext.dispatchEvent("loaded");
       }
       // Dispatches an event every time the Unity Instance progression changes.
