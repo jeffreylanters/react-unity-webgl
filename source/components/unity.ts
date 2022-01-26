@@ -66,8 +66,8 @@ export function Unity(props: IUnityProps): ReactElement {
         // When the application is loaded, we'll send over a reference to the
         // canvas element. When the HTML Canvas Element ref is defined, an event
         // will be dispatched.
-        if (htmlCanvasElement !== null) {
-          unityContext.dispatchEvent("canvas", htmlCanvasElement);
+        if (htmlCanvasElement.current !== null) {
+          unityContext.dispatchEvent("canvas", htmlCanvasElement.current);
         }
         // The loaded event is dispatched.
         unityContext.dispatchEvent("loaded");
