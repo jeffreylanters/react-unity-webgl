@@ -1,1 +1,2 @@
-- Updated documentation
+- Fixed an issue where the canvas event would not pass the correct reference [#314]
+- Updated some documentation
