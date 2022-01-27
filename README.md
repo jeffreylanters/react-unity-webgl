@@ -46,7 +46,7 @@ $ npm install react-unity-webgl@5.x  # For Unity 5.6^ (Maintenance LTS)
 Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here to help you build your awesome games to the web. In the table below you'll find everything there is you'll need to know when using the module. If you'll need help, feel free to open a new [discussion](https://github.com/jeffreylanters/react-unity-webgl/discussions), when you want to contribute or think you've found a problem, feel free to open a new [issue](https://github.com/jeffreylanters/react-unity-webgl/issues). Like what you see? Please consider [Starring this repository](https://github.com/jeffreylanters/react-unity-webgl/stargazers)! Happy coding.
 
 - [Getting Started](#getting-started)
-- [Creating a Unity Context Object](#creating-a-unity-context-object)
+- [Understanding the Unity Context Object](#understanding-the-unity-context-object)
 - [Communication from React to Unity](#communication-from-react-to-unity)
 - [Communication from Unity to React](#communication-from-unity-to-react)
 - [Tracking the loading progression](#tracking-the-loading-progression)
@@ -94,15 +94,26 @@ function App() {
 }
 ```
 
-## Creating a Unity Context Object
+## Understanding the Unity Context Object
 
-The core of rendering your Unity Application within your React Application is the Unity Context Object. This instance is where all the magic happens, and is used for configurating and sending and receiving messages from and to your Unity Application. If you haven't done so already, you'll first need a Unity WebGL build. Head over to [Creating Unity WebGL Builds](#creating-unity-webgl-builds) to learn more about this.
+When wanting to render a Unity Application within your React Application, you will need to pass along the Unity Context Object to the Unity Component. The Unity Context Object is the heart of the implementation. This is were all of your configuration, event listeners and references will be stored.
 
-A most basic Unity Context instance consists of a Unity Config with four properties. The `loaderUrl`: a JavaScript file contain the Unity Loader that the web page needs in order to load the Unity content, the `frameworkUrl`: a JavaScript file containing the runtime and plugin code, the `dataUrl`: a custom file containg your Assets and scenes, and the `codeUrl`: a Web Assembly binary file containg native code. Sounds complicated? No worries, you don't need to remember any of this. Just add the paths to the files to the Unity Context, sit back and enjoy!
+When passing the Unity Context Object to the Unity Component, it will take the configuration and starts loading the required resources in order to render your Unity Application. During this process, the Unity Context Object will be updated with the Unity Application's state and will invoke various events which can all be found in the documentation.
 
-The paths to these files are public paths and should be relative from your public root or `index.html`. They will be loaded during runtime due to their enourmous size, we do not want this in our bundle since this would have impact on our entire React Application. But no worries, you can use the built-in [loading progression tracking](#tracking-the-loading-progression) in order to show some sort of loading screen.
+> Make sure to create your Unity Context object either somewhere outside of your component, or in a component did mount cycle to prevent it from being created multiple times thus losing a reference to the Unity Instance.
 
-Feed your Unity Context to one or more Unity components to start and render your Unity Application!
+When creating a new Unity Context object, you'll need to pass a Unity Config boject. A most basic Unity Config consists the following four properties. These four properties are all URLs to the required Unity Build resources.
+
+- The **Loader URL**, this is a JavaScript file which contains the Unity Engine bootstrapping code. This file is required to load the Unity Engine and start the initialization process.
+- The **Framework URL**, this is a JavaScript file which contains the Runtime and Plugin code. This file is responsible for running the actual Unity Application.
+- The **Data URL**, this is a JSON file which contains the initial Unity Application state including your Assets and Scenes. This file can get big really fast so try to optimize your game's assets as much as possible. Try using both building and runtime compression techniques and usefull packages such as sprite atlasses.
+- The **Code URL**, this a Web Assembly binary file containg native code.
+
+There are many more properties you can pass to the Unity Config object. These properties are all optional and can be found in the documentation.
+
+Sounds complicated? No worries, you don't need to remember any of the meanings behind these files. The module will take care of all of this for you. Just add the paths to the files to the Unity Context, sit back and enjoy!
+
+> All of the URLs, including the ones mentioned above, are due to their enormous size **NOT loaded into your bundle**. You should place these files in a public directory within your project or use a CDN. This means the files behind these URLs are loaded during runtime and should be accessible by a the browser via a public URL.
 
 ## Communication from React to Unity
 
