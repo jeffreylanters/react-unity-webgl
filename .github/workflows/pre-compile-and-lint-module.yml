@@ -1,8 +1,8 @@
-name: Pre-Compile and Lint
+name: Pre-Compile and Lint Module
 
 on:
   push:
-    paths: 
+    paths:
       - source/**
       - typings/**
       - package.json
@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v2.5.1 
+        uses: actions/setup-node@v2.5.1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
@@ -28,11 +28,11 @@ jobs:
       - name: Cache Node Module Dependencies
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: nodemodules-${{ runner.os }}-${{ hashFiles('./package-lock.json') }}
 
       - name: Install Dependencies
         run: npm install
-        
+
       - name: Compile Source
         run: npm run compile
