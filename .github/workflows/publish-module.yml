@@ -1,4 +1,4 @@
-name: Publish to NPM
+name: Publish Module
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
       - name: Cache Node Module Dependencies
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: nodemodules-${{ runner.os }}-${{ hashFiles('./package-lock.json') }}
 
       - name: Install Dependencies

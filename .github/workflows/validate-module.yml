@@ -1,8 +1,12 @@
-name: Pre-Compile and Lint Module
+name: Validate Module
 
 on:
   push:
+    paths-ignore:
+      - "documentation/**"
   pull_request:
+    paths-ignore:
+      - "documentation/**"
 
 jobs:
   main:

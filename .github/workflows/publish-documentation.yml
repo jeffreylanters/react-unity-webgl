@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-    paths: 
+    paths:
       - documentation/**
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
       - name: Cache Node Module Dependencies
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: nodemodules-${{ runner.os }}-${{ hashFiles('./documentation/package-lock.json') }}
 
       - name: Install Dependencies
@@ -40,7 +40,7 @@ jobs:
       - name: Build Docusaurus
         working-directory: ./documentation
         run: npm run build
-        
+
       - name: Copy Build To Server
         uses: appleboy/scp-action@v0.1.2
         with:

@@ -1,0 +1,33 @@
+name: Validate Documentation
+
+on:
+  push:
+    paths:
+      - "documentation/**"
+  pull_request:
+    paths:
+      - "documentation/**"
+
+jobs:
+  main:
+    name: Main
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+
+      - name: Install Dependencies
+        working-directory: ./documentation
+        run: npm install
+
+      - name: Compile Source
+        working-directory: ./documentation
+        run: npm run compile
