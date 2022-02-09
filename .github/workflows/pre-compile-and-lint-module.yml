@@ -2,11 +2,6 @@ name: Pre-Compile and Lint Module
 
 on:
   push:
-    paths:
-      - source/**
-      - typings/**
-      - package.json
-      - tsconfig.json
   pull_request:
 
 jobs:
