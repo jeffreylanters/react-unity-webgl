@@ -3,10 +3,10 @@ name: Validate Module
 on:
   push:
     paths-ignore:
-      - "documentation/**"
+      - documentation/**
   pull_request:
     paths-ignore:
-      - "documentation/**"
+      - documentation/**
 
 jobs:
   main:

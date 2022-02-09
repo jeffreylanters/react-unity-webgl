@@ -3,10 +3,10 @@ name: Validate Documentation
 on:
   push:
     paths:
-      - "documentation/**"
+      - documentation/**
   pull_request:
     paths:
-      - "documentation/**"
+      - documentation/**
 
 jobs:
   main:
