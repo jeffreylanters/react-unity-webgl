@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.15",
-    "@docusaurus/preset-classic": "2.0.0-beta.15",
+    "@docusaurus/preset-classic": "2.0.0-beta.16",
     "@mdx-js/react": "1.6.21",
     "clsx": "1.1.1",
     "prism-react-renderer": "1.3.1",
