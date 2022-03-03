@@ -13,8 +13,10 @@ updates:
     schedule:
       interval: "daily"
 
-  # Maintain documentation dependencies for npm
+  # Ignoring documentation dependencies for npm
   - package-ecosystem: "npm"
     directory: "/documentation"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
