@@ -18,5 +18,3 @@ updates:
     directory: "/documentation"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "*"
