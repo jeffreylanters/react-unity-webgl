@@ -30,6 +30,6 @@ jobs:
         working-directory: ./documentation
         run: npm install
 
-      - name: Compile Source
+      - name: Build Docusaurus
         working-directory: ./documentation
-        run: npm run compile
+        run: npm run build
