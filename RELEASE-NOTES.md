@@ -1,1 +1,1 @@
-- Improved typings for the WebGL Context Attributes [#327]
+- Added support for providing memory- and symbol URLs for debugging [#345]
