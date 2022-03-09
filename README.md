@@ -1098,7 +1098,7 @@ This is set to the filename of the memory file when memory is stored in an exter
 
 #### Example implementation
 
-A basic implementation could look something like this. In the following example we'll set the streaming assets url to the "streamingassets" directory.
+A basic implementation could look something like this. In the following example we'll set the memory url to the "memoryUrl" directory.
 
 ```jsx
 // File: App.jsx
@@ -1133,7 +1133,7 @@ This is set to the filename of the JSON file containing debug symbols when the c
 
 #### Example implementation
 
-A basic implementation could look something like this. In the following example we'll set the streaming assets url to the "streamingassets" directory.
+A basic implementation could look something like this. In the following example we'll set the debugging symbols url to the "memoryUrl" directory.
 
 ```jsx
 // File: App.jsx
