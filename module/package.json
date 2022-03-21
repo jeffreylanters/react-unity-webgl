@@ -48,7 +48,6 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "test": "echo 'Please use the test environment'",
     "compile": "tsc",
     "package": "npm pack"
   },
