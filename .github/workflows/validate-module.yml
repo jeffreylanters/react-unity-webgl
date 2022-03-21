@@ -29,10 +29,13 @@ jobs:
           key: nodemodules-${{ runner.os }}-${{ hashFiles('module/package-lock.json') }}
       # Install Dependencies
       - name: Install Dependencies
+        working-directory: module
         run: npm install
       # Lint Code
       - name: Lint Code
+        working-directory: module
         run: npm run lint
       # Compile Source
       - name: Compile Source
+        working-directory: module
         run: npm run compile
