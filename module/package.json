@@ -1,6 +1,6 @@
 {
   "name": "react-unity-webgl",
-  "version": "8.8.0",
+  "version": "9.0.0",
   "description": "React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.",
   "keywords": [
     "React",
@@ -28,8 +28,8 @@
       "url": "https://paypal.me/jeffreylanters"
     }
   ],
-  "main": "./distribution/index.js",
-  "types": "./distribution/index.d.ts",
+  "main": "/distribution/exports.js",
+  "types": "/distribution/exports.d.ts",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -50,8 +50,7 @@
     "start": "tsc --watch",
     "test": "echo 'Please use the test environment'",
     "compile": "tsc",
-    "package": "npm pack",
-    "generate-gh-pages": "rm -rf ./gh-pages && cp -r ./documentation ./gh-pages && node ./scripts/generate-markdown.js"
+    "package": "npm pack"
   },
   "devDependencies": {
     "@types/react": "17.0.39",
