@@ -1,7 +1,7 @@
-import { Fragment, useState } from "react";
+import { Fragment, FunctionComponent, useState } from "react";
 import { UnityTest } from "./unity-test";
 
-function App() {
+const App: FunctionComponent = () => {
   const [isUnityTestMounted, setIsUnityTestMounted] = useState(false);
   const [repaintCounter, setRepaintCounter] = useState(0);
 
@@ -19,6 +19,6 @@ function App() {
       {isUnityTestMounted === true && <UnityTest />}
     </Fragment>
   );
-}
+};
 
 export { App };
