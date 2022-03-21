@@ -25,7 +25,7 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Cache Node Module Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: "**/node_modules"
           key: nodemodules-${{ runner.os }}-${{ hashFiles('./package-lock.json') }}
