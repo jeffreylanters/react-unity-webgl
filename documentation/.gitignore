@@ -1,0 +1,10 @@
+# Development
+/node_modules
+/*.tgz
+
+# Production
+/build
+
+# Generated files
+/.docusaurus
+/.cache-loader
