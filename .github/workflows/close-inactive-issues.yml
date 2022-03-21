@@ -1,17 +1,16 @@
-name: Issues Close Inactive
-
+name: Close Inactive Issues
 on:
+  # Run every night at 1:30 AM.
   schedule:
     - cron: 30 1 * * *
-
 jobs:
   close-issues:
-    name: Close Issue
-
+    name: Close Inactive Issues
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/stale@v4.1.0
+      # Stale Issues
+      - name: Stale Issues
+        uses: actions/stale@v4.1.0
         with:
           days-before-issue-stale: 30
           days-before-issue-close: 14
