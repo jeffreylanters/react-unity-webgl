@@ -52,7 +52,7 @@
     "package": "npm pack"
   },
   "devDependencies": {
-    "@types/react": "17.0.39",
+    "@types/react": "17.0.41",
     "typescript": "4.5.4"
   },
   "peerDependencies": {
