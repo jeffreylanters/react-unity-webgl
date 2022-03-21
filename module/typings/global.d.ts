@@ -1,32 +1,24 @@
-import { IUnityInstanceParameters } from "../source/interfaces/unity-instance-parameters";
+import { IUnityArguments } from "../source/interfaces/unity-arguments";
 
 /**
  * Type declaration for global types.
  */
 declare global {
   /**
-   * Object containing all registered legacy unity event listeners.
-   * @deprecated
-   */
-  var ReactUnityWebGL: {
-    [eventName: string]: Function;
-  };
-
-  /**
    * Dispatches an event that has been registered to all event systems.
    */
-  var dispatchReactUnityEvent: Function;
+  const dispatchReactUnityEvent: (...args: any[]) => void;
 
   /**
    * Creates a new UnityInstance.
    * @param canvasHtmlElement The target html canvas element.
-   * @param parameters The paramters needed to load Unity.
+   * @param arguments The arguments needed to load Unity.
    * @param onProgress The on progress event listener.
    * @returns A promise resolving when instantiated successfully.
    */
   function createUnityInstance(
     canvasHtmlElement: HTMLCanvasElement,
-    parameters: IUnityInstanceParameters,
+    arguments: IUnityArguments,
     onProgress?: (progression: number) => void
   ): Promise<UnityInstance>;
 }
