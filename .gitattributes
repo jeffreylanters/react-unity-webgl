@@ -1,3 +1,5 @@
 # Excludes Distribution from statistics
-distribution/* linguist-vendored
+module/distribution/* linguist-vendored
+# Excludes repositories in Mono-Repo from statistics
 documentation/* linguist-vendored
+testing/* linguist-vendored
