@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { Unity, useUnityContext } from "../../module/distribution/exports";
+import { Unity, useUnityContext } from "react-unity-webgl";
 
 const UnityTest: FunctionComponent = () => {
   const {
