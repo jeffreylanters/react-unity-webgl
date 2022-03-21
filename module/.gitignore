@@ -1,0 +1,7 @@
+# Development
+/node_modules
+/*.tgz
+
+# Production
+/distribution
+/documentation/build

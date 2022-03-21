@@ -1,15 +1,2 @@
-# Development
-/node_modules
-/documentation/node_modules
-/*.tgz
-
-# Production
-/distribution
-/documentation/build
-
-# Generated files
-/documentation/.docusaurus
-/documentation/.cache-loader
-
 # System
 .DS_Store

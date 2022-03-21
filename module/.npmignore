@@ -1,14 +1,8 @@
 # Development
 /node_modules
 /source
-/*.tgz
 /tsconfig.json
-
-# Meta
-/.github
-
-# Documentation
-/documentation
+/*.tgz
 
 # System
 .DS_Store
