@@ -1,0 +1,5 @@
+# Development
+/node_modules
+
+# Production
+/build
