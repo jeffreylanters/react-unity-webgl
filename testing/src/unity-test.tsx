@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { Unity, useUnityContext } from "react-unity-webgl";
+import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
 const UnityTest: FunctionComponent = () => {
   const {
@@ -31,10 +31,10 @@ const UnityTest: FunctionComponent = () => {
           onClick={() => sendMessage("MeshCrate", "SetRotationSpeed", 200)}
         />
       </div>
-      {/* <Unity
+      <Unity
         unityProvider={unityProvider}
         style={{ border: "1px solid red", height: 300, width: 400 }}
-      /> */}
+      />
     </div>
   );
 };
