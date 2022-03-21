@@ -1,87 +1,80 @@
 import { useEffect, useState } from "react";
-
-export enum Status {
-  Idle = "Idle",
-  Loading = "Loading",
-  Loaded = "Loaded",
-  Error = "Error",
-}
+import { UnityLoaderStatus } from "../enums/unity-loader-status";
 
 /**
  * Hook to embed a Unity Loader script.
- * @param src The source of the unity loader
+ * @param source The source of the unity loader
  * @returns a hook that returns the status of the loader
  */
-export function useUnityLoader(src: string): Status {
-  const [status, setStatus] = useState<Status>(
-    src ? Status.Loading : Status.Idle
+const useUnityLoader = (source: string): UnityLoaderStatus => {
+  const [status, setStatus] = useState<UnityLoaderStatus>(
+    UnityLoaderStatus.Loading
   );
-
-  // Effect hook will be invoked when the src changes.
-  useEffect(
-    function () {
-      if (src === null) {
-        setStatus(Status.Idle);
-        return;
-      }
-
-      // Fetch existing script element by src
-      // It may have been added by another instance of this hook
-      let script: HTMLScriptElement | null = document.querySelector(
-        `script[src="${src}"]`
+  // Effect hook will be invoked when the source changes.
+  useEffect(() => {
+    // If the script's source is null, we'll reset the status to idle.
+    if (source === null) {
+      setStatus(UnityLoaderStatus.Idle);
+      return;
+    }
+    /**
+     * Find existing script element by source. It may have been added by
+     * another instance of this hook.
+     */
+    let script: HTMLScriptElement | null = window.document.querySelector(
+      `script[src="${source}"]`
+    );
+    // If there wan't another instance of this script, we're going to create a
+    // new one with the provided source.
+    if (script === null) {
+      script = window.document.createElement("script");
+      script.src = source;
+      script.async = true;
+      script.setAttribute("data-status", "loading");
+      // Add script to window.document body.
+      window.document.body.appendChild(script);
+      // Store status in attribute on script. This can be read by other
+      // instances of this hook.
+      script.addEventListener("load", () =>
+        script?.setAttribute("data-status", "loaded")
       );
-
-      if (script === null) {
-        // Create script
-        script = document.createElement("script");
-        script.src = src;
-        script.async = true;
-        script.setAttribute("data-status", "loading");
-        // Add script to document body
-        document.body.appendChild(script);
-
-        // Store status in attribute on script
-        // This can be read by other instances of this hook
-        const setAttributeFromEvent = function (event: Event) {
-          script?.setAttribute(
-            "data-status",
-            event.type === "load" ? "ready" : "error"
-          );
-        };
-
-        script.addEventListener("load", setAttributeFromEvent);
-        script.addEventListener("error", setAttributeFromEvent);
-      } else {
-        // Grab existing script status from attribute and set to state.
-        setStatus(
-          script.getAttribute("data-status") === "ready"
-            ? Status.Loaded
-            : Status.Error
-        );
+      script.addEventListener("error", () =>
+        script?.setAttribute("data-status", "error")
+      );
+    } else {
+      // If there already was a script with the same source, grab its existing
+      // script status from attribute and set to state.
+      setStatus(
+        script.getAttribute("data-status") === "loaded"
+          ? UnityLoaderStatus.Loaded
+          : UnityLoaderStatus.Error
+      );
+    }
+    /**
+     * Script event handler to update status in state. Even if the script
+     * already exists we still need to add event handlers to update the state
+     * for this hook instance.
+     * @param event The event that was triggered
+     */
+    const setStateFromEvent = (event: Event) =>
+      setStatus(
+        event.type === "load"
+          ? UnityLoaderStatus.Loaded
+          : UnityLoaderStatus.Error
+      );
+    script.addEventListener("load", setStateFromEvent);
+    script.addEventListener("error", setStateFromEvent);
+    // Remove event listeners on cleanup.
+    return () => {
+      if (script !== null) {
+        script.removeEventListener("load", setStateFromEvent);
+        script.removeEventListener("error", setStateFromEvent);
+        window.document.body.removeChild(script);
       }
-
-      // Script event handler to update status in state
-      // Note: Even if the script already exists we still need to add
-      // event handlers to update the state for *this* hook instance.
-      const setStateFromEvent = function (event: Event) {
-        setStatus(event.type === "load" ? Status.Loaded : Status.Error);
-      };
-
-      // Add event listeners
-      script.addEventListener("load", setStateFromEvent);
-      script.addEventListener("error", setStateFromEvent);
-
-      // Remove event listeners on cleanup
-      return function () {
-        if (script) {
-          script.removeEventListener("load", setStateFromEvent);
-          script.removeEventListener("error", setStateFromEvent);
-          document.body.removeChild(script);
-        }
-      };
-    },
-    [src] // Only re-run effect if script src changes
-  );
+    };
+  }, [source]);
 
   return status;
-}
+};
+
+export { useUnityLoader };
