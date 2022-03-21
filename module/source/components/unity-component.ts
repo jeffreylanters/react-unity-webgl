@@ -5,7 +5,7 @@ import { useUnityArguments } from "../hooks/use-unity-arguments";
 import { useUnityLoader } from "../hooks/use-unity-loader";
 import { IUnityProps } from "../interfaces/unity-props";
 
-// HACK -- Prevent error during development
+// HACK -- Prevent error during development of version 9.0.0
 (window as any).dispatchReactUnityEvent = () => {};
 
 /**
