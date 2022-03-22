@@ -7,7 +7,10 @@ declare global {
   /**
    * Dispatches an event that has been registered to all event systems.
    */
-  const dispatchReactUnityEvent: (...args: any[]) => void;
+  const dispatchReactUnityEvent: (
+    eventName: string,
+    ...arguments: ReactUnityEventArgumentType[]
+  ) => void;
 
   /**
    * Creates a new UnityInstance.
