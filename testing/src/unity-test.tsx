@@ -9,10 +9,10 @@ const UnityTest: FunctionComponent = () => {
     setFullscreen,
     sendMessage,
   } = useUnityContext({
-    codeUrl: "/unitybuild/myunityapp.wasm",
-    dataUrl: "/unitybuild/myunityapp.data",
-    frameworkUrl: "/unitybuild/myunityapp.framework.js",
-    loaderUrl: "/unitybuild/myunityapp.loader.js",
+    codeUrl: "/unitybuild-2020-1/myunityapp.wasm",
+    dataUrl: "/unitybuild-2020-1/myunityapp.data",
+    frameworkUrl: "/unitybuild-2020-1/myunityapp.framework.js",
+    loaderUrl: "/unitybuild-2020-1/myunityapp.loader.js",
   });
 
   return (
