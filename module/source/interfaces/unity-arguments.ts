@@ -48,17 +48,20 @@ export interface IUnityArguments {
   readonly symbolsUrl?: string;
 
   /**
-   * The application's company name.
+   * The application's company name. This argument is treated as meta data
+   * which will be provided to the Unity Instance.
    */
   readonly companyName?: string;
 
   /**
-   * The application's product name.
+   * The application's product name. This argument is treated as meta data
+   * which will be provided to the Unity Instance.
    */
   readonly productName?: string;
 
   /**
-   * The application's product version.
+   * The application's product version. This argument is treated as meta data
+   * which will be provided to the Unity Instance.
    */
   readonly productVersion?: string;
 

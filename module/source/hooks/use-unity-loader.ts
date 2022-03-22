@@ -3,8 +3,8 @@ import { UnityLoaderStatus } from "../enums/unity-loader-status";
 
 /**
  * Hook to embed a Unity Loader script.
- * @param source The source of the unity loader
- * @returns a hook that returns the status of the loader
+ * @param source The source of the unity loader.
+ * @returns a hook that returns the status of the loader.
  */
 const useUnityLoader = (source: string): UnityLoaderStatus => {
   const [status, setStatus] = useState<UnityLoaderStatus>(
@@ -54,7 +54,7 @@ const useUnityLoader = (source: string): UnityLoaderStatus => {
      * Script event handler to update status in state. Even if the script
      * already exists we still need to add event handlers to update the state
      * for this hook instance.
-     * @param event The event that was triggered
+     * @param event The event that was triggered.
      */
     const setStateFromEvent = (event: Event) =>
       setStatus(

@@ -4,6 +4,11 @@ import { IUnityContextHook } from "../interfaces/unity-context-hook";
 import { IUnityProvider } from "../interfaces/unity-provider";
 import { useNullableState } from "./use-nullable-state";
 
+/**
+ * Creates a Unity Context hook.
+ * @param unityConfig The Unity Config on which the Unity Context is based.
+ * @returns The Unity Context hook.
+ */
 const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
   const [unityInstance, setUnityInstance] = useNullableState<UnityInstance>();
   const [loadingProgression, setLoadingProgression] = useState(0);
@@ -59,18 +64,14 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     [unityInstance]
   );
 
-  /**
-   * Effect invoked when the loading progression changes. When the loading
-   * progression is equal to or more than 1, the Unity Instance is considered
-   * loaded. This will update the isLoaded state.
-   */
+  // Effect invoked when the loading progression changes. When the loading
+  // progression is equal to or more than 1, the Unity Instance is considered
+  // loaded. This will update the isLoaded state.
   useEffect(() => {
     setIsLoaded(loadingProgression === 1);
   }, [loadingProgression]);
 
-  /**
-   * Returns the Unity Context Hook.
-   */
+  // Returns the Unity Context Hook.
   return {
     unityProvider,
     loadingProgression,

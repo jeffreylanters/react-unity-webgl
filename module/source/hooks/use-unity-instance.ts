@@ -5,9 +5,10 @@ import { UnityLoaderStatus } from "../enums/unity-loader-status";
 
 /**
  * Creates a Unity Instance.
- * @param unityLoaderStatus The loader status
- * @param htmlCanvasElement A reference to the html canvas element
- * @param unityArguments The Unity instance arguments
+ * @param unityLoaderStatus The loader status.
+ * @param htmlCanvasElement A reference to the html canvas element.
+ * @param unityArguments The Unity instance arguments.
+ * @param unityProvider The Unity provider.
  * @returns the Unity Instance among with the status of the Unity Instance.
  */
 const useUnityInstance = (
@@ -37,6 +38,10 @@ const useUnityInstance = (
         if (typeof window === "undefined") {
           return;
         }
+        /**
+         * The internal Unity Instance which has been initialized usign the
+         * create Unity Instance method exposed by the Unity Loader.
+         */
         const unityInstance = await window.createUnityInstance(
           htmlCanvasElement,
           unityArguments,
