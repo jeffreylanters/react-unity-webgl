@@ -6,6 +6,8 @@ import { IUnityArguments } from "../source/interfaces/unity-arguments";
 declare global {
   /**
    * Dispatches an event that has been registered to all event systems.
+   * @param eventName The name of the event.
+   * @param arguments The arguments to pass to the event.
    */
   const dispatchReactUnityEvent: (
     eventName: string,
