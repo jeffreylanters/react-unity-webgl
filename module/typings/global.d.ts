@@ -9,10 +9,10 @@ declare global {
    * @param eventName The name of the event.
    * @param arguments The arguments to pass to the event.
    */
-  const dispatchReactUnityEvent: (
+  function dispatchReactUnityEvent(
     eventName: string,
     ...arguments: ReactUnityEventArgumentType[]
-  ) => void;
+  ): void;
 
   /**
    * Creates a new UnityInstance.
