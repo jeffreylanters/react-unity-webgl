@@ -12,4 +12,5 @@ export interface IUnityContextHook extends IEventSystemHook {
     methodName: string,
     parameter?: string | number | boolean
   ) => void;
+  readonly unload: () => Promise<void> | undefined;
 }

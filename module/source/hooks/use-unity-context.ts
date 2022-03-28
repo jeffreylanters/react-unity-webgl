@@ -67,6 +67,14 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     [unityInstance]
   );
 
+  /**
+   * Requests the UnityInstance to be unloaded from memory in order to be
+   * unmounted from the DOM.
+   */
+  const unload = useCallback((): Promise<void> | undefined => {
+    return unityInstance?.Quit();
+  }, [unityInstance]);
+
   // Effect invoked when the loading progression changes. When the loading
   // progression is equal to or more than 1, the Unity Instance is considered
   // loaded. This will update the isLoaded state.
@@ -82,6 +90,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     isLoaded,
     setFullscreen,
     sendMessage,
+    unload,
     addEventListener: eventSystem.addEventListener,
     removeEventListener: eventSystem.removeEventListener,
   };
