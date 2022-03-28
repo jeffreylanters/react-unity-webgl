@@ -13,6 +13,7 @@
  * the writeStringToMemory helper function to write a JavaScript string to it.
  * If the string is a return value, then the il2cpp runtime will take care of
  * freeing the memory for you.
+ *
  * For arrays of primitive types, emscripten provides different ArrayBufferViews
  * into it’s heap for different sizes of integer, unsigned integer or floating
  * point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32,
