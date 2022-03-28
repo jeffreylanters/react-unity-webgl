@@ -1,6 +1,7 @@
 import { IUnityProvider } from "../interfaces/unity-provider";
+import { IEventSystemHook } from "./event-system-hook";
 
-export interface IUnityContextHook {
+export interface IUnityContextHook extends IEventSystemHook {
   readonly unityProvider: IUnityProvider;
   readonly loadingProgression: number;
   readonly isLoaded: boolean;

@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { IEventListener } from "../interfaces/event-listener";
 import { IUnityConfig } from "../interfaces/unity-config";
 import { IUnityContextHook } from "../interfaces/unity-context-hook";
 import { IUnityProvider } from "../interfaces/unity-provider";
+import { useEventSystem } from "./use-event-system";
 import { useNullableState } from "./use-nullable-state";
 
 /**
@@ -15,13 +17,14 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [initialisationError, setInitialisationError] =
     useNullableState<Error>();
+  const eventSystem = useEventSystem();
 
   /**
-   * The Unity Context returns a Unity Provider instance. This is a statefull
+   * The Unity Context returns a Unity Provider instance. This is a immutable
    * object that contains a series of methods and properties that are used to
-   * alter the Unity Context state.
+   * alter the Unity Context state externally.
    */
-  const [unityProvider] = useState<IUnityProvider>({
+  const unityProvider = useRef<IUnityProvider>({
     setLoadingProgression,
     setInitialisationError,
     setUnityInstance,
@@ -73,12 +76,14 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
 
   // Returns the Unity Context Hook.
   return {
-    unityProvider,
+    unityProvider: unityProvider.current,
     loadingProgression,
     initialisationError,
     isLoaded,
     setFullscreen,
     sendMessage,
+    addEventListener: eventSystem.addEventListener,
+    removeEventListener: eventSystem.removeEventListener,
   };
 };
 
