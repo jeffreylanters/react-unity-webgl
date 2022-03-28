@@ -60,6 +60,8 @@ const Unity: FC<IUnityProps> = (unityProps: IUnityProps): JSX.Element => {
     ref: htmlCanvasElement,
     id: unityCanvasId,
     style: unityProps.style,
+    className: unityProps.className,
+    tabIndex: unityProps.tabIndex,
   });
 };
 
