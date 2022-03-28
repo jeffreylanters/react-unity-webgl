@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useCallback, useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
 const UnityTest: FunctionComponent = () => {
@@ -8,6 +8,9 @@ const UnityTest: FunctionComponent = () => {
     isLoaded,
     setFullscreen,
     sendMessage,
+    initialisationError,
+    addEventListener,
+    removeEventListener,
   } = useUnityContext({
     codeUrl: "/unitybuild-2020-1/myunityapp.wasm",
     dataUrl: "/unitybuild-2020-1/myunityapp.data",
@@ -15,11 +18,23 @@ const UnityTest: FunctionComponent = () => {
     loaderUrl: "/unitybuild-2020-1/myunityapp.loader.js",
   });
 
+  const handleRotationDidUpdate = useCallback((rotation: number) => {
+    console.log("Rotation did update:", rotation);
+  }, []);
+
+  useEffect(() => {
+    addEventListener("RotationDidUpdate", handleRotationDidUpdate);
+    return () => {
+      removeEventListener("RotationDidUpdate", handleRotationDidUpdate);
+    };
+  }, [addEventListener, removeEventListener, handleRotationDidUpdate]);
+
   return (
     <div>
       <h2>Unity Test</h2>
       <p>Loading progression: {loadingProgression}</p>
       <p>Loaded?: {isLoaded ? "Y" : "N"}</p>
+      <p>Error: {initialisationError || "None"}</p>
       <div>
         <button onClick={() => setFullscreen(true)}>Fullscreen</button>
         <button
