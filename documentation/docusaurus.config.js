@@ -46,7 +46,7 @@ const config = {
           type: "doc",
           docId: "introduction",
           position: "left",
-          label: "Documentation",
+          label: "Docs",
         },
         {
           to: "/made-with",
