@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { IEventListener } from "../interfaces/event-listener";
 import { IEventSystemHook } from "../interfaces/event-system-hook";
 
@@ -7,7 +7,7 @@ import { IEventSystemHook } from "../interfaces/event-system-hook";
  * @returns The Unity Context hook.
  */
 const useEventSystem = (): IEventSystemHook => {
-  const [eventListeners, setEventListeners] = useState<IEventListener[]>([]);
+  const eventListeners = useRef<IEventListener[]>([]);
 
   /**
    * Adds an event listener for external React Unity events.
@@ -22,12 +22,12 @@ const useEventSystem = (): IEventSystemHook => {
       callback: (...parameters: ReactUnityEventArgumentType[]) => void
     ) => {
       // Add the event listener will be added to the array of event listeners.
-      setEventListeners((previousEventListeners) => [
-        ...previousEventListeners,
+      eventListeners.current = [
+        ...eventListeners.current,
         { eventName, callback },
-      ]);
+      ];
     },
-    []
+    [eventListeners]
   );
 
   /**
@@ -44,18 +44,14 @@ const useEventSystem = (): IEventSystemHook => {
     ) => {
       // The event listener will be filtered from the event listeners array
       // based on its name and the reference to the callback.
-      setEventListeners((previousEventListeners) =>
-        previousEventListeners.filter(
-          (eventListener) =>
-            eventListener.eventName !== eventName ||
-            eventListener.callback !== callback
-        )
+      eventListeners.current = eventListeners.current.filter(
+        (eventListener) =>
+          eventListener.eventName !== eventName &&
+          eventListener.callback !== callback
       );
     },
-    []
+    [eventListeners]
   );
-
-  useEffect(() => console.log({ eventListeners }), [eventListeners]);
 
   return {
     addEventListener,
