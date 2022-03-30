@@ -12,10 +12,10 @@ const UnityTest: FunctionComponent = () => {
     addEventListener,
     removeEventListener,
   } = useUnityContext({
-    codeUrl: "/unitybuild-2020-1/myunityapp.wasm",
-    dataUrl: "/unitybuild-2020-1/myunityapp.data",
-    frameworkUrl: "/unitybuild-2020-1/myunityapp.framework.js",
-    loaderUrl: "/unitybuild-2020-1/myunityapp.loader.js",
+    codeUrl: "/unitybuild-2020-1/example-app.wasm",
+    dataUrl: "/unitybuild-2020-1/example-app.data",
+    frameworkUrl: "/unitybuild-2020-1/example-app.framework.js",
+    loaderUrl: "/unitybuild-2020-1/example-app.loader.js",
   });
 
   const handleRotationDidUpdate = useCallback((rotation: number) => {
