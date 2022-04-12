@@ -54,7 +54,7 @@
     "generate-gh-pages": "rm -rf ./gh-pages && cp -r ./documentation ./gh-pages && node ./scripts/generate-markdown.js"
   },
   "devDependencies": {
-    "@types/react": "17.0.39",
+    "@types/react": "18.0.3",
     "typescript": "4.5.4"
   },
   "peerDependencies": {
