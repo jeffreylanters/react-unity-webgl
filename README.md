@@ -98,7 +98,7 @@ function App() {
 
 ## Understanding the Unity Context Object
 
-When wanting to render a Unity Application within your React Application, you will need to pass along the Unity Context Object to the Unity Component. The Unity Context Object is the heart of the implementation. This is were all of your configuration, event listeners and references will be stored.
+When wanting to render a Unity Application within your React Application, you will need to pass along the Unity Context Object to the Unity Component. The Unity Context Object is the heart of the implementation. This is where all of your configuration, event listeners and references will be stored.
 
 When passing the Unity Context Object to the Unity Component, it will take the configuration and starts loading the required resources in order to render your Unity Application. During this process, the Unity Context Object will be updated with the Unity Application's state and will invoke various events which can all be found in the documentation.
 
@@ -325,7 +325,7 @@ function App() {
 }
 ```
 
-## Handeling on when the Application is loaded
+## Handling on when the Application is loaded
 
 > Available since version 6.0.2
 
