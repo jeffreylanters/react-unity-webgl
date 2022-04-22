@@ -1,36 +1,33 @@
 name: Analysis CodeQL
-
 on:
+  # Run when a push or pull request contains changes in TypeScript or JavaScript files.
   push:
     paths:
-      - source/**
+      - /**/*.{ts,tsx,js,jsx}
   pull_request:
     paths:
-      - source/**
-
+      - /**/*.{ts,tsx,js,jsx}
 jobs:
   main:
     name: Main
-
     runs-on: ubuntu-latest
-
     strategy:
       fail-fast: false
       matrix:
         language:
           - javascript
-
     steps:
+      # Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v2
-
+      # Initialize CodeQL
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
         with:
           languages: ${{ matrix.language }}
-
+      # Autobuild
       - name: Autobuild
         uses: github/codeql-action/autobuild@v1
-
+      # Perform CodeQL Analysis
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1

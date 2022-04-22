@@ -1,0 +1,63 @@
+{
+  "name": "react-unity-webgl",
+  "version": "9.0.0-beta.0",
+  "description": "React Unity WebGL provides an easy solution for embedding Unity WebGL builds in your React application, with two-way communication between your React and Unity application with advanced API's.",
+  "keywords": [
+    "React",
+    "Unity",
+    "WebGL"
+  ],
+  "homepage": "https://github.com/jeffreylanters/react-unity-webgl#readme",
+  "bugs": {
+    "url": "https://github.com/jeffreylanters/react-unity-webgl/issues",
+    "email": "jeffreylanters@me.com"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Jeffrey Lanters",
+    "email": "jeffreylanters@me.com",
+    "url": "https://jeffreylanters.nl"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/jeffreylanters"
+    },
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/jeffreylanters"
+    }
+  ],
+  "main": "/distribution/exports.js",
+  "types": "/distribution/exports.d.ts",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jeffreylanters/react-unity-webgl.git"
+  },
+  "scripts": {
+    "start": "tsc --watch",
+    "compile": "tsc",
+    "package": "npm pack",
+    "lint": "echo 'Warning: lint is not implemented yet'"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.41",
+    "typescript": "4.5.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "private": false
+}

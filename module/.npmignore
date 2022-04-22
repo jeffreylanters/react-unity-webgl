@@ -1,0 +1,8 @@
+# Development
+/node_modules
+/source
+/tsconfig.json
+/*.tgz
+
+# System
+.DS_Store

@@ -1,7 +1,6 @@
 {
   "name": "react-unity-webgl-documentation",
   "version": "1.0.1",
-  "description": "Documentation for the React Unity WebGL Module.",
   "homepage": "https://react-unity-webgl.jeffreylanters.nl",
   "author": {
     "name": "Jeffrey Lanters",
@@ -23,8 +22,7 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "clear": "docusaurus clear",
-    "docusaurus": "docusaurus"
+    "clear": "docusaurus clear"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.15",
