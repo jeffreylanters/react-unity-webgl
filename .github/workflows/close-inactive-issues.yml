@@ -10,7 +10,7 @@ jobs:
     steps:
       # Stale Issues
       - name: Stale Issues
-        uses: actions/stale@v4.1.0
+        uses: actions/stale@v5.0.0
         with:
           days-before-issue-stale: 30
           days-before-issue-close: 14
