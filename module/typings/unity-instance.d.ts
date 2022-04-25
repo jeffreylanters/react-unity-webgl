@@ -2,6 +2,9 @@
  * Type declaration for the UnityInstance.
  */
 declare class UnityInstance {
+  /**
+   * Creates a new instance of Unity Instance.
+   */
   constructor();
 
   /**
