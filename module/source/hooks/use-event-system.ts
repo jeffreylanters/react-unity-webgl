@@ -25,7 +25,7 @@ const useEventSystem = (): IEventSystemHook => {
      */
     (
       eventName: string,
-      callback: (...parameters: ReactUnityEventArgumentType[]) => void
+      callback: (...parameters: ReactUnityEventParameterType[]) => void
     ) => {
       // Add the event listener will be added to the array of event listeners.
       eventListeners.current = [
@@ -46,7 +46,7 @@ const useEventSystem = (): IEventSystemHook => {
      */
     (
       eventName: string,
-      callback: (...parameters: ReactUnityEventArgumentType[]) => void
+      callback: (...parameters: ReactUnityEventParameterType[]) => void
     ) => {
       // The event listener will be filtered from the event listeners array
       // based on its name and the reference to the callback.
@@ -69,7 +69,7 @@ const useEventSystem = (): IEventSystemHook => {
      * @returns The result of the dispatched event.
      * @throws An error if the event name is not found.
      */
-    (eventName: string, ...parameters: ReactUnityEventArgumentType[]): any => {
+    (eventName: string, ...parameters: ReactUnityEventParameterType[]): any => {
       // The event listener will be filtered from the event listeners array
       // based on its name.
       const eventListener = eventListeners.current.find(

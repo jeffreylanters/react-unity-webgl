@@ -7,11 +7,11 @@ declare global {
   /**
    * Dispatches an event that has been registered to all event systems.
    * @param eventName The name of the event.
-   * @param arguments The arguments to pass to the event.
+   * @param parameters The parameters to pass to the event.
    */
   function dispatchReactUnityEvent(
     eventName: string,
-    ...arguments: ReactUnityEventArgumentType[]
+    ...parameters: ReactUnityEventParameterType[]
   ): void;
 
   /**
@@ -36,7 +36,7 @@ declare global {
     /**
      * Dispatches an event that has been registered to all event systems.
      * @param eventName The name of the event.
-     * @param arguments The arguments to pass to the event.
+     * @param parameters The parameters to pass to the event.
      */
     dispatchReactUnityEvent: typeof dispatchReactUnityEvent;
 
