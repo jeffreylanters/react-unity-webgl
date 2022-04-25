@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback, useEffect } from "react";
+import { FunctionComponent, useCallback, useEffect, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
 const UnityTest: FunctionComponent = () => {
@@ -18,16 +18,20 @@ const UnityTest: FunctionComponent = () => {
     loaderUrl: "/unitybuild-2020-1/example-app.loader.js",
   });
 
-  const handleRotationDidUpdate = useCallback((rotation: number) => {
-    console.log("Rotation did update:", rotation);
+  const [rotation, setRotation] = useState(0);
+
+  const handleClickedPosition = useCallback((x: number, y: number) => {
+    console.log("Clicked Position:", { x, y });
   }, []);
 
   useEffect(() => {
-    addEventListener("RotationDidUpdate", handleRotationDidUpdate);
+    addEventListener("RotationDidUpdate", setRotation);
+    addEventListener("ClickedPosition", handleClickedPosition);
     return () => {
-      removeEventListener("RotationDidUpdate", handleRotationDidUpdate);
+      removeEventListener("RotationDidUpdate", setRotation);
+      removeEventListener("ClickedPosition", handleClickedPosition);
     };
-  }, [addEventListener, removeEventListener, handleRotationDidUpdate]);
+  }, [addEventListener, removeEventListener, handleClickedPosition]);
 
   return (
     <div>
@@ -35,6 +39,7 @@ const UnityTest: FunctionComponent = () => {
       <p>Loading progression: {loadingProgression}</p>
       <p>Loaded?: {isLoaded ? "Y" : "N"}</p>
       <p>Error: {initialisationError || "None"}</p>
+      <p>Rotation: {rotation}deg</p>
       <div>
         <button onClick={() => setFullscreen(true)}>Fullscreen</button>
         <button
