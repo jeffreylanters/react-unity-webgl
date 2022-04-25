@@ -1,3 +1,5 @@
 # Excludes repositories in Mono-Repo from statistics
+documentation/**/* linguist-vendored
 documentation/* linguist-vendored
+testing/**/* linguist-vendored
 testing/* linguist-vendored
