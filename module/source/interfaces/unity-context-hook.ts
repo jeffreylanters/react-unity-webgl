@@ -7,7 +7,10 @@ export interface IUnityContextHook extends IEventSystemHook {
   readonly isLoaded: boolean;
   readonly initialisationError: Error | null;
   readonly setFullscreen: (enabled: boolean) => void;
-  readonly takeScreenshot: (type: string, quality?: number) => string;
+  readonly takeScreenshot: (
+    type: string,
+    quality?: number
+  ) => string | undefined;
   readonly sendMessage: (
     gameObjectName: string,
     methodName: string,

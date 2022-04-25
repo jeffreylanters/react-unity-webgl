@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import { errorMessagesConstants } from "../constants/error-messages-constants";
 import { IEventListener } from "../interfaces/event-listener";
 import { IEventSystemHook } from "../interfaces/event-system-hook";
 
@@ -100,9 +101,9 @@ const useEventSystem = (): IEventSystemHook => {
       const eventListener = eventListeners.current.find(
         (eventListener) => eventListener.eventName === eventName
       );
-      // If the event listener is not found, an error will be thrown.
       if (typeof eventListener === "undefined") {
-        console.warn(`Event listener not found for event: ${eventName}`);
+        // Guarding the event listener.
+        console.warn(errorMessagesConstants.noEventListener(eventName));
         return;
       }
       // The event listener will be invoked with the parameters.

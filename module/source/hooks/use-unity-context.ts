@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { IEventListener } from "../interfaces/event-listener";
+import { errorMessagesConstants } from "../constants/error-messages-constants";
 import { IUnityConfig } from "../interfaces/unity-config";
 import { IUnityContextHook } from "../interfaces/unity-context-hook";
 import { IUnityProvider } from "../interfaces/unity-provider";
@@ -17,10 +17,15 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [initialisationError, setInitialisationError] =
     useNullableState<Error>();
+
+  /**
+   * The Unity Context's event system stores the event listeners which will
+   * allow Unity or any global source to invoke events to the React application.
+   */
   const eventSystem = useEventSystem();
 
   /**
-   * The Unity Context returns a Unity Provider instance. This is a immutable
+   * The Unity Context returns a Unity Provider instance. This is an immutable
    * object that contains a series of methods and properties that are used to
    * alter the Unity Context state externally.
    */
@@ -40,10 +45,15 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
      * @param enabled Defines whether Unity should be in fullscreen.
      */
     (enabled: boolean) => {
+      if (unityInstance === null) {
+        // Guarding the Unity Instance.
+        console.warn(errorMessagesConstants.setFullscreenNoUnityInstance);
+        return;
+      }
       // For undocumented reasons, the fullscreen mode can only be enabled
       // with an interger value where the value of "1" enables the fullscreen
       // mode and the value of "0" disables the fullscreen mode.
-      unityInstance?.SetFullscreen(enabled === true ? 1 : 0);
+      unityInstance.SetFullscreen(enabled === true ? 1 : 0);
     },
     [unityInstance]
   );
@@ -62,7 +72,12 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
       methodName: string,
       parameter?: ReactUnityEventParameterType
     ) => {
-      unityInstance?.SendMessage(gameObjectName, methodName, parameter);
+      if (unityInstance === null) {
+        // Guarding the Unity Instance.
+        console.warn(errorMessagesConstants.sendMessageNoUnityInstance);
+        return;
+      }
+      unityInstance.SendMessage(gameObjectName, methodName, parameter);
     },
     [unityInstance]
   );
@@ -72,7 +87,12 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
    * unmounted from the DOM.
    */
   const unload = useCallback((): Promise<void> | undefined => {
-    return unityInstance?.Quit();
+    if (unityInstance === null) {
+      // Guarding the Unity Instance.
+      console.warn(errorMessagesConstants.quitNoUnityInstance);
+      return;
+    }
+    return unityInstance.Quit();
   }, [unityInstance]);
 
   /**
@@ -85,11 +105,18 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
      * @param quality Defines the quality of the screenshot.
      * @returns A base 64 encoded string of the screenshot.
      */
-    (type: string, quality?: number): string => {
-      // For undocumented reasons, the fullscreen mode can only be enabled
-      // with an interger value where the value of "1" enables the fullscreen
-      // mode and the value of "0" disables the fullscreen mode.
-      return unityInstance?.Module.canvas?.toDataURL(type, quality) ?? "";
+    (type: string, quality?: number): string | undefined => {
+      if (
+        unityInstance === null ||
+        typeof unityInstance.Module.canvas === "undefined"
+      ) {
+        // Guarding the Unity Instance and the canvas.
+        console.warn(errorMessagesConstants.screenshotNoUnityInstanceOrCanvas);
+        return;
+      }
+      // Takes a screenshot by converting Canvas's render-context's buffer into
+      // a Data URL of the specified type and quality.
+      return unityInstance.Module.canvas.toDataURL(type, quality);
     },
     [unityInstance]
   );
