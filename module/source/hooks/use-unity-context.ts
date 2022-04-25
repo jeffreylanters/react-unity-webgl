@@ -60,7 +60,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     (
       gameObjectName: string,
       methodName: string,
-      parameter?: string | number | boolean
+      parameter?: ReactUnityEventArgumentType
     ) => {
       unityInstance?.SendMessage(gameObjectName, methodName, parameter);
     },

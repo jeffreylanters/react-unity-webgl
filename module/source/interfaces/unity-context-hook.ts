@@ -10,7 +10,7 @@ export interface IUnityContextHook extends IEventSystemHook {
   readonly sendMessage: (
     gameObjectName: string,
     methodName: string,
-    parameter?: string | number | boolean
+    parameter?: ReactUnityEventArgumentType
   ) => void;
   readonly unload: () => Promise<void> | undefined;
 }

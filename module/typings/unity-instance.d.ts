@@ -13,7 +13,7 @@ declare class UnityInstance {
   public SendMessage(
     gameObjectName: string,
     methodName: string,
-    parameter?: string | number | boolean
+    parameter?: ReactUnityEventArgumentType
   ): void;
 
   /**
