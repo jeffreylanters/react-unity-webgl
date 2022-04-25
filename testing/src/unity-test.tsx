@@ -1,4 +1,10 @@
-import { FunctionComponent, useCallback, useEffect, useState } from "react";
+import {
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
 const UnityTest: FunctionComponent = () => {
@@ -19,6 +25,7 @@ const UnityTest: FunctionComponent = () => {
   });
 
   const [rotation, setRotation] = useState(0);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const handleClickedPosition = useCallback((x: number, y: number) => {
     console.log("Clicked Position:", { x, y });
@@ -39,7 +46,15 @@ const UnityTest: FunctionComponent = () => {
       <p>Loading progression: {loadingProgression}</p>
       <p>Loaded?: {isLoaded ? "Y" : "N"}</p>
       <p>Error: {initialisationError || "None"}</p>
-      <p>Rotation: {rotation}deg</p>
+      <p>Rotation: {Math.round(rotation)}deg</p>
+      <div>
+        <p>
+          Canvas Reference
+          <button onClick={() => console.log({ canvasRef: canvasRef.current })}>
+            Log to Console
+          </button>
+        </p>
+      </div>
       <div>
         <button onClick={() => setFullscreen(true)}>Fullscreen</button>
         <button
@@ -54,6 +69,7 @@ const UnityTest: FunctionComponent = () => {
       <Unity
         unityProvider={unityProvider}
         style={{ border: "1px solid red", height: 300, width: 400 }}
+        ref={canvasRef}
       />
     </div>
   );
