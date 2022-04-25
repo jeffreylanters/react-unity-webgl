@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 import { errorMessagesConstants } from "../constants/error-messages-constants";
+import { isBrowserEnvironment } from "../constants/is-browser-environment";
 import { IEventListener } from "../interfaces/event-listener";
 import { IEventSystemHook } from "../interfaces/event-system-hook";
 

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { IUnityArguments } from "../interfaces/unity-arguments";
 import { IUnityProvider } from "../interfaces/unity-provider";
 import { UnityLoaderStatus } from "../enums/unity-loader-status";
+import { isBrowserEnvironment } from "../constants/is-browser-environment";
 
 /**
  * Creates a Unity Instance.

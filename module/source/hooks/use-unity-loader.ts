@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { isBrowserEnvironment } from "../constants/is-browser-environment";
 import { UnityLoaderStatus } from "../enums/unity-loader-status";
 
 /**
