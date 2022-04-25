@@ -1,18 +1,42 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { IEventListener } from "../interfaces/event-listener";
 import { IEventSystemHook } from "../interfaces/event-system-hook";
 
-const eventSystemHooks: IEventSystemHook[] = [];
-const handleDispatchReactUnityEvent = (...args: any[]): void => {
-  console.log(args);
-};
-(window as any).dispatchReactUnityEvent = handleDispatchReactUnityEvent;
+/**
+ * An array of dispatch event methods from within the mounted event systems.
+ * This allows an event to be dispatched within all of the event system
+ * instances.
+ */
+const mountedEventDispatchers: ((
+  eventName: string,
+  ...parameters: ReactUnityEventParameterType[]
+) => void)[] = [];
 
 /**
- * Event system for external React Unity events.
- * @returns The Unity Context hook.
+ * Dispatches an event to all mounted event systems.
+ * @param eventName The name of the event to dispatch.
+ * @param parameters The parameters to pass to the event listener.
+ */
+const dispatchReactUnityEvent = (
+  eventName: string,
+  ...parameters: ReactUnityEventParameterType[]
+): void =>
+  // Loops through all of the mounted event systems and dispatches the event.
+  mountedEventDispatchers.forEach((dispatchEvent) =>
+    dispatchEvent(eventName, ...parameters)
+  );
+
+// Making the dispatch React Unity event function available to the global scope.
+(window as any).dispatchReactUnityEvent = dispatchReactUnityEvent;
+
+/**
+ * Event system for invoking external React Unity events.
+ * @returns The Event System hook.
  */
 const useEventSystem = (): IEventSystemHook => {
+  /**
+   * An array of all registered event listeners.
+   */
   const eventListeners = useRef<IEventListener[]>([]);
 
   /**
@@ -60,16 +84,17 @@ const useEventSystem = (): IEventSystemHook => {
   );
 
   /**
-   * Dispatches an event to external React Unity events.
+   * Dispatches an event.
    */
   const dispatchEvent = useCallback(
     /**
      * @param eventName The name of the event to dispatch.
      * @param parameters The parameters to pass to the event listener.
-     * @returns The result of the dispatched event.
-     * @throws An error if the event name is not found.
      */
-    (eventName: string, ...parameters: ReactUnityEventParameterType[]): any => {
+    (
+      eventName: string,
+      ...parameters: ReactUnityEventParameterType[]
+    ): void => {
       // The event listener will be filtered from the event listeners array
       // based on its name.
       const eventListener = eventListeners.current.find(
@@ -77,13 +102,27 @@ const useEventSystem = (): IEventSystemHook => {
       );
       // If the event listener is not found, an error will be thrown.
       if (typeof eventListener === "undefined") {
-        throw new Error(`Event "${eventName}" not found.`);
+        console.warn(`Event listener not found for event: ${eventName}`);
+        return;
       }
       // The event listener will be invoked with the parameters.
       eventListener.callback(...parameters);
     },
     [eventListeners]
   );
+
+  // Effect ensures that the dispatch event function is available to the
+  // global array of event listeners. This allows the global method to dispatch
+  // events within the event system hooks.
+  useEffect(() => {
+    mountedEventDispatchers.push(dispatchEvent);
+    return () => {
+      mountedEventDispatchers.splice(
+        mountedEventDispatchers.indexOf(dispatchEvent),
+        1
+      );
+    };
+  }, [dispatchEvent]);
 
   return {
     addEventListener,
