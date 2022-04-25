@@ -10,5 +10,5 @@ export interface IEventListener {
   /**
    * The callback to invoke when the event is fired.
    */
-  callback: VoidFunction | (() => Promise<void>);
+  callback: (...parameters: ReactUnityEventArgumentType[]) => void;
 }
