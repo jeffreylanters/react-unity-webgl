@@ -27,4 +27,14 @@ declare class UnityInstance {
    * @returns a promise which resolves when the application did quit.
    */
   public Quit(): Promise<void>;
+
+  /**
+   * The Unity Module.
+   */
+  public Module: {
+    /**
+     * A reference to the Unity Instance's Canvas.
+     */
+    canvas?: HTMLCanvasElement;
+  };
 }
