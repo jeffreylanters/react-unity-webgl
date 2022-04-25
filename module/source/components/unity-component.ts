@@ -14,6 +14,7 @@ const Unity: ForwardRefExoticComponent<
 > = forwardRef<HTMLCanvasElement, IUnityProps>(
   /**
    * @param unityProps The Unity props provided the the Unity component.
+   * @param forwardedRef The forwarded ref to the Unity component.
    * @returns The Unity canvas renderer.
    */
   (unityProps, forwardedRef): JSX.Element => {

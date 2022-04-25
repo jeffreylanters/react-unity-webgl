@@ -59,13 +59,7 @@ const useUnityInstance = (
         unityProvider.setInitialisationError(error);
       }
     })();
-  }, [
-    unityLoaderStatus,
-    htmlCanvasElement,
-    unityArguments,
-    unityProvider,
-    unityProvider.setUnityInstance,
-  ]);
+  }, [unityLoaderStatus, htmlCanvasElement, unityArguments, unityProvider]);
 };
 
 export { useUnityInstance };

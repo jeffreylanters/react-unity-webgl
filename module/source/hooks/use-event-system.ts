@@ -28,7 +28,7 @@ const dispatchReactUnityEvent = (
   );
 
 // Making the dispatch React Unity event function available to the global scope.
-(window as any).dispatchReactUnityEvent = dispatchReactUnityEvent;
+window.dispatchReactUnityEvent = dispatchReactUnityEvent;
 
 /**
  * Event system for invoking external React Unity events.

@@ -4,6 +4,10 @@ import { useMemo } from "react";
  * The canvas count is used to generate a unique Unity canvas ID.
  */
 let unityCanvasCount = 0;
+
+/**
+ * The prefix used to generate a unique Unity canvas ID.
+ */
 const unityCanvasIdPrefix = "react-unity-webgl-canvas";
 
 /**

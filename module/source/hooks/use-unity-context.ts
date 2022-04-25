@@ -12,9 +12,18 @@ import { useNullableState } from "./use-nullable-state";
  * @returns The Unity Context hook.
  */
 const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
+  // A reference to the Unity Instance.
   const [unityInstance, setUnityInstance] = useNullableState<UnityInstance>();
+
+  // The Unity Instance's loading progression represents the percentage of the
+  // Unity Instance's loading process that has been completed.
   const [loadingProgression, setLoadingProgression] = useState(0);
+
+  // Defines whether the Unity Instance has been loaded.
   const [isLoaded, setIsLoaded] = useState(false);
+
+  // May contain an error that occurred during the initialisation of the Unity
+  // Instance.
   const [initialisationError, setInitialisationError] =
     useNullableState<Error>();
 
@@ -83,19 +92,6 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
   );
 
   /**
-   * Requests the UnityInstance to be unloaded from memory in order to be
-   * unmounted from the DOM.
-   */
-  const unload = useCallback((): Promise<void> | undefined => {
-    if (unityInstance === null) {
-      // Guarding the Unity Instance.
-      console.warn(errorMessagesConstants.quitNoUnityInstance);
-      return;
-    }
-    return unityInstance.Quit();
-  }, [unityInstance]);
-
-  /**
    * Takes a screenshot of the Unity Instance and returns a base64 encoded
    * string.
    */
@@ -120,6 +116,19 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     },
     [unityInstance]
   );
+
+  /**
+   * Requests the UnityInstance to be unloaded from memory in order to be
+   * unmounted from the DOM.
+   */
+  const unload = useCallback((): Promise<void> | undefined => {
+    if (unityInstance === null) {
+      // Guarding the Unity Instance.
+      console.warn(errorMessagesConstants.quitNoUnityInstance);
+      return;
+    }
+    return unityInstance.Quit();
+  }, [unityInstance]);
 
   // Effect invoked when the loading progression changes. When the loading
   // progression is equal to or more than 1, the Unity Instance is considered
