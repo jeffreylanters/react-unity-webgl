@@ -30,7 +30,7 @@ const config = {
     announcementBar: {
       id: "support_us",
       content:
-        'If you like this module, give it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> and considing <a target="_blank" href="https://github.com/sponsors/jeffreylanters">sponsoring</a>',
+        'If you like this module, please considing <a target="_blank" href="https://github.com/sponsors/jeffreylanters">sponsoring</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a>',
       backgroundColor: "#fafbfc",
       textColor: "#091E42",
       isCloseable: false,
@@ -52,12 +52,6 @@ const config = {
           to: "/made-with",
           position: "left",
           label: "Made With",
-        },
-        {
-          href: "https://github.com/jeffreylanters/react-unity-webgl/discussions",
-          docId: "introduction",
-          position: "left",
-          label: "Community",
         },
         {
           href: "https://github.com/jeffreylanters/react-unity-webgl",
