@@ -26,6 +26,14 @@ Asgaard Saga is a treatment program in which your child explores. An own game wo
 
 ![SolaJump](/images/made-with/asgaard-saga.png)
 
+## Magic Microwave
+
+Magic Microwave is a collective art project, game studio, game platform, interconnected Metaverse portal and community. Founded with the explicit hope and goal of offsetting, reversing the unpleasant aspects of the Modern World, of being an outpost in the Metaverse that does not suck.
+
+[Visit Magic Microwave here](https://magicmicrowave.xyz)
+
+![Magic Microwave](/images/made-with/magicmicrowave.png)
+
 ## Get featured?
 
 Would you like to add your game to this list? Simply [open a pull request](https://github.com/jeffreylanters/react-unity-webgl/blob/main/documentation/src/pages/made-with.md) to add your own project!
