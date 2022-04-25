@@ -27,8 +27,12 @@ const dispatchReactUnityEvent = (
     dispatchEvent(eventName, ...parameters)
   );
 
-// Making the dispatch React Unity event function available to the global scope.
-window.dispatchReactUnityEvent = dispatchReactUnityEvent;
+if (isBrowserEnvironment === true) {
+  // It is possible for the application being rendered server side. We'll check
+  // if the app is running in a browser environment and if so, we'll make the
+  // dispatch React Unity event function available to the global scope.
+  window.dispatchReactUnityEvent = dispatchReactUnityEvent;
+}
 
 /**
  * Event system for invoking external React Unity events.

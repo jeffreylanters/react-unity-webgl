@@ -20,6 +20,12 @@ const useUnityInstance = (
   // Effect invoked when the Unity Loader status or canvas reference changes.
   useEffect(() => {
     (async () => {
+      // It is possible for the application being rendered server side. In
+      // this scenario, the window is not available. We can't create the
+      // Unity Instance in this case.
+      if (isBrowserEnvironment === false) {
+        return;
+      }
       if (
         unityLoaderStatus !== UnityLoaderStatus.Loaded ||
         htmlCanvasElement === null
@@ -34,12 +40,6 @@ const useUnityInstance = (
       // Creates the Unity Instance, this method is made available globally by
       // the Unity Loader.
       try {
-        // It is possible for the application being rendered server side. In
-        // this scenario, the window is not available. We can't create the
-        // Unity Instance in this case.
-        if (typeof window === "undefined") {
-          return;
-        }
         /**
          * The internal Unity Instance which has been initialized usign the
          * create Unity Instance method exposed by the Unity Loader.

@@ -12,6 +12,12 @@ const useUnityLoader = (source: string): UnityLoaderStatus => {
   );
   // Effect hook will be invoked when the source changes.
   useEffect(() => {
+    // It is possible for the application being rendered server side. In
+    // this scenario, the window is not available. We can't create a Unity
+    // Loader in this case.
+    if (isBrowserEnvironment === false) {
+      return;
+    }
     // If the script's source is null, we'll reset the status to idle.
     if (source === null) {
       setStatus(UnityLoaderStatus.Idle);
