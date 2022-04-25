@@ -25,8 +25,10 @@ const useUnityInstance = (
         htmlCanvasElement === null
       ) {
         // If the loader is not loaded, or the canvas is not available,
-        // we can't create the Unity instance yet.
+        // we can't create the Unity instance yet. In case of a fresh load,
+        // we'll clear the initialisation error as well.
         unityProvider.setUnityInstance(null);
+        unityProvider.setInitialisationError(null);
         return;
       }
       // Creates the Unity Instance, this method is made available globally by
