@@ -75,6 +75,25 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     return unityInstance?.Quit();
   }, [unityInstance]);
 
+  /**
+   * Takes a screenshot of the Unity Instance and returns a base64 encoded
+   * string.
+   */
+  const takeScreenshot = useCallback(
+    /**
+     * @param type Defines the type of screenshot to take.
+     * @param quality Defines the quality of the screenshot.
+     * @returns A base 64 encoded string of the screenshot.
+     */
+    (type: string, quality?: number): string => {
+      // For undocumented reasons, the fullscreen mode can only be enabled
+      // with an interger value where the value of "1" enables the fullscreen
+      // mode and the value of "0" disables the fullscreen mode.
+      return unityInstance?.Module.canvas?.toDataURL(type, quality) ?? "";
+    },
+    [unityInstance]
+  );
+
   // Effect invoked when the loading progression changes. When the loading
   // progression is equal to or more than 1, the Unity Instance is considered
   // loaded. This will update the isLoaded state.
@@ -91,6 +110,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     setFullscreen,
     sendMessage,
     unload,
+    takeScreenshot,
     addEventListener: eventSystem.addEventListener,
     removeEventListener: eventSystem.removeEventListener,
   };
