@@ -17,11 +17,15 @@ const UnityTest: FunctionComponent = () => {
     initialisationError,
     addEventListener,
     removeEventListener,
+    takeScreenshot,
   } = useUnityContext({
     codeUrl: "/unitybuild-2020-1/example-app.wasm",
     dataUrl: "/unitybuild-2020-1/example-app.data",
     frameworkUrl: "/unitybuild-2020-1/example-app.framework.js",
     loaderUrl: "/unitybuild-2020-1/example-app.loader.js",
+    webglContextAttributes: {
+      preserveDrawingBuffer: true,
+    },
   });
 
   const [rotation, setRotation] = useState(0);
@@ -47,16 +51,18 @@ const UnityTest: FunctionComponent = () => {
       <p>Loaded?: {isLoaded ? "Y" : "N"}</p>
       <p>Error: {initialisationError || "None"}</p>
       <p>Rotation: {Math.round(rotation)}deg</p>
-      <div>
-        <p>
-          Canvas Reference
-          <button onClick={() => console.log({ canvasRef: canvasRef.current })}>
-            Log to Console
-          </button>
-        </p>
-      </div>
-      <div>
+      <p>
+        Canvas Reference
+        <button onClick={() => console.log({ canvasRef: canvasRef.current })}>
+          Log to Console
+        </button>
+      </p>
+      <p>
+        Actions
         <button onClick={() => setFullscreen(true)}>Fullscreen</button>
+        <button onClick={() => console.log(takeScreenshot("image/jpg", 1))}>
+          Screenshot
+        </button>
         <button
           children="Normal"
           onClick={() => sendMessage("MeshCrate", "SetRotationSpeed", 50)}
@@ -65,7 +71,7 @@ const UnityTest: FunctionComponent = () => {
           children="Fast"
           onClick={() => sendMessage("MeshCrate", "SetRotationSpeed", 200)}
         />
-      </div>
+      </p>
       <Unity
         unityProvider={unityProvider}
         style={{ border: "1px solid red", height: 300, width: 400 }}
