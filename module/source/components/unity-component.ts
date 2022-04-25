@@ -5,10 +5,6 @@ import { useUnityArguments } from "../hooks/use-unity-arguments";
 import { useUnityLoader } from "../hooks/use-unity-loader";
 import { IUnityProps } from "../interfaces/unity-props";
 
-// HACK -- Prevent error during development of version 9.0.0
-// (window as any).dispatchReactUnityEvent = (...args: any[]) => console.log(args);
-(window as any).dispatchReactUnityEvent = () => {};
-
 /**
  * Renders the provided Unity application.
  * @param unityProps The Unity props provided the the Unity component.

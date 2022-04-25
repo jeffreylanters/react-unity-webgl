@@ -2,6 +2,12 @@ import { useCallback, useRef } from "react";
 import { IEventListener } from "../interfaces/event-listener";
 import { IEventSystemHook } from "../interfaces/event-system-hook";
 
+const eventSystemHooks: IEventSystemHook[] = [];
+const handleDispatchReactUnityEvent = (...args: any[]): void => {
+  console.log(args);
+};
+(window as any).dispatchReactUnityEvent = handleDispatchReactUnityEvent;
+
 /**
  * Event system for external React Unity events.
  * @returns The Unity Context hook.
@@ -49,6 +55,32 @@ const useEventSystem = (): IEventSystemHook => {
           eventListener.eventName !== eventName &&
           eventListener.callback !== callback
       );
+    },
+    [eventListeners]
+  );
+
+  /**
+   * Dispatches an event to external React Unity events.
+   */
+  const dispatchEvent = useCallback(
+    /**
+     * @param eventName The name of the event to dispatch.
+     * @param parameters The parameters to pass to the event listener.
+     * @returns The result of the dispatched event.
+     * @throws An error if the event name is not found.
+     */
+    (eventName: string, ...parameters: ReactUnityEventArgumentType[]): any => {
+      // The event listener will be filtered from the event listeners array
+      // based on its name.
+      const eventListener = eventListeners.current.find(
+        (eventListener) => eventListener.eventName === eventName
+      );
+      // If the event listener is not found, an error will be thrown.
+      if (typeof eventListener === "undefined") {
+        throw new Error(`Event "${eventName}" not found.`);
+      }
+      // The event listener will be invoked with the parameters.
+      eventListener.callback(...parameters);
     },
     [eventListeners]
   );
