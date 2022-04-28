@@ -54,6 +54,11 @@ const config = {
           label: "Made With",
         },
         {
+          href: "https://www.npmjs.com/package/react-unity-webgl",
+          label: "NpmJS",
+          position: "right",
+        },
+        {
           href: "https://github.com/jeffreylanters/react-unity-webgl",
           label: "GitHub",
           position: "right",
@@ -103,6 +108,10 @@ const config = {
             {
               label: "GitHub",
               href: "https://github.com/jeffreylanters/react-unity-webgl",
+            },
+            {
+              label: "NpmJS",
+              href: "https://www.npmjs.com/package/react-unity-webgl",
             },
             {
               label: "Sponsor",
