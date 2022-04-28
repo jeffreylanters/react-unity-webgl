@@ -1,4 +1,4 @@
-const errorMessagesConstants = {
+const errorMessages = {
   /**
    * The error message for when no Unity Instance was found while trying to set
    * the fullscreen mode.
@@ -23,11 +23,10 @@ const errorMessagesConstants = {
   screenshotNoUnityInstanceOrCanvas:
     "Unable to Take Screenshot while Unity is not Instantiated or Canvas is not available.",
   /**
-   * @param eventName The name of the event listener.
-   * @returns The error message for when no event listener was found.
+   * The error message for when no event listener was found in the event
+   * system.
    */
-  noEventListener: (eventName: string) =>
-    `Unable to find Event Listener in Event System for Event Name: "${eventName}".`,
+  noEventListener: "Unable to find Event Listener in Event System for Event",
 };
 
-export { errorMessagesConstants };
+export { errorMessages };

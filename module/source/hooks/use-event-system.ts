@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import { errorMessagesConstants } from "../constants/error-messages-constants";
+import { errorMessages } from "../constants/error-messages";
 import { isBrowserEnvironment } from "../constants/is-browser-environment";
 import { IEventListener } from "../interfaces/event-listener";
 import { IEventSystemHook } from "../interfaces/event-system-hook";
@@ -108,7 +108,7 @@ const useEventSystem = (): IEventSystemHook => {
       );
       if (typeof eventListener === "undefined") {
         // Guarding the event listener.
-        console.warn(errorMessagesConstants.noEventListener(eventName));
+        console.warn(errorMessages, { eventName });
         return;
       }
       // The event listener will be invoked with the parameters.

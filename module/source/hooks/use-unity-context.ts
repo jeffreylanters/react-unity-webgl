@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { errorMessagesConstants } from "../constants/error-messages-constants";
+import { errorMessages } from "../constants/error-messages";
 import { IUnityConfig } from "../interfaces/unity-config";
 import { IUnityContextHook } from "../interfaces/unity-context-hook";
 import { IUnityProvider } from "../interfaces/unity-provider";
@@ -56,7 +56,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     (enabled: boolean) => {
       if (unityInstance === null) {
         // Guarding the Unity Instance.
-        console.warn(errorMessagesConstants.setFullscreenNoUnityInstance);
+        console.warn(errorMessages.setFullscreenNoUnityInstance);
         return;
       }
       // For undocumented reasons, the fullscreen mode can only be enabled
@@ -83,7 +83,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     ) => {
       if (unityInstance === null) {
         // Guarding the Unity Instance.
-        console.warn(errorMessagesConstants.sendMessageNoUnityInstance);
+        console.warn(errorMessages.sendMessageNoUnityInstance);
         return;
       }
       unityInstance.SendMessage(gameObjectName, methodName, parameter);
@@ -107,7 +107,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
         typeof unityInstance.Module.canvas === "undefined"
       ) {
         // Guarding the Unity Instance and the canvas.
-        console.warn(errorMessagesConstants.screenshotNoUnityInstanceOrCanvas);
+        console.warn(errorMessages.screenshotNoUnityInstanceOrCanvas);
         return;
       }
       // Takes a screenshot by converting Canvas's render-context's buffer into
@@ -124,7 +124,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
   const unload = useCallback((): Promise<void> | undefined => {
     if (unityInstance === null) {
       // Guarding the Unity Instance.
-      console.warn(errorMessagesConstants.quitNoUnityInstance);
+      console.warn(errorMessages.quitNoUnityInstance);
       return;
     }
     return unityInstance.Quit();
