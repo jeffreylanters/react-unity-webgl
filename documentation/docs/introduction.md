@@ -4,4 +4,8 @@ sidebar_position: 0
 
 # Introduction
 
-Welcome to the React Unity WebGL Documentation! My name is Jeffrey and I'm here to help you build your awesome games to the web. In the sidebar on the left you'll find everything there is you'll need to know when using the module. If you'll need help, feel free to open a new [discussion](https://github.com/jeffreylanters/react-unity-webgl/discussions), when you want to contribute or think you've found a problem, feel free to open a new [issue](https://github.com/jeffreylanters/react-unity-webgl/issues). Like what you see? Please consider [starring this repository](https://github.com/jeffreylanters/react-unity-webgl/stargazers) or suport the project by [becoming a sponsor](https://github.com/sponsors/jeffreylanters)! Happy coding.
+Welcome to the React Unity WebGL documentation! My name is [Jeffrey Lanters](https://twitter.com/jeffreylanters), and I'm here to help you bring your awesome games to the web! Everything you'll need to know from get started to creating complex interactive systems can be found in this documentation. If you'll need help, feel free to open a new [discussion](https://github.com/jeffreylanters/react-unity-webgl/discussions), when you want to contribute or think you've found a problem, feel free to open a new [issue](https://github.com/jeffreylanters/react-unity-webgl/issues). If you like what you see, please consider [starring this repository](https://github.com/jeffreylanters/react-unity-webgl/stargazers) or suport the project by [becoming a sponsor](https://github.com/sponsors/jeffreylanters)!
+
+If you're stuck or need professional assistance and are looking for personal help over a video call, feel free to reach out to me on [Twitter](https://twitter.com/jeffreylanters) or send me an email to [hallo@jeffreylanters.nl](mailto:hallo@jeffreylanters.nl).
+
+Happy coding! 🚀

@@ -1,6 +1,6 @@
 # Made With React Unity WebGL
 
-A lot of developers are using React Unity WebGL add another layer of interactivity to their games by bringing them to the web. Here you can find some of the awesome projects that people are creating with React Unity WebGL. Would you like to add your game to this list? Simply [open a pull request](https://github.com/jeffreylanters/react-unity-webgl/blob/main/documentation/src/pages/made-with.md) to add your own project!
+With already over 100.000 installations, a lot of developers are using React Unity WebGL to add another layer of interactivity to their games by bringing them to the web. Here you can find some of the awesome projects that people are creating with React Unity WebGL. Would you like to add your game to this list? Simply [open a pull request](https://github.com/jeffreylanters/react-unity-webgl/blob/main/documentation/src/pages/made-with.md) to add your own project!
 
 ## SolaJump
 

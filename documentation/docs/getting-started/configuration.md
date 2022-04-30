@@ -2,17 +2,11 @@
 sidebar_position: 2
 ---
 
-# Understanding the Unity Context Object
+# Configuration
 
-When wanting to render a Unity Application within your React Application, you will need to pass along the Unity Context Object to the Unity Component. The Unity Context Object is the heart of the implementation. This is were all of your configuration, event listeners and references will be stored.
+When wanting to render a Unity Application within your React Application, you will need to pass along the Unity Provider to the Unity Component. When the Unity Component is being mounted, it will take the Unity Context's configuration and initialises the required resources in order to render your Unity Application. During this process, the Unity Context's state will be updated to reflect the Unity Application's.
 
-When passing the Unity Context Object to the Unity Component, it will take the configuration and starts loading the required resources in order to render your Unity Application. During this process, the Unity Context Object will be updated with the Unity Application's state and will invoke various events which can all be found in the documentation.
-
-:::tip
-Make sure to create your Unity Context object either somewhere outside of your component, or in a component did mount cycle to prevent it from being created multiple times thus losing a reference to the Unity Instance.
-:::
-
-When creating a new Unity Context object, you'll need to pass a Unity Config boject. A most basic Unity Config consists the following four properties. These four properties are all URLs to the required Unity Build resources.
+When using the Unity Context hook, you'll need to provide a Unity Config object. A most basic Unity Config consists the four following properties. These four properties are all URLs which are required to initialise the Unity Application.
 
 - The **Loader URL**, this is a JavaScript file which contains the Unity Engine bootstrapping code. This file is required to load the Unity Engine and start the initialization process.
 - The **Framework URL**, this is a JavaScript file which contains the Runtime and Plugin code. This file is responsible for running the actual Unity Application.

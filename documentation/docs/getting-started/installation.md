@@ -4,58 +4,28 @@ sidebar_position: 0
 
 # Installation
 
-Install using npm for your JavaScript or TypeScript React Project. Make sure you download the package version corresponding with your Unity version. I try to update this plugin in case of need as fast as possible. Please keep in mind that some documentation in the readme may not be accurate when using an older version of this module, head over to the lagacy documentation in order to see older versions of the documentation.
+Get started by installing React Unity WebGL using the Node Package Manager or Yarn in your JavaScript or TypeScript React Project. If you don't have a React project yet, I recommend using [Creat React App](https://reactjs.org/docs/create-a-new-react-app.html) to get you started right away.
 
 :::tip
-Check which Unity version you are using before installing the latest version of this module. Keep in mind the API can vary between versions, so make sure to use the documentation for the version you are using.
+Before installing the module, make sure you install a version which is compatible with your build's Unity version. When a new Unity version releases, I'll update the module as soon as possible in order to keep the compatibility. If you are running into any issues, please open an issue on the [React Unity WebGL Github page](https://github.com/jeffreylanters/react-unity-webgl/issues).
 :::
 
 ```sh
 % npm install react-unity-webgl
 ```
 
-## Compatibility
+## Requirements
 
-React Unity WebGL 9 is compatible with Unity 2020 and newer. If you're using an older version of Unity you can use one of the legacy versions of React Unity WebGL mentioned below. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
+- [React](https://reactjs.org) version >= 16.8.0 or above
+- [Unity](https://unity.com) version >= 2020.1.0 or above
+  - If you are using an older version of Unity which does not support Web Assemly, using a module version prior to version 9 is required. To find out more, read the [Compatibility](#compatibility) section below.
 
 ## Legacy versions
 
-### For Unity 2020 - 2022
+:::info
+React Unity WebGL has been rewritten completely with support for React Hooks in module version 9. Due to an overhaul of the entire API, the documentation for prior versions has been seperated.
+:::
 
-Install version 8.x when building your project using Unity 2020, up to 2022. This version is the latest version of the module and is in active development. It does not support beta versions of Unity.
+Version 9 and above of the module is compatibly with Unity 2020 and above. If you're using an older version of Unity, or you have to maintain an project built with an older version of the module, you can use one of the legacy versions of React Unity WebGL. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
 
-Visit the [legacy documentation](/docs/legacy-docs/version-8-x) for version 8.x here.
-
-```sh
-% npm install react-unity-webgl@8.x
-```
-
-### For Unity 2018 - 2019
-
-Install version 7.x when building your project using Unity 2018, up to 2019. This version is in active long time service development and does receive new features, bug fixes and compatibility changes with the latest version of Unity 2019.
-
-Visit the [legacy documentation](/docs/legacy-docs/version-7-x) for version 7.x here.
-
-```sh
-% npm install react-unity-webgl@7.x
-```
-
-### For Unity 2017
-
-Install version 6.x when building your project using Unity 2017. This version is in maintenance long time service development and does receive does bug fixes and compatibility changes with the latest version of Unity 2017.
-
-Visit the [legacy documentation](/docs/legacy-docs/version-6-x) for version 6.x here.
-
-```sh
-% npm install react-unity-webgl@6.x
-```
-
-### For Unity 5.6
-
-Install version 5.x when building your project using Unity 5.6. This version no longer in maintenance mode and does no receive bug fixes and compatibility changes. Consider upgrading to a later version of Unity.
-
-Visit the [legacy documentation](/docs/legacy-docs/version-5-x) for version 5.x here.
-
-```sh
-% npm install react-unity-webgl@5.x
-```
+Head over to the [legacy docs](/docs/legacy-docs/) to learn more about the legacy version of React Unity WebGL.

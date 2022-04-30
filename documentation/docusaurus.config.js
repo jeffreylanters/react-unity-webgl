@@ -55,7 +55,7 @@ const config = {
         },
         {
           href: "https://www.npmjs.com/package/react-unity-webgl",
-          label: "NpmJS",
+          label: "Npm",
           position: "right",
         },
         {
@@ -110,7 +110,7 @@ const config = {
               href: "https://github.com/jeffreylanters/react-unity-webgl",
             },
             {
-              label: "NpmJS",
+              label: "Npm",
               href: "https://www.npmjs.com/package/react-unity-webgl",
             },
             {
