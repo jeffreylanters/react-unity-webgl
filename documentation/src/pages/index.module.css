@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+  margin: 4rem auto;
+  max-width: 1000px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main img {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.main h1, .main p {
+  text-align: center;
+}
+
+.main p {
+  font-size: 1.5rem;
+}
+
+.main button {
+  background: #2399EF;
+  border: 0;
+  outline: 0;
+  font-size: 1.5rem;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
