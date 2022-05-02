@@ -28,7 +28,7 @@ const config = {
   ],
   themeConfig: {
     announcementBar: {
-      id: "support_us",
+      id: "support_me",
       content:
         'If you like this module, please considing <a target="_blank" href="https://github.com/sponsors/jeffreylanters">sponsoring</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> ❤️',
       backgroundColor: "#fafbfc",
@@ -66,7 +66,7 @@ const config = {
       ],
     },
     footer: {
-      style: "dark",
+      style: "light",
       links: [
         {
           title: "Usefull Links",
