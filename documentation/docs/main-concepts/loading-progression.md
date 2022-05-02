@@ -1,15 +1,13 @@
 ---
 sidebar_position: 0
+title: Tracking the Loading Progression
 ---
-
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
 
 # Loading Progression
 
 > Available since version 9.0.0
 
-While your Unity Application is being downloaded from the server and loaded into memory, you might want to display some sort of loading indicator informing the user of the progression. The Unity Context's loading progression value can be used for such cases. This statefull value will update while the Unity Application is being loaded. Its value will be between 0 and 1, where 0 means the Unity Application has not started loading and 1 means the Unity Application has finished loading.
+While your Unity Application is being downloaded from the server and loaded into memory, you might want to display some sort of loading indicator informing the user of the progression. The Unity Context's loading progression value can be used for such cases. This stateful value will update while the Unity Application is being loaded. Its value will be between 0 and 1, where 0 means the Unity Application has not started loading and 1 means the Unity Application has finished loading.
 
 To get started, destructure the loading progression value from the Unity Context.
 
@@ -30,7 +28,7 @@ You're not limited by just showing the percentage of the loading progression, yo
 ```
 
 :::tip
-If you want to do something based on when the Unity Application has finished loading, you can use the [is loaded stateful value](/main-concepts/is-loaded) rather than checking whether the loading progression's value is 1.
+If you want to do something based on when the Unity Application has finished loading, you can use the [is loaded stateful value](/docs/main-concepts/is-loaded) rather than checking whether the loading progression's value is 1.
 :::
 
 ## Complete Example
