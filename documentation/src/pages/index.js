@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 const Index = () => (
   <Layout
     title={`React Unity WebGL`}
-    description="Description will go into a meta tag in <head />"
+    description="Bring your Unity Games to the Web!"
   >
     <main className={styles.main}>
       <img src="/images/logo.svg" alt="React Unity WebGL Logo" />
