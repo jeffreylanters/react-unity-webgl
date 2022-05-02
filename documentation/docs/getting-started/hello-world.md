@@ -11,6 +11,7 @@ Get started by importing the Unity Component and Unity Context hook from the mod
 A basic implementation should look something like this:
 
 ```jsx
+import React from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 function App() {

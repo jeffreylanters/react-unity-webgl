@@ -36,6 +36,7 @@ If you want to do something based on when the Unity Application has finished loa
 A basic implementation could look something like this. In the following example we'll track the loading progression and display a text which shows the loading progression as a percentage.
 
 ```jsx
+import React from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 function App() {
