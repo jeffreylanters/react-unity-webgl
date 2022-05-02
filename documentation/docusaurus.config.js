@@ -18,7 +18,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:
-            "https://github.com/jeffreylanters/react-unity-webgl/tree/main/documentation/docs",
+            "https://github.com/jeffreylanters/react-unity-webgl/tree/main/documentation/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -30,7 +30,7 @@ const config = {
     announcementBar: {
       id: "support_us",
       content:
-        'If you like this module, please considing <a target="_blank" href="https://github.com/sponsors/jeffreylanters">sponsoring</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a>',
+        'If you like this module, please considing <a target="_blank" href="https://github.com/sponsors/jeffreylanters">sponsoring</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> ❤️',
       backgroundColor: "#fafbfc",
       textColor: "#091E42",
       isCloseable: false,
