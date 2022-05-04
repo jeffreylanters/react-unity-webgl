@@ -39,7 +39,8 @@ const config = {
       title: "React Unity WebGL",
       logo: {
         alt: "React Unity WebGL Logo",
-        src: "images/logo.png",
+        src: "images/logo.svg",
+        srcDark: "images/logo-light.svg",
       },
       items: [
         {
@@ -54,14 +55,9 @@ const config = {
           label: "Made With",
         },
         {
-          href: "https://www.npmjs.com/package/react-unity-webgl",
-          label: "Npm",
-          position: "right",
-        },
-        {
           href: "https://github.com/jeffreylanters/react-unity-webgl",
-          label: "GitHub",
           position: "right",
+          className: "header-github-link",
         },
       ],
     },
