@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Loading Progression
 
 Represents the percentual loading progression of the Unity Application.

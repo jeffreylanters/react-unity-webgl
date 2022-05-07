@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Version 7.x
 
 :::caution

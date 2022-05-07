@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Is Loaded
 
 Represents the loaded state of the Unity Application.

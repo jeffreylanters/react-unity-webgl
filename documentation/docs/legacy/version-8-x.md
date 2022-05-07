@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Version 8.x
 
 :::caution

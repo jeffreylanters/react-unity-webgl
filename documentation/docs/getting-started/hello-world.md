@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Hello World
 
 It's easy and simple to get your first React Unity WebGL project up-and-running. Just make sure you have your Unity WebGL build ready, and have your React project all set up. If it's your first time working with React, I recommend checking out [Create React App](https://reactjs.org/docs/create-a-new-react-app.html).
