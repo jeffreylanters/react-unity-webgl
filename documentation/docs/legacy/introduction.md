@@ -8,7 +8,7 @@ When using an older version of either the React Unity WebGL of Unity, you can st
 
 Install version 8.x when building your project using Unity 2020, up to 2022. This version is the latest version of the module and is in active development. It does not support beta versions of Unity.
 
-Visit the [legacy documentation](/docs/legacy/version-8-x) for version 8.x here.
+Visit the [legacy documentation](/docs/legacy/version-8-x/documentation) for version 8.x here.
 
 ```sh
 % npm install react-unity-webgl@8.x
@@ -18,7 +18,7 @@ Visit the [legacy documentation](/docs/legacy/version-8-x) for version 8.x here.
 
 Install version 7.x when building your project using Unity 2018, up to 2019. This version is in active long time service development and does receive new features, bug fixes and compatibility changes with the latest version of Unity 2019.
 
-Visit the [legacy documentation](/docs/legacy/version-7-x) for version 7.x here.
+Visit the [legacy documentation](/docs/legacy/version-7-x/documentation) for version 7.x here.
 
 ```sh
 % npm install react-unity-webgl@7.x
@@ -28,7 +28,7 @@ Visit the [legacy documentation](/docs/legacy/version-7-x) for version 7.x here.
 
 Install version 6.x when building your project using Unity 2017. This version is in maintenance long time service development and does receive does bug fixes and compatibility changes with the latest version of Unity 2017.
 
-Visit the [legacy documentation](/docs/legacy/version-6-x) for version 6.x here.
+Visit the [legacy documentation](/docs/legacy/version-6-x/documentation) for version 6.x here.
 
 ```sh
 % npm install react-unity-webgl@6.x
@@ -38,7 +38,7 @@ Visit the [legacy documentation](/docs/legacy/version-6-x) for version 6.x here.
 
 Install version 5.x when building your project using Unity 5.6. This version no longer in maintenance mode and does no receive bug fixes and compatibility changes. Consider upgrading to a later version of Unity.
 
-Visit the [legacy documentation](/docs/legacy/version-5-x) for version 5.x here.
+Visit the [legacy documentation](/docs/legacy/version-5-x/documentation) for version 5.x here.
 
 ```sh
 % npm install react-unity-webgl@5.x

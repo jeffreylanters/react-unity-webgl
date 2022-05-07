@@ -39,7 +39,7 @@ Display some kind of overlay over your Unity Application while it's loading to p
 
 A basic implementation could look something like this. In the following example we'll hide the Unity Application while it's being loaded to prevent the user from interacting with the Unity Application before it's completely ready.
 
-```jsx title="Example: Hiding the Unity Application while it's loading"
+```jsx showLineNumbers title="Example: Hiding the Unity Application while it's loading"
 import React from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 

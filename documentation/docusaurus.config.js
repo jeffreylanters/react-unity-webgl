@@ -52,14 +52,19 @@ const config = {
       },
       items: [
         {
-          to: "/docs/getting-started/introduction",
+          to: "/docs/introduction",
           position: "left",
           label: "Docs",
         },
         {
+          to: "/docs/api/introduction",
+          position: "left",
+          label: "API",
+        },
+        {
           to: "/docs/legacy/introduction",
           position: "left",
-          label: "Legacy Docs",
+          label: "Legacy",
         },
         {
           to: "/made-with",

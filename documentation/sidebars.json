@@ -1,26 +1,164 @@
 {
-  "docs": {
-    "Getting Started": [
-      "getting-started/introduction",
-      "getting-started/installation",
-      "getting-started/hello-world"
-    ],
-    "Main Concepts": [
-      "main-concepts/project-structure",
-      "main-concepts/unity-config"
-    ],
-    "Advanced Guides": {
-      "Application State": [
-        "advanced-guides/application-state/is-loaded",
-        "advanced-guides/application-state/loading-progression"
+  "docs": [
+    {
+      "type": "doc",
+      "id": "introduction"
+    },
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "items": [
+        {
+          "type": "doc",
+          "id": "getting-started/installation"
+        },
+        {
+          "type": "doc",
+          "id": "getting-started/hello-world"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Main Concepts",
+      "items": [
+        {
+          "type": "doc",
+          "id": "main-concepts/project-structure"
+        },
+        {
+          "type": "doc",
+          "id": "main-concepts/unity-config"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Quick Start",
+      "items": [
+        {
+          "type": "doc",
+          "id": "quick-start/simple-example"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Advanced Examples",
+      "items": [
+        {
+          "type": "doc",
+          "id": "advanced-examples/loading-overlay"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Documents",
+      "items": [
+        {
+          "type": "link",
+          "label": "Contributing",
+          "href": "https://github.com/jeffreylanters/react-unity-webgl/blob/main/CONTRIBUTING.md"
+        },
+        {
+          "type": "link",
+          "label": "License",
+          "href": "https://github.com/jeffreylanters/react-unity-webgl/blob/main/LICENSE.md"
+        },
+        {
+          "type": "link",
+          "label": "Security",
+          "href": "https://github.com/jeffreylanters/react-unity-webgl/blob/main/SECURITY.md"
+        }
       ]
     }
-  },
+  ],
+  "api": [
+    {
+      "type": "doc",
+      "id": "api/introduction"
+    },
+
+    {
+      "type": "category",
+      "label": "Application State",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/application-state/is-loaded"
+        },
+        {
+          "type": "doc",
+          "id": "api/application-state/loading-progression"
+        }
+      ]
+    }
+  ],
   "legacy": [
-    "legacy/introduction",
-    "legacy/version-8-x",
-    "legacy/version-7-x",
-    "legacy/version-6-x",
-    "legacy/version-5-x"
+    {
+      "type": "doc",
+      "id": "legacy/introduction"
+    },
+    {
+      "type": "category",
+      "label": "Version 8.x",
+      "items": [
+        {
+          "type": "doc",
+          "id": "legacy/version-8-x/documentation",
+          "label": "Documentation"
+        },
+        {
+          "type": "doc",
+          "id": "legacy/version-8-x/license"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Version 7.x",
+      "items": [
+        {
+          "type": "doc",
+          "id": "legacy/version-7-x/documentation",
+          "label": "Documentation"
+        },
+        {
+          "type": "doc",
+          "id": "legacy/version-7-x/license"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Version 6.x",
+      "items": [
+        {
+          "type": "doc",
+          "id": "legacy/version-6-x/documentation",
+          "label": "Documentation"
+        },
+        {
+          "type": "doc",
+          "id": "legacy/version-6-x/license"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Version 5.x",
+      "items": [
+        {
+          "type": "doc",
+          "id": "legacy/version-5-x/documentation",
+          "label": "Documentation"
+        },
+        {
+          "type": "doc",
+          "id": "legacy/version-5-x/license"
+        }
+      ]
+    }
   ]
 }
