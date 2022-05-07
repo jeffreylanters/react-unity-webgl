@@ -24,7 +24,7 @@ const config = {
         docs: {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve("./sidebars.json"),
           editUrl:
             "https://github.com/jeffreylanters/react-unity-webgl/tree/main/documentation/",
         },
@@ -52,10 +52,14 @@ const config = {
       },
       items: [
         {
-          type: "doc",
-          docId: "introduction",
+          to: "/docs/getting-started/introduction",
           position: "left",
           label: "Docs",
+        },
+        {
+          to: "/docs/legacy/introduction",
+          position: "left",
+          label: "Legacy Docs",
         },
         {
           to: "/made-with",

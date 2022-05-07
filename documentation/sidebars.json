@@ -1,0 +1,26 @@
+{
+  "docs": {
+    "Getting Started": [
+      "getting-started/introduction",
+      "getting-started/installation",
+      "getting-started/hello-world"
+    ],
+    "Main Concepts": [
+      "main-concepts/project-structure",
+      "main-concepts/unity-config"
+    ],
+    "Advanced Guides": {
+      "Application State": [
+        "advanced-guides/application-state/is-loaded",
+        "advanced-guides/application-state/loading-progression"
+      ]
+    }
+  },
+  "legacy": [
+    "legacy/introduction",
+    "legacy/version-8-x",
+    "legacy/version-7-x",
+    "legacy/version-6-x",
+    "legacy/version-5-x"
+  ]
+}
