@@ -1,6 +1,7 @@
-const lightCodeTheme = require("prism-react-renderer/themes/github");
+const lightCodeTheme = require("prism-react-renderer/themes/nightOwlLight");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
+/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "React Unity WebGL",
   tagline: "Bring your Unity Games to the Web!",
@@ -11,10 +12,15 @@ const config = {
   favicon: "images/favicon.ico",
   organizationName: "jeffreylanters",
   projectName: "react-unity-webgl",
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en"],
+  },
   presets: [
     [
       "classic",
-      {
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:
@@ -23,7 +29,7 @@ const config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
-      },
+      }),
     ],
   ],
   themeConfig: {
