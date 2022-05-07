@@ -33,7 +33,7 @@ You're not limited by just showing the percentage of the loading progression, yo
 ```
 
 :::tip
-If you want to do something based on when the Unity Application has finished loading, you can use the [is loaded stateful value](/docs/advanced-guides/application-state/is-loaded) rather than checking whether the loading progression's value is 1.
+If you want to do something based on when the Unity Application has finished loading, you can use the [is loaded stateful value](/docs/api/application-state/is-loaded) rather than checking whether the loading progression's value is 1.
 :::
 
 ## Example
