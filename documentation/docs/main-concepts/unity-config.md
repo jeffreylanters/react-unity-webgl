@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Configuration
+# Unity Config
 
 When rendering your Unity Application within a React Application, you'll have to pass along the Unity Provider to the Unity Component. When the Unity Component is being mounted, it will take the Unity Context's configuration and initialises the required resources in order to render your Unity Application. During this process, the Unity Context's state will be updated to reflect the Unity Application's.
 
