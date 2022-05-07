@@ -16,19 +16,19 @@ While your Unity Application is being downloaded from the server and loaded into
 
 To get started, destructure the loading progression value from the Unity Context.
 
-```jsx title="Example: Destructuring the loading progression value"
+```jsx showLineNumbers title="Example: Destructuring the loading progression value"
 const { loadingProgression } = useUnityContext();
 ```
 
 Next you'll be able to use the loading progression value to display a loading indicator.
 
-```jsx title="Example: Using the loading progression value"
+```jsx showLineNumbers title="Example: Using the loading progression value"
 <p>Loading {loadingProgression}...</p>
 ```
 
 You're not limited by just showing the percentage of the loading progression, you can for example also use it's value to display a loading bar. The posibilities are endless!
 
-```jsx title="Example: Using the loading progression value"
+```jsx showLineNumbers title="Example: Using the loading progression value"
 <div style={{ width: `${loadingProgression * 100}%` }} />
 ```
 
@@ -40,7 +40,7 @@ If you want to do something based on when the Unity Application has finished loa
 
 A basic implementation could look something like this. In the following example we'll track the loading progression and display a text which shows the loading progression as a percentage.
 
-```jsx title="Example: Tracking the loading progression"
+```jsx showLineNumbers title="App.jsx"
 import React from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 

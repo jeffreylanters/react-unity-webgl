@@ -18,13 +18,13 @@ The Unity Context's is loaded value can be used for such cases. This stateful va
 
 To get started, destructure the is loaded value from the Unity Context.
 
-```jsx title="Example: Destructuring the is loaded value"
+```jsx showLineNumbers title="Example: Destructuring the is loaded value"
 const { isLoaded } = useUnityContext();
 ```
 
 Next you'll be able to use the is loaded value to display a loading indicator.
 
-```jsx title="Example: Using the is loaded value"
+```jsx showLineNumbers title="Example: Using the is loaded value"
 if (isLoaded === false) {
   return <p>Loading...</p>;
 }
@@ -39,7 +39,7 @@ Display some kind of overlay over your Unity Application while it's loading to p
 
 A basic implementation could look something like this. In the following example we'll hide the Unity Application while it's being loaded to prevent the user from interacting with the Unity Application before it's completely ready.
 
-```jsx showLineNumbers title="Example: Hiding the Unity Application while it's loading"
+```jsx showLineNumbers title="App.jsx"
 import React from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
