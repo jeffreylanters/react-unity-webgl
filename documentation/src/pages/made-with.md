@@ -33,7 +33,3 @@ Magic Microwave is a collective art project, game studio, game platform, interco
 [Visit Magic Microwave here](https://magicmicrowave.xyz)
 
 ![Magic Microwave](/images/made-with/magicmicrowave.png)
-
-## Get featured?
-
-Would you like to add your game to this list? Simply [open a pull request](https://github.com/jeffreylanters/react-unity-webgl/blob/main/documentation/src/pages/made-with.md) to add your own project!

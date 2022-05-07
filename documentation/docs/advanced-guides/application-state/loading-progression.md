@@ -4,6 +4,8 @@ sidebar_position: 0
 
 # Loading Progression
 
+Represents the percentual loading progression of the Unity Application.
+
 > Available since version 9.0.0
 
 ## Type Definition
@@ -35,7 +37,7 @@ You're not limited by just showing the percentage of the loading progression, yo
 ```
 
 :::tip
-If you want to do something based on when the Unity Application has finished loading, you can use the [is loaded stateful value](/docs/advanced-guides/unity-application-state/is-loaded) rather than checking whether the loading progression's value is 1.
+If you want to do something based on when the Unity Application has finished loading, you can use the [is loaded stateful value](/docs/advanced-guides/application-state/is-loaded) rather than checking whether the loading progression's value is 1.
 :::
 
 ## Example
