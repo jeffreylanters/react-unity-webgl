@@ -37,8 +37,8 @@ const config = {
       id: "support_me",
       content:
         'If you like this module, please considing <a target="_blank" href="https://github.com/sponsors/jeffreylanters">sponsoring</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> ❤️',
-      backgroundColor: "#fafbfc",
-      textColor: "#091E42",
+      backgroundColor: "#2399EF",
+      textColor: "#ffffff",
       isCloseable: false,
     },
     navbar: {
