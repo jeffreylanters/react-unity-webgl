@@ -68,6 +68,23 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
   );
 
   /**
+   * Lets you asynchronously ask for the pointer to be locked on the given Unity
+   * Application's Canvas Element.
+   */
+  const requestPointerLock = useCallback(() => {
+    if (
+      unityInstance === null ||
+      typeof unityInstance.Module.canvas === "undefined"
+    ) {
+      // Guarding the Unity Instance and the canvas.
+      console.warn(errorMessages.requestPointerLockNoUnityInstanceOrCanvas);
+      return;
+    }
+    // Requesting the pointer lock.
+    return unityInstance.Module.canvas.requestPointerLock();
+  }, []);
+
+  /**
    * Sends a message to the UnityInstance to invoke a public method.
    */
   const sendMessage = useCallback(
@@ -144,6 +161,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     initialisationError,
     isLoaded,
     setFullscreen,
+    requestPointerLock,
     sendMessage,
     unload,
     takeScreenshot,

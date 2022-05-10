@@ -60,6 +60,14 @@ export interface IUnityContextHook extends IEventSystemHook {
   ) => string | undefined;
 
   /**
+   * Lets you asynchronously ask for the pointer to be locked on the given Unity
+   * Application's Canvas Element. To track the success or failure of the
+   * request, it is necessary to listen for the pointerlockchange and
+   * pointerlockerror events at the Document level.
+   */
+  readonly requestPointerLock: () => void;
+
+  /**
    * Requests the UnityInstance to be unloaded from memory in order to be
    * unmounted from the DOM.
    */
