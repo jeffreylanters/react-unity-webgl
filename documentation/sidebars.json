@@ -79,7 +79,6 @@
       "type": "doc",
       "id": "api/introduction"
     },
-
     {
       "type": "category",
       "label": "Application State",
@@ -93,6 +92,10 @@
           "id": "api/application-state/loading-progression"
         }
       ]
+    },
+    {
+      "type": "doc",
+      "id": "api/set-fullscreen"
     }
   ],
   "legacy": [
