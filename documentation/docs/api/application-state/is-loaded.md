@@ -10,7 +10,7 @@ Represents the loaded state of the Unity Application.
 isLoaded: boolean = false;
 ```
 
-## Usage
+## Implementation
 
 While your Unity Application is being downloaded from the server and loaded into memory and the loading progression's stateful value is being updated to reflect the progression, you might want to hide your loading screen or display some sort of user interface when the Unity Application has finished loading and is started.
 
@@ -35,7 +35,7 @@ return <p>Application Loaded!</p>;
 Display some kind of overlay over your Unity Application while it's loading to prevent the user from interacting with the Unity Application before it's completely ready. And use the [loading progression stateful value](/docs/api/application-state/loading-progression) to display a loading bar.
 :::
 
-## Example
+## Example Usage
 
 A basic implementation could look something like this. In the following example we'll hide the Unity Application while it's being loaded to prevent the user from interacting with the Unity Application before it's completely ready.
 

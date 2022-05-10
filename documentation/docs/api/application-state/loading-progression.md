@@ -10,7 +10,7 @@ Represents the percentual loading progression of the Unity Application.
 loadingProgression: number = 0;
 ```
 
-## Usage
+## Implementation
 
 While your Unity Application is being downloaded from the server and loaded into memory, you might want to display some sort of loading indicator informing the user of the progression. The Unity Context's loading progression value can be used for such cases. This stateful value will update while the Unity Application is being loaded. Its value will be between 0 and 1, where 0 means the Unity Application has not started loading and 1 means the Unity Application has finished loading.
 
@@ -36,7 +36,7 @@ You're not limited by just showing the percentage of the loading progression, yo
 If you want to do something based on when the Unity Application has finished loading, you can use the [is loaded stateful value](/docs/api/application-state/is-loaded) rather than checking whether the loading progression's value is 1.
 :::
 
-## Example
+## Example Usage
 
 A basic implementation could look something like this. In the following example we'll track the loading progression and display a text which shows the loading progression as a percentage.
 
