@@ -6,6 +6,12 @@ const errorMessages = {
   setFullscreenNoUnityInstance:
     "Unable to Set Fullscreen while Unity is not Instantiated.",
   /**
+   * The error message for when no Unity Instance was found while trying to
+   * request the pointer lock.
+   */
+  requestPointerLockNoUnityInstanceOrCanvas:
+    "Unable to Request Pointer Lock while Unity is not Instantiated or the Canvas is not found.",
+  /**
    * The error message for when no Unity Instance was found while trying to send
    * a message.
    */
