@@ -13,6 +13,7 @@ const UnityTest: FunctionComponent = () => {
     unityProvider,
     isLoaded,
     setFullscreen,
+    requestPointerLock,
     sendMessage,
     initialisationError,
     addEventListener,
@@ -60,6 +61,9 @@ const UnityTest: FunctionComponent = () => {
       <p>
         Actions
         <button onClick={() => setFullscreen(true)}>Fullscreen</button>
+        <button onClick={() => requestPointerLock()}>
+          Request Pointer Lock
+        </button>
         <button onClick={() => console.log(takeScreenshot("image/jpg", 1))}>
           Screenshot
         </button>
