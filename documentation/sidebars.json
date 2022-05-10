@@ -94,8 +94,14 @@
       ]
     },
     {
-      "type": "doc",
-      "id": "api/set-fullscreen"
+      "type": "category",
+      "label": "Canvas Interaction",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/canvas-interaction/request-fullscreen"
+        }
+      ]
     }
   ],
   "legacy": [

@@ -1,4 +1,4 @@
-# Set Fullscreen
+# Request Fullscreen
 
 Enabled or disabled te fullscreen mode of the Unity Application's Canvas.
 
@@ -7,28 +7,28 @@ Enabled or disabled te fullscreen mode of the Unity Application's Canvas.
 ## Type Definition
 
 ```tsx title="Type Definition"
-function setFullscreen(enabled: boolean): void;
+function requestFullscreen(enabled: boolean): void;
 ```
 
 ## Implementation
 
 The exposed set fullscreen function allows you to enable and disable the fullscreen mode of your Unity Application. The parameter `enabled` is a boolean value that indicates if the fullscreen mode should be enabled or disabled.
 
-:::tip
-Cursor locking (using Cursor.lockState) and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox and Chrome. Safari cannot currently use full-screen and cursor locking.
+:::info
+It is posible to also request locking the pointer within the canvas via the request pointer lock function within the Unity Context. Cursor locking and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox, Chrome and Safari.
 :::
 
 To get started, destructure the set fullscreen function from the Unity Context.
 
 ```jsx showLineNumbers title="Example: Destructuring the set fullscreen function"
-const { setFullscreen } = useUnityContext();
+const { requestFullscreen } = useUnityContext();
 ```
 
 Next you'll be able to invoke the set fullscreen function with the desired state.
 
 ```jsx showLineNumbers title="Example: Using the set fullscreen function"
 function handleClick() {
-  setFullscreen(true);
+  requestFullscreen(true);
 }
 
 return <button onClick={handleClick}>Enter Fullscreen</button>;
@@ -43,7 +43,7 @@ import React, { Fragment } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 function App() {
-  const { unityProvider, setFullscreen } = useUnityContext({
+  const { unityProvider, requestFullscreen } = useUnityContext({
     loaderUrl: "build/myunityapp.loader.js",
     dataUrl: "build/myunityapp.data",
     frameworkUrl: "build/myunityapp.framework.js",
@@ -51,7 +51,7 @@ function App() {
   });
 
   function handleClickEnterFullscreen() {
-    setFullscreen(true);
+    requestFullscreen(true);
   }
 
   return (
