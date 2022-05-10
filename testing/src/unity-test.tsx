@@ -12,7 +12,7 @@ const UnityTest: FunctionComponent = () => {
     loadingProgression,
     unityProvider,
     isLoaded,
-    setFullscreen,
+    requestFullscreen,
     requestPointerLock,
     sendMessage,
     initialisationError,
@@ -60,7 +60,9 @@ const UnityTest: FunctionComponent = () => {
       </p>
       <p>
         Actions
-        <button onClick={() => setFullscreen(true)}>Fullscreen</button>
+        <button onClick={() => requestFullscreen(true)}>
+          Request Fullscreen
+        </button>
         <button onClick={() => requestPointerLock()}>
           Request Pointer Lock
         </button>
