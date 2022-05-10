@@ -3,7 +3,7 @@ const errorMessages = {
    * The error message for when no Unity Instance was found while trying to set
    * the fullscreen mode.
    */
-  setFullscreenNoUnityInstance:
+  requestFullscreenNoUnityInstance:
     "Unable to Set Fullscreen while Unity is not Instantiated.",
   /**
    * The error message for when no Unity Instance was found while trying to

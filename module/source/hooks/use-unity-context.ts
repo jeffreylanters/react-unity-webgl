@@ -49,14 +49,14 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
   /**
    * Enables or disabled the Fullscreen mode of the Unity Instance.
    */
-  const setFullscreen = useCallback(
+  const requestFullscreen = useCallback(
     /**
      * @param enabled Defines whether Unity should be in fullscreen.
      */
     (enabled: boolean) => {
       if (unityInstance === null) {
         // Guarding the Unity Instance.
-        console.warn(errorMessages.setFullscreenNoUnityInstance);
+        console.warn(errorMessages.requestFullscreenNoUnityInstance);
         return;
       }
       // For undocumented reasons, the fullscreen mode can only be enabled
@@ -160,7 +160,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     loadingProgression,
     initialisationError,
     isLoaded,
-    setFullscreen,
+    requestFullscreen,
     requestPointerLock,
     sendMessage,
     unload,

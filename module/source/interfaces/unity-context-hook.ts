@@ -33,7 +33,7 @@ export interface IUnityContextHook extends IEventSystemHook {
    * Enables or disabled the Fullscreen mode of the Unity Instance.
    * @param enabled Defines whether Unity should be in fullscreen.
    */
-  readonly setFullscreen: (enabled: boolean) => void;
+  readonly requestFullscreen: (enabled: boolean) => void;
 
   /**
    * Sends a message to the UnityInstance to invoke a public method.
