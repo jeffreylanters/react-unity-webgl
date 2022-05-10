@@ -82,7 +82,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     }
     // Requesting the pointer lock.
     return unityInstance.Module.canvas.requestPointerLock();
-  }, []);
+  }, [unityInstance]);
 
   /**
    * Sends a message to the UnityInstance to invoke a public method.
