@@ -2,6 +2,8 @@ name: Validate Documentation
 on:
   # Run when a push or pull request contains changes in the documentation directory.
   push:
+    branches-ignore:
+      - main
     paths:
       - documentation/**
   pull_request:
