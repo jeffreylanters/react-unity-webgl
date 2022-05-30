@@ -1,4 +1,4 @@
-# Is Loaded
+# Handling on when the Application is loaded
 
 Represents the loaded state of the Unity Application.
 
@@ -32,7 +32,7 @@ return <p>Application Loaded!</p>;
 ```
 
 :::tip
-Display some kind of overlay over your Unity Application while it's loading to prevent the user from interacting with the Unity Application before it's completely ready. And use the [loading progression stateful value](/docs/api/application-state/loading-progression) to display a loading bar.
+Display some kind of overlay over your Unity Application while it's loading to prevent the user from interacting with the Unity Application before it's completely ready. And use the [loading progression stateful value](/docs/api/loading-progression) to display a loading bar.
 :::
 
 ## Example Usage

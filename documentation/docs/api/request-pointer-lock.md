@@ -1,4 +1,4 @@
-# Request Pointer Lock
+# Requesting Pointer Locking
 
 The request pointer lock function lets you asynchronously ask for the pointer to be locked on the Unity Application's canvas.
 
@@ -19,7 +19,7 @@ More than that, the API is useful for any applications that require significant 
 Pointer lock lets you access mouse events even when the cursor goes past the boundary of the browser or screen. For example, your users can continue to rotate or manipulate a 3D model by moving the mouse without end. Without Pointer lock, the rotation or manipulation stops the moment the pointer reaches the edge of the browser or screen. Game players can now click buttons and swipe the mouse cursor back and forth without worrying about leaving the game play area and accidentally clicking another application that would take mouse focus away from the game.
 
 :::info
-It is posible to also request entering fullscreen within the canvas via the [request fullscreen function](/docs/api/canvas-interaction/request-fullscreen) within the Unity Context. Cursor locking and full-screen mode are both supported simultaneously in React Unity WebGL, implemented using their respective HTML5 APIs.
+It is posible to also request entering fullscreen within the canvas via the [request fullscreen function](/docs/api/request-fullscreen) within the Unity Context. Cursor locking and full-screen mode are both supported simultaneously in React Unity WebGL, implemented using their respective HTML5 APIs.
 :::
 
 To get started, destructure the request pointer lock function from the Unity Context.
