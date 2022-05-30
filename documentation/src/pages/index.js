@@ -18,7 +18,7 @@ const Index = () => {
           }}
         />
         <h1>React Unity WebGL</h1>
-        <p>Bring your Unity Games to the Web!</p>
+        <p>Bringing your Unity Games to the Web since 2017!</p>
         <a href="/docs/introduction">
           <button>Get Started</button>
         </a>
