@@ -49,6 +49,10 @@
         {
           "type": "doc",
           "id": "advanced-examples/loading-overlay"
+        },
+        {
+          "type": "doc",
+          "id": "advanced-examples/dynamic-device-pixel-ratio"
         }
       ]
     },
