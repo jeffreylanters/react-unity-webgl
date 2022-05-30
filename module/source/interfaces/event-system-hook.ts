@@ -1,7 +1,7 @@
 /**
  * Event system for external React Unity events.
  */
-export interface IEventSystemHook {
+interface IEventSystemHook {
   /**
    * Adds an event listener for external React Unity events.
    * @param eventName The name of the event to listen to.
@@ -22,3 +22,5 @@ export interface IEventSystemHook {
     callback: (...parameters: ReactUnityEventParameterType[]) => void
   ) => void;
 }
+
+export type { IEventSystemHook };

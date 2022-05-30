@@ -4,7 +4,7 @@ import { IUnityConfig } from "./unity-config";
  * The Unity Provider is a statefull object that contains a series of methods
  * and properties that are used to alter the Unity Context state.
  */
-export interface IUnityProvider {
+interface IUnityProvider {
   /**
    * Sets the Unity Context's loading progression.
    */
@@ -30,3 +30,5 @@ export interface IUnityProvider {
    */
   readonly unityConfig: IUnityConfig;
 }
+
+export type { IUnityProvider };

@@ -1,7 +1,7 @@
 /**
  * An event listener.
  */
-export interface IEventListener {
+interface IEventListener {
   /**
    * The name of the event to listen to.
    */
@@ -12,3 +12,5 @@ export interface IEventListener {
    */
   callback: (...parameters: ReactUnityEventParameterType[]) => void;
 }
+
+export type { IEventListener };

@@ -4,7 +4,7 @@ import { IEventSystemHook } from "./event-system-hook";
 /**
  * The Unity Context hook.
  */
-export interface IUnityContextHook extends IEventSystemHook {
+interface IUnityContextHook extends IEventSystemHook {
   /**
    * The Unity Context returns a Unity Provider instance. This immutable object
    * should be passed onto a Unity Component in order to be able to access the
@@ -73,3 +73,5 @@ export interface IUnityContextHook extends IEventSystemHook {
    */
   readonly unload: () => Promise<void> | undefined;
 }
+
+export type { IUnityContextHook };

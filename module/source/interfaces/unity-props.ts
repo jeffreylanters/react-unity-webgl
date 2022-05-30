@@ -4,7 +4,7 @@ import { IUnityProvider } from "./unity-provider";
 /**
  * The Unity component's props.
  */
-export interface IUnityProps {
+interface IUnityProps {
   /**
    * The Provider of the Unity Context which should be rendered be the Unity
    * Component.
@@ -46,3 +46,5 @@ export interface IUnityProps {
    */
   readonly matchWebGLToCanvasSize?: boolean;
 }
+
+export type { IUnityProps };
