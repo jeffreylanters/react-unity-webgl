@@ -13,7 +13,8 @@
   margin-bottom: 20px;
 }
 
-.main h1, .main p {
+.main h1,
+.main p {
   text-align: center;
 }
 
@@ -22,7 +23,7 @@
 }
 
 .main button {
-  background: #2399EF;
+  background: #2399ef;
   border: 0;
   outline: 0;
   font-size: 1.5rem;
