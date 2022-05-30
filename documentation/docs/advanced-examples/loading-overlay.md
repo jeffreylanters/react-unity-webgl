@@ -3,7 +3,7 @@ import TabItem from "@theme/TabItem";
 
 # Loading Overlay
 
-In the following example, we'll be rendering a Unity Application in our React Application. While the Unity Application is loading, we'll be rendering a loading overlay.
+In the following example, we'll be rendering a Unity Application in our React Application. The Unity Application will render within a container, this allows us to overlay the containing with a loading overlay. This overlay will be visible while the Unity Application is loading.
 
 <Tabs>
 <TabItem value="App.jsx" label="App.jsx">
@@ -20,11 +20,15 @@ function App() {
     codeUrl: "build/myunityapp.wasm",
   });
 
+  // We'll round the loading progression to a whole number to represent the
+  // percentage of the Unity Application that has loaded.
   const loadingPercentage = Math.round(loadingProgression * 100);
 
   return (
     <div className="container">
       {isLoaded === false && (
+        // We'll conditionally render the loading overlay if the Unity
+        // Application is not loaded.
         <div className="loading-overlay">
           <p>Loading... ({loadingPercentage}%)</p>
         </div>
