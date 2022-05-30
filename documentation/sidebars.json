@@ -78,8 +78,9 @@
       ]
     },
     {
-      "type": "doc",
-      "id": "known-issues"
+      "type": "link",
+      "label": "Known Issues",
+      "href": "https://github.com/jeffreylanters/react-unity-webgl/issues?q=label%3A%22known+issue%22+"
     }
   ],
   "api": [
