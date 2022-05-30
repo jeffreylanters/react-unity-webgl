@@ -14,7 +14,7 @@ body:
       options:
         - label: I checked [all open issues](https://github.com/jeffreylanters/react-unity-webgl/issues) and [discussions](https://github.com/jeffreylanters/react-unity-webgl/discussions) and none of them matched my problem.
           required: true
-          
+
   - type: dropdown
     id: language-compiler
     attributes:
@@ -116,7 +116,7 @@ body:
     attributes:
       label: Reproducible test case
       description: If possible, please create a minimal test case that reproduces your problem.
-      placeholder: "import Unity, { UnityContext } from \"react-unity-webgl\";"
+      placeholder: "```jsx\nimport { Unity, useUnityContext } from \"react-unity-webgl\";\n```"
 
   - type: checkboxes
     id: contributor
