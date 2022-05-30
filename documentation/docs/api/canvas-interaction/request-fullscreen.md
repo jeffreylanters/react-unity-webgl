@@ -12,21 +12,21 @@ function requestFullscreen(enabled: boolean): void;
 
 ## Implementation
 
-The exposed set fullscreen function allows you to enable and disable the fullscreen mode of your Unity Application. The parameter `enabled` is a boolean value that indicates if the fullscreen mode should be enabled or disabled.
+The exposed request fullscreen function allows you to enable and disable the fullscreen mode of your Unity Application. The parameter `enabled` is a boolean value that indicates if the fullscreen mode should be enabled or disabled.
 
 :::info
-It is posible to also request locking the pointer within the canvas via the request pointer lock function within the Unity Context. Cursor locking and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox, Chrome and Safari.
+It is posible to also request locking the pointer within the canvas via the [request pointer lock function](/docs/api/canvas-interaction/request-pointer-lock) within the Unity Context. Cursor locking and full-screen mode are both supported simultaneously in React Unity WebGL, implemented using their respective HTML5 APIs.
 :::
 
-To get started, destructure the set fullscreen function from the Unity Context.
+To get started, destructure the request fullscreen function from the Unity Context.
 
-```jsx showLineNumbers title="Example: Destructuring the set fullscreen function"
+```jsx showLineNumbers title="Example: Destructuring the request fullscreen function"
 const { requestFullscreen } = useUnityContext();
 ```
 
-Next you'll be able to invoke the set fullscreen function with the desired state.
+Next you'll be able to invoke the request fullscreen function with the desired state.
 
-```jsx showLineNumbers title="Example: Using the set fullscreen function"
+```jsx showLineNumbers title="Example: Using the request fullscreen function"
 function handleClick() {
   requestFullscreen(true);
 }
