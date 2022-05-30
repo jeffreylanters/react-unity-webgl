@@ -76,6 +76,10 @@
           "href": "https://github.com/jeffreylanters/react-unity-webgl/blob/main/SECURITY.md"
         }
       ]
+    },
+    {
+      "type": "doc",
+      "id": "known-issues"
     }
   ],
   "api": [
@@ -120,6 +124,10 @@
         {
           "type": "doc",
           "id": "api/canvas-device-pixel-ratio"
+        },
+        {
+          "type": "doc",
+          "id": "api/tab-index"
         }
       ]
     }
