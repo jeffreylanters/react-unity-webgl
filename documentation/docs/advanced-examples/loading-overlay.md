@@ -29,7 +29,7 @@ function App() {
           <p>Loading... ({loadingPercentage}%)</p>
         </div>
       )}
-      <Unity unityProvider={unityProvider} />
+      <Unity className="unity" unityProvider={unityProvider} />
     </div>
   );
 }
@@ -41,6 +41,7 @@ function App() {
 ```css showLineNumbers title="App.css"
 .container {
   position: relative;
+  /* The container determains the size. */
   width: 800px;
   height: 600px;
 }
@@ -59,7 +60,8 @@ function App() {
   align-items: center;
 }
 
-.container > canvas {
+.container > .unity {
+  /* The Unity Application matches it size to the container. */
   width: 100%;
   height: 100%;
 }
