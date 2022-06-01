@@ -76,9 +76,38 @@ function App() {
 }
 ```
 
-All of the URLs which can be provided to the Unity Config, including the ones mentioned above, are due to their enormous size not included into your bundle. You should place these files in a public directory within your project or use a CDN. This means the files behind these URLs are loaded during runtime and should be accessible by the browser via a public URL.
+Simply rendering your Unity Application within your React Application is just the beginning! The possibilities are endless. A little more complex example with communication can look like this:
 
-To learn more about the Unity Config, head over to the [Unity Config documentation](https://react-unity-webgl.jeffreylanters.nl/docs/main-concepts/unity-config).
+```jsx
+import React, { useCallback } from "react";
+import { Unity, useUnityContext } from "react-unity-webgl";
+
+const App = () => {
+  const { unityProvider, isLoaded, sendMessage } = useUnityContext({
+    loaderUrl: "build/myunityapp.loader.js",
+    dataUrl: "build/myunityapp.data",
+    frameworkUrl: "build/myunityapp.framework.js",
+    codeUrl: "build/myunityapp.wasm",
+  });
+
+  const handleClick = useCallback(() => {
+    if (isLoaded === true) {
+      sendMessage("GameController", "SpawnEnemies", 10);
+    }
+  }, [sendMessage]);
+
+  return (
+    <div>
+      <Unity unityProvider={unityProvider} />
+      <button onClick={handleClick}>Spawn enemies</button>
+    </div>
+  );
+};
+```
+
+What's next is up to you!
+
+> Note that all of the URLs which can be provided to the Unity Config, including the ones mentioned above, are due to their enormous size not included into your bundle. You should place these files in a public directory within your project or use a CDN. This means the files behind these URLs are loaded during runtime and should be accessible by the browser via a public URL. To learn more about the Unity Config, head over to the [Unity Config documentation](https://react-unity-webgl.jeffreylanters.nl/docs/main-concepts/unity-config).
 
 # Contributing
 
@@ -86,9 +115,9 @@ You're looking into contributing? Awesome! When contributing to this mono-reposi
 
 Before submitting a pull request, please make sure the following is done:
 
-- Create a public fork the React Unity WebGL mono-repository and commit your changes to a new branch which is based from the main branch.
-- Make sure the package installs using `npm install`, your code lints using `ts lint`, is formatted using [prettier](https://github.com/prettier/prettier), compiles using `npm run build`.
-- Typecheck all of your changes and make sure the documentation in both the source code as well as the official website is up to date.
+- Create a public fork the React Unity WebGL mono-repository and commit your changes to a new branch which is based from the original repository's main branch.
+- Make sure both the module as well as the documentation installs using `npm install`, your code lints using `ts lint`, is formatted using [prettier](https://github.com/prettier/prettier) and compiles using `npm run build`.
+- Typecheck all of your changes and make sure the documentation in both the source code as well as the official website is up to date and reflects the changes you've made.
 - Make sure your changes passes and are compatibly with Unity WebGL builds using the [testing suite](https://github.com/jeffreylanters/react-unity-webgl/tree/main/testing).
 
 ### Development and Test-Cycle
