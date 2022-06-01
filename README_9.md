@@ -76,7 +76,7 @@ function App() {
 }
 ```
 
-Simply rendering your Unity Application within your React Application is just the beginning! The possibilities are endless. A little more complex example with communication can look like this:
+Simply rendering your Unity Application within your React Application is just the beginning! The Unity Context exposes a lot more fun stuff to play around with such as two way communication or requesting fullscreen or a pointerlock. A little more complex example with communication can look like this:
 
 ```jsx
 import React, { useCallback } from "react";
@@ -105,7 +105,7 @@ const App = () => {
 };
 ```
 
-What's next is up to you!
+This is just communication in a single direction, the possibilities are endless. What's next is up to you!
 
 > Note that all of the URLs which can be provided to the Unity Config, including the ones mentioned above, are due to their enormous size not included into your bundle. You should place these files in a public directory within your project or use a CDN. This means the files behind these URLs are loaded during runtime and should be accessible by the browser via a public URL. To learn more about the Unity Config, head over to the [Unity Config documentation](https://react-unity-webgl.jeffreylanters.nl/docs/main-concepts/unity-config).
 
