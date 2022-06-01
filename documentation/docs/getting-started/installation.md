@@ -1,9 +1,9 @@
 # Installation
 
-Get started by installing React Unity WebGL using the Node Package Manager or Yarn in your JavaScript or TypeScript React Project. If you don't have a React project yet, I recommend using [Creat React App](https://reactjs.org/docs/create-a-new-react-app.html) to get you started right away.
+Get started by installing React Unity WebGL using the Node Package Manager or Yarn in your JavaScript or TypeScript React project. If you don't have a React project yet, I recommend using [Creat React App](https://reactjs.org/docs/create-a-new-react-app.html) to get you started right away.
 
 :::tip
-Before installing the module, make sure you install a version which is compatible with your build's Unity version. When a new Unity version releases, I'll update the module as soon as possible in order to keep the compatibility. If you are running into any issues, please open an issue on the [React Unity WebGL Github page](https://github.com/jeffreylanters/react-unity-webgl/issues).
+Before installing the module, make sure you're installing a version which is compatible with your build's Unity version. When a new Unity version releases, I'll update the module as soon as possible in order to keep the compatibility. If you are running into any issues, please open an issue on the [React Unity WebGL Github page](https://github.com/jeffreylanters/react-unity-webgl/issues).
 :::
 
 ```sh
