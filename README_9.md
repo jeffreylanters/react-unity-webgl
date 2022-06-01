@@ -27,7 +27,7 @@ When bringing your Unity Application to the web, you might need to communicate w
 
 ### A quick word
 
-Hi there! I would like to say one more thing before you start bringing your awesome games to the web. My name is Jeffrey, I'm a Unity and Web developer with a passion for Open Source. The project you're looking at right now is one of my hobby projects. Maintaining and building this project is something I do in my spare time, and I have been doing so for the last 4 years. React-Unity-WebGL will always remain free, but if you are able to, I would appreciate it if you consider [sending a donation](https://paypal.me/jeffreylanters) or [becoming a sponsor](https://github.com/sponsors/jeffreylanters) to help me keep this project going.
+Hi there! I would like to say one more thing before you start bringing your awesome games to the web. My name is Jeffrey, I'm a Unity and Web developer with a passion for Open Source. The project you're looking at right now is one of my hobby projects. Maintaining and building this project is something I do in my spare time, and I have been doing so since 2017. React-Unity-WebGL will always remain free, but maining it and keeping up-to-date with Unity's updates takes a lot of work and tine. If you are able to, I would appreciate it greatly if you would consider [sending a donation](https://paypal.me/jeffreylanters) or [becoming a sponsor](https://github.com/sponsors/jeffreylanters) to help me keep this project going.
 
 Thanks for your time, happy coding!
 
@@ -43,8 +43,6 @@ Before installing the module, make sure you're installing a version which is com
 
 ### Legacy versions
 
-> React Unity WebGL has been rewritten completely with support for React Hooks in module version 9. Due to an overhaul of the entire API, the documentation for prior versions has been seperated.
-
 Version 9 and above of the module is compatibly with Unity 2020 and above. If you're using an older version of Unity, or you have to maintain an project built with an older version of the module, you can use one of the legacy versions of React Unity WebGL. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
 
-Head over to the [legacy docs](https://react-unity-webgl.jeffreylanters.nl/docs/legacy/introduction) to learn more about the legacy version of React Unity WebGL.
+React Unity WebGL has been rewritten completely with support for React Hooks in module version 9. Due to an overhaul of the entire API, the documentation for prior versions has been seperated. Head over to the [legacy docs](https://react-unity-webgl.jeffreylanters.nl/docs/legacy/introduction) to learn more about the legacy versions of React Unity WebGL.
