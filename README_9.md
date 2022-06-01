@@ -12,7 +12,7 @@
 [![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
 [![donate](https://img.shields.io/badge/donate-paypal-F23150?style=for-the-badge)](https://paypal.me/jeffreylanters)
 
-[**Documentation**](https://react-unity-webgl.jeffreylanters.nl/docs/introduction) &middot;
+[**Documentation**](https://react-unity-webgl.jeffreylanters.nl/) &middot;
 [**Example Templates**](https://github.com/jeffreylanters/react-unity-webgl-templates/) &middot;
 [**Sponsor the Project**](https://github.com/sponsors/jeffreylanters) &middot;
 [**Discussion Board**](https://github.com/jeffreylanters/react-unity-webgl/discussions)
