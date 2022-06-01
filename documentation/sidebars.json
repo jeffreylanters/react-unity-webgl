@@ -131,6 +131,16 @@
           "id": "api/tab-index"
         }
       ]
+    },
+    {
+      "type": "category",
+      "label": "Communication",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/send-message"
+        }
+      ]
     }
   ],
   "legacy": [
