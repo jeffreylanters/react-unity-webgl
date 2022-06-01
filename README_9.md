@@ -12,8 +12,6 @@
 [![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
 [![donate](https://img.shields.io/badge/donate-paypal-F23150?style=for-the-badge)](https://paypal.me/jeffreylanters)
 
-React Unity WebGL provides a modern solution for embedding Unity WebGL builds in your React Application while providing advanced APIs for two way communication and interaction between Unity and React.
-
 [**Documentation**](https://react-unity-webgl.jeffreylanters.nl/docs/introduction) &middot;
 [**Example Templates**](https://github.com/jeffreylanters/react-unity-webgl-templates/) &middot;
 [**Sponsor the Project**](https://github.com/sponsors/jeffreylanters) &middot;
@@ -33,9 +31,9 @@ Thanks for your time, happy coding!
 
 # Installation
 
-Get started by installing React Unity WebGL using the Node Package Manager or Yarn in your JavaScript or TypeScript React project. If you don't have a React project yet, I recommend using [Creat React App](https://reactjs.org/docs/create-a-new-react-app.html) to get you started right away.
+Get started by installing React Unity WebGL using the Node Package Manager or Yarn in your JavaScript or TypeScript React project. If you don't have a React project yet, I recommend using [Creat React App](https://reactjs.org/docs/create-a-new-react-app.html) to get you started right away. Visit the [installation documentation](https://react-unity-webgl.jeffreylanters.nl/docs/getting-started/installation) for more information.
 
-Before installing the module, make sure you're installing a version which is compatible with your build's Unity version. When a new Unity version releases, I'll update the module as soon as possible in order to keep the compatibility. If you are running into any issues, please open an issue on the [React Unity WebGL Github page](https://github.com/jeffreylanters/react-unity-webgl/issues).
+Before installing the module, make sure you're installing a version which is compatible with your build's Unity version. When a new Unity version releases, I'll update the module as soon as possible in order to keep the compatibility up to date. If you are running into any issues, please consider [opening an issue](https://github.com/jeffreylanters/react-unity-webgl/issues/new/choose).
 
 ```sh
 % npm install react-unity-webgl
@@ -46,3 +44,38 @@ Before installing the module, make sure you're installing a version which is com
 Version 9 and above of the module is compatibly with Unity 2020 and above. If you're using an older version of Unity, or you have to maintain an project built with an older version of the module, you can use one of the legacy versions of React Unity WebGL. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
 
 React Unity WebGL has been rewritten completely with support for React Hooks in module version 9. Due to an overhaul of the entire API, the documentation for prior versions has been seperated. Head over to the [legacy docs](https://react-unity-webgl.jeffreylanters.nl/docs/legacy/introduction) to learn more about the legacy versions of React Unity WebGL.
+
+# Documentation
+
+Learn everything you'll need to know about React Unity WebGL [on the official website](https://react-unity-webgl.jeffreylanters.nl).
+
+- [The docs](https://react-unity-webgl.jeffreylanters.nl/docs/introduction) will teach you all of the basics and concepts of React Unity WebGL.
+- Dive straight into the [API reference](https://react-unity-webgl.jeffreylanters.nl/docs/api/introduction) to learn everything the module has to offer.
+- When using an older version of Unity, you might want to check out the [legacy docs](https://react-unity-webgl.jeffreylanters.nl/docs/legacy/introduction).
+- Looking to share and showcase what you've built? Check out the [made with](https://react-unity-webgl.jeffreylanters.nl/made-with) page!
+
+The source code of both the website and the module are contained within this mono-repo. Feel free to open a [pull request](https://github.com/jeffreylanters/react-unity-webgl/pulls) to improve or add features to the any of these. Looking for a new feature, but not sure where to start? Feel free to spin up a new [discussion](https://github.com/jeffreylanters/react-unity-webgl/discussions).
+
+# Getting Started
+
+The documentation consists of several examples, for both starting as well as more advanced users. You can find these in the [quick start](https://react-unity-webgl.jeffreylanters.nl/docs/quick-start/simple-example) and [advanced examples](https://react-unity-webgl.jeffreylanters.nl/docs/advanced-examples/loading-overlay) sections. To get you started, the most basic implementation should look something like this:
+
+```jsx
+import React from "react";
+import { Unity, useUnityContext } from "react-unity-webgl";
+
+function App() {
+  const { unityProvider } = useUnityContext({
+    loaderUrl: "build/myunityapp.loader.js",
+    dataUrl: "build/myunityapp.data",
+    frameworkUrl: "build/myunityapp.framework.js",
+    codeUrl: "build/myunityapp.wasm",
+  });
+
+  return <Unity unityProvider={unityProvider} />;
+}
+```
+
+All of the URLs which can be provided to the Unity Config, including the ones mentioned above, are due to their enormous size not included into your bundle. You should place these files in a public directory within your project or use a CDN. This means the files behind these URLs are loaded during runtime and should be accessible by the browser via a public URL.
+
+To learn more about the Unity Config, head over to the [Unity Config documentation](https://react-unity-webgl.jeffreylanters.nl/docs/main-concepts/unity-config).
