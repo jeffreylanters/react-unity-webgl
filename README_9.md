@@ -31,7 +31,7 @@ Thanks for your time, happy coding!
 
 # Installation
 
-Get started by installing React Unity WebGL using the Node Package Manager or Yarn in your JavaScript or TypeScript React project. If you don't have a React project yet, I recommend using [Creat React App](https://reactjs.org/docs/create-a-new-react-app.html) to get you started right away. Visit the [installation documentation](https://react-unity-webgl.jeffreylanters.nl/docs/getting-started/installation) for more information.
+Get started by installing React Unity WebGL using the Node Package Manager or Yarn in your JavaScript or TypeScript React project. If you don't have a React project yet, I recommend using [Creat-React-App](https://reactjs.org/docs/create-a-new-react-app.html) to get you started right away. Visit the [installation documentation](https://react-unity-webgl.jeffreylanters.nl/docs/getting-started/installation) for more information.
 
 Before installing the module, make sure you're installing a version which is compatible with your build's Unity version. When a new Unity version releases, I'll update the module as soon as possible in order to keep the compatibility up to date. If you are running into any issues, please consider [opening an issue](https://github.com/jeffreylanters/react-unity-webgl/issues/new/choose).
 
@@ -76,36 +76,7 @@ function App() {
 }
 ```
 
-Simply rendering your Unity Application within your React Application is just the beginning! The Unity Context exposes a lot more fun stuff to play around with such as two way communication or requesting fullscreen or a pointerlock. A little more complex example with communication can look like this:
-
-```jsx
-import React, { useCallback } from "react";
-import { Unity, useUnityContext } from "react-unity-webgl";
-
-const App = () => {
-  const { unityProvider, isLoaded, sendMessage } = useUnityContext({
-    loaderUrl: "build/myunityapp.loader.js",
-    dataUrl: "build/myunityapp.data",
-    frameworkUrl: "build/myunityapp.framework.js",
-    codeUrl: "build/myunityapp.wasm",
-  });
-
-  const handleClick = useCallback(() => {
-    if (isLoaded === true) {
-      sendMessage("GameController", "SpawnEnemies", 10);
-    }
-  }, [sendMessage]);
-
-  return (
-    <div>
-      <Unity unityProvider={unityProvider} />
-      <button onClick={handleClick}>Spawn enemies</button>
-    </div>
-  );
-};
-```
-
-This is just communication in a single direction, the possibilities are endless. What's next is up to you!
+Simply rendering your Unity Application within your React Application is just the beginning! The Unity Context exposes a lot more fun functions and properties to play around with such as two way communication or requesting fullscreen or a pointerlock. The possibilities are endless, what's next is up to you!
 
 > Note that all of the URLs which can be provided to the Unity Config, including the ones mentioned above, are due to their enormous size not included into your bundle. You should place these files in a public directory within your project or use a CDN. This means the files behind these URLs are loaded during runtime and should be accessible by the browser via a public URL. To learn more about the Unity Config, head over to the [Unity Config documentation](https://react-unity-webgl.jeffreylanters.nl/docs/main-concepts/unity-config).
 
