@@ -5,21 +5,22 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 20px;
 }
 
 .main img {
   width: 100%;
   max-width: 200px;
-  margin-bottom: 20px;
 }
 
 .main h1,
+.main h2,
 .main p {
   text-align: center;
 }
 
-.main p {
-  font-size: 1.5rem;
+.main h2 {
+  font-weight: 400;
 }
 
 .main button {
