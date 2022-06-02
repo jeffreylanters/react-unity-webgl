@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Documentation
-      url: https://react-unity-webgl.jeffreylanters.nl
+      url: https://react-unity-webgl.dev
     steps:
       # Checkout code
       - name: Checkout code

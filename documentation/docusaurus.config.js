@@ -5,7 +5,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "React Unity WebGL",
   tagline: "Bring your Unity Games to the Web!",
-  url: "https://react-unity-webgl.jeffreylanters.nl",
+  url: "https://react-unity-webgl.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
