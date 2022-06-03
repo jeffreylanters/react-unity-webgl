@@ -36,6 +36,10 @@ const config = {
           priority: 0.5,
           ignorePatterns: [],
         },
+        googleAnalytics: {
+          trackingID: "G-RFKR3KVKBZ",
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
