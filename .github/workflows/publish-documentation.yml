@@ -33,6 +33,10 @@ jobs:
       - name: Install Dependencies
         working-directory: documentation
         run: npm install
+      # Clear Docusaurus
+      - name: Clear Docusaurus
+        working-directory: documentation
+        run: npm run clear
       # Build Docusaurus
       - name: Build Docusaurus
         working-directory: documentation
