@@ -27,7 +27,7 @@ jobs:
       - name: Cache Node Module Dependencies
         uses: actions/cache@v2
         with:
-          path: "**/node_modules"
+          path: "documentation/node_modules"
           key: nodemodules-${{ runner.os }}-${{ hashFiles('documentation/package-lock.json') }}
       # Install Dependencies
       - name: Install Dependencies
