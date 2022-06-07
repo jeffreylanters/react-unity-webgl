@@ -7,7 +7,7 @@ Represents the percentual loading progression of the Unity Application.
 ## Type Definition
 
 ```tsx title="Type Definition"
-loadingProgression: number = 0;
+const loadingProgression: number = 0;
 ```
 
 ## Implementation

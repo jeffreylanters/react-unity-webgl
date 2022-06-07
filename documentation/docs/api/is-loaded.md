@@ -7,7 +7,7 @@ Represents the loaded state of the Unity Application.
 ## Type Definition
 
 ```tsx title="Type Definition"
-isLoaded: boolean = false;
+const isLoaded: boolean = false;
 ```
 
 ## Implementation

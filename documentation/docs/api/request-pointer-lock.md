@@ -54,15 +54,12 @@ function App() {
     codeUrl: "build/myunityapp.wasm",
   });
 
-  useEffect(
-    function () {
-      document.addEventListener("click", requestPointerLock);
-      return function () {
-        document.removeEventListener("click", requestPointerLock);
-      };
-    },
-    [requestPointerLock]
-  );
+  useEffect(() => {
+    document.addEventListener("click", requestPointerLock);
+    return () => {
+      document.removeEventListener("click", requestPointerLock);
+    };
+  }, [requestPointerLock]);
 
   return <Unity unityProvider={unityProvider} />;
 }
