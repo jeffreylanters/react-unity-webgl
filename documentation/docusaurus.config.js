@@ -142,6 +142,14 @@ const config = {
           ],
         },
       ],
+      logo: {
+        alt: "React Unity WebGL Logo",
+        src: "images/logo.svg",
+        srcDark: "images/logo-light.svg",
+        href: "https://opensource.facebook.com",
+        width: 160,
+        height: 51,
+      },
       copyright: `Copyright © ${new Date().getFullYear()} Jeffrey Lanters`,
     },
     prism: {
