@@ -51,7 +51,7 @@ Learn everything you'll need to know about React Unity WebGL [on the official we
 
 - [The docs](https://react-unity-webgl.dev/docs/introduction) will teach you all of the basics and concepts of React Unity WebGL.
 - Dive straight into the [API reference](https://react-unity-webgl.dev/docs/api/introduction) to learn everything the module has to offer.
-- When using an older version of Unity, you might want to check out the [legacy docs](https://react-unity-webgl.dev/docs/legacy/introduction).
+- When using an older version of Unity, you might want to check any of the [legacy docs](https://react-unity-webgl.dev/docs/8.x.x/introduction/).
 - Looking to share and showcase what you've built? Check out the [made with](https://react-unity-webgl.dev/made-with) page!
 
 The source code of both the website and the module are contained within this mono-repo. Feel free to open a [pull request](https://github.com/jeffreylanters/react-unity-webgl/pulls) to improve or add features to the any of these. Looking for a new feature, but not sure where to start? Feel free to spin up a new [discussion](https://github.com/jeffreylanters/react-unity-webgl/discussions).
