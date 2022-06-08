@@ -108,7 +108,7 @@ const useEventSystem = (): IEventSystemHook => {
       );
       if (typeof eventListener === "undefined") {
         // Guarding the event listener.
-        console.warn(errorMessages, { eventName });
+        console.warn(errorMessages.noEventListener, { eventName });
         return;
       }
       // The event listener will be invoked with the parameters.
