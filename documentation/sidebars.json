@@ -152,6 +152,24 @@
           "label": "From Unity to React"
         }
       ]
+    },
+    {
+      "type": "category",
+      "label": "Miscellaneous",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/streaming-assets"
+        },
+        {
+          "type": "doc",
+          "id": "api/webgl-rendering-context"
+        },
+        {
+          "type": "doc",
+          "id": "api/meta-data"
+        }
+      ]
     }
   ],
   "legacy": [
