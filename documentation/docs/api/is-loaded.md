@@ -1,4 +1,4 @@
-# Handling on when the Application is loaded
+# Awaiting the Application Load
 
 Represents the loaded state of the Unity Application.
 
