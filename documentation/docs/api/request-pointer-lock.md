@@ -2,8 +2,6 @@
 
 The request pointer lock function lets you asynchronously ask for the pointer to be locked on the Unity Application's canvas.
 
-> Available since version 9.0.0
-
 ## Type Definition
 
 ```tsx title="Type Definition"

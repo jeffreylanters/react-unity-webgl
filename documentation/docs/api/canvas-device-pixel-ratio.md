@@ -2,8 +2,6 @@
 
 Sets the device pixel ratio of the Unity Application's canvas.
 
-> Available since version 8.1.1
-
 :::info
 Usage of this feature requires your Unity Application to be built with Unity 2020.1 or newer.
 :::

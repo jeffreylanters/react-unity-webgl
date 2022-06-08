@@ -1,7 +1,5 @@
 # Streaming Assets
 
-> Available since version 6.1.0
-
 When using Streaming Assets, a URL (or Path) can be defined where your Unity Application can find these files. The URL will be used as the base of every Streaming Asset request.
 
 ## Type Definition

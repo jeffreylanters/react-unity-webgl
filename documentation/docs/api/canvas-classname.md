@@ -2,8 +2,6 @@
 
 Sets the class name of the Unity Application's canvas.
 
-> Available since version 6.0.1
-
 ## Type Definition
 
 ```tsx title="Type Definition"

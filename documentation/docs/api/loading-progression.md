@@ -2,8 +2,6 @@
 
 Represents the percentual loading progression of the Unity Application.
 
-> Available since version 9.0.0
-
 ## Type Definition
 
 ```tsx title="Type Definition"

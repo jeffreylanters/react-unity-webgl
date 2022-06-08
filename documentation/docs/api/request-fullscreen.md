@@ -2,8 +2,6 @@
 
 Enabled or disabled te fullscreen mode of the Unity Application's Canvas.
 
-> Available since version 9.0.0
-
 ## Type Definition
 
 ```tsx title="Type Definition"

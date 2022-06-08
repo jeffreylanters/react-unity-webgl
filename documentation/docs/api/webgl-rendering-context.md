@@ -1,7 +1,5 @@
 # WebGL Rendering Context
 
-> Available since version 8.5.0
-
 The WebGLContexAttributes allow you to configure WebGLRenderingContext creation options when passed as an additional context attributes parameter to the UnityContext. An object can be used as the WebGLContextAttributes and if the properties below are specified on it, they will be used instead of the default values. Only the options passed to the first call will apply, subsequent calls will ignore the attributes.
 
 ## Type Definition

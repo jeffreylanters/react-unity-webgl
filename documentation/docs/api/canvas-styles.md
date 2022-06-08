@@ -2,8 +2,6 @@
 
 Sets the style of the Unity Application's canvas.
 
-> Available since version 8.2.0
-
 ## Type Definition
 
 ```tsx title="Type Definition"

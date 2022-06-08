@@ -5,8 +5,6 @@ import TabItem from "@theme/TabItem";
 
 The send message function lets you asynchronously invoke a method in the Unity game.
 
-> Available since version 9.0.0
-
 ## Type Definition
 
 ```tsx title="Type Definition"

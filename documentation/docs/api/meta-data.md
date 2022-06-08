@@ -1,8 +1,6 @@
-# Providing Application Meta Data
+# Application Meta Data
 
 Sets the Unity Application meta data.
-
-> Available since version 8.0.1
 
 ## Type Definition
 

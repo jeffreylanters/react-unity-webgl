@@ -5,8 +5,6 @@ import TabItem from "@theme/TabItem";
 
 Sets the tab index of the Unity Application's canvas.
 
-> Available since version 8.0.1
-
 ## Type Definition
 
 ```tsx title="Type Definition"

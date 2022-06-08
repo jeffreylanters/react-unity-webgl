@@ -5,8 +5,6 @@ import TabItem from "@theme/TabItem";
 
 The event system allows you to receive messages sent from the Unity game.
 
-> Available since version 9.0.0
-
 ## Type Definition
 
 ```tsx title="Type Definition"
