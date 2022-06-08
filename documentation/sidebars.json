@@ -81,6 +81,11 @@
       "type": "link",
       "label": "Known Issues",
       "href": "https://github.com/jeffreylanters/react-unity-webgl/issues?q=label%3A%22known+issue%22+"
+    },
+    {
+      "type": "link",
+      "label": "Community",
+      "href": "https://github.com/jeffreylanters/react-unity-webgl/discussions"
     }
   ],
   "api": [
@@ -138,11 +143,13 @@
       "items": [
         {
           "type": "doc",
-          "id": "api/send-message"
+          "id": "api/send-message",
+          "label": "From React to Unity"
         },
         {
           "type": "doc",
-          "id": "api/event-system"
+          "id": "api/event-system",
+          "label": "From Unity to React"
         }
       ]
     }
