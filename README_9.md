@@ -39,11 +39,11 @@ Before installing the module, make sure you're installing a version which is com
 % npm install react-unity-webgl
 ```
 
-### Legacy versions
+### Unity Version Compatibility
 
-Version 9 and above of the module is compatibly with Unity 2020 and above. If you're using an older version of Unity, or you have to maintain an project built with an older version of the module, you can use one of the legacy versions of React Unity WebGL. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
+The web and Unity are evolving fast, to keep up with these changed the React Unity WebGL module has to adapt to while keeping the module fast, lightweight and compatible. Starting at version 9 of the module, support for builds made with Unity versions prior to 2022 are no longer supported. If you're using an older version of Unity, or you'll have to maintain a project built with an older version of the module, you can use one of the legacy versions of React Unity WebGL. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
 
-React Unity WebGL has been rewritten completely with support for React Hooks in module version 9. Due to an overhaul of the entire API, the documentation for prior versions has been seperated. Head over to the [legacy docs](https://react-unity-webgl.dev/docs/legacy/introduction) to learn more about the legacy versions of React Unity WebGL.
+Visit [on the official website](https://react-unity-webgl.dev) for more information and the documentation and API reference of older versions of React Unity WebGL.
 
 # Documentation
 
