@@ -1,15 +1,16 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2399ef;
-  --ifm-color-primary-dark: #2399ef;
-  --ifm-color-primary-darker: #2399ef;
-  --ifm-color-primary-darkest: #2399ef;
-  --ifm-color-primary-light: #2399ef;
-  --ifm-color-primary-lighter: #2399ef;
-  --ifm-color-primary-lightest: #2399ef;
+  --ifm-color-primary-dark: var(--ifm-color-primary);
+  --ifm-color-primary-darker: var(--ifm-color-primary);
+  --ifm-color-primary-darkest: var(--ifm-color-primary);
+  --ifm-color-primary-light: var(--ifm-color-primary);
+  --ifm-color-primary-lighter: var(--ifm-color-primary);
+  --ifm-color-primary-lightest: var(--ifm-color-primary);
   --ifm-code-font-size: 95%;
   --ifm-container-width: 1000px;
   --ifm-container-width-xl: 1200px;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.2);
 }
 
 .header-github-link:hover,
