@@ -79,7 +79,7 @@ useEffect(() => {
 When your event listener's callback method's parameters don't match the parameters of a state, you can bind the callback to a function. This will allow you to act when the event is fired.
 
 ```jsx showLineNumbers title="Example: Binding the callback to a function"
-const handleSetScore = useCallback((score: number) => {
+const handleSetScore = useCallback((score) => {
   // Do something with the score
 }, []);
 
@@ -140,8 +140,91 @@ public class GameController : MonoBehaviour {
 WebGL methods in general are not available in the Unity Editor. Prevent invoking these methods when the Application is not running the WebGL environment, e.g The Unity Editor.
 :::
 
-## Example
+## Example Usage
 
+A basic implementation could look something like this. In the following example we'll register an event listener to listen to an event named "GameOver" with two parameters; the score and the name of the player. The event listener will update the state of the score and display the name of the player.
+
+<Tabs>
+<TabItem value="App.jsx" label="App.jsx">
+
+```jsx showLineNumbers title="App.jsx"
+import React, { Fragment, useState } from "react";
+import { Unity, useUnityContext } from "react-unity-webgl";
+
+function App() {
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [userName, setUserName] = useState();
+  const [score, setScore] = useState();
+
+  const { unityProvider, addEventListener, removeEventListener } =
+    useUnityContext({
+      loaderUrl: "build/myunityapp.loader.js",
+      dataUrl: "build/myunityapp.data",
+      frameworkUrl: "build/myunityapp.framework.js",
+      codeUrl: "build/myunityapp.wasm",
+    });
+
+  const handleGameOver = useCallback((userName, score) => {
+    setIsGameOver(true);
+    setUserName(userName);
+    setScore(score);
+  }, []);
+
+  useEffect(() => {
+    addEventListener("GameOver", handleGameOver);
+    return () => {
+      removeEventListener("GameOver", handleGameOver);
+    };
+  }, [addEventListener, removeEventListener, handleGameOver]);
+
+  return (
+    <Fragment>
+      <Unity unityProvider={unityProvider} />
+      {isGameOver === true && (
+        <p>{`Game Over ${userName}! You've scored ${score} points.`}</p>
+      )}
+    </Fragment>
+  );
+}
 ```
 
+</TabItem>
+<TabItem value="GameController.cs" label="GameController.cs">
+
+```cs showLineNumbers title="GameController.cs"
+using UnityEngine;
+using System.Runtime.InteropServices;
+
+public class GameController : MonoBehaviour {
+  [DllImport("__Internal")]
+  private static extern void GameOver (string userName, int score);
+
+  public void SomeMethod () {
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+    GameOver ("Player1", 100);
+#endif
+  }
+}
 ```
+
+</TabItem>
+<TabItem value="React.jslib" label="React.jslib">
+
+:::info
+The name of this file is irrelevant, but it must be placed in the `/Plugins/WebGL` directory of your Unity project.
+:::
+
+```js showLineNumbers title="React.jslib"
+mergeInto(LibraryManager.library, {
+  GameOver: function (userName, score) {
+    window.dispatchReactUnityEvent(
+      "GameOver",
+      Pointer_stringify(userName),
+      score
+    );
+  },
+});
+```
+
+</TabItem>
+</Tabs>
