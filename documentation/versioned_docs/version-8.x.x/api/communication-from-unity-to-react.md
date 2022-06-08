@@ -1,22 +1,24 @@
 # Communication from Unity to React
 
-> Available since version 6.0.0, refactored in 8.6.0
-
 Sending messages from Unity to React is done using Event Listeners via the Unity Context instance. Invoking these Event Listeners from your Unity Project is quite different.
 
 On the React side of your project an Event Listeners can be registered to the Unity Context instance. Register the Event Listener using the "on" method as following, where "eventName" is the name of your listener, and the "eventListener" method is the Method which will be Invoked which may or may not pass along any Arguments based on your implementation.
 
-> Keep in mind communication from Unity to React is global, so Event Listeners with the same name will will be invoked on all Unity Instances.
+:::info
+Keep in mind communication from Unity to React is global, so Event Listeners with the same name will will be invoked on all Unity Instances.
+:::
 
-> Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
+:::info
+Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
+:::
 
-```ts
+```ts showLineNumber
 function on(eventName: string, eventListener: Function): void;
 ```
 
 In order to dispatch Event Listeners, a JSLib file has to be created within your Unity Project "Plugins/WebGL" directory. The React Unity WebGL module exposes a global method to the window which allows for the dispatchment of the Event Listeners. When writing your JSLib file, simply invoke the eventName using the global methpd "dispatchReactUnityEvent" with an optional parameter.
 
-```ts
+```ts showLineNumber
 function dispatchReactUnityEvent(eventName: string, ...parameters: any);
 ```
 
@@ -24,9 +26,7 @@ function dispatchReactUnityEvent(eventName: string, ...parameters: any);
 
 A basic implementation could look something like this. In the following example we'll create a new Event Listener with the event name "GameOver" which passes along a userName and an interger container the score. When the Event is emitted we'll change the State.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumber
 import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
@@ -63,9 +63,8 @@ To emit the Event Listener we've just created, we'll have to create a new JSLib 
 
 We'll start of by creating a new method inside of our JSLib. The name of this method can be anything, but in this example we'll give it it the same name as our Event Name to keep things clean. In the body of the method, we'll emit our Event Listener by invoking the global method "dispatchReactUnityEvent" exposed by this module. All of your Event Listeners are available using the Event Name as the first parameter. We'll pass along the userName and the score. The userName has to go through the built-in "Pointer_stringify" method in order to get the value, otherwise a int pointer will be passed instead. You can read more about parameters and [JavaScript to Unityscript types](#javascript-to-unityscript-types) here.
 
-```js
+```js showLineNumber
 // File: MyPlugin.jslib
-
 mergeInto(LibraryManager.library, {
   GameOver: function (userName, score) {
     window.dispatchReactUnityEvent(
@@ -79,11 +78,11 @@ mergeInto(LibraryManager.library, {
 
 Finally, to emit to Event Listener within your CSharp code. We're importing the JSLib using Unity's DllImporter as following. When the name of imported Method matches with the Method's name in the JSLib, you can invoke it.
 
-> WebGL methods in general are not available in the Unity Editor. Prevent invoking these methods when the Application is not running the WebGL environment, e.g The Unity Editor.
+:::info
+WebGL methods in general are not available in the Unity Editor. Prevent invoking these methods when the Application is not running the WebGL environment, e.g The Unity Editor.
+:::
 
-```csharp
-/// File: GameController.cs
-
+```csharp showLineNumber
 using UnityEngine;
 using System.Runtime.InteropServices;
 

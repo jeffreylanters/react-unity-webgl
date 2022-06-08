@@ -1,10 +1,8 @@
 # Providing Debugging Symbols
 
-> Available since version 8.8.0
-
 This is set to the filename of the JSON file containing debug symbols when the current build is using debug symbols, otherwise it is set to an empty string. If the Debug Symbols option is enabled and the Development Build option is disabled then the Debug Symbols will be generated automatically.
 
-```tsx
+```tsx showLineNumbers
 <IUnityConfig>{
   symbolsUrl: string,
 };
@@ -14,9 +12,7 @@ This is set to the filename of the JSON file containing debug symbols when the c
 
 A basic implementation could look something like this. In the following example we'll set the debugging symbols url to the "memoryUrl" directory.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

@@ -1,10 +1,8 @@
 # Taking Screenshots of the Canvas
 
-> Available since version 8.6.0
-
 Takes a screenshot of the canvas and returns a data URL containing image data. The image data is in .png format unless otherwise specified. Enabling preserve drawing buffer within the WebGL context attributes is required in order to take a screenshot.
 
-```ts
+```ts showLineNumbers
 function takeScreenshot(
   dataType?: "image/png" | "image/jpeg" | "image/webp",
   quality?: number
@@ -15,9 +13,7 @@ function takeScreenshot(
 
 A basic implementation could look something like this. In the following example a button is added to the Render. When it's being clicked, a high quality JPEG screenshot will be taken and opened within a new tab.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

@@ -1,10 +1,8 @@
-# Configuring the WebGL Rendering Context
-
-> Available since version 8.5.0
+# WebGL Rendering Context
 
 The WebGLContexAttributes allow you to configure WebGLRenderingContext creation options when passed as an additional context attributes parameter to the UnityContext. An object can be used as the WebGLContextAttributes and if the properties below are specified on it, they will be used instead of the default values. Only the options passed to the first call will apply, subsequent calls will ignore the attributes.
 
-```tsx
+```tsx showLineNumbers
 <IUnityConfig>{
   webGLContextAttributes: {
     alpha: boolean,
@@ -25,9 +23,7 @@ The WebGLContexAttributes allow you to configure WebGLRenderingContext creation 
 
 A basic implementation could look something like this.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

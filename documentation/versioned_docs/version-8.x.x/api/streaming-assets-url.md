@@ -1,10 +1,8 @@
-# Defining the Streaming Assets URL
-
-> Available since version 6.1.0
+# Streaming Assets URL
 
 When using Streaming Assets, a URL (or Path) can be defined where your Unity Application can find these files. The URL will be used as the base of every Streaming Asset request.
 
-```tsx
+```tsx showLineNumbers
 <IUnityConfig>{
   streamingAssetsUrl: string,
 };
@@ -14,9 +12,7 @@ When using Streaming Assets, a URL (or Path) can be defined where your Unity App
 
 A basic implementation could look something like this. In the following example we'll set the streaming assets url to the "streamingassets" directory.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

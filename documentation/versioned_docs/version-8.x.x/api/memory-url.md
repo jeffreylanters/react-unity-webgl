@@ -1,10 +1,8 @@
-# Providing an external Memory File
-
-> Available since version 8.8.0
+# External Memory File
 
 This is set to the filename of the memory file when memory is stored in an external file, otherwise it is set to an empty string.
 
-```tsx
+```tsx showLineNumbers
 <IUnityConfig>{
   memoryUrl: string,
 };
@@ -14,9 +12,7 @@ This is set to the filename of the memory file when memory is stored in an exter
 
 A basic implementation could look something like this. In the following example we'll set the memory url to the "memoryUrl" directory.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

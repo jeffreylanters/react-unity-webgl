@@ -23,6 +23,10 @@
         {
           "type": "doc",
           "id": "concepts/javascript-to-unityscript-types"
+        },
+        {
+          "type": "doc",
+          "id": "concepts/creating-unity-webgl-builds"
         }
       ]
     },
@@ -37,100 +41,122 @@
       "id": "api/introduction"
     },
     {
-      "type": "doc",
-      "id": "api/adding-styles-to-the-canvas-element"
+      "type": "category",
+      "label": "Application State",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/on-progress"
+        },
+        {
+          "type": "doc",
+          "id": "api/on-loaded"
+        },
+        {
+          "type": "doc",
+          "id": "api/on-debug"
+        },
+        {
+          "type": "doc",
+          "id": "api/on-quitted"
+        },
+        {
+          "type": "doc",
+          "id": "api/on-error"
+        }
+      ]
     },
     {
-      "type": "doc",
-      "id": "api/catching-runtime-and-loading-errors"
+      "type": "category",
+      "label": "Canvas Interaction",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/canvas-styling"
+        },
+        {
+          "type": "doc",
+          "id": "api/canvas-classname"
+        },
+        {
+          "type": "doc",
+          "id": "api/match-webgl-to-canvas-size"
+        },
+        {
+          "type": "doc",
+          "id": "api/device-pixel-ratio"
+        },
+        {
+          "type": "doc",
+          "id": "api/set-fullscreen"
+        },
+        {
+          "type": "doc",
+          "id": "api/requesting-pointer-lock"
+        },
+        {
+          "type": "doc",
+          "id": "api/tab-index"
+        },
+        {
+          "type": "doc",
+          "id": "api/take-screenshot"
+        },
+        {
+          "type": "doc",
+          "id": "api/canvas-reference"
+        }
+      ]
     },
     {
-      "type": "doc",
-      "id": "api/change-the-render-size-of-webgl-canvas"
+      "type": "category",
+      "label": "Communication",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/communication-from-react-to-unity",
+          "label": "From React to Unity"
+        },
+        {
+          "type": "doc",
+          "id": "api/communication-from-unity-to-react",
+          "label": "From Unity to React"
+        },
+        {
+          "type": "doc",
+          "id": "api/remove-event-listener"
+        },
+        {
+          "type": "doc",
+          "id": "api/remove-all-event-listeners"
+        }
+      ]
     },
     {
-      "type": "doc",
-      "id": "api/communication-from-react-to-unity"
-    },
-    {
-      "type": "doc",
-      "id": "api/communication-from-unity-to-react"
-    },
-    {
-      "type": "doc",
-      "id": "api/configuring-the-webgl-rendering-context"
-    },
-    {
-      "type": "doc",
-      "id": "api/creating-unity-webgl-builds"
-    },
-    {
-      "type": "doc",
-      "id": "api/defining-the-streaming-assets-url"
-    },
-    {
-      "type": "doc",
-      "id": "api/device-pixel-ratio-and-retina-support"
-    },
-    {
-      "type": "doc",
-      "id": "api/entering-or-leaving-fullscreen"
-    },
-    {
-      "type": "doc",
-      "id": "api/getting-a-reference-to-the-unity-canvas"
-    },
-    {
-      "type": "doc",
-      "id": "api/handeling-on-when-the-application-is-loaded"
-    },
-    {
-      "type": "doc",
-      "id": "api/providing-an-external-memory-file"
-    },
-    {
-      "type": "doc",
-      "id": "api/providing-application-meta-data"
-    },
-    {
-      "type": "doc",
-      "id": "api/providing-debugging-symbols"
-    },
-    {
-      "type": "doc",
-      "id": "api/receiving-internal-and-debug-log-messages"
-    },
-    {
-      "type": "doc",
-      "id": "api/removing-all-event-listeners"
-    },
-    {
-      "type": "doc",
-      "id": "api/removing-specific-event-listeners"
-    },
-    {
-      "type": "doc",
-      "id": "api/requesting-canvas-pointer-locking"
-    },
-    {
-      "type": "doc",
-      "id": "api/setting-the-canvas-classname"
-    },
-    {
-      "type": "doc",
-      "id": "api/tab-index-and-input-keyboard-capturing"
-    },
-    {
-      "type": "doc",
-      "id": "api/taking-screenshots-of-the-canvas"
-    },
-    {
-      "type": "doc",
-      "id": "api/tracking-the-loading-progression"
-    },
-    {
-      "type": "doc",
-      "id": "api/unmounting-unloading-and-quitting"
+      "type": "category",
+      "label": "Miscellaneous",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/streaming-assets-url"
+        },
+        {
+          "type": "doc",
+          "id": "api/memory-url"
+        },
+        {
+          "type": "doc",
+          "id": "api/webgl-rendering-context"
+        },
+        {
+          "type": "doc",
+          "id": "api/application-meta-data"
+        },
+        {
+          "type": "doc",
+          "id": "api/debugging-symbols"
+        }
+      ]
     }
   ]
 }

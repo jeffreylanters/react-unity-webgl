@@ -1,10 +1,8 @@
 # Getting a Reference to the Unity Canvas
 
-> Available since version 8.2.3
-
 To get a reference to the canvas, we have to wait for the Unity Instance to be loaded, and the Canvas to be appended to the DOM. This is where the Canvas event comes in. The Canvas event is invoked on this exact moment and passes along a reference to the actual Unity Canvas.
 
-```ts
+```ts showLineNumbers
 function on(
   eventName: "canvas",
   eventListener: (canvas: HTMLCanvasElement) => void
@@ -15,9 +13,7 @@ function on(
 
 A basic implementation could look something like this.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

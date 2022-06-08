@@ -1,10 +1,8 @@
-# Removing Specific Event Listeners
-
-> Available since version 8.4.0
+# Removing an Event Listeners
 
 Allows the deletion of specific event listeners for both built-in and custom events. This can come in handy when unmounting your component or changing your user interface. The event listener will be removed on both the React and Unity side.
 
-```ts
+```ts showLineNumbers
 function removeEventListener(eventName: string): void;
 ```
 
@@ -12,9 +10,7 @@ function removeEventListener(eventName: string): void;
 
 A basic implementation could look something like this. In the following example we'll remove an event listener from the built-in on progress event, when the component will unmount.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React, { useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

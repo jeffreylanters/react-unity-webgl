@@ -1,10 +1,8 @@
 # Tracking the loading progression
 
-> Available since version 6.0.1
-
 While your game is being downloaded from the server and loaded into memory, you might want to display some sort of loading indicator informing the user of the progression. The built-in progression event listeners can be used for such cases. On Progress is emitted while the Unity player is being loaded. The parameter contains the progression from 0 to 1. When the game is fully loaded into memory and will start execution, the progression will hit 1. The event will invoke everytime the progression advances.
 
-```ts
+```ts showLineNumbers
 function on(
   eventName: "progress",
   eventListener: (progression: number) => void
@@ -15,9 +13,7 @@ function on(
 
 A basic implementation could look something like this. In the following example we'll track the loading progression and show a loading indicator.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

@@ -1,10 +1,8 @@
-# Providing Application Meta Data
-
-> Available since version 8.0.1
+# Application Meta Data
 
 Sets the application meta data.
 
-```tsx
+```tsx showLineNumbers
 <IUnityConfig>{
   productName: string,
   productVersion: string,
@@ -16,9 +14,7 @@ Sets the application meta data.
 
 A basic implementation could look something like this.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

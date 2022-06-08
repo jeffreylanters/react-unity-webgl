@@ -1,10 +1,8 @@
 # Device Pixel Ratio and Retina Support
 
-> Available since version 8.1.1 and requires Unity 2020.1 or newer
-
 The Canvas can appear too blurry on retina screens. The device pixel ratio determines how much extra pixel density should be added to allow for a sharper image. The value will be used as a multiplier to the actual canvas scale and will have a big impact on the performance of your application.
 
-```tsx
+```tsx showLineNumbers
 <Unity devicePixelRatio={number} />
 ```
 
@@ -12,9 +10,7 @@ The Canvas can appear too blurry on retina screens. The device pixel ratio deter
 
 A basic implementation could look something like this. In the following example we'll set the canvas's device pixel ratio to a value of "2" for sharper images on Retina screens.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 

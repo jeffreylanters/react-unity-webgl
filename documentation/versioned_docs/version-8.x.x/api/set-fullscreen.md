@@ -1,10 +1,8 @@
 # Entering or Leaving Fullscreen
 
-> Available since version 6.0.6
-
 The Unity context object allows you to enable and disable the fullscreen mode of your application. Cursor locking (using Cursor.lockState) and full-screen mode are both supported in WebGL, implemented using the respective HTML5 APIs (Element.requestPointerLock and Element.requestFullscreen). These are supported in Firefox and Chrome. Safari cannot currently use full-screen and cursor locking. An implementation could look something like:
 
-```ts
+```ts showLineNumbers
 function setFullscreen(enabled: boolean): void;
 ```
 
@@ -12,9 +10,7 @@ function setFullscreen(enabled: boolean): void;
 
 A basic implementation could look something like this. In the following example a button is added to the Render. When it's being clicked, the application will enter fullscreen mode.
 
-```jsx
-// File: App.jsx
-
+```jsx showLineNumbers
 import React from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
