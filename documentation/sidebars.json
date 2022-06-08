@@ -65,35 +65,8 @@
       ]
     },
     {
-      "type": "category",
-      "label": "Documents",
-      "items": [
-        {
-          "type": "link",
-          "label": "Contributing",
-          "href": "https://github.com/jeffreylanters/react-unity-webgl/blob/main/CONTRIBUTING.md"
-        },
-        {
-          "type": "link",
-          "label": "License",
-          "href": "https://github.com/jeffreylanters/react-unity-webgl/blob/main/LICENSE.md"
-        },
-        {
-          "type": "link",
-          "label": "Security",
-          "href": "https://github.com/jeffreylanters/react-unity-webgl/blob/main/SECURITY.md"
-        }
-      ]
-    },
-    {
-      "type": "link",
-      "label": "Known Issues",
-      "href": "https://github.com/jeffreylanters/react-unity-webgl/issues?q=label%3A%22known+issue%22+"
-    },
-    {
-      "type": "link",
-      "label": "Community",
-      "href": "https://github.com/jeffreylanters/react-unity-webgl/discussions"
+      "type": "doc",
+      "id": "contributing"
     }
   ],
   "api": [

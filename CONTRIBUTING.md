@@ -1,1 +1,1 @@
-For more information about contribution please head over to the [documentation](https://github.com/jeffreylanters/react-unity-webgl#contribution-and-development).
+For more information about contribution please head over to the [documentation on the official website](https://react-unity-webgl.dev/docs/contributing).
