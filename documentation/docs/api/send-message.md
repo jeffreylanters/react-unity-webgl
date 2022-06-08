@@ -58,7 +58,7 @@ function App() {
 
   return (
     <Fragment>
-      <Unity unityProvider={unityProvider} tabIndex={1} />
+      <Unity unityProvider={unityProvider} />
       <button onClick={handleClickSpawnEnemies}>Spawn Enemies</button>
     </Fragment>
   );
