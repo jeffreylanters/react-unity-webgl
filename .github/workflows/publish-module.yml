@@ -39,6 +39,9 @@ jobs:
       - name: Compile Source
         working-directory: module
         run: npm run compile
+      # Copy ReadMe into module
+      - name: Copy ReadMe into module
+        run: cp README.md module/README.md
       # Publish package
       - name: Publish package
         working-directory: module
