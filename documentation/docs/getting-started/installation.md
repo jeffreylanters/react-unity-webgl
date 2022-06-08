@@ -24,4 +24,4 @@ React Unity WebGL has been rewritten completely with support for React Hooks in 
 
 Version 9 and above of the module is compatibly with Unity 2020 and above. If you're using an older version of Unity, or you have to maintain an project built with an older version of the module, you can use one of the legacy versions of React Unity WebGL. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
 
-Head over to the [legacy docs](/docs/legacy/introduction) to learn more about the legacy version of React Unity WebGL.
+Head over to the corresponding version tag to learn more about the legacy version of React Unity WebGL.

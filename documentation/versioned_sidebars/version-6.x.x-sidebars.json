@@ -1,0 +1,50 @@
+{
+  "docs": [
+    {
+      "type": "doc",
+      "id": "introduction"
+    },
+    {
+      "type": "doc",
+      "id": "installation"
+    },
+    {
+      "type": "doc",
+      "id": "getting-started"
+    },
+    {
+      "type": "doc",
+      "id": "javascript-to-unityscript-types"
+    }
+  ],
+  "api": [
+    {
+      "type": "doc",
+      "id": "api/introduction"
+    },
+    {
+      "type": "doc",
+      "id": "api/unity-to-react-communication"
+    },
+    {
+      "type": "doc",
+      "id": "api/react-to-unity-communication"
+    },
+    {
+      "type": "doc",
+      "id": "api/width-and-height"
+    },
+    {
+      "type": "doc",
+      "id": "api/tracking-progression"
+    },
+    {
+      "type": "doc",
+      "id": "api/modules"
+    },
+    {
+      "type": "doc",
+      "id": "api/fullscreen"
+    }
+  ]
+}

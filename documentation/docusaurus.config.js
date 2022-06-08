@@ -27,6 +27,39 @@ const config = {
           sidebarPath: require.resolve("./sidebars.json"),
           editUrl:
             "https://github.com/jeffreylanters/react-unity-webgl/tree/main/documentation/",
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "Current",
+              banner: "none",
+              badge: true,
+              path: "",
+            },
+            "8.x.x": {
+              label: "8.x.x (Active LTS)",
+              banner: "unmaintained",
+              badge: true,
+              path: "8.x.x",
+            },
+            "7.x.x": {
+              label: "7.x.x (Maintenance LTS)",
+              banner: "unmaintained",
+              badge: true,
+              path: "7.x.x",
+            },
+            "6.x.x": {
+              label: "6.x.x (Maintenance LTS)",
+              banner: "unmaintained",
+              badge: true,
+              path: "6.x.x",
+            },
+            "5.x.x": {
+              label: "5.x.x (Maintenance LTS)",
+              banner: "unmaintained",
+              badge: true,
+              path: "5.x.x",
+            },
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -71,14 +104,14 @@ const config = {
           label: "API",
         },
         {
-          to: "/docs/legacy/introduction",
-          position: "left",
-          label: "Legacy",
-        },
-        {
           to: "/made-with",
           position: "left",
           label: "Made With",
+        },
+        {
+          type: "docsVersionDropdown",
+          position: "right",
+          dropdownActiveClassDisabled: true,
         },
         {
           href: "https://github.com/jeffreylanters/react-unity-webgl",

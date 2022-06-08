@@ -1,0 +1,38 @@
+{
+  "docs": [
+    {
+      "type": "doc",
+      "id": "introduction"
+    },
+    {
+      "type": "doc",
+      "id": "installation"
+    },
+    {
+      "type": "doc",
+      "id": "example-usage"
+    }
+  ],
+  "api": [
+    {
+      "type": "doc",
+      "id": "api/introduction"
+    },
+    {
+      "type": "doc",
+      "id": "api/communication"
+    },
+    {
+      "type": "doc",
+      "id": "api/unity-modules"
+    },
+    {
+      "type": "doc",
+      "id": "api/canvas-styling"
+    },
+    {
+      "type": "doc",
+      "id": "api/html-example"
+    }
+  ]
+}

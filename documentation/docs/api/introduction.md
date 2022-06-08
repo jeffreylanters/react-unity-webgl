@@ -1,5 +1,3 @@
 # Introduction
 
-:::warning
-The React Unity WebGL 9.x documentation is still under construction, this page is not available yet.
-:::
+Welcome to the React Unity WebGL API Reference!

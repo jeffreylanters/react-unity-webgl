@@ -29,6 +29,10 @@
         {
           "type": "doc",
           "id": "main-concepts/unity-config"
+        },
+        {
+          "type": "doc",
+          "id": "main-concepts/data-conversion"
         }
       ]
     },
@@ -168,72 +172,6 @@
         {
           "type": "doc",
           "id": "api/meta-data"
-        }
-      ]
-    }
-  ],
-  "legacy": [
-    {
-      "type": "doc",
-      "id": "legacy/introduction"
-    },
-    {
-      "type": "category",
-      "label": "Version 8.x",
-      "items": [
-        {
-          "type": "doc",
-          "id": "legacy/version-8-x/documentation",
-          "label": "Documentation"
-        },
-        {
-          "type": "doc",
-          "id": "legacy/version-8-x/license"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Version 7.x",
-      "items": [
-        {
-          "type": "doc",
-          "id": "legacy/version-7-x/documentation",
-          "label": "Documentation"
-        },
-        {
-          "type": "doc",
-          "id": "legacy/version-7-x/license"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Version 6.x",
-      "items": [
-        {
-          "type": "doc",
-          "id": "legacy/version-6-x/documentation",
-          "label": "Documentation"
-        },
-        {
-          "type": "doc",
-          "id": "legacy/version-6-x/license"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Version 5.x",
-      "items": [
-        {
-          "type": "doc",
-          "id": "legacy/version-5-x/documentation",
-          "label": "Documentation"
-        },
-        {
-          "type": "doc",
-          "id": "legacy/version-5-x/license"
         }
       ]
     }
