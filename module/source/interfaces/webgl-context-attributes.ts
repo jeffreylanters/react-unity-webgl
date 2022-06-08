@@ -69,7 +69,8 @@ interface IWebGLContextAttributes {
   readonly preserveDrawingBuffer?: boolean;
 
   /**
-   *
+   * Stenciling enables and disables drawing on a per-pixel basis. It is
+   * typically used in multipass rendering to achieve special effects.
    * @default false
    */
   readonly stencil?: boolean;
