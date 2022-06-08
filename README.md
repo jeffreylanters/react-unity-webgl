@@ -41,7 +41,7 @@ Before installing the module, make sure you're installing a version which is com
 
 ### Unity Version Compatibility
 
-The web and Unity are evolving fast, to keep up with these changed the React Unity WebGL module has to adapt to while keeping the module fast, lightweight and compatible. Starting at version 9 of the module, support for builds made with Unity versions prior to 2022 are no longer supported. If you're using an older version of Unity, or you'll have to maintain a project built with an older version of the module, you can use one of the legacy versions of React Unity WebGL. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
+The web and Unity are evolving fast, to keep up with these changed the React Unity WebGL module has to adapt too while also keeping the module fast, lightweight and compatible. Starting at version 9 of the module, support for builds made with Unity versions prior to 2020 are no longer supported. If you're using an older version of Unity, or you'll have to maintain a project built with an older version of the module, you can use one of the legacy versions of React Unity WebGL. It however is recommended to update your project to a newer version of Unity in order to use all the latest features of React Unity WebGL.
 
 Visit [on the official website](https://react-unity-webgl.dev) for more information and the documentation and API reference of older versions of React Unity WebGL.
 
