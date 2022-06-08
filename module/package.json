@@ -49,8 +49,7 @@
   "scripts": {
     "start": "tsc --watch",
     "compile": "tsc",
-    "package": "npm pack",
-    "lint": "echo 'Warning: lint is not implemented yet'"
+    "package": "npm pack"
   },
   "devDependencies": {
     "@types/react": "17.0.41",
