@@ -104,13 +104,21 @@ To dispatch an event, a JSLib file has to be created within your Unity project's
 ```js showLineNumbers title="Example: Dispatching an event from a JSLib"
 mergeInto(LibraryManager.library, {
   SetScore: function (score) {
-    window.dispatchReactUnityEvent("SetScore", score);
+    try {
+      window.dispatchReactUnityEvent("SetScore", score);
+    } catch (e) {
+      console.warn("Failed to dispatch event");
+    }
   },
 });
 ```
 
 :::tip
 When directly referring to a dispatch function in your JSLib, it is recommended to match the name of the JSLib's function to the name of the event.
+:::
+
+:::tip
+Wrap the dispatch event function in a try catch block to prevent errors from being thrown running outside of the React Unity WebGL module.
 :::
 
 Unity makes the JSLib's functions available to the Unity application by merging them into the `LibraryManager.library` object. This allows you to invoke the JSLib's functions from within your Unity application by importing them using Unity's DLL Importer. To link the internal method to the JSLib's function, make sure to match both the name of the function as well as its signature.
