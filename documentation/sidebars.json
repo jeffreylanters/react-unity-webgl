@@ -24,10 +24,6 @@
       "items": [
         {
           "type": "doc",
-          "id": "main-concepts/project-structure"
-        },
-        {
-          "type": "doc",
           "id": "main-concepts/unity-config"
         },
         {
