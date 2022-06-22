@@ -80,7 +80,7 @@ const config = {
     announcementBar: {
       id: "support_me",
       content:
-        'If you like this module, please considing <a target="_blank" href="https://github.com/sponsors/jeffreylanters">sponsoring</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> ❤️',
+        'If you like this module, please considing <a href="/support">sponsoring</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> ❤️',
       backgroundColor: "#2399EF",
       textColor: "#ffffff",
       isCloseable: false,
@@ -107,6 +107,11 @@ const config = {
           to: "/made-with",
           position: "left",
           label: "Made With",
+        },
+        {
+          to: "/support",
+          position: "left",
+          label: "Sponsor",
         },
         {
           type: "docsVersionDropdown",
@@ -170,7 +175,7 @@ const config = {
             },
             {
               label: "Sponsor",
-              href: "https://github.com/sponsors/jeffreylanters",
+              href: "/sponsor",
             },
           ],
         },
