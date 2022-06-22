@@ -35,14 +35,3 @@ html[data-theme="light"] img[src$="#gh-dark-mode-only"],
 html[data-theme="dark"] img[src$="#gh-light-mode-only"] {
   display: none;
 }
-
-button {
-  background: #2399ef;
-  border: 0;
-  outline: 0;
-  font-size: 1rem;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 10px;
-  cursor: pointer;
-}
