@@ -25,7 +25,7 @@ When bringing your Unity Application to the web, you might need to communicate w
 
 ### A quick word
 
-Hi there! I would like to say one more thing before you start bringing your awesome games to the web. My name is Jeffrey, I'm a Unity and Web developer with a passion for Open Source. The project you're looking at right now is one of my hobby projects. Maintaining and building this project is something **I do in my spare time**, and I have been doing so since 2017. React-Unity-WebGL will **always remain free**, but maining it and keeping up-to-date with Unity's updates takes a lot of work and time. If you are able to, I would appreciate it greatly if you would consider [sending a donation or becoming a sponsor](https://react-unity-webgl.dev/sponsor) to help me keep this project going.
+Hi there! I would like to say one more thing before you start bringing your awesome games to the web. My name is Jeffrey Lanters, I'm a Unity and Web developer with a passion for Open Source. The project you're looking at right now is one of my hobby projects. Maintaining and building this project is something **I do in my spare time**, and I have been doing so since 2017. React-Unity-WebGL will **always remain free**, but maining it and keeping up-to-date with Unity's updates takes a lot of work and time. If you are able to, I would appreciate it greatly if you would consider [sending a donation or becoming a sponsor](https://react-unity-webgl.dev/sponsor) to help me keep this project going.
 
 Thanks for your time, happy coding!
 
