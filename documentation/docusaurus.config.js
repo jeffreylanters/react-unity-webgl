@@ -80,7 +80,7 @@ const config = {
     announcementBar: {
       id: "support_me",
       content:
-        'If you like this module, please considing <a href="/support">sponsoring</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> ❤️',
+        'If you like this module, please considing <a href="/support">supporting</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> ❤️',
       backgroundColor: "#2399EF",
       textColor: "#ffffff",
       isCloseable: false,
@@ -111,7 +111,7 @@ const config = {
         {
           to: "/support",
           position: "left",
-          label: "Sponsor",
+          label: "Support",
         },
         {
           type: "docsVersionDropdown",
@@ -174,8 +174,8 @@ const config = {
               href: "https://www.npmjs.com/package/react-unity-webgl",
             },
             {
-              label: "Sponsor",
-              href: "/sponsor",
+              label: "Support",
+              href: "/support",
             },
           ],
         },

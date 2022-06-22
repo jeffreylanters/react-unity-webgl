@@ -24,8 +24,8 @@
       "url": "https://github.com/sponsors/jeffreylanters"
     },
     {
-      "type": "paypal",
-      "url": "https://paypal.me/jeffreylanters"
+      "type": "website",
+      "url": "https://react-unity-webgl.dev/support"
     }
   ],
   "main": "./distribution/exports.js",

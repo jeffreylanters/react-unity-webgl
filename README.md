@@ -10,11 +10,11 @@
 [![downloads](https://img.shields.io/npm/dt/react-unity-webgl.svg?style=for-the-badge&color=40AA72)](https://www.npmtrends.com/react-unity-webgl)
 [![size](https://img.shields.io/bundlephobia/minzip/react-unity-webgl?style=for-the-badge&label=size)](https://bundlephobia.com/result?p=react-unity-webgl)
 [![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
-[![donate](https://img.shields.io/badge/donate-paypal-F23150?style=for-the-badge)](https://paypal.me/jeffreylanters)
+[![support](https://img.shields.io/badge/support-donate-F23150?style=for-the-badge)](https://react-unity-webgl.dev/support)
 
 [**Documentation**](https://react-unity-webgl.dev/) &middot;
 [**Example Templates**](https://github.com/jeffreylanters/react-unity-webgl-templates/) &middot;
-[**Sponsor the Project**](https://github.com/sponsors/jeffreylanters) &middot;
+[**Support the project**](https://react-unity-webgl.dev/support) &middot;
 [**Discussion Board**](https://github.com/jeffreylanters/react-unity-webgl/discussions)
 
 **Made with &hearts; by Jeffrey Lanters**
@@ -25,7 +25,7 @@ When bringing your Unity Application to the web, you might need to communicate w
 
 ### A quick word
 
-Hi there! I would like to say one more thing before you start bringing your awesome games to the web. My name is Jeffrey Lanters, I'm a Unity and Web developer with a passion for Open Source. The project you're looking at right now is one of my hobby projects. Maintaining and building this project is something **I do in my spare time**, and I have been doing so since 2017. React-Unity-WebGL will **always remain free**, but maining it and keeping up-to-date with Unity's updates takes a lot of work and time. If you are able to, I would appreciate it greatly if you would consider [sending a donation or becoming a sponsor](https://react-unity-webgl.dev/sponsor) to help me keep this project going.
+Hi there! I would like to say one more thing before you start bringing your awesome games to the web. My name is Jeffrey Lanters, I'm a Unity and Web developer with a passion for Open Source. The project you're looking at right now is one of my hobby projects. Maintaining and building this project is something **I do in my spare time**, and I have been doing so since 2017. React-Unity-WebGL will **always remain free**, but maining it and keeping up-to-date with Unity's updates takes a lot of work and time. If you are able to, I would appreciate it greatly if you would consider [sending a donation or becoming a sponsor](https://react-unity-webgl.dev/support) to help me keep this project going.
 
 Thanks for your time, happy coding!
 
