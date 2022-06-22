@@ -2,7 +2,7 @@
 hide_table_of_contents: true
 ---
 
-<div align="center">
+<div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
 
 <img src="/images/logo.svg#gh-light-mode-only" alt="drawing" width="200"/>
 <img src="/images/logo-light.svg#gh-dark-mode-only" alt="drawing" width="200"/>
@@ -23,8 +23,23 @@ hide_table_of_contents: true
 
 When bringing your Unity Application to the web, you might need to communicate with Components on a webpage, build interactive interfaces or might want to implement functionality using Web APIs which Unity does not expose. Combining Unity with React is a great way to achieve these goals. React Unity WebGL provides a modern solution for embedding Unity WebGL builds in your React Application while providing advanced APIs for two way communication and interaction between Unity and React.
 
- <a href="/docs/introduction">
-  <button>Get Started</button>
-</a>
+<div style={{ textAlign: "left" }}>
 
-</div>
+```jsx showLineNumbers title="Getting started!"
+import React from "react";
+import { Unity, useUnityContext } from "react-unity-webgl";
+
+function App() {
+  const { unityProvider } = useUnityContext({
+    loaderUrl: "build/myunityapp.loader.js",
+    dataUrl: "build/myunityapp.data",
+    frameworkUrl: "build/myunityapp.framework.js",
+    codeUrl: "build/myunityapp.wasm",
+  });
+
+  return <Unity unityProvider={unityProvider} />;
+}
+```
+
+ </div>
+ </div>
