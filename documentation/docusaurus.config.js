@@ -188,7 +188,7 @@ const config = {
         width: 50,
         height: 50,
       },
-      copyright: `Made with ❤️ by Jeffrey Lanters - ${new Date().getFullYear()}`,
+      copyright: `Made with ❤️ by Jeffrey Lanters<br/>2017 - ${new Date().getFullYear()}`,
     },
     prism: {
       theme: lightCodeTheme,
