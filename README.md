@@ -13,7 +13,7 @@
 [![support](https://img.shields.io/badge/support-donate-F23150?style=for-the-badge)](https://react-unity-webgl.dev/support)
 
 [**Documentation**](https://react-unity-webgl.dev/) &middot;
-[**Example Templates**](https://github.com/jeffreylanters/react-unity-webgl-templates/) &middot;
+[**Example Templates**](https://github.com/jeffreylanters/react-unity-webgl-template/) &middot;
 [**Support the project**](https://react-unity-webgl.dev/support) &middot;
 [**Discussion Board**](https://github.com/jeffreylanters/react-unity-webgl/discussions)
 
