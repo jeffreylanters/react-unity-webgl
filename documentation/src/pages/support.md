@@ -10,6 +10,6 @@ Hi there! I would like to say one more thing before you start bringing your awes
   - Etherium [`0xD00CCA4887879510be190F458F249700753823F8`](https://etherscan.io/address/0xD00CCA4887879510be190F458F249700753823F8)
   - Bitcoin [`bc1qznuhjqfqr35ujv6c6wv9pjher8h3ll5l4s3usr`](https://blockchain.info/address/bc1qznuhjqfqr35ujv6c6wv9pjher8h3ll5l4s3usr)
   - Solana [`CCggKYyM2tM1VHTeQc6XPb7sA6aumRNRVzh8hDtzF91j`](https://solana.com/address/CCggKYyM2tM1VHTeQc6XPb7sA6aumRNRVzh8hDtzF91j)
-- Become a stargazer on [GitHub](https://github.com/jeffreylanters/react-unity-webgl/stargazers) to contribute to the popularity
+- become a stargazer on [GitHub](https://github.com/jeffreylanters/react-unity-webgl/stargazers) to contribute to the popularity
 
 Thank you so much for supporting the project!
