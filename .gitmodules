@@ -1,0 +1,3 @@
+[submodule "react-unity-webgl"]
+	path = react-unity-webgl
+	url = https://github.com/jeffreylanters/react-unity-webgl
