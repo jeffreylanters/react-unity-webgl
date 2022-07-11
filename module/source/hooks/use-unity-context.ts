@@ -114,11 +114,11 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
    */
   const takeScreenshot = useCallback(
     /**
-     * @param type Defines the type of screenshot to take.
+     * @param dataType Defines the type of screenshot to take.
      * @param quality Defines the quality of the screenshot.
      * @returns A base 64 encoded string of the screenshot.
      */
-    (type: string, quality?: number): string | undefined => {
+    (dataType?: string, quality?: number): string | undefined => {
       if (
         unityInstance === null ||
         typeof unityInstance.Module.canvas === "undefined"
@@ -128,8 +128,8 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
         return;
       }
       // Takes a screenshot by converting Canvas's render-context's buffer into
-      // a Data URL of the specified type and quality.
-      return unityInstance.Module.canvas.toDataURL(type, quality);
+      // a Data URL of the specified data type and quality.
+      return unityInstance.Module.canvas.toDataURL(dataType, quality);
     },
     [unityInstance]
   );
