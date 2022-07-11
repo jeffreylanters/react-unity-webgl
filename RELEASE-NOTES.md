@@ -1,1 +1,1 @@
-Resolved an issue where bundlers were unable to locate the distribution of the module on Windows based machines.
+Made the data type of the `takeScreenshot` function optional, with a default value of `image/png`
