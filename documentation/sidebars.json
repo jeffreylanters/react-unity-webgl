@@ -115,6 +115,10 @@
         {
           "type": "doc",
           "id": "api/tab-index"
+        },
+        {
+          "type": "doc",
+          "id": "api/take-screenshot"
         }
       ]
     },
