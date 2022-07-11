@@ -55,7 +55,7 @@ interface IUnityContextHook extends IEventSystemHook {
    * @returns A base 64 encoded string of the screenshot.
    */
   readonly takeScreenshot: (
-    type: string,
+    dataType?: string,
     quality?: number
   ) => string | undefined;
 
