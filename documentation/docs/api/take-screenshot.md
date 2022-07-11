@@ -5,12 +5,15 @@ Takes a screenshot of the canvas and returns a data URL containing image data.
 ## Type Definition
 
 ```tsx title="Type Definition"
-function takeScreenshot(type: string, quality?: number): string | undefined;
+function takeScreenshot(
+  dataType?: string,
+  quality?: number
+): string | undefined;
 ```
 
 ## Implementation
 
-Takes a screenshot of the canvas and returns a data URL containing image data. A data type should be provided, this parameter has to contain a valid image mimetype such as `image/png` or `image/jpg`. The quality of the image is optional, if not provided the default value of 0.9 is used. The quality is only used for the `image/jpg` mimetype.
+Takes a screenshot of the canvas and returns a data URL containing image data. An optional data type can be provided, this parameter has to contain a valid image mimetype such as `image/png` or `image/jpg`. If no data type is provided, the default value of `image/png` is used. The quality of the image is optional, if not provided the default value of 0.9 is used. The quality is only used for the `image/jpg` mimetype.
 
 If an attempt to take a screenshot was made before the Unity Application was initialized, the function will return `undefined` instead of a data URL.
 
