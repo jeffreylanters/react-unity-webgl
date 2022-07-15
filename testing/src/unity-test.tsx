@@ -19,6 +19,7 @@ const UnityTest: FunctionComponent = () => {
     addEventListener,
     removeEventListener,
     takeScreenshot,
+    unload,
   } = useUnityContext({
     codeUrl: "/unitybuild-2020-1/example-app.wasm",
     dataUrl: "/unitybuild-2020-1/example-app.data",
@@ -83,6 +84,9 @@ const UnityTest: FunctionComponent = () => {
         style={{ border: "1px solid red", height: 300, width: 400 }}
         ref={canvasRef}
       />
+      <p>
+        <button onClick={() => unload()}>Unload</button>
+      </p>
     </div>
   );
 };
