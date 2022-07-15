@@ -81,6 +81,10 @@
         {
           "type": "doc",
           "id": "api/loading-progression"
+        },
+        {
+          "type": "doc",
+          "id": "api/unload"
         }
       ]
     },
