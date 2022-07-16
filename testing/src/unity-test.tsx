@@ -1,13 +1,11 @@
-import {
-  FunctionComponent,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
-const UnityTest: FunctionComponent = () => {
+type Props = {
+  unityBuildPath: string;
+};
+
+const UnityTest = ({ unityBuildPath }: Props) => {
   const {
     loadingProgression,
     unityProvider,
@@ -21,10 +19,10 @@ const UnityTest: FunctionComponent = () => {
     takeScreenshot,
     unload,
   } = useUnityContext({
-    codeUrl: "/unitybuild-2020-1/example-app.wasm",
-    dataUrl: "/unitybuild-2020-1/example-app.data",
-    frameworkUrl: "/unitybuild-2020-1/example-app.framework.js",
-    loaderUrl: "/unitybuild-2020-1/example-app.loader.js",
+    codeUrl: `/${unityBuildPath}/example-app.wasm`,
+    dataUrl: `/${unityBuildPath}/example-app.data`,
+    frameworkUrl: `/${unityBuildPath}/example-app.framework.js`,
+    loaderUrl: `/${unityBuildPath}/example-app.loader.js`,
     webglContextAttributes: {
       preserveDrawingBuffer: true,
     },
@@ -37,18 +35,24 @@ const UnityTest: FunctionComponent = () => {
     console.log("Clicked Position:", { x, y });
   }, []);
 
+  const handleSay = useCallback((message: string) => {
+    console.log("Said", { message });
+  }, []);
+
   useEffect(() => {
     addEventListener("RotationDidUpdate", setRotation);
     addEventListener("ClickedPosition", handleClickedPosition);
+    addEventListener("Say", handleSay);
     return () => {
       removeEventListener("RotationDidUpdate", setRotation);
       removeEventListener("ClickedPosition", handleClickedPosition);
+      removeEventListener("Say", handleSay);
     };
-  }, [addEventListener, removeEventListener, handleClickedPosition]);
+  }, [addEventListener, removeEventListener, handleClickedPosition, handleSay]);
 
   return (
     <div>
-      <h2>Unity Test</h2>
+      <h2>Unity Test ({unityBuildPath})</h2>
       <p>Loading progression: {loadingProgression}</p>
       <p>Loaded?: {isLoaded ? "Y" : "N"}</p>
       <p>Error: {initialisationError || "None"}</p>
@@ -78,15 +82,13 @@ const UnityTest: FunctionComponent = () => {
           children="Fast"
           onClick={() => sendMessage("MeshCrate", "SetRotationSpeed", 200)}
         />
+        <button onClick={() => unload()}>Unload...</button>
       </p>
       <Unity
         unityProvider={unityProvider}
         style={{ border: "1px solid red", height: 300, width: 400 }}
         ref={canvasRef}
       />
-      <p>
-        <button onClick={() => unload()}>Unload</button>
-      </p>
     </div>
   );
 };
