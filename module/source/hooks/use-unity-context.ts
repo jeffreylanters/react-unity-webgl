@@ -138,14 +138,20 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
    * Requests the UnityInstance to be unloaded from memory in order to be
    * unmounted from the DOM.
    */
-  const unload = useCallback((): Promise<void> | undefined => {
-    if (unityInstance === null) {
-      // Guarding the Unity Instance.
-      console.warn(errorMessages.quitNoUnityInstance);
-      return;
-    }
-    return unityInstance.Quit();
-  }, [unityInstance]);
+  const unload = useCallback(
+    /**
+     * @returns A promise that resolves when the UnityInstance has been unloaded.
+     */
+    (): Promise<void> => {
+      if (unityInstance === null) {
+        // Guarding the Unity Instance.
+        console.warn(errorMessages.quitNoUnityInstance);
+        return Promise.reject();
+      }
+      return unityInstance.Quit();
+    },
+    [unityInstance]
+  );
 
   // Effect invoked when the loading progression changes. When the loading
   // progression is equal to or more than 1, the Unity Instance is considered

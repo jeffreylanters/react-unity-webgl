@@ -70,8 +70,9 @@ interface IUnityContextHook extends IEventSystemHook {
   /**
    * Requests the UnityInstance to be unloaded from memory in order to be
    * unmounted from the DOM.
+   * @returns A promise that resolves when the UnityInstance has been unloaded.
    */
-  readonly unload: () => Promise<void> | undefined;
+  readonly unload: () => Promise<void>;
 }
 
 export type { IUnityContextHook };
