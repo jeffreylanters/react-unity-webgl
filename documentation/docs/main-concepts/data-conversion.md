@@ -6,7 +6,7 @@ To return a string value you need to call \_malloc to allocate some memory and t
 
 For arrays of primitive types, emscripten provides different ArrayBufferViews into it’s heap for different sizes of integer, unsigned integer or floating point representations of memory: HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64. To access a texture in WebGL, emscripten provides the GL.textures array which maps native texture IDs from Unity to WebGL texture objects. WebGL functions can be called on emscripten’s WebGL context, GLctx.
 
-A basic implementation could look something like this. In this example a series of methods is merged into the Unity library making this methods availble in CSharp. Each of these methods contain an example on how to handle specific types of data. No worries, the methods used for the conversion such as "Pointer_stringify" and "HEAPF32" are available natively.
+A basic implementation could look something like this. In this example a series of methods is merged into the Unity library making this methods availble in CSharp. Each of these methods contain an example on how to handle specific types of data. No worries, the methods used for the conversion such as "UTF8ToString" and "HEAPF32" are available natively.
 
 ```js showLineNumbers title="Example: Converting Data Types"
 mergeInto(LibraryManager.library, {
@@ -19,7 +19,7 @@ mergeInto(LibraryManager.library, {
   ShowPopup: function (textStringPointer) {
     window.dispatchReactUnityEvent(
       "ShowPopup",
-      Pointer_stringify(textStringPointer)
+      UTF8ToString(textStringPointer)
     );
   },
   SubmitScores: function (scoresFloatArrayPointer, arraySize) {

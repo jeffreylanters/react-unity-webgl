@@ -215,11 +215,7 @@ The name of this file is irrelevant, but it must be placed in the `/Plugins/WebG
 ```js showLineNumbers title="React.jslib"
 mergeInto(LibraryManager.library, {
   GameOver: function (userName, score) {
-    window.dispatchReactUnityEvent(
-      "GameOver",
-      Pointer_stringify(userName),
-      score
-    );
+    window.dispatchReactUnityEvent("GameOver", UTF8ToString(userName), score);
   },
 });
 ```

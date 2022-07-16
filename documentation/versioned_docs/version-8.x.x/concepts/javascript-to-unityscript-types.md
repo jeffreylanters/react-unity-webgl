@@ -8,7 +8,7 @@ For arrays of primitive types, emscripten provides different ArrayBufferViews in
 
 #### Example implementation
 
-A basic implementation could look something like this. In this example a series of methods is merged into the Unity library making this methods availble in CSharp. Each of these methods contain an example on how to handle specific types of data. No worries, the methods used for the conversion such as "Pointer_stringify" and "HEAPF32" are available natively.
+A basic implementation could look something like this. In this example a series of methods is merged into the Unity library making this methods availble in CSharp. Each of these methods contain an example on how to handle specific types of data. No worries, the methods used for the conversion such as "UTF8ToString" and "HEAPF32" are available natively.
 
 ```js showLineNumbers
 mergeInto(LibraryManager.library, {
@@ -21,7 +21,7 @@ mergeInto(LibraryManager.library, {
   ShowPopup: function (textStringPointer) {
     window.dispatchReactUnityEvent(
       "ShowPopup",
-      Pointer_stringify(textStringPointer)
+      UTF8ToString(textStringPointer)
     );
   },
   SubmitScores: function (scoresFloatArrayPointer, arraySize) {
