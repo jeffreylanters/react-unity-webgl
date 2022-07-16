@@ -1,1 +1,2 @@
-Made the data type of the `takeScreenshot` function optional, with a default value of `image/png`
+- Made the data type of the `takeScreenshot` function optional, with a default value of `image/png`
+- The `unload` method will always return a `Promise`, even if there was no Unity Instance
