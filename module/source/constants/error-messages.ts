@@ -1,5 +1,9 @@
 const errorMessages = {
   /**
+   * A generic error message when the Unity Instance is not available.
+   */
+  genericNoUnityInstance: "No Unity Instance found.",
+  /**
    * The error message for when no Unity Instance was found while trying to set
    * the fullscreen mode.
    */
