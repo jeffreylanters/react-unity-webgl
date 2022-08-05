@@ -174,7 +174,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
       ) {
         // Guarding the Unity Instance.
         console.warn(errorMessages.genericNoUnityInstance);
-        return;
+        return Promise.reject();
       }
       // Re-attaches the canvas to the body element of the document. This way it
       // wont be removed from the DOM when the component is unmounted. Then the
