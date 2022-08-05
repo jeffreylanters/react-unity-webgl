@@ -84,7 +84,7 @@ interface IUnityContextHook extends IEventSystemHook {
    * Unity Instance is unloaded.
    * @see https://github.com/jeffreylanters/react-unity-webgl/issues/22
    */
-  readonly UNSAFE__detachAndUnloadImmediate: () => void;
+  readonly UNSAFE__detachAndUnloadImmediate: () => Promise<void>;
 }
 
 export type { IUnityContextHook };
