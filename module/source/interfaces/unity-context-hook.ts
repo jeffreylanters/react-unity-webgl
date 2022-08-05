@@ -83,6 +83,7 @@ interface IUnityContextHook extends IEventSystemHook {
    * which are build with Unity 2021.2 and newer cannot be unmounted before the
    * Unity Instance is unloaded.
    * @see https://github.com/jeffreylanters/react-unity-webgl/issues/22
+   * @returns A promise that resolves when the UnityInstance has been unloaded.
    */
   readonly UNSAFE__detachAndUnloadImmediate: () => Promise<void>;
 }
