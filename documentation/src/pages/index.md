@@ -29,6 +29,10 @@ When bringing your Unity Application to the web, you might need to communicate w
 
 </div>
 
+```sh
+% npm install react-unity-webgl
+```
+
 <Tabs>
 <TabItem value="Hello World" label="Hello World">
 
