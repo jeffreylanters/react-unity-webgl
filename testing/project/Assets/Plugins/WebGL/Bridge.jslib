@@ -22,7 +22,7 @@
     dispatchReactUnityEvent("ClickedObjectTestButton", {
       stringValue: UTF8ToString(stringValue),
       intValue: intValue,
-      boolValue: boolValue,
+      boolValue: boolValue === 1,
     });
   },
 });
