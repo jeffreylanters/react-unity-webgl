@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
 function UnityTest() {
@@ -25,9 +25,19 @@ function UnityTest() {
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [screenshots, setScreenshots] = useState<string[]>([]);
 
   const handleClickRequestFullScreen = () => requestFullscreen(true);
   const handleClickRequestPointerLock = () => requestPointerLock();
+  const handleClickSetLogText = () =>
+    sendMessage("Persistent", "SetLogText", "Hello World!");
+
+  function handleClickTakeScreenshot() {
+    const screenshot = takeScreenshot("image/jpg", 1);
+    if (screenshot) {
+      setScreenshots([...screenshots, screenshot]);
+    }
+  }
 
   useEffect(() => {
     function logParametersToConsole(...parameters: any[]) {
@@ -70,17 +80,18 @@ function UnityTest() {
         <button onClick={handleClickRequestPointerLock}>
           Request Pointer Lock
         </button>
-        <button onClick={() => console.log(takeScreenshot("image/jpg", 1))}>
-          Screenshot
-        </button>
-        <button
-          onClick={() =>
-            sendMessage("Persistent", "SetLogText", "Hello World!")
-          }
-        >
-          Set Log Text
-        </button>
         <button onClick={() => unload()}>Unload...</button>
+      </p>
+      <p>
+        Screenshots:
+        <button onClick={handleClickTakeScreenshot}>Take Screenshot</button>
+        {screenshots.map((screenshot, index) => (
+          <img key={index} src={screenshot} height={50} alt="Screenshot" />
+        ))}
+      </p>
+      <p>
+        Communication:
+        <button onClick={handleClickSetLogText}>Set Log Text</button>
       </p>
       <Unity
         unityProvider={unityProvider}
