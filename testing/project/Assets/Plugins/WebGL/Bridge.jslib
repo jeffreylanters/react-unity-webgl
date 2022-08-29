@@ -10,13 +10,13 @@
   },
   ClickedNumbersTestButton: function (values, length) {
     var array = new Array(length);
-    for (var i = 0; i < size; i++) {
+    for (var i = 0; i < length; i++) {
       array[i] = HEAPF32[(array >> 2) + i];
     }
     dispatchReactUnityEvent("ClickedNumbersTestButton", array);
   },
   ClickedBoolTestButton: function (value) {
-    dispatchReactUnityEvent("ClickedBoolTestButton", value);
+    dispatchReactUnityEvent("ClickedBoolTestButton", value === 1);
   },
   ClickedObjectTestButton: function (stringValue, intValue, boolValue) {
     dispatchReactUnityEvent("ClickedObjectTestButton", {
