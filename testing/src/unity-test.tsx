@@ -1,11 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
-type Props = {
-  unityBuildPath: string;
-};
-
-const UnityTest = ({ unityBuildPath }: Props) => {
+function UnityTest() {
   const {
     loadingProgression,
     unityProvider,
@@ -19,44 +15,47 @@ const UnityTest = ({ unityBuildPath }: Props) => {
     takeScreenshot,
     unload,
   } = useUnityContext({
-    codeUrl: `/${unityBuildPath}/example-app.wasm`,
-    dataUrl: `/${unityBuildPath}/example-app.data`,
-    frameworkUrl: `/${unityBuildPath}/example-app.framework.js`,
-    loaderUrl: `/${unityBuildPath}/example-app.loader.js`,
+    codeUrl: `/unity-build/communication-tests.wasm`,
+    dataUrl: `/unity-build/communication-tests.data`,
+    frameworkUrl: `/unity-build/communication-tests.framework.js`,
+    loaderUrl: `/unity-build/communication-tests.loader.js`,
     webglContextAttributes: {
       preserveDrawingBuffer: true,
     },
   });
 
-  const [rotation, setRotation] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const handleClickedPosition = useCallback((x: number, y: number) => {
-    console.log("Clicked Position:", { x, y });
-  }, []);
-
-  const handleSay = useCallback((message: string) => {
-    console.log("Said", { message });
-  }, []);
+  const handleClickRequestFullScreen = () => requestFullscreen(true);
+  const handleClickRequestPointerLock = () => requestPointerLock();
 
   useEffect(() => {
-    addEventListener("RotationDidUpdate", setRotation);
-    addEventListener("ClickedPosition", handleClickedPosition);
-    addEventListener("Say", handleSay);
+    function logParametersToConsole(...parameters: any[]) {
+      console.log({ parameters });
+    }
+
+    addEventListener("ClickedTestButton", logParametersToConsole);
+    addEventListener("ClickedStringTestButton", logParametersToConsole);
+    addEventListener("ClickedNumberTestButton", logParametersToConsole);
+    addEventListener("ClickedNumbersTestButton", logParametersToConsole);
+    addEventListener("ClickedBoolTestButton", logParametersToConsole);
+    addEventListener("ClickedObjectTestButton", logParametersToConsole);
     return () => {
-      removeEventListener("RotationDidUpdate", setRotation);
-      removeEventListener("ClickedPosition", handleClickedPosition);
-      removeEventListener("Say", handleSay);
+      removeEventListener("ClickedTestButton", logParametersToConsole);
+      removeEventListener("ClickedStringTestButton", logParametersToConsole);
+      removeEventListener("ClickedNumberTestButton", logParametersToConsole);
+      removeEventListener("ClickedNumbersTestButton", logParametersToConsole);
+      removeEventListener("ClickedBoolTestButton", logParametersToConsole);
+      removeEventListener("ClickedObjectTestButton", logParametersToConsole);
     };
-  }, [addEventListener, removeEventListener, handleClickedPosition, handleSay]);
+  }, [addEventListener, removeEventListener]);
 
   return (
     <div>
-      <h2>Unity Test ({unityBuildPath})</h2>
+      <h2>Unity Test</h2>
       <p>Loading progression: {loadingProgression}</p>
-      <p>Loaded?: {isLoaded ? "Y" : "N"}</p>
+      <p>Loaded?: {isLoaded ? "Yes!" : "No"}</p>
       <p>Error: {initialisationError || "None"}</p>
-      <p>Rotation: {Math.round(rotation)}deg</p>
       <p>
         Canvas Reference
         <button onClick={() => console.log({ canvasRef: canvasRef.current })}>
@@ -65,32 +64,31 @@ const UnityTest = ({ unityBuildPath }: Props) => {
       </p>
       <p>
         Actions
-        <button onClick={() => requestFullscreen(true)}>
+        <button onClick={handleClickRequestFullScreen}>
           Request Fullscreen
         </button>
-        <button onClick={() => requestPointerLock()}>
+        <button onClick={handleClickRequestPointerLock}>
           Request Pointer Lock
         </button>
         <button onClick={() => console.log(takeScreenshot("image/jpg", 1))}>
           Screenshot
         </button>
         <button
-          children="Normal"
-          onClick={() => sendMessage("MeshCrate", "SetRotationSpeed", 50)}
-        />
-        <button
-          children="Fast"
-          onClick={() => sendMessage("MeshCrate", "SetRotationSpeed", 200)}
-        />
+          onClick={() =>
+            sendMessage("Persistent", "SetLogText", "Hello World!")
+          }
+        >
+          Set Log Text
+        </button>
         <button onClick={() => unload()}>Unload...</button>
       </p>
       <Unity
         unityProvider={unityProvider}
-        style={{ border: "1px solid red", height: 300, width: 400 }}
+        style={{ border: "1px solid red", height: 400, width: 500 }}
         ref={canvasRef}
       />
     </div>
   );
-};
+}
 
 export { UnityTest };
