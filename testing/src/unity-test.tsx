@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
 function UnityTest() {
@@ -29,8 +29,11 @@ function UnityTest() {
 
   const handleClickRequestFullScreen = () => requestFullscreen(true);
   const handleClickRequestPointerLock = () => requestPointerLock();
+  const handleClickUnload = () => unload();
   const handleClickSetLogText = () =>
     sendMessage("Persistent", "SetLogText", "Hello World!");
+  const handleClickLogCanvasRefToConsole = () =>
+    console.log("Canvas Reference", { canvasRef: canvasRef.current });
 
   function handleClickTakeScreenshot() {
     const screenshot = takeScreenshot("image/jpg", 1);
@@ -61,14 +64,14 @@ function UnityTest() {
   }, [addEventListener, removeEventListener]);
 
   return (
-    <div>
+    <Fragment>
       <h2>Unity Test</h2>
       <p>Loading progression: {loadingProgression}</p>
       <p>Loaded?: {isLoaded ? "Yes!" : "No"}</p>
       <p>Error: {initialisationError || "None"}</p>
       <p>
         Canvas Reference
-        <button onClick={() => console.log({ canvasRef: canvasRef.current })}>
+        <button onClick={handleClickLogCanvasRefToConsole}>
           Log to Console
         </button>
       </p>
@@ -80,7 +83,7 @@ function UnityTest() {
         <button onClick={handleClickRequestPointerLock}>
           Request Pointer Lock
         </button>
-        <button onClick={() => unload()}>Unload...</button>
+        <button onClick={handleClickUnload}>Unload...</button>
       </p>
       <p>
         Screenshots:
@@ -99,7 +102,7 @@ function UnityTest() {
         devicePixelRatio={window.devicePixelRatio}
         ref={canvasRef}
       />
-    </div>
+    </Fragment>
   );
 }
 
