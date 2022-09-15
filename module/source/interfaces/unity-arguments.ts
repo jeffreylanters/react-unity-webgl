@@ -96,6 +96,12 @@ interface IUnityArguments {
   readonly webglContextAttributes?: IWebGLContextAttributes;
 
   /**
+   * Add an event listener using this function to receive non-critical warnings
+   * and error messages from the Unity Instance.
+   */
+  readonly showBanner?: (message: string, type?: "error" | "warning") => void;
+
+  /**
    * When assigned this method will intercept all incomming messages from the
    * Unity Module into the console. These messages will contain both of the
    * internal information messages as well as the debuggers log messages.
