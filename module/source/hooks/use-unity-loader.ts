@@ -35,6 +35,7 @@ const useUnityLoader = (source: string): UnityLoaderStatus => {
     // new one with the provided source.
     if (script === null) {
       script = window.document.createElement("script");
+      script.type = "text/javascript";
       script.src = source;
       script.async = true;
       script.setAttribute("data-status", "loading");
