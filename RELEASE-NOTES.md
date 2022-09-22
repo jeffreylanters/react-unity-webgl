@@ -1,2 +1,5 @@
-- Made the data type of the `takeScreenshot` function optional, with a default value of `image/png`
-- The `unload` method will always return a `Promise`, even if there was no Unity Instance
+- Added script tag type to the Unity Loader hook
+- Added expirimental `UNSAFE__detachAndUnloadImmediate` method to the Unity Context
+- Replaced the Test project with a more complete environment
+- Implemented Unity's showBanner API typings
+- Updated and improved documentation and JSDoc comments
