@@ -7,7 +7,7 @@ When using the Unity Context hook, you'll need to provide a Unity Config object.
 - The **`LoaderUrl`**, this is a JavaScript file which contains the Unity Engine bootstrapping code. This file is required to load the Unity Engine and start the initialization process.
 - The **`FrameworkUrl`**, this is a JavaScript file which contains the Runtime and Plugin code. This file is responsible for running the actual Unity Application.
 - The **`DataUrl`**, this is a JSON file which contains the initial Unity Application state including your Assets and Scenes. This file can get big really fast so try to optimize your game's assets as much as possible. Try using both building and runtime compression techniques and usefull packages such as sprite atlasses.
-- The **`CodeUrl`**, this a Web Assembly binary file containg native code.
+- The **`CodeUrl`**, this is a Web Assembly binary file containg native code.
 
 :::caution
 All of the URLs which can be provided to the Unity Config, including the ones mentioned above, are due to their enormous size **not included into your bundle**. You should place these files in a public directory within your project or use a CDN. This means the files behind these URLs are loaded during runtime and should be accessible by the browser via a public URL.
