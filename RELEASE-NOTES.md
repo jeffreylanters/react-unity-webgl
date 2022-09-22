@@ -1,5 +1,6 @@
-- Added script tag type to the Unity Loader hook
-- Added expirimental `UNSAFE__detachAndUnloadImmediate` method to the Unity Context
-- Replaced the Test project with a more complete environment
-- Implemented Unity's showBanner API typings
+- Added script tag type to the Unity Loader hook to ensure the Unity Loader bundle will be loaded correctly
+- Added **expirimental** `UNSAFE__detachAndUnloadImmediate` method to the Unity Context to unload the Unity instance immediately
+- Replaced the Test project with an environment which is more suitable for testing
+- Implemented typings for Unity's showBanner API
 - Updated and improved documentation and JSDoc comments
+- Minor stability improvements
