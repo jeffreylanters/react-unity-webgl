@@ -30,6 +30,19 @@ interface IUnityContextHook extends IEventSystemHook {
   readonly initialisationError: Error | null;
 
   /**
+   * A reference to the internal Unity Instance. This Unity Instance is the
+   * object that is exposed by the Unity Loader is meant to be used only
+   * internally by the module. In the event that you need to access the Unity
+   * Instance when for example using a third-party library, that requires access
+   * to the Unity Instance, you can use this variable.
+   *
+   * Warning! Please make sure that any changes made to, or events bound to the
+   * Unity Instance are not reflected inside of the module. This could lead to
+   * unexpected behaviour.
+   */
+  readonly UNSAFE__unityInstance: UnityInstance | null;
+
+  /**
    * Enables or disabled the Fullscreen mode of the Unity Instance.
    * @param enabled Defines whether Unity should be in fullscreen.
    */

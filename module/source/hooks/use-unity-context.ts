@@ -204,6 +204,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     loadingProgression,
     initialisationError,
     isLoaded,
+    UNSAFE__unityInstance: unityInstance,
     requestFullscreen,
     requestPointerLock,
     sendMessage,
