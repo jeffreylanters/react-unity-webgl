@@ -14,6 +14,7 @@ function UnityTest() {
     removeEventListener,
     takeScreenshot,
     unload,
+    UNSAFE__unityInstance,
   } = useUnityContext({
     codeUrl: `/unity-build/communication-tests.wasm`,
     dataUrl: `/unity-build/communication-tests.data`,
@@ -62,6 +63,11 @@ function UnityTest() {
       removeEventListener("ClickedObjectTestButton", logParametersToConsole);
     };
   }, [addEventListener, removeEventListener]);
+
+  useEffect(
+    () => ((window as any).unityInstance = UNSAFE__unityInstance),
+    [UNSAFE__unityInstance]
+  );
 
   return (
     <Fragment>
