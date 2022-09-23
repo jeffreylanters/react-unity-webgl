@@ -157,6 +157,11 @@
         {
           "type": "doc",
           "id": "api/meta-data"
+        },
+        {
+          "type": "doc",
+          "id": "api/unsafe-unity-instance",
+          "label": "Access the Unity Instance"
         }
       ]
     }
