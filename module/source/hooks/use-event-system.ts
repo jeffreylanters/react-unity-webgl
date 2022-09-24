@@ -22,11 +22,17 @@ const mountedEventDispatchers: ((
 const dispatchReactUnityEvent = (
   eventName: string,
   ...parameters: ReactUnityEventParameterType[]
-): void =>
+): void => {
   // Loops through all of the mounted event systems and dispatches the event.
-  mountedEventDispatchers.forEach((dispatchEvent) =>
-    dispatchEvent(eventName, ...parameters)
-  );
+  // In case there are multiple event systems, the return value
+  // origin is undefined.
+  let returnValue: any = undefined;
+  mountedEventDispatchers.forEach((dispatchEvent) => {
+    returnValue = dispatchEvent(eventName, ...parameters);
+  });
+
+  return returnValue;
+}
 
 if (isBrowserEnvironment === true) {
   // It is possible for the application being rendered server side. We'll check
@@ -112,7 +118,7 @@ const useEventSystem = (): IEventSystemHook => {
         return;
       }
       // The event listener will be invoked with the parameters.
-      eventListener.callback(...parameters);
+      return eventListener.callback(...parameters);
     },
     [eventListeners]
   );
