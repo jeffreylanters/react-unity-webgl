@@ -9,7 +9,9 @@ interface IEventSystemHook {
    */
   readonly addEventListener: (
     eventName: string,
-    callback: (...parameters: ReactUnityEventParameterType[]) => void
+    callback: (
+      ...parameters: ReactUnityEventParameterType[]
+    ) => ReactUnityEventParameterType
   ) => void;
 
   /**
@@ -19,7 +21,9 @@ interface IEventSystemHook {
    */
   readonly removeEventListener: (
     eventName: string,
-    callback: (...parameters: ReactUnityEventParameterType[]) => void
+    callback: (
+      ...parameters: ReactUnityEventParameterType[]
+    ) => ReactUnityEventParameterType
   ) => void;
 }
 
