@@ -1,1 +1,1 @@
-- Exposing the UnityInstance via the Unity Context for the implementation of third-party non-module packages (for advanced users only) [#435]
+- Fixed an issue where events would not return their return value [#455]
