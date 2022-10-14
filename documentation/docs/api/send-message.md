@@ -55,7 +55,7 @@ function App() {
   });
 
   function handleClickSpawnEnemies() {
-    sendMessage("GameController", "SpawnEnemies", 100);
+    sendMessage("EnemyController", "SpawnEnemies", 100);
   }
 
   return (
