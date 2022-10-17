@@ -9,7 +9,7 @@ In the rare case that you need to access the Unity Instance directly, you can do
 ## Type Definition
 
 ```ts title="Type Definition"
-function UNSAFE__unityInstance(): UnityInstance | null;
+const UNSAFE__unityInstance: UnityInstance | null = null;
 ```
 
 ## Example Usage
