@@ -35,10 +35,10 @@ jobs:
       - name: Lint Code
         working-directory: module
         run: npm run lint
-      # Compile Source
-      - name: Compile Source
+      # Build Source
+      - name: Build Source
         working-directory: module
-        run: npm run compile
+        run: npm run build
       # Copy ReadMe into module
       - name: Copy ReadMe into module
         run: cp README.md module/README.md

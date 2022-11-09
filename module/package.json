@@ -48,7 +48,7 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "compile": "tsc",
+    "build": "tsc",
     "package": "npm pack",
     "lint": "echo 'Warning: lint is not implemented yet'"
   },

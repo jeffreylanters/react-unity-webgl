@@ -35,7 +35,7 @@ jobs:
       - name: Lint Code
         working-directory: module
         run: npm run lint
-      # Compile Source
-      - name: Compile Source
+      # Build Source
+      - name: Build Source
         working-directory: module
-        run: npm run compile
+        run: npm run build
