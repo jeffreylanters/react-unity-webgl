@@ -1,0 +1,13 @@
+{
+  "description": "React Unity WebGL Workspace.",
+  "author": {
+    "name": "Jeffrey Lanters",
+    "email": "jeffreylanters@me.com",
+    "url": "https://jeffreylanters.nl"
+  },
+  "workspaces": [
+    "documentation",
+    "module",
+    "testing"
+  ]
+}
