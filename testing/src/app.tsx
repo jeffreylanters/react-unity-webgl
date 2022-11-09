@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Fragment>
-      <h1>App</h1>
+      <h1>React Unity WebGL Test</h1>
       <button onClick={handleClickToggleMount}>
         {isMounted ? "Unmount" : "Mount"} Unity App
       </button>

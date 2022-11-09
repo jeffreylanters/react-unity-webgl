@@ -14,6 +14,8 @@ function UnityTest() {
     removeEventListener,
     takeScreenshot,
     unload,
+    UNSAFE__detachAndUnloadImmediate,
+    UNSAFE__unityInstance,
   } = useUnityContext({
     codeUrl: `/unity-build/communication-tests.wasm`,
     dataUrl: `/unity-build/communication-tests.data`,
@@ -27,13 +29,37 @@ function UnityTest() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [screenshots, setScreenshots] = useState<string[]>([]);
 
-  const handleClickRequestFullScreen = () => requestFullscreen(true);
-  const handleClickRequestPointerLock = () => requestPointerLock();
-  const handleClickUnload = () => unload();
-  const handleClickSetLogText = () =>
-    sendMessage("Persistent", "SetLogText", "Hello World!");
-  const handleClickLogCanvasRefToConsole = () =>
+  function handleClickRequestFullScreen() {
+    requestFullscreen(true);
+  }
+
+  function handleClickRequestPointerLock() {
+    requestPointerLock();
+  }
+
+  function handleClickUnload() {
+    unload();
+  }
+
+  function handleClickDetachAndUnloadImmediate() {
+    UNSAFE__detachAndUnloadImmediate();
+  }
+
+  function handleClickSetLogText() {
+    sendMessage(
+      "Persistent",
+      "SetLogText",
+      "Hello World, the time is " + new Date().toISOString()
+    );
+  }
+
+  function handleClickLogCanvasRefToConsole() {
     console.log("Canvas Reference", { canvasRef: canvasRef.current });
+  }
+
+  function handleClickLogUnityInstanceRefToConsole() {
+    console.log("Unity Instance Reference", { UNSAFE__unityInstance });
+  }
 
   function handleClickTakeScreenshot() {
     const screenshot = takeScreenshot("image/jpg", 1);
@@ -66,33 +92,39 @@ function UnityTest() {
   return (
     <Fragment>
       <h2>Unity Test</h2>
-      <p>Loading progression: {loadingProgression}</p>
-      <p>Loaded?: {isLoaded ? "Yes!" : "No"}</p>
-      <p>Error: {initialisationError || "None"}</p>
       <p>
-        Canvas Reference
+        Loading progression: <code>{loadingProgression}</code>
+        <br />
+        Loaded: <code>{isLoaded ? "YES" : "NO"}</code>
+        <br />
+        Error: <code>{initialisationError || "NONE"}</code>
+        <br />
+        References:
         <button onClick={handleClickLogCanvasRefToConsole}>
-          Log to Console
+          Log Canvas Ref to Console
         </button>
-      </p>
-      <p>
-        Actions
+        <button onClick={handleClickLogUnityInstanceRefToConsole}>
+          (Unsafe) Log Unity Instance Ref to Console
+        </button>
+        <br />
+        Actions:
         <button onClick={handleClickRequestFullScreen}>
           Request Fullscreen
         </button>
         <button onClick={handleClickRequestPointerLock}>
           Request Pointer Lock
         </button>
-        <button onClick={handleClickUnload}>Unload...</button>
-      </p>
-      <p>
+        <button onClick={handleClickUnload}>Unload</button>
+        <button onClick={handleClickDetachAndUnloadImmediate}>
+          (Unsafe) Detach and Unload immediate
+        </button>
+        <br />
         Screenshots:
         <button onClick={handleClickTakeScreenshot}>Take Screenshot</button>
         {screenshots.map((screenshot, index) => (
           <img key={index} src={screenshot} height={50} alt="Screenshot" />
         ))}
-      </p>
-      <p>
+        <br />
         Communication:
         <button onClick={handleClickSetLogText}>Set Log Text</button>
       </p>
