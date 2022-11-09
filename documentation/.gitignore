@@ -1,5 +1,7 @@
-# Development
+# Vendor
 /node_modules
+
+# Development
 /*.tgz
 
 # Production
