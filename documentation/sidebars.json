@@ -29,10 +29,6 @@
         {
           "type": "doc",
           "id": "main-concepts/data-conversion"
-        },
-        {
-          "type": "doc",
-          "id": "main-concepts/building-unity-for-webgl"
         }
       ]
     },
@@ -57,6 +53,25 @@
         {
           "type": "doc",
           "id": "advanced-examples/dynamic-device-pixel-ratio"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Miscellaneous Instructions",
+      "items": [
+        {
+          "type": "doc",
+          "id": "miscellaneous-instructions/building-unity-for-webgl"
+        },
+        {
+          "type": "doc",
+          "id": "miscellaneous-instructions/compressed-builds-and–server-configuration",
+          "label": "Compression and Server Configuration"
+        },
+        {
+          "type": "doc",
+          "id": "miscellaneous-instructions/browser-compatibility"
         }
       ]
     },
