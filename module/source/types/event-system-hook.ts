@@ -1,3 +1,5 @@
+import { ReactUnityEventParameter } from "./react-unity-event-parameters";
+
 /**
  * Event system for external React Unity events.
  */

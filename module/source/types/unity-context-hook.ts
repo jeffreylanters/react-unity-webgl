@@ -1,5 +1,7 @@
 import { UnityProvider } from "./unity-provider";
 import { EventSystemHook } from "./event-system-hook";
+import { ReactUnityEventParameter } from "./react-unity-event-parameters";
+import { UnityInstance } from "../../typings/unity-instance";
 
 /**
  * The Unity Context hook.

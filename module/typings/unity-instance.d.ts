@@ -1,3 +1,5 @@
+import { ReactUnityEventParameter } from "../source/types/react-unity-event-parameters";
+
 /**
  * Type declaration for the UnityInstance.
  */

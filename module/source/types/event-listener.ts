@@ -1,3 +1,5 @@
+import { ReactUnityEventParameter } from "./react-unity-event-parameters";
+
 /**
  * An event listener.
  */

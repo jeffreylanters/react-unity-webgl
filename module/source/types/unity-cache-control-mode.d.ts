@@ -6,7 +6,7 @@
  *   without revalidation.
  * - `no-store`: The cache is disabled.
  */
-declare type UnityCacheControlMode =
+type UnityCacheControlMode =
   /**
    * The cache returns to an enabled state and the file is revalidated before
    * being loaded from the cache.
@@ -20,3 +20,5 @@ declare type UnityCacheControlMode =
    * The cache is disabled.
    */
   | "no-store";
+
+export type { UnityCacheControlMode };

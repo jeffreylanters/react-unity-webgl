@@ -3,6 +3,7 @@ import { errorMessages } from "../constants/error-messages";
 import { isBrowserEnvironment } from "../constants/is-browser-environment";
 import { EventListener } from "../types/event-listener";
 import { EventSystemHook } from "../types/event-system-hook";
+import { ReactUnityEventParameter } from "../types/react-unity-event-parameters";
 
 /**
  * An array of dispatch event methods from within the mounted event systems.

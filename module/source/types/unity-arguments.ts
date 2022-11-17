@@ -1,3 +1,5 @@
+import { UnityCacheControlMode } from "./unity-cache-control-mode";
+import { UnityInstanceBannerType } from "./unity-instance-banner-type";
 import { WebGLContextAttributes } from "./webgl-context-attributes";
 
 /**

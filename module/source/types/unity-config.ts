@@ -1,3 +1,4 @@
+import { UnityCacheControlMode } from "./unity-cache-control-mode";
 import { WebGLContextAttributes } from "./webgl-context-attributes";
 
 /**

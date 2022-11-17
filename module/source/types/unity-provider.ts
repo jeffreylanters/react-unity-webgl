@@ -1,3 +1,4 @@
+import { UnityInstance } from "../../typings/unity-instance";
 import { UnityConfig } from "./unity-config";
 
 /**
