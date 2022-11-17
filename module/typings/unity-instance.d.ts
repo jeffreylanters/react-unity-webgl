@@ -16,7 +16,7 @@ declare class UnityInstance {
   public SendMessage(
     gameObjectName: string,
     methodName: string,
-    parameter?: ReactUnityEventParameterType
+    parameter?: ReactUnityEventParameter
   ): void;
 
   /**

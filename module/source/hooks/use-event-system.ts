@@ -11,8 +11,8 @@ import { IEventSystemHook } from "../interfaces/event-system-hook";
  */
 const mountedEventDispatchers: ((
   eventName: string,
-  ...parameters: ReactUnityEventParameterType[]
-) => ReactUnityEventParameterType)[] = [];
+  ...parameters: ReactUnityEventParameter[]
+) => ReactUnityEventParameter)[] = [];
 
 /**
  * Dispatches an event to all mounted event systems.
@@ -21,12 +21,12 @@ const mountedEventDispatchers: ((
  */
 const dispatchReactUnityEvent = (
   eventName: string,
-  ...parameters: ReactUnityEventParameterType[]
-): ReactUnityEventParameterType => {
+  ...parameters: ReactUnityEventParameter[]
+): ReactUnityEventParameter => {
   // Loops through all of the mounted event systems and dispatches the event.
   // In case there are multiple event systems, the return value origin is
   // undefined.
-  let returnValue: ReactUnityEventParameterType = undefined;
+  let returnValue: ReactUnityEventParameter = undefined;
   mountedEventDispatchers.forEach((dispatchEvent) => {
     returnValue = dispatchEvent(eventName, ...parameters);
   });
@@ -61,8 +61,8 @@ const useEventSystem = (): IEventSystemHook => {
     (
       eventName: string,
       callback: (
-        ...parameters: ReactUnityEventParameterType[]
-      ) => ReactUnityEventParameterType
+        ...parameters: ReactUnityEventParameter[]
+      ) => ReactUnityEventParameter
     ) => {
       // Add the event listener will be added to the array of event listeners.
       eventListeners.current = [
@@ -84,8 +84,8 @@ const useEventSystem = (): IEventSystemHook => {
     (
       eventName: string,
       callback: (
-        ...parameters: ReactUnityEventParameterType[]
-      ) => ReactUnityEventParameterType
+        ...parameters: ReactUnityEventParameter[]
+      ) => ReactUnityEventParameter
     ) => {
       // The event listener will be filtered from the event listeners array
       // based on its name and the reference to the callback.
@@ -108,8 +108,8 @@ const useEventSystem = (): IEventSystemHook => {
      */
     (
       eventName: string,
-      ...parameters: ReactUnityEventParameterType[]
-    ): ReactUnityEventParameterType => {
+      ...parameters: ReactUnityEventParameter[]
+    ): ReactUnityEventParameter => {
       // The event listener will be filtered from the event listeners array
       // based on its name.
       const eventListener = eventListeners.current.find(

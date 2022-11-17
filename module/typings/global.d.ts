@@ -11,7 +11,7 @@ declare global {
    */
   function dispatchReactUnityEvent(
     eventName: string,
-    ...parameters: ReactUnityEventParameterType[]
+    ...parameters: ReactUnityEventParameter[]
   ): void;
 
   /**

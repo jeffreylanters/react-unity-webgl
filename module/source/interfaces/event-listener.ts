@@ -11,8 +11,8 @@ interface IEventListener {
    * The callback to invoke when the event is fired.
    */
   callback: (
-    ...parameters: ReactUnityEventParameterType[]
-  ) => ReactUnityEventParameterType;
+    ...parameters: ReactUnityEventParameter[]
+  ) => ReactUnityEventParameter;
 }
 
 export type { IEventListener };

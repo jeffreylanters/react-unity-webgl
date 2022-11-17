@@ -57,7 +57,7 @@ interface IUnityContextHook extends IEventSystemHook {
   readonly sendMessage: (
     gameObjectName: string,
     methodName: string,
-    parameter?: ReactUnityEventParameterType
+    parameter?: ReactUnityEventParameter
   ) => void;
 
   /**

@@ -96,7 +96,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
     (
       gameObjectName: string,
       methodName: string,
-      parameter?: ReactUnityEventParameterType
+      parameter?: ReactUnityEventParameter
     ) => {
       if (unityInstance === null) {
         // Guarding the Unity Instance.
