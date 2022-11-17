@@ -177,6 +177,11 @@
           "type": "doc",
           "id": "api/unsafe-unity-instance",
           "label": "Access the Unity Instance"
+        },
+        {
+          "type": "doc",
+          "id": "api/cache-control",
+          "label": "Custom Cache Control"
         }
       ]
     }
