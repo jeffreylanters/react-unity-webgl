@@ -1,1 +1,3 @@
-- Fixed an issue where events would not return their return value [#455]
+- [Feature] Added support for [custom cache control](https://react-unity-webgl.dev/docs/api/cache-control)
+- Minor internal improvements and updated typings
+- Updated development dependencies
