@@ -2,6 +2,11 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
 function UnityTest() {
+  function handleCacheControl(url: string) {
+    console.log(`Cache control for ${url}`);
+    return "no-cache";
+  }
+
   const {
     loadingProgression,
     unityProvider,
@@ -24,6 +29,7 @@ function UnityTest() {
     webglContextAttributes: {
       preserveDrawingBuffer: true,
     },
+    cacheControl: handleCacheControl,
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
