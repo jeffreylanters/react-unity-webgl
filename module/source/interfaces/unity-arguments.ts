@@ -99,7 +99,10 @@ interface IUnityArguments {
    * Add an event listener using this function to receive non-critical warnings
    * and error messages from the Unity Instance.
    */
-  readonly showBanner?: (message: string, type?: "error" | "warning") => void;
+  readonly showBanner?: (
+    message: string,
+    type?: UnityInstanceBannerType
+  ) => void;
 
   /**
    * When assigned this method will intercept all incomming messages from the
