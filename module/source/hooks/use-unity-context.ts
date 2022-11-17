@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { errorMessages } from "../constants/error-messages";
-import { IUnityConfig } from "../interfaces/unity-config";
-import { IUnityContextHook } from "../interfaces/unity-context-hook";
-import { IUnityProvider } from "../interfaces/unity-provider";
+import { UnityConfig } from "../types/unity-config";
+import { UnityContextHook } from "../types/unity-context-hook";
+import { UnityProvider } from "../types/unity-provider";
 import { useEventSystem } from "./use-event-system";
 import { useNullableState } from "./use-nullable-state";
 
@@ -11,7 +11,7 @@ import { useNullableState } from "./use-nullable-state";
  * @param unityConfig The Unity Config on which the Unity Context is based.
  * @returns The Unity Context hook.
  */
-const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
+const useUnityContext = (unityConfig: UnityConfig): UnityContextHook => {
   // A reference to the Unity Instance.
   const [unityInstance, setUnityInstance] = useNullableState<UnityInstance>();
 
@@ -38,7 +38,7 @@ const useUnityContext = (unityConfig: IUnityConfig): IUnityContextHook => {
    * object that contains a series of methods and properties that are used to
    * alter the Unity Context state externally.
    */
-  const unityProvider = useRef<IUnityProvider>({
+  const unityProvider = useRef<UnityProvider>({
     setLoadingProgression,
     setInitialisationError,
     setUnityInstance,

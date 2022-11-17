@@ -2,7 +2,7 @@
  * WebGLContextAttributes object that contains the actual context parameters.
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/getContextAttributes
  */
-interface IWebGLContextAttributes {
+type WebGLContextAttributes = {
   /**
    * If set to true, the context will have an alpha (transparency) channel.
    * @default true
@@ -90,6 +90,6 @@ interface IWebGLContextAttributes {
    * @default false
    */
   readonly xrCompatible?: boolean;
-}
+};
 
-export type { IWebGLContextAttributes };
+export type { WebGLContextAttributes };

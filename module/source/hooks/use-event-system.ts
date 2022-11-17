@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from "react";
 import { errorMessages } from "../constants/error-messages";
 import { isBrowserEnvironment } from "../constants/is-browser-environment";
-import { IEventListener } from "../interfaces/event-listener";
-import { IEventSystemHook } from "../interfaces/event-system-hook";
+import { EventListener } from "../types/event-listener";
+import { EventSystemHook } from "../types/event-system-hook";
 
 /**
  * An array of dispatch event methods from within the mounted event systems.
@@ -44,11 +44,11 @@ if (isBrowserEnvironment === true) {
  * Event system for invoking external React Unity events.
  * @returns The Event System hook.
  */
-const useEventSystem = (): IEventSystemHook => {
+const useEventSystem = (): EventSystemHook => {
   /**
    * An array of all registered event listeners.
    */
-  const eventListeners = useRef<IEventListener[]>([]);
+  const eventListeners = useRef<EventListener[]>([]);
 
   /**
    * Adds an event listener for external React Unity events.

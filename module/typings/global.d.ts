@@ -1,4 +1,4 @@
-import { IUnityArguments } from "../source/interfaces/unity-arguments";
+import { UnityArguments } from "../source/types/unity-arguments";
 
 /**
  * Type declaration for global types.
@@ -23,7 +23,7 @@ declare global {
    */
   function createUnityInstance(
     canvasHtmlElement: HTMLCanvasElement,
-    arguments: IUnityArguments,
+    arguments: UnityArguments,
     onProgress?: (progression: number) => void
   ): Promise<UnityInstance>;
 

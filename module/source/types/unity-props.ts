@@ -1,15 +1,15 @@
 import { CSSProperties } from "react";
-import { IUnityProvider } from "./unity-provider";
+import { UnityProvider } from "./unity-provider";
 
 /**
  * The Unity component's props.
  */
-interface IUnityProps {
+type UnityProps = {
   /**
    * The Provider of the Unity Context which should be rendered be the Unity
    * Component.
    */
-  readonly unityProvider: IUnityProvider;
+  readonly unityProvider: UnityProvider;
 
   /**
    * The Class Name will be applied to the Canvas.
@@ -45,6 +45,6 @@ interface IUnityProps {
    * @see https://issuetracker.unity3d.com/issues/webgl-builds-dont-allow-separate-control-on-canvas-render-buffer-size
    */
   readonly matchWebGLToCanvasSize?: boolean;
-}
+};
 
-export type { IUnityProps };
+export type { UnityProps };

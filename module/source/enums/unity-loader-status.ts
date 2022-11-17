@@ -1,7 +1,7 @@
 /**
  * The status of the Unity loader.
  */
-export enum UnityLoaderStatus {
+enum UnityLoaderStatus {
   /**
    * The Unity loader is idling and awaiting a resource it be loaded.
    */
@@ -22,3 +22,5 @@ export enum UnityLoaderStatus {
    */
   Error = "Error",
 }
+
+export { UnityLoaderStatus };

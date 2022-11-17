@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { IUnityArguments } from "../interfaces/unity-arguments";
-import { IUnityProps } from "../interfaces/unity-props";
+import { UnityArguments } from "../types/unity-arguments";
+import { UnityProps } from "../types/unity-props";
 
 /**
  * Creates a memoized Unity Arguments object which can be passed to the Unity
@@ -8,8 +8,8 @@ import { IUnityProps } from "../interfaces/unity-props";
  * @param unityProps The Unity props provided the the Unity component.
  * @returns The Unity arguments to pass to the Unity instance.
  */
-const useUnityArguments = (unityProps: IUnityProps): IUnityArguments => {
-  return useMemo<IUnityArguments>(
+const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
+  return useMemo<UnityArguments>(
     () => ({
       ...unityProps.unityProvider.unityConfig,
 

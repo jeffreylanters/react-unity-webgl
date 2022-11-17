@@ -4,14 +4,14 @@ import { useUnityCanvasId } from "../hooks/use-unity-canvas-id";
 import { useUnityInstance } from "../hooks/use-unity-instance";
 import { useUnityArguments } from "../hooks/use-unity-arguments";
 import { useUnityLoader } from "../hooks/use-unity-loader";
-import { IUnityProps } from "../interfaces/unity-props";
+import { UnityProps } from "../types/unity-props";
 
 /**
  * Renders the provided Unity Application.
  */
 const Unity: ForwardRefExoticComponent<
-  IUnityProps & React.RefAttributes<HTMLCanvasElement>
-> = forwardRef<HTMLCanvasElement, IUnityProps>(
+  UnityProps & React.RefAttributes<HTMLCanvasElement>
+> = forwardRef<HTMLCanvasElement, UnityProps>(
   /**
    * @param unityProps The Unity props provided the the Unity component.
    * @param forwardedRef The forwarded ref to the Unity component.

@@ -1,16 +1,16 @@
-import { IUnityProvider } from "../interfaces/unity-provider";
-import { IEventSystemHook } from "./event-system-hook";
+import { UnityProvider } from "./unity-provider";
+import { EventSystemHook } from "./event-system-hook";
 
 /**
  * The Unity Context hook.
  */
-interface IUnityContextHook extends IEventSystemHook {
+type UnityContextHook = EventSystemHook & {
   /**
    * The Unity Context returns a Unity Provider instance. This immutable object
    * should be passed onto a Unity Component in order to be able to access the
    * Unity Context's state.
    */
-  readonly unityProvider: IUnityProvider;
+  readonly unityProvider: UnityProvider;
 
   /**
    * The Unity Instance's loading progression represents the percentage of the
@@ -99,6 +99,6 @@ interface IUnityContextHook extends IEventSystemHook {
    * @returns A promise that resolves when the UnityInstance has been unloaded.
    */
   readonly UNSAFE__detachAndUnloadImmediate: () => Promise<void>;
-}
+};
 
-export type { IUnityContextHook };
+export type { UnityContextHook };

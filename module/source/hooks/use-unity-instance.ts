@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { IUnityArguments } from "../interfaces/unity-arguments";
-import { IUnityProvider } from "../interfaces/unity-provider";
+import { UnityArguments } from "../types/unity-arguments";
+import { UnityProvider } from "../types/unity-provider";
 import { UnityLoaderStatus } from "../enums/unity-loader-status";
 import { isBrowserEnvironment } from "../constants/is-browser-environment";
 
@@ -15,8 +15,8 @@ import { isBrowserEnvironment } from "../constants/is-browser-environment";
 const useUnityInstance = (
   unityLoaderStatus: UnityLoaderStatus,
   htmlCanvasElement: HTMLCanvasElement | null,
-  unityArguments: IUnityArguments,
-  unityProvider: IUnityProvider
+  unityArguments: UnityArguments,
+  unityProvider: UnityProvider
 ) => {
   // Effect invoked when the Unity Loader status or canvas reference changes.
   useEffect(() => {
