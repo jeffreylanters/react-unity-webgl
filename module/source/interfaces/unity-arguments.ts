@@ -96,6 +96,15 @@ interface IUnityArguments {
   readonly webglContextAttributes?: IWebGLContextAttributes;
 
   /**
+   * By default, the WebGL Cache stores the asset data file .data and
+   * AssetBundle files .bundle, and revalidates them before loading them from
+   * the cache. You can change this behavior by overriding the default
+   * caching behavior. This argument is treated as meta data which will be
+   * provided to the Unity Instance.
+   */
+  readonly cacheControl?: (url: string) => UnityCacheControlMode;
+
+  /**
    * Add an event listener using this function to receive non-critical warnings
    * and error messages from the Unity Instance.
    */

@@ -84,6 +84,15 @@ interface IUnityConfig {
    * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext
    */
   readonly webglContextAttributes?: IWebGLContextAttributes;
+
+  /**
+   * By default, the WebGL Cache stores the asset data file .data and
+   * AssetBundle files .bundle, and revalidates them before loading them from
+   * the cache. You can change this behavior by overriding the default
+   * caching behavior. This argument is treated as meta data which will be
+   * provided to the Unity Instance.
+   */
+  readonly cacheControl?: (url: string) => UnityCacheControlMode;
 }
 
 export type { IUnityConfig };
