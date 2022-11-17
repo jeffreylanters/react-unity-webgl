@@ -28,6 +28,10 @@ function dispatchReactUnityEvent(
 ): void;
 ```
 
+```tsx title="Type Definition"
+type ReactUnityEventParameter = string | number | undefined;
+```
+
 ## Implementation
 
 Sending messages from Unity to React is done by registering an event listener to the Unity Context instance. Event listeners are distinguished by the name of the event. The event listener takes a callback function as its second parameter. The callback function will be invoked when the event is fired, the passed parameters will be passed to the callback function.

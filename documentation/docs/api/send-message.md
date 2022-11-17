@@ -15,6 +15,10 @@ function sendMessage(
 ): void;
 ```
 
+```tsx title="Type Definition"
+type ReactUnityEventParameter = string | number | undefined;
+```
+
 ## Implementation
 
 Sending messages from React to Unity is done using the send message function available via the Unity Context instance. The send message function is similar to the SendMessage Method found internally in Unity. The function will invoke a C-Sharp method of any protection level on an active GameObject in your Scene.
