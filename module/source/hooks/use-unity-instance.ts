@@ -17,7 +17,7 @@ const useUnityInstance = (
   htmlCanvasElement: HTMLCanvasElement | null,
   unityArguments: UnityArguments,
   unityProvider: UnityProvider
-) => {
+): void => {
   // Effect invoked when the Unity Loader status or canvas reference changes.
   useEffect(() => {
     (async () => {
