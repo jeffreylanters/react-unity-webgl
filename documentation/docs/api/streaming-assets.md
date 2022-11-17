@@ -5,9 +5,9 @@ When using Streaming Assets, a URL (or Path) can be defined where your Unity App
 ## Type Definition
 
 ```ts title="Type Definition"
-interface IUnityConfig {
+type UnityConfig = {
   readonly streamingAssetsUrl?: string;
-}
+};
 ```
 
 :::caution

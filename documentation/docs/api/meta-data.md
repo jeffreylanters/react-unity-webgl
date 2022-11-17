@@ -5,11 +5,11 @@ Sets the Unity Application meta data.
 ## Type Definition
 
 ```ts title="Type Definition"
-interface IUnityConfig {
+type UnityConfig = {
   readonly productName?: string;
   readonly productVersion?: string;
   readonly companyName?: string;
-}
+};
 ```
 
 ## Example Usage

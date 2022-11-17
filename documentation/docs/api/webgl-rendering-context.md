@@ -5,7 +5,7 @@ The WebGLContexAttributes allow you to configure WebGLRenderingContext creation 
 ## Type Definition
 
 ```ts title="Type Definition"
-interface IWebGLContextAttributes {
+type WebGLContextAttributes = {
   readonly alpha?: boolean;
   readonly antialias?: boolean;
   readonly depth?: boolean;
@@ -16,7 +16,7 @@ interface IWebGLContextAttributes {
   readonly stencil?: boolean;
   readonly desynchronized?: boolean;
   readonly xrCompatible?: boolean;
-}
+};
 ```
 
 ## Implementation
