@@ -9,11 +9,8 @@ import { IUnityProps } from "../interfaces/unity-props";
  * @returns The Unity arguments to pass to the Unity instance.
  */
 const useUnityArguments = (unityProps: IUnityProps): IUnityArguments => {
-  return useMemo<IUnityArguments>(() => {
-    /**
-     * Creation of an object with the arguments for the Unity Instance.
-     */
-    return {
+  return useMemo<IUnityArguments>(
+    () => ({
       ...unityProps.unityProvider.unityConfig,
 
       /**
@@ -22,7 +19,7 @@ const useUnityArguments = (unityProps: IUnityProps): IUnityArguments => {
        * @param message The message to be printed.
        */
       print: (message: string) => {
-        // TODO -- Implement the print hook.
+        // This hook is disabled due to incorrect implementation in Unity.
         // unityContext.dispatchEvent("debug", message);
       },
 
@@ -32,7 +29,7 @@ const useUnityArguments = (unityProps: IUnityProps): IUnityArguments => {
        * @param error The error to be printed.
        */
       printErr: (error: string) => {
-        // TODO -- Implement the printErr hook.
+        // This hook is disabled due to incorrect implementation in Unity.
         // unityContext.dispatchEvent("error", error);
       },
 
@@ -54,12 +51,13 @@ const useUnityArguments = (unityProps: IUnityProps): IUnityArguments => {
        */
       webglContextAttributes:
         unityProps.unityProvider.unityConfig.webglContextAttributes || {},
-    } as IUnityArguments;
-  }, [
-    unityProps.devicePixelRatio,
-    unityProps.matchWebGLToCanvasSize,
-    unityProps.unityProvider.unityConfig,
-  ]);
+    }),
+    [
+      unityProps.devicePixelRatio,
+      unityProps.matchWebGLToCanvasSize,
+      unityProps.unityProvider.unityConfig,
+    ]
+  );
 };
 
 export { useUnityArguments };
