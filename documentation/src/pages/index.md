@@ -24,6 +24,7 @@ import TabItem from "@theme/TabItem";
 [![size](https://img.shields.io/bundlephobia/minzip/react-unity-webgl?style=for-the-badge&label=size)](https://bundlephobia.com/result?p=react-unity-webgl)
 [![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
 [![support](https://img.shields.io/badge/support-donate-F23150?style=for-the-badge)](https://react-unity-webgl.dev/support)
+[![discord](https://img.shields.io/discord/1047824448910270544?color=%236373F6&label=discord&style=for-the-badge)](https://discord.gg/fVPCqXCCGf)
 
 When bringing your Unity Application to the web, you might need to communicate with Components on a webpage, build interactive interfaces or might want to implement functionality using Web APIs which Unity does not expose. Combining Unity with React is a great way to achieve these goals. React Unity WebGL provides a modern solution for embedding Unity WebGL builds in your React Application while providing advanced APIs for two way communication and interaction between Unity and React.
 
