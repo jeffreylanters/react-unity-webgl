@@ -11,6 +11,7 @@
 [![size](https://img.shields.io/bundlephobia/minzip/react-unity-webgl?style=for-the-badge&label=size)](https://bundlephobia.com/result?p=react-unity-webgl)
 [![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
 [![support](https://img.shields.io/badge/support-donate-F23150?style=for-the-badge)](https://react-unity-webgl.dev/support)
+[![discord](https://img.shields.io/discord/1047824448910270544?color=%236373F6&label=discord&style=for-the-badge)](https://discord.gg/fVPCqXCCGf)
 
 [**Documentation**](https://react-unity-webgl.dev/) &middot;
 [**Template Repository**](https://github.com/jeffreylanters/react-unity-webgl-template/) &middot;
@@ -22,6 +23,8 @@
 </div>
 
 When bringing your Unity Application to the web, you might need to communicate with Components on a webpage, build interactive interfaces or might want to implement functionality using Web APIs which Unity does not expose. Combining Unity with React is a great way to achieve these goals. React Unity WebGL provides a modern solution for embedding Unity WebGL builds in your React Application while providing advanced APIs for two way communication and interaction between Unity and React.
+
+Feel free to join the [React Unity WebGL Community Discord](https://discord.gg/fVPCqXCCGf) to ask questions, contribute to the project, share your work or just hang out!
 
 ### A quick word
 
@@ -53,6 +56,7 @@ Learn everything you'll need to know about React Unity WebGL [on the official we
 - Dive straight into the [API reference](https://react-unity-webgl.dev/docs/api/introduction) to learn everything the module has to offer.
 - When using an older version of Unity, you might want to check any of the [legacy docs](https://react-unity-webgl.dev/docs/8.x.x/introduction/).
 - Looking to share and showcase what you've built? Check out the [made with](https://react-unity-webgl.dev/made-with) page!
+- Feel free to join the [React Unity WebGL Community Discord](https://discord.gg/fVPCqXCCGf) to ask questions, contribute to the project, share your work or just hang out!
 
 The source code of both the website and the module are contained within this mono-repo. Feel free to open a [pull request](https://github.com/jeffreylanters/react-unity-webgl/pulls) to improve or add features to the any of these. Looking for a new feature, but not sure where to start? Feel free to spin up a new [discussion](https://github.com/jeffreylanters/react-unity-webgl/discussions).
 
