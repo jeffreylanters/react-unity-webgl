@@ -32,7 +32,8 @@ When invoking a C-Sharp method by sending a message, the name of the mono behavi
 :::
 
 :::warning
-Make sure the parameter matches the actual excistence and type of the C-Sharp method you're trying to invoke. Not doing so may cause unintended behaviour or even a crash of the Unity Application.
+Make sure the parameter matches the actual existence and type of the C-Sharp method you're trying to invoke. Not 
+doing so may cause unintended behaviour or even a crash of the Unity Application.
 :::
 
 :::info
