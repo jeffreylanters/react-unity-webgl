@@ -30,6 +30,7 @@ function UnityTest() {
       preserveDrawingBuffer: true,
     },
     cacheControl: handleCacheControl,
+    disabledCanvasEvents: ["dragstart"],
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
