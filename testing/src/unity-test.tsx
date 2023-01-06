@@ -151,8 +151,8 @@ function UnityTest() {
           height: 400,
           width: canvasWidth,
         }}
-        // devicePixelRatio={window.devicePixelRatio}
-        // disabledCanvasEvents={["dragstart"]}
+        devicePixelRatio={window.devicePixelRatio}
+        disabledCanvasEvents={["dragstart"]}
         ref={canvasRef}
       />
     </Fragment>
