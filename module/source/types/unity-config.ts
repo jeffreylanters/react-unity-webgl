@@ -7,6 +7,7 @@ import { UnityArguments } from "./unity-arguments";
  */
 type ConfigurableUnityArguments = Pick<
   UnityArguments,
+  | "dataUrl"
   | "frameworkUrl"
   | "codeUrl"
   | "streamingAssetsUrl"
