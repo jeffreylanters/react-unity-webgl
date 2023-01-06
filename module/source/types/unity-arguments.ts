@@ -103,7 +103,7 @@ type UnityArguments = {
    * to interact with the canvas, but not with the Unity WebGL canvas. The
    * default disabled events are `contextmenu` and `dragstart`.
    */
-  readonly disabledCanvasEvents?: string[];
+  readonly disabledCanvasEvents?: (keyof GlobalEventHandlersEventMap)[];
 
   /**
    * By default, the WebGL Cache stores the asset data file .data and
