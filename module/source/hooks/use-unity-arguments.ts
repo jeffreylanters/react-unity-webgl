@@ -19,7 +19,7 @@ const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
        * @param message The message to be printed.
        */
       print: (message: string) => {
-        // This hook is disabled due to incorrect implementation in Unity.
+        // TODO -- Re-implement this hook.
         // unityContext.dispatchEvent("debug", message);
       },
 
@@ -29,7 +29,7 @@ const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
        * @param error The error to be printed.
        */
       printErr: (error: string) => {
-        // This hook is disabled due to incorrect implementation in Unity.
+        // TODO -- Re-implement this hook.
         // unityContext.dispatchEvent("error", error);
       },
 
