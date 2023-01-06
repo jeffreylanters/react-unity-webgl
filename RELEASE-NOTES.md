@@ -1,3 +1,2 @@
-- [Feature] Added support for [custom cache control](https://react-unity-webgl.dev/docs/api/cache-control)
+- [Feature] Added support for overwriting Unity's [disabled canvas events](https://react-unity-webgl.dev/docs/api/disabled-canvas-events)
 - Minor internal improvements and updated typings
-- Updated development dependencies
