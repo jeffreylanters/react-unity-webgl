@@ -30,11 +30,11 @@ function UnityTest() {
       preserveDrawingBuffer: true,
     },
     cacheControl: handleCacheControl,
-    disabledCanvasEvents: ["dragstart"],
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [screenshots, setScreenshots] = useState<string[]>([]);
+  const [canvasWidth, setCanvasWidth] = useState(500);
 
   function handleClickRequestFullScreen() {
     requestFullscreen(true);
@@ -50,6 +50,10 @@ function UnityTest() {
 
   function handleClickDetachAndUnloadImmediate() {
     UNSAFE__detachAndUnloadImmediate();
+  }
+
+  function handleClickSetRandomCanvasWidth() {
+    setCanvasWidth(Math.floor(Math.random() * 500) + 250);
   }
 
   function handleClickSetLogText() {
@@ -134,11 +138,21 @@ function UnityTest() {
         <br />
         Communication:
         <button onClick={handleClickSetLogText}>Set Log Text</button>
+        <br />
+        Other:
+        <button onClick={handleClickSetRandomCanvasWidth}>
+          Set Random Canvas Width
+        </button>
       </p>
       <Unity
         unityProvider={unityProvider}
-        style={{ border: "1px solid red", height: 400, width: 500 }}
-        devicePixelRatio={window.devicePixelRatio}
+        style={{
+          border: "1px solid red",
+          height: 400,
+          width: canvasWidth,
+        }}
+        // devicePixelRatio={window.devicePixelRatio}
+        // disabledCanvasEvents={["dragstart"]}
         ref={canvasRef}
       />
     </Fragment>

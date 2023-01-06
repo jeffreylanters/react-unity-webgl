@@ -50,8 +50,8 @@ const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
 
       // Assigns the match WebGL to canvas size value to the Unity arguments
       // object. If the match WebGL to canvas size value is not defined via the
-      // Unity Props, the default value of `false` will be used.
-      matchWebGLToCanvasSize: unityProps.matchWebGLToCanvasSize || false,
+      // Unity Props, the default value of `true` will be used.
+      matchWebGLToCanvasSize: unityProps.matchWebGLToCanvasSize || true,
 
       // Assigns the disabled canvas events to the Unity arguments object. If
       // the disabled canvas events are not defined via the Unity Props, the
@@ -85,12 +85,7 @@ const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
           // TODO -- Re-implement this hook.
         },
     }),
-    [
-      unityProps.unityProvider.unityConfig,
-      unityProps.devicePixelRatio,
-      unityProps.matchWebGLToCanvasSize,
-      unityProps.disabledCanvasEvents,
-    ]
+    []
   );
 };
 
