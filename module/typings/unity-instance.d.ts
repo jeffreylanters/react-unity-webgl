@@ -34,12 +34,7 @@ declare class UnityInstance {
   public Quit(): Promise<void>;
 
   /**
-   * The Unity Module.
+   * The internal Unity Module.
    */
-  public Module: {
-    /**
-     * A reference to the Unity Instance's Canvas.
-     */
-    canvas?: HTMLCanvasElement;
-  };
+  public Module: UnityModule;
 }
