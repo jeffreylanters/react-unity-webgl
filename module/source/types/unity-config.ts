@@ -17,7 +17,6 @@ type ConfigurableUnityArguments = Pick<
   | "productName"
   | "productVersion"
   | "webglContextAttributes"
-  | "disabledCanvasEvents"
   | "cacheControl"
 >;
 
