@@ -171,6 +171,10 @@
         },
         {
           "type": "doc",
+          "id": "api/disabled-canvas-events"
+        },
+        {
+          "type": "doc",
           "id": "api/meta-data"
         },
         {
