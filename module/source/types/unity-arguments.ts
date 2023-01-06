@@ -98,6 +98,14 @@ type UnityArguments = {
   readonly webglContextAttributes?: WebGLContextAttributes;
 
   /**
+   * An array of strings containing the names of the events that should be
+   * disabled on the canvas. This can be useful when you want to allow the user
+   * to interact with the canvas, but not with the Unity WebGL canvas. The
+   * default disabled events are `contextmenu` and `dragstart`.
+   */
+  readonly disabledCanvasEvents?: string[];
+
+  /**
    * By default, the WebGL Cache stores the asset data file .data and
    * AssetBundle files .bundle, and revalidates them before loading them from
    * the cache. You can change this behavior by overriding the default
