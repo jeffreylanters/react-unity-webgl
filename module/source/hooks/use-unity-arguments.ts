@@ -11,54 +11,85 @@ import { UnityProps } from "../types/unity-props";
 const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
   return useMemo<UnityArguments>(
     () => ({
-      ...unityProps.unityProvider.unityConfig,
+      // Assigns the data URL, framework URL, and code URL to the Unity
+      // arguments object.
+      dataUrl: unityProps.unityProvider.unityConfig.dataUrl,
+      frameworkUrl: unityProps.unityProvider.unityConfig.frameworkUrl,
+      codeUrl: unityProps.unityProvider.unityConfig.codeUrl,
 
-      /**
-       * When the device pixel ratio is defined via the Unity Props, it's value
-       * will be appended to the Unity arguments object.
-       */
-      devicePixelRatio: unityProps.devicePixelRatio,
+      // Assigns the optional streaming assets URL, memory URL, and symbols URL
+      // to the Unity arguments object.
+      streamingAssetsUrl:
+        unityProps.unityProvider.unityConfig.streamingAssetsUrl,
+      memoryUrl: unityProps.unityProvider.unityConfig.memoryUrl,
+      symbolsUrl: unityProps.unityProvider.unityConfig.symbolsUrl,
 
-      /**
-       * When the match WebGL to Canvas Size boolean is defined via the Unity
-       * Props, it's value will be appended to the Unity arguments object.
-       */
-      matchWebGLToCanvasSize: unityProps.matchWebGLToCanvasSize,
+      // Assigns the optional company name, product name, and product version to
+      // the Unity arguments object.
+      companyName: unityProps.unityProvider.unityConfig.companyName,
+      productName: unityProps.unityProvider.unityConfig.productName,
+      productVersion: unityProps.unityProvider.unityConfig.productVersion,
 
-      /**
-       * Even though the WebGL Context Attributes are defined in the Unity
-       * Config and are spread into the Unity Arguments object, a check is still
-       * performed to see if the WebGL Context Attributes are not undefined
-       * since this would cause the Unity Instance to throw an error. An empty
-       * object is used as a fallback.
-       */
+      // Assigns the webgl context attributes to the Unity arguments object.
+      // If the webgl context attributes are not defined via the Unity Props,
+      // the default value of an empty object will be used.
       webglContextAttributes:
         unityProps.unityProvider.unityConfig.webglContextAttributes || {},
 
-      /**
-       * Print event hooks will be intercepted in order to catch messages and send
-       * them to the unity context instead.
-       * @param message The message to be printed.
-       */
-      print: (message: string) => {
-        // TODO -- Re-implement this hook.
-        // unityContext.dispatchEvent("debug", message);
-      },
+      // Assigns the cache control value to the Unity arguments object. If the
+      // cache control value is not defined via the Unity Props, the default
+      // value of always `must-revalidate` will be used.
+      cacheControl:
+        unityProps.unityProvider.unityConfig.cacheControl ||
+        (() => "must-revalidate"),
 
-      /**
-       * Print error event hooks will be intercepted in order to catch error
-       * messages and send them to the unity context instead.
-       * @param error The error to be printed.
-       */
-      printErr: (error: string) => {
-        // TODO -- Re-implement this hook.
-        // unityContext.dispatchEvent("error", error);
-      },
+      // Assigns the device pixel ratio to the Unity arguments object. If the
+      // device pixel ratio is not defined via the Unity Props, the default
+      // value of `1` will be used.
+      devicePixelRatio: unityProps.devicePixelRatio || 1,
+
+      // Assigns the match WebGL to canvas size value to the Unity arguments
+      // object. If the match WebGL to canvas size value is not defined via the
+      // Unity Props, the default value of `false` will be used.
+      matchWebGLToCanvasSize: unityProps.matchWebGLToCanvasSize || false,
+
+      // Assigns the disabled canvas events to the Unity arguments object. If
+      // the disabled canvas events are not defined via the Unity Props, the
+      // default value of `contextmenu` and `dragstart` will be used.
+      disabledCanvasEvents: unityProps.disabledCanvasEvents || [
+        "contextmenu",
+        "dragstart",
+      ],
+
+      // Assigns the print hook to the Unity arguments object. This hook will
+      // be called whenever the Unity instance prints a message.
+      print:
+        /**
+         * Intercept print events in order to catch messages and send them to
+         * the unity context instead.
+         * @param message The message to be printed.
+         */
+        (message: string) => {
+          // TODO -- Re-implement this hook.
+        },
+
+      // Assigns the print error hook to the Unity arguments object. This hook
+      // will be called whenever the Unity instance prints an error.
+      printErr:
+        /**
+         * Intercept print error events in order to catch messages and send them
+         * to the unity context instead.
+         * @param error The error to be printed.
+         */
+        (error: string) => {
+          // TODO -- Re-implement this hook.
+        },
     }),
     [
+      unityProps.unityProvider.unityConfig,
       unityProps.devicePixelRatio,
       unityProps.matchWebGLToCanvasSize,
-      unityProps.unityProvider.unityConfig,
+      unityProps.disabledCanvasEvents,
     ]
   );
 };
