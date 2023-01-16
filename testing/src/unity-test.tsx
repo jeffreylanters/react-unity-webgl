@@ -19,7 +19,6 @@ function UnityTest() {
     removeEventListener,
     takeScreenshot,
     unload,
-    UNSAFE__detachAndUnloadImmediate,
     UNSAFE__unityInstance,
   } = useUnityContext({
     codeUrl: `/unity-build/communication-tests.wasm`,
@@ -46,10 +45,6 @@ function UnityTest() {
 
   function handleClickUnload() {
     unload();
-  }
-
-  function handleClickDetachAndUnloadImmediate() {
-    UNSAFE__detachAndUnloadImmediate();
   }
 
   function handleClickSetRandomCanvasWidth() {
@@ -126,9 +121,6 @@ function UnityTest() {
           Request Pointer Lock
         </button>
         <button onClick={handleClickUnload}>Unload</button>
-        <button onClick={handleClickDetachAndUnloadImmediate}>
-          (Unsafe) Detach and Unload immediate
-        </button>
         <br />
         Screenshots:
         <button onClick={handleClickTakeScreenshot}>Take Screenshot</button>
