@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { UnityInstance } from "../../typings/unity-instance";
+import { UnityInstance } from "../../declarations/unity-instance";
 import { errorMessages } from "../constants/error-messages";
 import { ReactUnityEventParameter } from "../types/react-unity-event-parameters";
 import { UnityConfig } from "../types/unity-config";
