@@ -155,44 +155,6 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContextHook => {
     [unityInstance]
   );
 
-  /**
-   * Detatches the Unity Instance from the React DOM, by doing so, the Unity
-   * Instance can be unloaded from the memory while the Unity component can be
-   * unmounted safely.
-   *
-   * Warning! This is a workaround for the fact that the Unity WebGL instances
-   * which are build with Unity 2021.2 and newer cannot be unmounted before the
-   * Unity Instance is unloaded.
-   * @see https://github.com/jeffreylanters/react-unity-webgl/issues/22
-   */
-  const UNSAFE__detachAndUnloadImmediate = useCallback(
-    /**
-     * @returns A promise that resolves when the UnityInstance has been unloaded.
-     */
-    async (): Promise<void> => {
-      if (
-        unityInstance === null ||
-        typeof unityInstance.Module.canvas === "undefined"
-      ) {
-        // Guarding the Unity Instance.
-        console.warn(errorMessages.genericNoUnityInstance);
-        return Promise.reject();
-      }
-      // Re-attaches the canvas to the body element of the document. This way it
-      // wont be removed from the DOM when the component is unmounted. Then the
-      // canvas will be hidden while it is being unloaded.
-      const canvas = unityInstance.Module.canvas as HTMLCanvasElement;
-      document.body.appendChild(canvas);
-      canvas.style.display = "none";
-      // Unloads the Unity Instance.
-      await unload();
-      // Eventually the canvas will be removed from the DOM. This has to be done
-      // manually since the canvas is no longer controlled by the React DOM.
-      canvas.remove();
-    },
-    [unityInstance]
-  );
-
   // Effect invoked when the loading progression changes. When the loading
   // progression is equal to or more than 1, the Unity Instance is considered
   // loaded. This will update the isLoaded state.
@@ -214,7 +176,6 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContextHook => {
     takeScreenshot,
     addEventListener: eventSystem.addEventListener,
     removeEventListener: eventSystem.removeEventListener,
-    UNSAFE__detachAndUnloadImmediate,
   };
 };
 
