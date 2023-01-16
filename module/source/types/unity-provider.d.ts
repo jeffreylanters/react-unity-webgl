@@ -1,4 +1,4 @@
-import { UnityInstance } from "../../typings/unity-instance";
+import { UnityInstance } from "../../declarations/unity-instance";
 import { UnityConfig } from "./unity-config";
 
 /**

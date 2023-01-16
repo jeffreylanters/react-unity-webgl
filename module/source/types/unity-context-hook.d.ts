@@ -1,7 +1,7 @@
 import { UnityProvider } from "./unity-provider";
 import { EventSystemHook } from "./event-system-hook";
 import { ReactUnityEventParameter } from "./react-unity-event-parameters";
-import { UnityInstance } from "../../typings/unity-instance";
+import { UnityInstance } from "../../declarations/unity-instance";
 
 /**
  * The Unity Context hook.
@@ -88,19 +88,6 @@ type UnityContextHook = EventSystemHook & {
    * @returns A promise that resolves when the UnityInstance has been unloaded.
    */
   readonly unload: () => Promise<void>;
-
-  /**
-   * Detatches the Unity Instance from the React DOM, by doing so, the Unity
-   * Instance can be unloaded from the memory while the Unity component can be
-   * unmounted safely.
-   *
-   * Warning! This is a workaround for the fact that the Unity WebGL instances
-   * which are build with Unity 2021.2 and newer cannot be unmounted before the
-   * Unity Instance is unloaded.
-   * @see https://github.com/jeffreylanters/react-unity-webgl/issues/22
-   * @returns A promise that resolves when the UnityInstance has been unloaded.
-   */
-  readonly UNSAFE__detachAndUnloadImmediate: () => Promise<void>;
 };
 
 export type { UnityContextHook };
