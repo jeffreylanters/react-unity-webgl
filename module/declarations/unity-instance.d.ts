@@ -25,7 +25,7 @@ declare class UnityInstance {
    * Enables or disabled the fullscreen mode of the UnityInstance.
    * @param fullScreen sets the fullscreen mode.
    */
-  public SetFullscreen(fullScreen: 0 | 1): void;
+  public SetFullscreen(fullScreen: UnityBooleanLike): void;
 
   /**
    * Quits the Unity WebGL application and removes it from the memory.

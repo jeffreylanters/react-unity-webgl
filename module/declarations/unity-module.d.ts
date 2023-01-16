@@ -13,10 +13,16 @@ declare type UnityModule = {
    * Enables or disabled the fullscreen mode of the UnityInstance.
    * @param fullScreen sets the fullscreen mode.
    */
-  SetFullscreen(fullScreen: 0 | 1): void;
+  SetFullscreen(fullScreen: UnityBooleanLike): void;
 
   /**
    * A reference to the Unity Instance's Canvas.
    */
   canvas?: HTMLCanvasElement;
+
+  /**
+   * A reference to the injected React Unity WebGL Module. This Module can be
+   * installed optionally into the Unity
+   */
+  reactUnityWebGL?: ReactUnityWebGLModule;
 };
