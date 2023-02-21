@@ -150,7 +150,7 @@ A basic implementation could look something like this. In the following example 
 <TabItem value="App.jsx" label="App.jsx">
 
 ```jsx showLineNumbers title="App.jsx"
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useCallback, useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 function App() {
