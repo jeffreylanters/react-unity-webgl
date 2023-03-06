@@ -150,6 +150,17 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContextHook => {
         console.warn(errorMessages.quitNoUnityInstance);
         return Promise.reject();
       }
+      if (typeof unityInstance.Module.reactUnityWebGL === "undefined") {
+        // Guarding the React Unity WebGL Module.
+        console.warn(errorMessages.reactUnityWebGLModuleNotInstalled);
+      } else {
+        // If the React Unity WebGL Module is installed, we remove all event
+        // listeners from the Unity Instance using the exposed function to get
+        // the JSEvents.
+        console.log("REMOVING ALL EVENT LISTENERS FROM JS EVENTS!!");
+        const { reactUnityWebGL } = unityInstance.Module;
+        reactUnityWebGL.getJSEvents().removeAllEventListeners();
+      }
       return unityInstance.Quit();
     },
     [unityInstance]
