@@ -9,6 +9,10 @@ function App() {
     setIsMounted(!isMounted);
   }
 
+  function handleUnload() {
+    setIsMounted(false);
+  }
+
   return (
     <Fragment>
       <h1>React Unity WebGL Test</h1>
@@ -18,7 +22,7 @@ function App() {
       <button onClick={() => setRepaintCounter((i) => i + 1)}>
         Force Repaint App ({repaintCounter})
       </button>
-      {isMounted && <UnityTest />}
+      {isMounted && <UnityTest onUnload={handleUnload} />}
     </Fragment>
   );
 }

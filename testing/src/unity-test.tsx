@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl/distribution/exports";
 
-function UnityTest() {
+function UnityTest(props: { onUnload: () => void }) {
   function handleCacheControl(url: string) {
     console.log(`Cache control for ${url}`);
     return "no-cache";
@@ -45,6 +45,7 @@ function UnityTest() {
 
   function handleClickUnload() {
     unload();
+    props.onUnload();
   }
 
   function handleClickSetRandomCanvasWidth() {
