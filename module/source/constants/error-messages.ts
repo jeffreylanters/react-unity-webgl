@@ -37,6 +37,12 @@ const errorMessages = {
    * system.
    */
   noEventListener: "Unable to find Event Listener in Event System for Event",
+  /**
+   * The error message for when the React Unity WebGL Module is not installed in
+   * the Unity project.
+   */
+  reactUnityWebGLModuleNotInstalled:
+    "The React Unity WebGL Module is not installed in your Unity project. Some features may not work as expected.",
 };
 
 export { errorMessages };
