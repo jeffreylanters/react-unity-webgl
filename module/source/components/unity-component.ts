@@ -45,7 +45,7 @@ const Unity: ForwardRefExoticComponent<
      * URL from the Unity Provider's Unity Config.
      */
     const unityLoaderStatus = useUnityLoader(
-      unityProps.unityProvider.unityConfig.loaderUrl
+      unityProps.unityProvider.unityConfig
     );
 
     // The Unity Instance is created based on the Unity Arguments. The loader

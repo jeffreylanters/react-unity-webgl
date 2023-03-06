@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { isBrowserEnvironment } from "../constants/is-browser-environment";
 import { UnityLoaderStatus } from "../enums/unity-loader-status";
+import { UnityConfig } from "../exports";
 
 /**
  * Hook to embed a Unity Loader script.
  * @param source The source of the unity loader.
  * @returns a hook that returns the status of the loader.
  */
-const useUnityLoader = (source: string): UnityLoaderStatus => {
+const useUnityLoader = (unityConfig: UnityConfig): UnityLoaderStatus => {
   const [status, setStatus] = useState<UnityLoaderStatus>(
     UnityLoaderStatus.Loading
   );
@@ -20,7 +21,7 @@ const useUnityLoader = (source: string): UnityLoaderStatus => {
       return;
     }
     // If the script's source is null, we'll reset the status to idle.
-    if (source === null) {
+    if (unityConfig.loaderUrl === null) {
       setStatus(UnityLoaderStatus.Idle);
       return;
     }
@@ -29,14 +30,14 @@ const useUnityLoader = (source: string): UnityLoaderStatus => {
      * another instance of this hook.
      */
     let script: HTMLScriptElement | null = window.document.querySelector(
-      `script[src="${source}"]`
+      `script[src="${unityConfig.loaderUrl}"]`
     );
     // If there wan't another instance of this script, we're going to create a
     // new one with the provided source.
     if (script === null) {
       script = window.document.createElement("script");
       script.type = "text/javascript";
-      script.src = source;
+      script.src = unityConfig.loaderUrl;
       script.async = true;
       script.setAttribute("data-status", "loading");
       // Add script to window.document body.
@@ -80,7 +81,7 @@ const useUnityLoader = (source: string): UnityLoaderStatus => {
         window.document.body.removeChild(script);
       }
     };
-  }, [source]);
+  }, [unityConfig.loaderUrl]);
 
   return status;
 };
