@@ -19,4 +19,10 @@ declare type UnityModule = {
    * A reference to the Unity Instance's Canvas.
    */
   canvas?: HTMLCanvasElement;
+
+  /**
+   * A reference to the injected React Unity WebGL Module. This Module can be
+   * installed optionally into the Unity
+   */
+  reactUnityWebGL?: ReactUnityWebGLModule;
 };
