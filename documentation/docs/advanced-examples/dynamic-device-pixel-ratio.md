@@ -3,7 +3,7 @@
 In the following example, we'll render our Unity Application using a device pixel ratio which matches the device pixel ratio of the browser. We'll create an event listener using a media matcher which will update the device pixel ratio of the Unity Application when the device pixel ratio changes.
 
 ```jsx showLineNumbers title="App.jsx"
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     window.devicePixelRatio
   );
 
-  const handleChangePixelRatio = useCallback(
+  useEffect(
     function () {
       // A function which will update the device pixel ratio of the Unity
       // Application to match the device pixel ratio of the browser.
