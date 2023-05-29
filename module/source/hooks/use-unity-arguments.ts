@@ -52,7 +52,7 @@ const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
       // object. If the match WebGL to canvas size value is not defined via the
       // Unity Props, the default value of `true` will be used.
       matchWebGLToCanvasSize:
-        typeof unityProps.matchWebGLToCanvasSize !== "undefined"
+        typeof unityProps.matchWebGLToCanvasSize === "boolean"
           ? unityProps.matchWebGLToCanvasSize
           : true,
 
