@@ -1,2 +1,5 @@
-- [Feature] Added support for overwriting Unity's [disabled canvas events](https://react-unity-webgl.dev/docs/api/disabled-canvas-events)
-- Minor internal improvements and updated typings
+- Updated tests to include newer versions of Unity
+- Internal typing and structure changes and improvements
+- Removed `UNSAFE__detachAndUnloadImmediate` from the hook due to instability
+- Resolved an issue where the canvas would always match its canvas size regardless of the `matchWebGLToCanvasSize` setting
+- Various documentation improvements [#490] [#499]
