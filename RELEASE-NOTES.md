@@ -1,3 +1,4 @@
+- Resolved an issue where internal types were not included in the distribution [#512]
 - Updated tests to include newer versions of Unity
 - Internal typing and structure changes and improvements
 - Removed `UNSAFE__detachAndUnloadImmediate` from the hook due to instability
