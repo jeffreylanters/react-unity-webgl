@@ -22,6 +22,6 @@
  * texture objects. WebGL functions can be called on emscripten’s WebGL context,
  * GLctx.
  */
-type ReactUnityEventParameter = string | number | undefined;
+type ReactUnityEventParameter = string | number | undefined | void;
 
 export type { ReactUnityEventParameter };
