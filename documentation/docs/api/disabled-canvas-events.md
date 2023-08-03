@@ -10,7 +10,7 @@ Overwrites the default disabled canvas events.
 
 ## Implementation
 
-> By default Unity disables the `contextmenu` and `dragstart` events on the canvas element. This is done to prevent the user from right clicking on the canvas and dragging the page while interacting with the Unity Application. Note that by setting the `disabledCanvasEvents` property you'll override the default values. If you don't want this to happen, you'll need to add events these to the array.
+By default Unity disables the `contextmenu` and `dragstart` events on the canvas element. This is done to prevent the user from right clicking on the canvas and dragging the page while interacting with the Unity Application. Note that by setting the `disabledCanvasEvents` property you'll override the default values. If you don't want this to happen, you'll need to add events these to the array.
 
 ## Example Usage​
 
