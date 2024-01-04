@@ -1,1 +1,2 @@
+- Added support for setting a custom canvas ID [#482]
 - Added string type as fallback for untyped cache control modes
