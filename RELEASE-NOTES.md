@@ -1,1 +1,1 @@
-- Added support for setting a void function as the event listener [#517]
+- Added string type as fallback for untyped cache control modes
