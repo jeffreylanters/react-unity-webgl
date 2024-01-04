@@ -21,7 +21,7 @@ const unityCanvasIdPrefix = "react-unity-webgl-canvas";
 const useUnityCanvasId = (unityProps: UnityProps): string => {
   // If the user has provided a Unity canvas ID, then this value is returned.
   // This is useful for when the user wants to use a custom canvas ID.
-  if (unityProps.id) {
+  if (unityProps.id !== undefined) {
     return unityProps.id;
   }
 
