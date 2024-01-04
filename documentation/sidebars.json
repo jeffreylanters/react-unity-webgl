@@ -186,6 +186,11 @@
           "type": "doc",
           "id": "api/cache-control",
           "label": "Custom Cache Control"
+        },
+        {
+          "type": "doc",
+          "id": "api/canvas-id",
+          "label": "Custom Canvas ID"
         }
       ]
     }
