@@ -46,10 +46,15 @@ type WebGLContextAttributes = {
    * Note that this property is only a hint and a WebGL implementation may
    * choose to ignore it. WebGL implementations use context lost and restored
    * events to regulate power and memory consumption, regardless of the value of
-   * this attribute.
-   * @default "default"
+   * this attribute. Accepts the following values:
+   * {
+   *   0: "default",
+   *   1: "low-power",
+   *   2: "high-performance",
+   * }
+   * @default 0
    */
-  readonly powerPreference?: "default" | "high-performance" | "low-power";
+  readonly powerPreference?: 0 | 1 | 2;
 
   /**
    * If set to true, the color channels in the framebuffer will be stored
