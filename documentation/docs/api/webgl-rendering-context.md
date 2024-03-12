@@ -10,7 +10,7 @@ type WebGLContextAttributes = {
   readonly antialias?: boolean;
   readonly depth?: boolean;
   readonly failIfMajorPerformanceCaveat?: boolean;
-  readonly powerPreference?: "default" | "high-performance" | "low-power";
+  readonly powerPreference?: 0 | 1 | 2;
   readonly premultipliedAlpha?: boolean;
   readonly preserveDrawingBuffer?: boolean;
   readonly stencil?: boolean;
@@ -42,6 +42,16 @@ If the value is true, context creation will fail if the implementation determine
 #### Power preference
 
 Provides a hint to the user agent indicating what configuration of GPU is suitable for this WebGL context. This may influence which GPU is used in a system with multiple GPUs. For example, a dual-GPU system might have one GPU that consumes less power at the expense of rendering performance. Note that this property is only a hint and a WebGL implementation may choose to ignore it. WebGL implementations use context lost and restored events to regulate power and memory consumption, regardless of the value of this attribute.
+
+The value expected to be `0` for `default`, `1` for `low-power` or `2` for `high-performance`. See the following enum:
+
+```json
+{
+  0: 'default',
+  1: 'low-power',
+  2: 'high-performance'
+}
+```
 
 #### Premultiplied alpha
 
