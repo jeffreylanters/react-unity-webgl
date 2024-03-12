@@ -45,12 +45,10 @@ Provides a hint to the user agent indicating what configuration of GPU is suitab
 
 The value expected to be `0` for `default`, `1` for `low-power` or `2` for `high-performance`. See the following enum:
 
-```json
-{
-  0: 'default',
-  1: 'low-power',
-  2: 'high-performance'
-}
+```
+0: Default
+1: Low Power
+2: High Performance
 ```
 
 #### Premultiplied alpha
