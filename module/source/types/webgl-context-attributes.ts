@@ -47,11 +47,9 @@ type WebGLContextAttributes = {
    * choose to ignore it. WebGL implementations use context lost and restored
    * events to regulate power and memory consumption, regardless of the value of
    * this attribute. Accepts the following values:
-   * {
-   *   0: "default",
-   *   1: "low-power",
-   *   2: "high-performance",
-   * }
+   * 0: Default
+   * 1: Low Power
+   * 2: High Performance
    * @default 0
    */
   readonly powerPreference?: 0 | 1 | 2;
