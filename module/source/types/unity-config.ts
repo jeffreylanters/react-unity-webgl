@@ -18,6 +18,8 @@ type ConfigurableUnityArguments = Pick<
   | "productVersion"
   | "webglContextAttributes"
   | "cacheControl"
+  | "print"
+  | "printErr"
 >;
 
 /**
