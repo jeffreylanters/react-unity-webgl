@@ -66,27 +66,11 @@ const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
 
       // Assigns the print hook to the Unity arguments object. This hook will
       // be called whenever the Unity instance prints a message.
-      print:
-        /**
-         * Intercept print events in order to catch messages and send them to
-         * the unity context instead.
-         * @param message The message to be printed.
-         */
-        (message: string) => {
-          // TODO -- Re-implement this hook.
-        },
+      print: unityProps.unityProvider.unityConfig.print,
 
       // Assigns the print error hook to the Unity arguments object. This hook
       // will be called whenever the Unity instance prints an error.
-      printErr:
-        /**
-         * Intercept print error events in order to catch messages and send them
-         * to the unity context instead.
-         * @param error The error to be printed.
-         */
-        (error: string) => {
-          // TODO -- Re-implement this hook.
-        },
+      printErr: unityProps.unityProvider.unityConfig.printErr,
     }),
     []
   );
