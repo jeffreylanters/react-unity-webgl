@@ -1,2 +1,2 @@
-- [Feature] Added support for overwriting Unity's [disabled canvas events](https://react-unity-webgl.dev/docs/api/disabled-canvas-events)
-- Minor internal improvements and updated typings
+- Added support for setting a custom canvas ID [#482]
+- Added string type as fallback for untyped cache control modes

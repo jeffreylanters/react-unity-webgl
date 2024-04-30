@@ -19,6 +19,10 @@ type UnityCacheControlMode =
   /**
    * The cache is disabled.
    */
-  | "no-store";
+  | "no-store"
+  /**
+   * Fallback for when the cache control mode is not recognized.
+   */
+  | string;
 
 export type { UnityCacheControlMode };

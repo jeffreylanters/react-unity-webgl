@@ -30,7 +30,7 @@ const Unity: ForwardRefExoticComponent<
      * 2021.2 to identify the canvas element in the DOM. This is not documented in
      * the Unity documentation, but it is used in the Unity source code.
      */
-    const unityCanvasId = useUnityCanvasId();
+    const unityCanvasId = useUnityCanvasId(unityProps);
 
     /**
      * The Unity Arguments object which can be passed to the create Unity instance

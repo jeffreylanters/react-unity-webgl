@@ -39,6 +39,15 @@ type UnityProps = ConfigurableUnityArguments & {
    * @see https://stackoverflow.com/a/60854680
    */
   readonly tabIndex?: number;
+
+  /**
+   * The ID of the canvas element. If not provided, a unique ID will be
+   * generated. This is useful for when the user wants to use a custom canvas
+   * ID. IDs are used internally by Unity since version 2021.2 to identify the
+   * canvas element in the DOM. This is not documented in the Unity
+   * documentation, but it is used in the Unity source code.
+   */
+  readonly id?: string;
 };
 
 export type { UnityProps };

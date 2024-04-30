@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { UnityProps } from "../exports";
 
 /**
  * The canvas count is used to generate a unique Unity canvas ID.
@@ -17,7 +18,13 @@ const unityCanvasIdPrefix = "react-unity-webgl-canvas";
  * code.
  * @returns A unique identifier for a Unity canvas element.
  */
-const useUnityCanvasId = (): string => {
+const useUnityCanvasId = (unityProps: UnityProps): string => {
+  // If the user has provided a Unity canvas ID, then this value is returned.
+  // This is useful for when the user wants to use a custom canvas ID.
+  if (unityProps.id !== undefined) {
+    return unityProps.id;
+  }
+
   /**
    * A unique identifier for a Unity canvas element is memorized.
    */

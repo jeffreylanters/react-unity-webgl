@@ -153,6 +153,7 @@ function UnityTest() {
         devicePixelRatio={window.devicePixelRatio}
         disabledCanvasEvents={["dragstart"]}
         ref={canvasRef}
+        id="my-custom-cancas-id"
       />
     </Fragment>
   );
