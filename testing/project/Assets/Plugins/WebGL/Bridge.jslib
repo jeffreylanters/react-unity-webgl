@@ -1,4 +1,4 @@
-﻿mergeInto(LibraryManager.library, {
+mergeInto(LibraryManager.library, {
   ClickedTestButton: function () {
     dispatchReactUnityEvent("ClickedTestButton");
   },
@@ -24,5 +24,12 @@
       intValue: intValue,
       boolValue: boolValue === 1,
     });
+  },
+  ClickedTestButtonReturnString: function () {
+    var returnStr = dispatchReactUnityEvent("ClickedTestButtonReturnString");
+    var bufferSize = lengthBytesUTF8(returnStr) + 1;
+    var buffer = _malloc(bufferSize);
+    stringToUTF8(returnStr, buffer, bufferSize);
+    return buffer;
   },
 });
