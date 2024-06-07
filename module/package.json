@@ -53,7 +53,7 @@
     "lint": "echo 'Warning: lint is not implemented yet'"
   },
   "devDependencies": {
-    "@types/react": "18.2.79",
+    "@types/react": "18.3.3",
     "typescript": "5.4.5"
   },
   "peerDependencies": {
