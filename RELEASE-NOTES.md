@@ -1,1 +1,1 @@
-- Reimplemented unsafe detach and unload immediate method [#22]
+- Reimplemented unsafe detach and unload immediate method due to the absence of unmounting the Unity canvas [#22]
