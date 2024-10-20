@@ -90,7 +90,7 @@ type UnityContextHook = EventSystemHook & {
   readonly unload: () => Promise<void>;
 
   /**
-   * Detatches the Unity Instance from the React DOM, by doing so, the Unity
+   * Detaches the Unity Instance from the React DOM, by doing so, the Unity
    * Instance can be unloaded from the memory while the Unity component can be
    * unmounted safely.
    *

@@ -1,1 +1,1 @@
-- Reimplemented unsafe detatch and unload immediat method [#22]
+- Reimplemented unsafe detach and unload immediate method [#22]
