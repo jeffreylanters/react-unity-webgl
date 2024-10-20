@@ -1,2 +1,1 @@
-- Added support for setting a custom canvas ID [#482]
-- Added string type as fallback for untyped cache control modes
+- Reimplemented unsafe detatch and unload immediat method [#22]
