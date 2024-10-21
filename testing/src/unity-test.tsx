@@ -79,12 +79,18 @@ function UnityTest() {
       console.log({ parameters });
     }
 
+    function logParametersToConsoleWithReturn(...parameters: any[]) {
+      logParametersToConsole({ parameters });
+      return "String from React App";
+    }
+
     addEventListener("ClickedTestButton", logParametersToConsole);
     addEventListener("ClickedStringTestButton", logParametersToConsole);
     addEventListener("ClickedNumberTestButton", logParametersToConsole);
     addEventListener("ClickedNumbersTestButton", logParametersToConsole);
     addEventListener("ClickedBoolTestButton", logParametersToConsole);
     addEventListener("ClickedObjectTestButton", logParametersToConsole);
+    addEventListener("ClickedTestButtonReturnString", logParametersToConsoleWithReturn);
     return () => {
       removeEventListener("ClickedTestButton", logParametersToConsole);
       removeEventListener("ClickedStringTestButton", logParametersToConsole);
@@ -92,6 +98,7 @@ function UnityTest() {
       removeEventListener("ClickedNumbersTestButton", logParametersToConsole);
       removeEventListener("ClickedBoolTestButton", logParametersToConsole);
       removeEventListener("ClickedObjectTestButton", logParametersToConsole);
+      removeEventListener("ClickedTestButtonReturnString", logParametersToConsoleWithReturn);
     };
   }, [addEventListener, removeEventListener]);
 
