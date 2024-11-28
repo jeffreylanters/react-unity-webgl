@@ -9,7 +9,10 @@ import { UnityArguments } from "./unity-arguments";
  */
 type ConfigurableUnityArguments = Pick<
   UnityArguments,
-  "devicePixelRatio" | "matchWebGLToCanvasSize" | "disabledCanvasEvents"
+  | "devicePixelRatio"
+  | "matchWebGLToCanvasSize"
+  | "disabledCanvasEvents"
+  | "autoSyncPersistentDataPath"
 >;
 
 /**

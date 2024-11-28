@@ -48,6 +48,11 @@ const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
       // value of `1` will be used.
       devicePixelRatio: unityProps.devicePixelRatio || 1,
 
+      // Assigns the auto sync persistent data path value to the Unity arguments
+      // object. If the auto sync persistent data path value is not defined via
+      // the Unity Props, the default value of `undefined` will be used.
+      autoSyncPersistentDataPath: unityProps.autoSyncPersistentDataPath,
+
       // Assigns the match WebGL to canvas size value to the Unity arguments
       // object. If the match WebGL to canvas size value is not defined via the
       // Unity Props, the default value of `true` will be used.
