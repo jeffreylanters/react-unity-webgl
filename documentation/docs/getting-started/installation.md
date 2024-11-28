@@ -14,7 +14,7 @@ Before installing the module, make sure you're installing a version which is com
 
 - [React](https://reactjs.org) version >= 16.8.0 or above
 - [Unity](https://unity.com) version >= 2020.1.0 or above
-  - If you are using an older version of Unity which does not support Web Assemly, using a module version prior to version 9 is required. To find out more, read the [Compatibility](#compatibility) section below.
+  - If you are using an older version of Unity which does not support Web Assemly, using a module version prior to version 9 is required. To find out more, read the Unity Version Compatibility section below.
 
 ## Unity Version Compatibility
 
