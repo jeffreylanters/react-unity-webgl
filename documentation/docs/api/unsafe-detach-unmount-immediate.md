@@ -16,7 +16,7 @@ const UNSAFE__detachAndUnloadImmediate: () => Promise<void>;
 
 A basic implementation could look something like this. In the following example we are using the `useEffect` hook to call the `UNSAFE__detachAndUnloadImmediate` function when the component is unmounted.
 
-```jsx {12-15} showLineNumbers title="App.jsx"
+```jsx {12-16} showLineNumbers title="App.jsx"
 import React, { useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 

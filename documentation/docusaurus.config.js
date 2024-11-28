@@ -31,31 +31,31 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "Current",
+              label: "Current version",
               banner: "none",
               badge: true,
               path: "",
             },
             "8.x.x": {
-              label: "8.x.x (Active LTS)",
+              label: "Version 8 (Active LTS)",
               banner: "unmaintained",
               badge: true,
               path: "8.x.x",
             },
             "7.x.x": {
-              label: "7.x.x (Maintenance LTS)",
+              label: "Version 7 (Maintenance LTS)",
               banner: "unmaintained",
               badge: true,
               path: "7.x.x",
             },
             "6.x.x": {
-              label: "6.x.x (Maintenance LTS)",
+              label: "Version 6 (Maintenance LTS)",
               banner: "unmaintained",
               badge: true,
               path: "6.x.x",
             },
             "5.x.x": {
-              label: "5.x.x (Maintenance LTS)",
+              label: "Version 5 (Maintenance LTS)",
               banner: "unmaintained",
               badge: true,
               path: "5.x.x",
@@ -81,8 +81,8 @@ const config = {
     announcementBar: {
       id: "support_me",
       content:
-        'If you like this module, please considing <a href="/support">supporting</a> and giving it a star on <a target="_blank" href="https://github.com/jeffreylanters/react-unity-webgl/stargazers">GitHub</a> ❤️',
-      backgroundColor: "#2399EF",
+        'The project is in financial need of support, if you use my module and are able, please considing <a href="/support">supporting</a> in any way you can. Thank you! ❤️',
+      backgroundColor: "#AB2329",
       textColor: "#ffffff",
       isCloseable: false,
     },
