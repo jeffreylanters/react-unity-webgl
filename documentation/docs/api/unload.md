@@ -14,8 +14,12 @@ function unload(): Promise<void> | undefined;
 The unload function is only available in Unity Builds created with Unity 2020.1 or later.
 :::
 
-:::warning
-Normally it was possible to unmount the Unity Application and unmount the containing component right after the unload function was invoked, but due to a bug in newer Unity versions this is no longer possible when using a build made with Unity 2021.2 or later. It is still possible to unload the Unity Application, but the canvas has to be kept mounted until the promise is resolved. As of writing this, the issue has not been fixed, but it is possible to unmount the Unity Application manually by halting the navigation to the next page. A ticket has been opened, this is a known issue by the Unity team. More information can be found on the [issue on GitHub](https://github.com/jeffreylanters/react-unity-webgl/issues/250).
+:::danger
+In earlier versions of Unity, it was possible to unmount the Unity Application and its containing component immediately after invoking the unload function. However, due to a bug in newer Unity versions, this is no longer feasible when using builds made with Unity 2021.2 or later. While it is still possible to unload the Unity Application, the canvas must remain mounted until the associated promise is resolved.
+
+As of this writing, the issue has not been resolved. However, it is possible to manually unmount the Unity Application by halting navigation to the next page. A ticket has been submitted, and the Unity team has acknowledged this as a known issue. For more details, refer to the [GitHub issue](https://github.com/jeffreylanters/react-unity-webgl/issues/250).
+
+Alternatively, you can use the unsafe `detachAndUnloadImmediate` function to immediately unmount the Unity Application. However, this is not recommended unless you are an advanced user. For more information, refer to the [Unsafe Detach and Unload Immediate](/docs/api/unsafe-detach-unmount-immediate) documentation.
 :::
 
 When building a multi-page React Application, it is important to unload the Unity Application in order to completely unmount the component from the DOM to free up the memory taken by the Unity JavaScript heap, and without Unity throwing an error. Invoking the function will request the Unity Application to be unloaded from memory. The function will return a Promise that will be resolved when the Unity Application has been unloaded.
