@@ -47,5 +47,8 @@
     "@tsconfig/docusaurus": "^2.0.3",
     "typescript": "^5.7.2"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "node": ">=v21"
+  }
 }
