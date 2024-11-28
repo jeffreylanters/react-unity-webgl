@@ -1,1 +1,1 @@
-- Reimplemented unsafe detach and unload immediate method due to the absence of unmounting the Unity canvas [#22]
+- Added support for automatically Syncing the Persistent Data Path [#567]
