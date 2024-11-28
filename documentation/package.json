@@ -1,11 +1,11 @@
 {
   "name": "react-unity-webgl-documentation",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "https://react-unity-webgl.dev",
   "author": {
     "name": "Jeffrey Lanters",
     "email": "jeffreylanters@me.com",
-    "url": "https://jeffreylanters.nl"
+    "url": "https://jeffreylanters.me"
   },
   "browserslist": {
     "production": [

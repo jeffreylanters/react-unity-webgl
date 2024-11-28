@@ -184,7 +184,7 @@ const config = {
         alt: "React Unity WebGL Logo",
         src: "images/logo.svg",
         srcDark: "images/logo-light.svg",
-        href: "https://jeffreylanters.nl",
+        href: "https://jeffreylanters.me",
         width: 50,
         height: 50,
       },
