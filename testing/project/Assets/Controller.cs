@@ -9,6 +9,7 @@ class Controller : MonoBehaviour {
   [DllImport ("__Internal")] static extern void ClickedNumbersTestButton (int[] values, int length);
   [DllImport ("__Internal")] static extern void ClickedBoolTestButton (bool value);
   [DllImport ("__Internal")] static extern void ClickedObjectTestButton (string stringValue, int intValue, bool boolValue);
+  [DllImport ("__Internal")] static extern string ClickedTestButtonReturnString ();
 
   public Text textLog;
 
@@ -46,6 +47,12 @@ class Controller : MonoBehaviour {
   public void DispatchObjectEvent () { 
 #if !UNITY_EDITOR && UNITY_WEBGL
     ClickedObjectTestButton("Hello World!", 42, true); 
+#endif
+  }
+
+    public void DispatchEventReturnString () { 
+#if !UNITY_EDITOR && UNITY_WEBGL
+    SetLogText(ClickedTestButtonReturnString()); 
 #endif
   }
 
