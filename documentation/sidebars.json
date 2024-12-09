@@ -196,6 +196,11 @@
           "type": "doc",
           "id": "api/canvas-id",
           "label": "Custom Canvas ID"
+        },
+        {
+          "type": "doc",
+          "id": "api/logging-hooks",
+          "label": "Logging Hooks"
         }
       ]
     }
