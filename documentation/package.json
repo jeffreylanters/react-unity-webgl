@@ -49,6 +49,6 @@
   },
   "private": true,
   "engines": {
-    "node": ">=v21"
+    "node": "^23"
   }
 }
