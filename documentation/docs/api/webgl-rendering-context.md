@@ -85,7 +85,7 @@ function App() {
     dataUrl: "build/myunityapp.data",
     frameworkUrl: "build/myunityapp.framework.js",
     codeUrl: "build/myunityapp.wasm",
-    webGLContextAttributes: {
+    webglContextAttributes: {
       alpha: true,
       antialias: true,
       depth: true,

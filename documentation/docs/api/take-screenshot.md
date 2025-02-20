@@ -22,7 +22,7 @@ In order to take screenshot of the Unity WebGL canvas, you'll need to enable pre
 
 ```jsx showLineNumbers title="Example: Preserving the Drawing Buffer"
 const unityContext = useUnityContext({
-  webGLContextAttributes: {
+  webglContextAttributes: {
     preserveDrawingBuffer: true,
   },
 });
@@ -60,7 +60,7 @@ function App() {
     dataUrl: "build/myunityapp.data",
     frameworkUrl: "build/myunityapp.framework.js",
     codeUrl: "build/myunityapp.wasm",
-    webGLContextAttributes: {
+    webglContextAttributes: {
       preserveDrawingBuffer: true,
     },
   });
