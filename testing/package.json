@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-unity-webgl": "^9.7.0"
+    "react-unity-webgl": "latest"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
