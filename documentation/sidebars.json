@@ -201,6 +201,11 @@
           "type": "doc",
           "id": "api/auto-sync-persistent-data-path",
           "label": "Auto Sync Persistent Data Path"
+        },
+        {
+          "type": "doc",
+          "id": "api/web-worker",
+          "label": "Using a Web Worker"
         }
       ]
     }

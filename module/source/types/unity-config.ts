@@ -10,6 +10,7 @@ type ConfigurableUnityArguments = Pick<
   | "dataUrl"
   | "frameworkUrl"
   | "codeUrl"
+  | "workerUrl"
   | "streamingAssetsUrl"
   | "memoryUrl"
   | "symbolsUrl"
