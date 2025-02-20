@@ -16,6 +16,7 @@ const useUnityArguments = (unityProps: UnityProps): UnityArguments => {
       dataUrl: unityProps.unityProvider.unityConfig.dataUrl,
       frameworkUrl: unityProps.unityProvider.unityConfig.frameworkUrl,
       codeUrl: unityProps.unityProvider.unityConfig.codeUrl,
+      workerUrl: unityProps.unityProvider.unityConfig.workerUrl || undefined,
 
       // Assigns the optional streaming assets URL, memory URL, and symbols URL
       // to the Unity arguments object.
