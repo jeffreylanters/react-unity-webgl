@@ -1,1 +1,1 @@
-- Added support for automatically Syncing the Persistent Data Path [#567]
+- Add support for workerUrl (multithreading) [#575][#571]
