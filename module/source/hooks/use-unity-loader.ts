@@ -3,6 +3,16 @@ import { isBrowserEnvironment } from "../constants/is-browser-environment";
 import { UnityLoaderStatus } from "../enums/unity-loader-status";
 import { UnityConfig } from "../exports";
 
+interface ScriptData {
+  count: number;
+  status: UnityLoaderStatus;
+  handleLoad?: () => void;
+  handleError?: () => void;
+}
+
+// Map to track script references, status, and event handlers.
+const scriptReferenceMap = new Map<string, ScriptData>();
+
 /**
  * Hook to embed a Unity Loader script.
  * @param source The source of the unity loader.
@@ -18,12 +28,12 @@ const useUnityLoader = (unityConfig: UnityConfig): UnityLoaderStatus => {
     // this scenario, the window is not available. We can't create a Unity
     // Loader in this case.
     if (isBrowserEnvironment === false) {
-      return;
+      return undefined;
     }
     // If the script's source is null, we'll reset the status to idle.
     if (unityConfig.loaderUrl === null) {
       setStatus(UnityLoaderStatus.Idle);
-      return;
+      return undefined;
     }
     /**
      * Find existing script element by source. It may have been added by
@@ -78,7 +88,7 @@ const useUnityLoader = (unityConfig: UnityConfig): UnityLoaderStatus => {
       if (script !== null) {
         script.removeEventListener("load", setStateFromEvent);
         script.removeEventListener("error", setStateFromEvent);
-        window.document.body.removeChild(script);
+        script.remove();
       }
     };
   }, [unityConfig.loaderUrl]);
