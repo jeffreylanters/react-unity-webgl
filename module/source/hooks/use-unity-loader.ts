@@ -18,12 +18,12 @@ const useUnityLoader = (unityConfig: UnityConfig): UnityLoaderStatus => {
     // this scenario, the window is not available. We can't create a Unity
     // Loader in this case.
     if (isBrowserEnvironment === false) {
-      return;
+      return undefined;
     }
     // If the script's source is null, we'll reset the status to idle.
     if (unityConfig.loaderUrl === null) {
       setStatus(UnityLoaderStatus.Idle);
-      return;
+      return undefined;
     }
     /**
      * Find existing script element by source. It may have been added by
@@ -78,7 +78,7 @@ const useUnityLoader = (unityConfig: UnityConfig): UnityLoaderStatus => {
       if (script !== null) {
         script.removeEventListener("load", setStateFromEvent);
         script.removeEventListener("error", setStateFromEvent);
-        window.document.body.removeChild(script);
+        script.remove();
       }
     };
   }, [unityConfig.loaderUrl]);
