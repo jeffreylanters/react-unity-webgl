@@ -19,6 +19,7 @@ type ConfigurableUnityArguments = Pick<
   | "productVersion"
   | "webglContextAttributes"
   | "cacheControl"
+  | "autoSyncPersistentDataPath"
 >;
 
 /**
