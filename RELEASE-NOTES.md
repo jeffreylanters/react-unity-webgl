@@ -1,1 +1,1 @@
-- Add support for workerUrl (multithreading) [#575][#571]
+- Added support for configurating autoSyncPersistentDataPath in the Unity configuration.
