@@ -15,7 +15,7 @@ export function Application() {
     loadingProgression,
     unityProvider,
     isLoaded,
-    // requestFullscreen,
+    requestFullscreen,
     // requestPointerLock,
     // sendMessage,
     initialisationError,
