@@ -120,6 +120,7 @@ const Unity: ForwardRefExoticComponent<
             "React Unity WebGL: Error initializing Unity instance:",
             error
           );
+
           // We also set the initialisation error in the Unity provider.
           // This allows the parent component to handle the error if needed.
           // The initialisation error can be used to display an error message or
