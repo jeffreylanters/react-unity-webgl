@@ -1,7 +1,8 @@
 import { CSSProperties } from "react";
 import { UnityProvider } from "./unity-provider";
+import { UnityArguments } from "./unity-arguments";
 
-type UnityProps = {
+type UnityProps = Pick<UnityArguments, "devicePixelRatio"> & {
   /**
    * The Unity provider that contains the necessary URLs to load the Unity
    * instance. This is required to load the Unity WebGL build.
