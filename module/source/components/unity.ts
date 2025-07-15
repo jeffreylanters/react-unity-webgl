@@ -10,6 +10,7 @@ import {
 import { UnityInstance } from "../types/unity-instance";
 import { UnityProps } from "../types/unity-props";
 import { useCanvasIdentifier } from "../hooks/use-canvas-identifier";
+import { useUnityLoader } from "../hooks/use-unity-loader";
 
 const Unity: ForwardRefExoticComponent<
   UnityProps & React.RefAttributes<HTMLCanvasElement>
@@ -27,9 +28,12 @@ const Unity: ForwardRefExoticComponent<
 
     const [canvasId, refreshCanvasId] = useCanvasIdentifier(props.id);
 
+    const unityLoaderStatus = useUnityLoader(props.unityProvider.loaderUrl);
+
     useEffect(() => {
       const initializeUnity = async () => {
-        if (!canvasRef || unityInstance) {
+        console.info({ unityLoaderStatus });
+        if (!canvasRef || unityInstance || unityLoaderStatus !== "Loaded") {
           return;
         }
 
@@ -40,8 +44,6 @@ const Unity: ForwardRefExoticComponent<
           frameworkUrl: props.unityProvider.frameworkUrl,
           codeUrl: props.unityProvider.codeUrl,
         };
-
-        // TODO: Inject loader script
 
         setUnityInstance(
           await window.createUnityInstance(canvasRef, unityConfig)
@@ -68,7 +70,7 @@ const Unity: ForwardRefExoticComponent<
       return () => {
         detachUnity();
       };
-    }, [canvasRef, unityInstance]);
+    }, [canvasRef, unityInstance, unityLoaderStatus, props.unityProvider]);
 
     useImperativeHandle<HTMLCanvasElement | null, HTMLCanvasElement | null>(
       forwardedRef,
