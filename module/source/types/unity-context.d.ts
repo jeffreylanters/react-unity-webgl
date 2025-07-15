@@ -18,6 +18,11 @@ type UnityContext = {
    * Defines whether the Unity Instance has been loaded.
    */
   readonly isLoaded: boolean;
+
+  /**
+   * The Unity Instance's initialisation error, if any.
+   */
+  readonly initialisationError?: Error;
 };
 
 export type { UnityContext };
