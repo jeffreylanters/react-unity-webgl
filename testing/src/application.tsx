@@ -112,7 +112,7 @@ export function Application() {
       <br />
       Loaded: <code>{isLoaded ? "YES" : "NO"}</code>
       <br />
-      Error: <code>{initialisationError?.message || "NONE"}</code>
+      Error: <code>{initialisationError?.message ?? "NONE"}</code>
       <br />
       <h2>Actions</h2>
       References:
