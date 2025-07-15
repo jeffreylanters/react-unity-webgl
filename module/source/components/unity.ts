@@ -73,7 +73,11 @@ const Unity: ForwardRefExoticComponent<
         // We await the Promise to get the Unity instance and set it in the state.
         // This allows us to use the Unity instance in the component.
         setUnityInstance(
-          await window.createUnityInstance(canvasRef, unityArguments)
+          await window.createUnityInstance(
+            canvasRef,
+            unityArguments,
+            props.unityProvider.setLoadingProgression
+          )
         );
       };
 
