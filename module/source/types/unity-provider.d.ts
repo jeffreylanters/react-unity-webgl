@@ -12,7 +12,12 @@ type UnityProvider = Pick<
   /**
    * Sets the Unity Context's loaded state.
    */
-  readonly setIsLoaded?: (isLoaded: boolean) => void;
+  readonly setIsLoaded: (isLoaded: boolean) => void;
+
+  /**
+   * Sets the Unity Context's initialisation error.
+   */
+  readonly setInitialisationError: (error?: Error) => void;
 };
 
 export type { UnityProvider };
