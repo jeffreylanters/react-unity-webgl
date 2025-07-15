@@ -6,6 +6,7 @@ import {
   ForwardRefExoticComponent,
   JSX,
   useImperativeHandle,
+  useCallback,
 } from "react";
 import { UnityInstance } from "../types/unity-instance";
 import { UnityProps } from "../types/unity-props";
@@ -40,6 +41,26 @@ const Unity: ForwardRefExoticComponent<
     // determine if the Unity instance is ready to be initialized.
     const unityLoaderStatus = useUnityLoader(props.unityProvider.loaderUrl);
 
+    /**
+     * Callback function to handle the Unity loading progression.
+     * This function is called by the Unity loader to update the loading
+     * progression of the Unity instance.
+     * @param progress The loading progression of the Unity instance.
+     */
+    const onUnityProgress = useCallback(
+      (progress: number) => {
+        // This function is called to update the loading progression of the Unity
+        // instance.
+        props.unityProvider.setLoadingProgression(progress);
+        if (progress === 1) {
+          // If the loading progression reaches 100%, we can set the isLoaded state
+          // to true.
+          props.unityProvider.setIsLoaded?.(true);
+        }
+      },
+      [props.unityProvider]
+    );
+
     // Effect to initialize the Unity instance when the component mounts or
     // when the canvas reference or Unity loader status changes.
     useEffect(() => {
@@ -53,6 +74,8 @@ const Unity: ForwardRefExoticComponent<
           // This prevents unnecessary re-initialization of the Unity instance.
           return;
         }
+
+        console.log("React Unity WebGL: Initializing Unity instance...");
 
         // Create a new canvas element with the unique ID.
         // This ensures that the Unity instance is rendered in the correct canvas.
@@ -76,7 +99,7 @@ const Unity: ForwardRefExoticComponent<
           await window.createUnityInstance(
             canvasRef,
             unityArguments,
-            props.unityProvider.setLoadingProgression
+            onUnityProgress
           )
         );
       };
@@ -90,6 +113,14 @@ const Unity: ForwardRefExoticComponent<
           // we simply return to avoid any errors.
           return;
         }
+
+        console.log("React Unity WebGL: Detaching Unity instance...");
+
+        // Reset the loading progression and isLoaded state to their initial
+        // values. This is important to ensure that the Unity context is
+        // properly reset when the Unity instance is detached.
+        props.unityProvider.setLoadingProgression(0);
+        props.unityProvider.setIsLoaded?.(false);
 
         // Create a new canvas element to clean up the Unity instance.
         // This is necessary to ensure that the Unity instance is properly
