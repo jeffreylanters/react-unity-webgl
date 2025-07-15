@@ -155,7 +155,7 @@ export function Application() {
             height: 400,
             width: canvasWidth,
           }}
-          // devicePixelRatio={window.devicePixelRatio}
+          devicePixelRatio={window.devicePixelRatio}
           // disabledCanvasEvents={["dragstart"]}
           ref={canvasRef}
           // id="my-custom-cancas-id"
