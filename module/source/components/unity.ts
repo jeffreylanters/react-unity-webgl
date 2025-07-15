@@ -77,6 +77,13 @@ const Unity: ForwardRefExoticComponent<
 
         console.log("React Unity WebGL: Initializing Unity instance...");
 
+        // Reset the loading progression and isLoaded state to their initial
+        // values. This is important to ensure that the Unity context is
+        // properly reset when the Unity instance is detached.
+        props.unityProvider.setLoadingProgression(0);
+        props.unityProvider.setIsLoaded?.(false);
+        props.unityProvider.setInitialisationError(undefined);
+
         // Create a new canvas element with the unique ID.
         // This ensures that the Unity instance is rendered in the correct canvas.
         // The canvas element is created with the ID provided in the props or a
@@ -95,13 +102,29 @@ const Unity: ForwardRefExoticComponent<
         // The function returns a Promise that resolves to the Unity instance.
         // We await the Promise to get the Unity instance and set it in the state.
         // This allows us to use the Unity instance in the component.
-        setUnityInstance(
-          await window.createUnityInstance(
+        try {
+          const unityInstance = await window.createUnityInstance(
             canvasRef,
             unityArguments,
             onUnityProgress
-          )
-        );
+          );
+
+          // If the Unity instance is successfully created, we set it in the state.
+          // This allows us to use the Unity instance in the component.
+          setUnityInstance(unityInstance);
+        } catch (error) {
+          // If there is an error during the initialization, we log it to the console.
+          // This is important for debugging purposes.
+          console.error(
+            "React Unity WebGL: Error initializing Unity instance:",
+            error
+          );
+          // We also set the initialisation error in the Unity provider.
+          // This allows the parent component to handle the error if needed.
+          // The initialisation error can be used to display an error message or
+          // take other actions based on the error.
+          props.unityProvider.setInitialisationError(error as Error);
+        }
       };
 
       // Function to detach the Unity instance and clean up the canvas.
@@ -121,6 +144,7 @@ const Unity: ForwardRefExoticComponent<
         // properly reset when the Unity instance is detached.
         props.unityProvider.setLoadingProgression(0);
         props.unityProvider.setIsLoaded?.(false);
+        props.unityProvider.setInitialisationError(undefined);
 
         // Create a new canvas element to clean up the Unity instance.
         // This is necessary to ensure that the Unity instance is properly
