@@ -13,6 +13,11 @@ type UnityContext = {
    * Unity Instance's loading process that has been completed.
    */
   readonly loadingProgression: number;
+
+  /**
+   * Defines whether the Unity Instance has been loaded.
+   */
+  readonly isLoaded: boolean;
 };
 
 export type { UnityContext };
