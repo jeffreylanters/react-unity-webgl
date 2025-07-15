@@ -7,6 +7,12 @@ type UnityContext = {
    * Unity Context's state.
    */
   readonly unityProvider: UnityProvider;
+
+  /**
+   * The Unity Instance's loading progression represents the percentage of the
+   * Unity Instance's loading process that has been completed.
+   */
+  readonly loadingProgression: number;
 };
 
 export type { UnityContext };
