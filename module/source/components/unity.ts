@@ -95,6 +95,7 @@ const Unity: ForwardRefExoticComponent<
           dataUrl: props.unityProvider.dataUrl,
           frameworkUrl: props.unityProvider.frameworkUrl,
           codeUrl: props.unityProvider.codeUrl,
+          devicePixelRatio: props.devicePixelRatio,
         };
 
         // The createUnityInstance function is provided by the Unity loader script.
