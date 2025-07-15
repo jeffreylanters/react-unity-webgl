@@ -1,4 +1,4 @@
-import { ReactUnityEventParameter } from "../source/types/react-unity-event-parameters";
+import { UnityEventParameter } from "../source/types/unity-event-parameters";
 import { UnityArguments } from "../source/types/unity-arguments";
 import { UnityInstance } from "../source/types/unity-instance";
 
@@ -13,7 +13,7 @@ declare global {
    */
   function dispatchReactUnityEvent(
     eventName: string,
-    ...parameters: ReactUnityEventParameter[]
+    ...parameters: UnityEventParameter[]
   ): void;
 
   /**

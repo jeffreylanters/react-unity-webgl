@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useState } from "react";
-import { UnityProps } from "../types/unity-props";
 
 /**
  * The canvas count is used to generate a unique Unity canvas ID.

@@ -11,7 +11,6 @@ import { UnityInstance } from "../types/unity-instance";
 import { UnityProps } from "../types/unity-props";
 import { useCanvasIdentifier } from "../hooks/use-canvas-identifier";
 import { useUnityLoader } from "../hooks/use-unity-loader";
-import { UnityConfig } from "../types/unity-config";
 import { UnityArguments } from "../types/unity-arguments";
 
 const Unity: ForwardRefExoticComponent<

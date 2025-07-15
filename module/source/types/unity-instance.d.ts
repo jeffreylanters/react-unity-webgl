@@ -1,4 +1,4 @@
-import { ReactUnityEventParameter } from "./react-unity-event-parameters";
+import { UnityEventParameter } from "./unity-event-parameters";
 import { UnityBooleanLike } from "./unity-boolean-like";
 import { UnityModule } from "./unity-module";
 
@@ -15,7 +15,7 @@ type UnityInstance = {
   SendMessage(
     gameObjectName: string,
     methodName: string,
-    parameter?: ReactUnityEventParameter
+    parameter?: UnityEventParameter
   ): void;
 
   /**
