@@ -1,6 +1,6 @@
 import { ReactUnityEventParameter } from "../source/types/react-unity-event-parameters";
 import { UnityArguments } from "../source/types/unity-arguments";
-import { UnityInstance } from "./unity-instance";
+import { UnityInstance } from "../source/types/unity-instance";
 
 /**
  * Type declaration for global types.
