@@ -2,9 +2,9 @@ import { Fragment, useState } from "react";
 import { Unity, useUnityContext } from "../../module/source/exports";
 
 export function Application() {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
 
-  const { unityProvider } = useUnityContext({
+  const { unityProvider, loadingProgression } = useUnityContext({
     codeUrl: `/unity-build/unity.wasm`,
     dataUrl: `/unity-build/unity.data`,
     frameworkUrl: `/unity-build/unity.framework.js`,
@@ -17,10 +17,12 @@ export function Application() {
       <button onClick={() => setIsMounted((prev) => !prev)}>
         {isMounted ? "Unmount Unity" : "Mount Unity"}
       </button>
+      <p>Loading Progression: {loadingProgression}%</p>
+      <br />
       {isMounted && (
         <Unity
           unityProvider={unityProvider}
-          style={{ width: 400, height: 250 }}
+          style={{ width: 400, height: 350 }}
         />
       )}
     </Fragment>
