@@ -43,6 +43,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     workerUrl: unityConfig.workerUrl,
     webglContextAttributes: unityConfig.webglContextAttributes,
     cacheControl: unityConfig.cacheControl,
+    autoSyncPersistentDataPath: unityConfig.autoSyncPersistentDataPath,
     setUnityInstance,
     setLoadingProgression,
     setIsLoaded,
