@@ -19,8 +19,8 @@ export function Application() {
     requestPointerLock,
     sendMessage,
     initialisationError,
-    // addEventListener,
-    // removeEventListener,
+    // addEventListener, // TODO: Implement this
+    // removeEventListener, // TODO: Implement this
     takeScreenshot,
     unload,
     UNSAFE__unityInstance,
@@ -36,6 +36,7 @@ export function Application() {
     companyName: "Unity Technologies",
     productName: "Communication Tests",
     productVersion: "1.0.0",
+    // autoSyncPersistentDataPath: true, // TODO: Implement this
     // memoryUrl: `/unity-build/communication-tests.mem`, // <- Tested, but not implemented in the demo project
     // streamingAssetsUrl: `/unity-build/StreamingAssets`, // <- Tested, but not implemented in the demo project
     // symbolsUrl: `/unity-build/communication-tests.symbols.json`, // <- Tested, but not implemented in the demo project
@@ -163,9 +164,12 @@ export function Application() {
             width: canvasWidth,
           }}
           devicePixelRatio={window.devicePixelRatio}
-          // disabledCanvasEvents={["dragstart"]}
           ref={canvasRef}
           // id="my-custom-cancas-id" // <- Tested, but not implemented in the demo project
+          // disabledCanvasEvents={["dragstart"]} // TODO: Implement this
+          // className="my-custom-canvas-class" // TODO: Implement this
+          // matchWebGLToCanvasSize={true} // TODO: Implement this
+          // tabIndex={0} // TODO: Implement this
         />
       )}
       <h2>Console</h2>
