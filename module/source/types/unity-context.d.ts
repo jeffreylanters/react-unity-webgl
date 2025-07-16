@@ -1,3 +1,4 @@
+import { UnityInstance } from "./unity-instance";
 import { UnityProvider } from "./unity-provider";
 
 type UnityContext = {
@@ -29,6 +30,25 @@ type UnityContext = {
    * @param enabled - A boolean indicating whether to enter (true) or exit (false) fullscreen mode.
    */
   readonly requestFullscreen: (enabled: boolean) => void;
+
+  /**
+   * Requests the Unity Instance to enter pointer lock mode.
+   * Pointer lock mode allows the Unity Instance to capture mouse movements
+   * without the cursor leaving the Unity canvas.
+   * This is useful for first-person games or applications where continuous
+   * mouse movement is required.
+   */
+  readonly requestPointerLock: VoidFunction;
+
+  /**
+   * An unsafe reference to the Unity Instance.
+   * This reference should be used with caution, as it may not be available
+   * at all times, and accessing it may lead to unexpected behavior if the
+   * Unity Instance is not fully initialized or has been unloaded.
+   * It is recommended to use the provided methods and properties of the Unity
+   * Context to interact with the Unity Instance safely.
+   */
+  readonly UNSAFE__unityInstance: UnityInstance | null;
 };
 
 export type { UnityContext };
