@@ -77,6 +77,10 @@
     },
     {
       "type": "doc",
+      "id": "upgrading-from-version-9"
+    },
+    {
+      "type": "doc",
       "id": "contributing"
     }
   ],
