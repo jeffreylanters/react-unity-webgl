@@ -5,7 +5,8 @@
  */
 type MetricsConfig = {
   /**
-   * The interval in milliseconds at which to collect metrics.
+   * The interval in milliseconds at which to collect metrics. Otherwise an
+   * interval of 1000 milliseconds (1 second) is used by default.
    */
   interval?: number;
 };
