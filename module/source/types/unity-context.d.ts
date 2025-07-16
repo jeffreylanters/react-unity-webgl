@@ -1,6 +1,7 @@
 import { EventSystem } from "./event-system";
 import { UnityEventParameter } from "./unity-event-parameters";
 import { UnityInstance } from "./unity-instance";
+import { UnityMetricsInfo } from "./unity-metrics-info";
 import { UnityProvider } from "./unity-provider";
 
 type UnityContext = Pick<
@@ -77,6 +78,14 @@ type UnityContext = Pick<
    * no longer needed.
    */
   readonly unload: () => Promise<void>;
+
+  /**
+   * Gets the Unity instance's current metrics information.
+   * This method should return an object containing various performance metrics
+   * such as FPS, memory usage, and load times.
+   * @returns An object containing the current metrics information.
+   */
+  readonly getMetricsInfo: () => UnityMetricsInfo | undefined;
 
   /**
    * An unsafe reference to the Unity Instance.
