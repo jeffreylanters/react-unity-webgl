@@ -14,6 +14,7 @@ type UnityProvider = Pick<
   | "companyName"
   | "productName"
   | "productVersion"
+  | "webglContextAttributes"
 > & {
   /**
    * Sets the Unity Context's loading progression.
