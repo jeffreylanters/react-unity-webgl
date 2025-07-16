@@ -85,6 +85,14 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     [unityInstance]
   );
 
+  /**
+   * Unloads the Unity Instance and cleans up resources.
+   */
+  const unload = useCallback(
+    () => unityInstance?.Quit() ?? Promise.reject(),
+    [unityInstance]
+  );
+
   // Initialize the UnityProvider with the provided configuration
   // This is where you would typically load the Unity instance
   // and set up event listeners, etc.
@@ -97,6 +105,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     requestPointerLock,
     sendMessage,
     takeScreenshot,
+    unload,
     UNSAFE__unityInstance: unityInstance,
   };
 };
