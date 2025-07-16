@@ -1,5 +1,3 @@
-import { UnityEventParameter } from "./unity-event-parameters";
-import { UnityBooleanLike } from "./unity-boolean-like";
 import { UnityModule } from "./unity-module";
 
 /**
