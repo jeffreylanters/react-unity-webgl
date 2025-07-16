@@ -3,6 +3,7 @@ import {
   Unity,
   UnityEventParameter,
   useUnityContext,
+  useUnityMetricsInfo,
 } from "../../module/source/exports";
 
 export function Application() {
@@ -23,6 +24,7 @@ export function Application() {
     removeEventListener,
     takeScreenshot,
     unload,
+    getMetricsInfo,
     UNSAFE__unityInstance,
   } = useUnityContext({
     codeUrl: `/unity-build-6000.1/communication.wasm`,
@@ -41,6 +43,10 @@ export function Application() {
     // streamingAssetsUrl: `/unity-build/StreamingAssets`, // <- Tested, but not implemented in the demo project
     // symbolsUrl: `/unity-build/communication-tests.symbols.json`, // <- Tested, but not implemented in the demo project
     // workerUrl: `/unity-build/communication-tests.worker.js`, // <- Tested, but not implemented in the demo project
+  });
+
+  const { fps } = useUnityMetricsInfo(getMetricsInfo, {
+    interval: 1000 / 60,
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -62,6 +68,7 @@ export function Application() {
   }
 
   function handleClickSetRandomCanvasWidth() {
+    console.log();
     setCanvasWidth(Math.floor(Math.random() * 500) + 250);
   }
 
@@ -154,6 +161,8 @@ export function Application() {
       <button onClick={() => setIsMounted(!isMounted)}>
         {isMounted ? "Unmount" : "Mount"} Unity Component
       </button>
+      <h2>Metrics Info</h2>
+      <code>{Math.round(fps ?? -1)} FPS</code>
       <h2>Unity</h2>
       {isMounted && (
         <Unity
