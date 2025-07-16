@@ -4,6 +4,7 @@ import { UnityContext } from "../types/unity-context";
 import { UnityProvider } from "../types/unity-provider";
 import { UnityInstance } from "../types/unity-instance";
 import { UnityEventParameter } from "../exports";
+import { useEventSystem } from "./use-event-system";
 
 /**
  * Custom hook to create a Unity context.
@@ -18,6 +19,11 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
   const [loadingProgression, setLoadingProgression] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [initialisationError, setInitialisationError] = useState<Error>();
+
+  // Use the event system hook to manage external React Unity events.
+  // This hook provides methods to add and remove event listeners for Unity events.
+  // It returns an object with the methods addEventListener and removeEventListener.
+  const eventSystem = useEventSystem();
 
   // Create a ref to hold the UnityProvider instance, it consists of a selection
   // of properties from the UnityConfig and methods to interact with the Unity instance.
@@ -106,6 +112,8 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     sendMessage,
     takeScreenshot,
     unload,
+    addEventListener: eventSystem.addEventListener,
+    removeEventListener: eventSystem.removeEventListener,
     UNSAFE__unityInstance: unityInstance,
   };
 };
