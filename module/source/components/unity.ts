@@ -219,6 +219,8 @@ const Unity: ForwardRefExoticComponent<
       ref: setCanvasRef,
       id: canvasId,
       style: props.style,
+      className: props.className,
+      tabIndex: props.tabIndex,
     });
   }
 );
