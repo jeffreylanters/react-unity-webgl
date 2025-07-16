@@ -77,7 +77,8 @@
     },
     {
       "type": "doc",
-      "id": "upgrading"
+      "id": "upgrading",
+      "label": "Upgrading From Version 9"
     },
     {
       "type": "doc",
