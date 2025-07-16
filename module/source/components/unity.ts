@@ -110,6 +110,10 @@ const Unity: ForwardRefExoticComponent<
           devicePixelRatio: props.devicePixelRatio,
           webglContextAttributes: props.unityProvider.webglContextAttributes,
           cacheControl: props.unityProvider.cacheControl,
+          autoSyncPersistentDataPath:
+            props.unityProvider.autoSyncPersistentDataPath,
+          matchWebGLToCanvasSize: props.matchWebGLToCanvasSize,
+          disabledCanvasEvents: props.disabledCanvasEvents ?? [],
         };
 
         // The createUnityInstance function is provided by the Unity loader script.
