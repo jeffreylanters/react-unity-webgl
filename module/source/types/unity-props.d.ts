@@ -2,7 +2,10 @@ import { CSSProperties } from "react";
 import { UnityProvider } from "./unity-provider";
 import { UnityArguments } from "./unity-arguments";
 
-type UnityProps = Pick<UnityArguments, "devicePixelRatio"> & {
+type UnityProps = Pick<
+  UnityArguments,
+  "devicePixelRatio" | "matchWebGLToCanvasSize" | "disabledCanvasEvents"
+> & {
   /**
    * The Unity provider that contains the necessary URLs to load the Unity
    * instance. This is required to load the Unity WebGL build.
