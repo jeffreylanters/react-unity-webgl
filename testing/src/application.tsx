@@ -25,10 +25,10 @@ export function Application() {
     unload,
     UNSAFE__unityInstance,
   } = useUnityContext({
-    codeUrl: `/unity-build/unity.wasm`,
-    dataUrl: `/unity-build/unity.data`,
-    frameworkUrl: `/unity-build/unity.framework.js`,
-    loaderUrl: `/unity-build/unity.loader.js`,
+    codeUrl: `/unity-build-2022.1/communication.wasm`,
+    dataUrl: `/unity-build-2022.1/communication.data`,
+    frameworkUrl: `/unity-build-2022.1/communication.framework.js`,
+    loaderUrl: `/unity-build-2022.1/communication.loader.js`,
     webglContextAttributes: {
       preserveDrawingBuffer: true,
     },
@@ -36,7 +36,7 @@ export function Application() {
     companyName: "Unity Technologies",
     productName: "Communication Tests",
     productVersion: "1.0.0",
-    // autoSyncPersistentDataPath: true, // TODO: Implement this
+    autoSyncPersistentDataPath: true,
     // memoryUrl: `/unity-build/communication-tests.mem`, // <- Tested, but not implemented in the demo project
     // streamingAssetsUrl: `/unity-build/StreamingAssets`, // <- Tested, but not implemented in the demo project
     // symbolsUrl: `/unity-build/communication-tests.symbols.json`, // <- Tested, but not implemented in the demo project
@@ -166,9 +166,9 @@ export function Application() {
           devicePixelRatio={window.devicePixelRatio}
           ref={canvasRef}
           // id="my-custom-cancas-id" // <- Tested, but not implemented in the demo project
-          // disabledCanvasEvents={["dragstart"]} // TODO: Implement this
+          matchWebGLToCanvasSize={true}
+          disabledCanvasEvents={["contextmenu"]}
           // className="my-custom-canvas-class" // TODO: Implement this
-          // matchWebGLToCanvasSize={true} // TODO: Implement this
           // tabIndex={0} // TODO: Implement this
         />
       )}
