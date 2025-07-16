@@ -20,10 +20,10 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [initialisationError, setInitialisationError] = useState<Error>();
 
-  // Create a ref to hold the UnityProvider instance
-  // This allows us to keep the same instance across renders
-  // while still being able to update its properties
-  // without causing unnecessary re-renders.
+  // Create a ref to hold the UnityProvider instance, it consists of a selection
+  // of properties from the UnityConfig and methods to interact with the Unity instance.
+  // This allows us to avoid unnecessary re-renders when the UnityProvider is updated.
+  // The useRef hook is used to persist the UnityProvider instance across renders.
   const unityProvider = useRef<UnityProvider>({
     companyName: unityConfig.companyName,
     productName: unityConfig.productName,
@@ -36,6 +36,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     symbolsUrl: unityConfig.symbolsUrl,
     streamingAssetsUrl: unityConfig.streamingAssetsUrl,
     workerUrl: unityConfig.workerUrl,
+    webglContextAttributes: unityConfig.webglContextAttributes,
     setUnityInstance,
     setLoadingProgression,
     setIsLoaded,
@@ -79,7 +80,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
    * @returns A base 64 encoded string of the screenshot.
    */
   const takeScreenshot = useCallback(
-    (dataType: string, quality: number): string | undefined =>
+    (dataType?: string, quality?: number): string | undefined =>
       unityInstance?.Module.canvas?.toDataURL(dataType, quality),
     [unityInstance]
   );
