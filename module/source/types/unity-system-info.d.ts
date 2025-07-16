@@ -4,7 +4,7 @@
  * is running. It includes details about the browser, GPU, OS, and other system
  * characteristics.
  */
-type SystemInfo = {
+type UnitySystemInfo = {
   browser: string;
   browserVersion: string;
   gpu: string;
@@ -23,4 +23,4 @@ type SystemInfo = {
   width: number;
 };
 
-export type { SystemInfo };
+export type { UnitySystemInfo };

@@ -1,4 +1,4 @@
-import { SystemInfo } from "./system-info";
+import { UnitySystemInfo } from "./unity-system-info";
 import { UnityBooleanLike } from "./unity-boolean-like";
 import { UnityEventParameter } from "./unity-event-parameters";
 
@@ -49,7 +49,7 @@ type UnityModule = {
   /**
    * Returns the current system information of the UnityInstance.
    */
-  SystemInfo: SystemInfo;
+  SystemInfo: UnitySystemInfo;
 
   /**
    * Converts a pointer to a string.
