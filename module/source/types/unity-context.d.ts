@@ -1,8 +1,12 @@
+import { EventSystem } from "./event-system";
 import { UnityEventParameter } from "./unity-event-parameters";
 import { UnityInstance } from "./unity-instance";
 import { UnityProvider } from "./unity-provider";
 
-type UnityContext = {
+type UnityContext = Pick<
+  EventSystem,
+  "addEventListener" | "removeEventListener"
+> & {
   /**
    * The Unity Context returns a Unity Provider instance. This immutable object
    * should be passed onto a Unity Component in order to be able to access the
