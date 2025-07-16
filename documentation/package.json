@@ -1,6 +1,6 @@
 {
   "name": "react-unity-webgl-documentation",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage": "https://react-unity-webgl.dev",
   "author": {
     "name": "Jeffrey Lanters",
@@ -32,10 +32,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.7.0",
-    "@docusaurus/plugin-google-analytics": "^3.7.0",
-    "@docusaurus/plugin-sitemap": "^3.7.0",
-    "@docusaurus/preset-classic": "^3.7.0",
+    "@docusaurus/core": "^3.8.1",
+    "@docusaurus/plugin-google-analytics": "^3.8.1",
+    "@docusaurus/plugin-sitemap": "^3.8.1",
+    "@docusaurus/preset-classic": "^3.8.1",
     "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
@@ -43,7 +43,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.7.0",
+    "@docusaurus/module-type-aliases": "^3.8.1",
     "@tsconfig/docusaurus": "^2.0.3",
     "typescript": "^5.7.3"
   },
