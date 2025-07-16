@@ -103,6 +103,10 @@ const Unity: ForwardRefExoticComponent<
           dataUrl: props.unityProvider.dataUrl,
           frameworkUrl: props.unityProvider.frameworkUrl,
           codeUrl: props.unityProvider.codeUrl,
+          workerUrl: props.unityProvider.workerUrl,
+          memoryUrl: props.unityProvider.memoryUrl,
+          symbolsUrl: props.unityProvider.symbolsUrl,
+          streamingAssetsUrl: props.unityProvider.streamingAssetsUrl,
           devicePixelRatio: props.devicePixelRatio,
         };
 
