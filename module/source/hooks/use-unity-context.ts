@@ -100,6 +100,16 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     [unityInstance]
   );
 
+  /**
+   * Gets the metrics information from the Unity Instance.
+   * This includes performance metrics such as FPS, memory usage, etc.
+   * @returns A function that returns the metrics information.
+   */
+  const getMetricsInfo = useCallback(
+    () => unityInstance?.GetMetricsInfo?.(),
+    [unityInstance]
+  );
+
   // Initialize the UnityProvider with the provided configuration
   // This is where you would typically load the Unity instance
   // and set up event listeners, etc.
@@ -113,6 +123,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     sendMessage,
     takeScreenshot,
     unload,
+    getMetricsInfo,
     addEventListener: eventSystem.addEventListener,
     removeEventListener: eventSystem.removeEventListener,
     UNSAFE__unityInstance: unityInstance,
