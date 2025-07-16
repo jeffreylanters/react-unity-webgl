@@ -38,7 +38,7 @@ return <button onClick={handleClick}>Unload</button>;
 
 ## Example Usage
 
-A basic implementation could look something like this. In the following example we'll display a button which allows the user to navigate to another page, but before this happens, the Unity Application will be unloaded.
+A basic implementation could look something like this. In the following example we'll display a button which allows the user to stop the Unity Application. When the button is clicked, it will invoke the unload function to unload the Unity Application from memory.
 
 ```jsx showLineNumbers title="App.jsx"
 import React, { Fragment } from "react";
@@ -52,15 +52,14 @@ function App() {
     codeUrl: "build/myunityapp.wasm",
   });
 
-  async function handleClickBack() {
+  async function handleClickStop() {
     await unload();
-    // Ready to navigate to another page.
   }
 
   return (
     <Fragment>
       <Unity unityProvider={unityProvider} />
-      <button onClick={handleClickBack}>Back</button>
+      <button onClick={handleClickStop}>Stop</button>
     </Fragment>
   );
 }
