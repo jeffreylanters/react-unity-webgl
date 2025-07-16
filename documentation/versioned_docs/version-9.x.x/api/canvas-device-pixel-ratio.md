@@ -16,7 +16,7 @@ Usage of this feature requires your Unity Application to be built with Unity 202
 
 The Canvas can appear too blurry on retina screens. The device pixel ratio determines how much extra pixel density should be added to allow for a sharper image. Providing this prop will set the device pixel ratio of the Unity Application's canvas by multiplying the default resolution of the canvas by the provided value.
 
-You can use the browser's device pixel ratio to determine the device pixel ratio of the Unity Application's canvas. Head over to the advanced examples to see [how to implement a dynamic device pixel ratio](/docs/advanced-examples/dynamic-device-pixel-ratio).
+You can use the browser's device pixel ratio to determine the device pixel ratio of the Unity Application's canvas. Head over to the advanced examples to see [how to implement a dynamic device pixel ratio](/docs/9.x.x/advanced-examples/dynamic-device-pixel-ratio).
 
 :::warning
 The value will be used as a multiplier to the actual canvas scale and will litterally add extra pixels to the canvas. This will have a big impact on the performance of your Unity Application and overall performance of your browser.

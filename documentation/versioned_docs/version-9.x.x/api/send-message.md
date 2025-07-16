@@ -32,12 +32,12 @@ When invoking a C-Sharp method by sending a message, the name of the mono behavi
 :::
 
 :::warning
-Make sure the parameter matches the actual existence and type of the C-Sharp method you're trying to invoke. Not 
+Make sure the parameter matches the actual existence and type of the C-Sharp method you're trying to invoke. Not
 doing so may cause unintended behaviour or even a crash of the Unity Application.
 :::
 
 :::info
-Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string. You can read more about [parameters and JavaScript to Unityscript types here](/docs/main-concepts/data-conversion).
+Simple numeric types can be passed to JavaScript in function parameters without requiring any conversion. Other data types will be passed as a pointer in the emscripten heap (which is really just a big array in JavaScript). For strings, you can use the Pointerstringify helper function to convert to a JavaScript string. You can read more about [parameters and JavaScript to Unityscript types here](/docs/9.x.x/main-concepts/data-conversion).
 :::
 
 ## Example Usage

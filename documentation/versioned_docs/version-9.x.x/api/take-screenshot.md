@@ -18,7 +18,7 @@ Takes a screenshot of the canvas and returns a data URL containing image data. A
 If an attempt to take a screenshot was made before the Unity Application was initialized, the function will return `undefined` instead of a data URL.
 
 :::info
-In order to take screenshot of the Unity WebGL canvas, you'll need to enable preserve drawing buffer within the WebGL context attributes. Enabling this feature makes sure that the canvas is not cleared before the screenshot is taken. This setting en disabled by default, and can be enabled via the Unity Config's [WebGLRenderingContext](/docs/api/webgl-rendering-context) property.
+In order to take screenshot of the Unity WebGL canvas, you'll need to enable preserve drawing buffer within the WebGL context attributes. Enabling this feature makes sure that the canvas is not cleared before the screenshot is taken. This setting en disabled by default, and can be enabled via the Unity Config's [WebGLRenderingContext](/docs/9.x.x/api/webgl-rendering-context) property.
 
 ```jsx showLineNumbers title="Example: Preserving the Drawing Buffer"
 const unityContext = useUnityContext({

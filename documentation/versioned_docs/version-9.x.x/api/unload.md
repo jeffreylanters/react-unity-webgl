@@ -19,7 +19,7 @@ In earlier versions of Unity, it was possible to unmount the Unity Application a
 
 As of this writing, the issue has not been resolved. However, it is possible to manually unmount the Unity Application by halting navigation to the next page. A ticket has been submitted, and the Unity team has acknowledged this as a known issue. For more details, refer to the [GitHub issue](https://github.com/jeffreylanters/react-unity-webgl/issues/250).
 
-Alternatively, you can use the unsafe `detachAndUnloadImmediate` function to immediately unmount the Unity Application. However, this is not recommended unless you are an advanced user. For more information, refer to the [Unsafe Detach and Unload Immediate](/docs/api/unsafe-detach-unmount-immediate) documentation.
+Alternatively, you can use the unsafe `detachAndUnloadImmediate` function to immediately unmount the Unity Application. However, this is not recommended unless you are an advanced user. For more information, refer to the [Unsafe Detach and Unload Immediate](/docs/9.x.x/api/unsafe-detach-unmount-immediate) documentation.
 :::
 
 When building a multi-page React Application, it is important to unload the Unity Application in order to completely unmount the component from the DOM to free up the memory taken by the Unity JavaScript heap, and without Unity throwing an error. Invoking the function will request the Unity Application to be unloaded from memory. The function will return a Promise that will be resolved when the Unity Application has been unloaded.
