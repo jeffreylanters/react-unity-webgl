@@ -2,6 +2,10 @@
 
 Requests the Unity Application to be unloaded from memory in order to be unmounted from the DOM.
 
+:::warning
+Since React Unity WebGL version 10, calling the unload function is no longer required to unmount the Unity Application. The Unity Application will automatically be unmounted when the component is removed from the DOM. However, if you want to unload the Unity Application manually, you can still use the unload function. But be aware that this is not necessary in most cases.
+:::
+
 ## Type Definition
 
 ```tsx title="Type Definition"
