@@ -21,7 +21,7 @@ export function Application() {
     initialisationError,
     // addEventListener,
     // removeEventListener,
-    // takeScreenshot,
+    takeScreenshot,
     // unload,
     UNSAFE__unityInstance,
   } = useUnityContext({
@@ -81,10 +81,10 @@ export function Application() {
   }
 
   function handleClickTakeScreenshot() {
-    // const screenshot = takeScreenshot("image/jpg", 1);
-    // if (screenshot) {
-    //   setScreenshots([...screenshots, screenshot]);
-    // }
+    const screenshot = takeScreenshot("image/jpg", 1);
+    if (screenshot) {
+      setScreenshots([...screenshots, screenshot]);
+    }
   }
 
   useEffect(() => {
@@ -165,7 +165,7 @@ export function Application() {
           devicePixelRatio={window.devicePixelRatio}
           // disabledCanvasEvents={["dragstart"]}
           ref={canvasRef}
-          // id="my-custom-cancas-id"
+          // id="my-custom-cancas-id" // <- Tested, but not implemented in the demo project
         />
       )}
       <h2>Console</h2>
