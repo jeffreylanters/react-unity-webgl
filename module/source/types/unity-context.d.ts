@@ -1,3 +1,4 @@
+import { UnityEventParameter } from "./unity-event-parameters";
 import { UnityInstance } from "./unity-instance";
 import { UnityProvider } from "./unity-provider";
 
@@ -39,6 +40,18 @@ type UnityContext = {
    * mouse movement is required.
    */
   readonly requestPointerLock: VoidFunction;
+
+  /**
+   * Sends a message to the UnityInstance to invoke a public method.
+   * @param gameObjectName the name of the game object in your Unity scene.
+   * @param methodName the name of the public method on the game object.
+   * @param parameter an optional parameter to pass along to the method.
+   */
+  readonly sendMessage: (
+    gameObjectName: string,
+    methodName: string,
+    parameter?: UnityEventParameter
+  ) => void;
 
   /**
    * An unsafe reference to the Unity Instance.
