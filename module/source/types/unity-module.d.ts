@@ -1,3 +1,4 @@
+import { SystemInfo } from "./system-info";
 import { UnityBooleanLike } from "./unity-boolean-like";
 import { UnityEventParameter } from "./unity-event-parameters";
 
@@ -47,26 +48,8 @@ type UnityModule = {
 
   /**
    * Returns the current system information of the UnityInstance.
-   * @returns An object containing system information.
    */
-  SystemInfo: {
-    browser: string;
-    browserVersion: string;
-    gpu: string;
-    hasCursorLock: boolean;
-    hasFullscreen: boolean;
-    hasThreads: boolean;
-    hasWasm: boolean;
-    hasWasmThreads: boolean;
-    hasWebGL: 2 | 1;
-    height: number;
-    language: string;
-    mobile: boolean;
-    os: string;
-    osVersion: string;
-    userAgent: string;
-    width: number;
-  };
+  SystemInfo: SystemInfo;
 
   /**
    * Converts a pointer to a string.
