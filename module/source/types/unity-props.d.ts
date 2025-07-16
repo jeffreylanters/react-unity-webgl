@@ -23,6 +23,18 @@ type UnityProps = Pick<
    * The style of the Unity canvas element.
    */
   style?: CSSProperties;
+
+  /**
+   * The class name of the Unity canvas element. This can be used to apply
+   * custom styles to the canvas.
+   */
+  className?: string;
+
+  /**
+   * The tab index of the Unity canvas element. This can be used to make the
+   * canvas focusable.
+   */
+  tabIndex?: number;
 };
 
 export type { UnityProps };
