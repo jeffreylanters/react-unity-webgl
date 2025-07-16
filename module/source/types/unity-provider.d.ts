@@ -16,6 +16,7 @@ type UnityProvider = Pick<
   | "productVersion"
   | "webglContextAttributes"
   | "cacheControl"
+  | "autoSyncPersistentDataPath"
 > & {
   /**
    * Sets the Unity Context's loading progression.
