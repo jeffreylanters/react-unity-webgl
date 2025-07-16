@@ -77,6 +77,11 @@ const Unity: ForwardRefExoticComponent<
 
         console.log("React Unity WebGL: Initializing Unity instance...");
 
+        // Remove the reference to the previous Unity instance if it exists and
+        // set the Unity instance in the Unity provider to null.
+        props.unityProvider.setUnityInstance(null);
+        setUnityInstance(null);
+
         // Reset the loading progression and isLoaded state to their initial
         // values. This is important to ensure that the Unity context is
         // properly reset when the Unity instance is detached.
@@ -116,6 +121,10 @@ const Unity: ForwardRefExoticComponent<
           // If the Unity instance is successfully created, we set it in the state.
           // This allows us to use the Unity instance in the component.
           setUnityInstance(unityInstance);
+          // We also set the Unity instance in the Unity provider.
+          // This allows the Unity provider to access the Unity instance and
+          // call its internal methods.
+          props.unityProvider.setUnityInstance(unityInstance);
         } catch (error) {
           // If there is an error during the initialization, we log it to the console.
           // This is important for debugging purposes.
@@ -143,6 +152,11 @@ const Unity: ForwardRefExoticComponent<
         }
 
         console.log("React Unity WebGL: Detaching Unity instance...");
+
+        // Remove the reference to the previous Unity instance if it exists and
+        // set the Unity instance in the Unity provider to null.
+        props.unityProvider.setUnityInstance(null);
+        setUnityInstance(null);
 
         // Reset the loading progression and isLoaded state to their initial
         // values. This is important to ensure that the Unity context is
