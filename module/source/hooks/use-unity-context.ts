@@ -20,6 +20,9 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
   // while still being able to update its properties
   // without causing unnecessary re-renders.
   const unityProvider = useRef<UnityProvider>({
+    companyName: unityConfig.companyName,
+    productName: unityConfig.productName,
+    productVersion: unityConfig.productVersion,
     codeUrl: unityConfig.codeUrl,
     dataUrl: unityConfig.dataUrl,
     frameworkUrl: unityConfig.frameworkUrl,
