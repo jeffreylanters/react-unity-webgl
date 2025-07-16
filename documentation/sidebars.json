@@ -96,10 +96,6 @@
         {
           "type": "doc",
           "id": "api/loading-progression"
-        },
-        {
-          "type": "doc",
-          "id": "api/unload"
         }
       ]
     },
@@ -201,6 +197,10 @@
           "type": "doc",
           "id": "api/web-worker",
           "label": "Using a Web Worker"
+        },
+        {
+          "type": "doc",
+          "id": "api/unload"
         }
       ]
     }
