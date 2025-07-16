@@ -1,4 +1,5 @@
 import { UnityConfig } from "./unity-config";
+import { UnityInstance } from "./unity-instance";
 
 type UnityProvider = Pick<
   UnityConfig,
@@ -24,6 +25,12 @@ type UnityProvider = Pick<
    * Sets the Unity Context's initialisation error.
    */
   readonly setInitialisationError: (error?: Error) => void;
+
+  /**
+   * Sets the Unity instance, used for internally managing the Unity instance
+   * between the context and the UnityProvider.
+   */
+  readonly setUnityInstance: (unityInstance: UnityInstance | null) => void;
 };
 
 export type { UnityProvider };
