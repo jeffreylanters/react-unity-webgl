@@ -55,7 +55,7 @@ const Unity: ForwardRefExoticComponent<
         if (progress === 1) {
           // If the loading progression reaches 100%, we can set the isLoaded state
           // to true.
-          props.unityProvider.setIsLoaded?.(true);
+          props.unityProvider.setIsLoaded(true);
         }
       },
       [props.unityProvider]
@@ -109,6 +109,7 @@ const Unity: ForwardRefExoticComponent<
           streamingAssetsUrl: props.unityProvider.streamingAssetsUrl,
           devicePixelRatio: props.devicePixelRatio,
           webglContextAttributes: props.unityProvider.webglContextAttributes,
+          cacheControl: props.unityProvider.cacheControl,
         };
 
         // The createUnityInstance function is provided by the Unity loader script.
