@@ -23,6 +23,12 @@ type UnityContext = {
    * The Unity Instance's initialisation error, if any.
    */
   readonly initialisationError?: Error;
+
+  /**
+   * Requests the Unity Instance to enter or exit fullscreen mode.
+   * @param enabled - A boolean indicating whether to enter (true) or exit (false) fullscreen mode.
+   */
+  readonly requestFullscreen: (enabled: boolean) => void;
 };
 
 export type { UnityContext };
