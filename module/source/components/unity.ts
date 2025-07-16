@@ -92,6 +92,9 @@ const Unity: ForwardRefExoticComponent<
 
         // Create a Unity instance using the createUnityInstance function.
         const unityArguments: UnityArguments = {
+          companyName: props.unityProvider.companyName,
+          productName: props.unityProvider.productName,
+          productVersion: props.unityProvider.productVersion,
           dataUrl: props.unityProvider.dataUrl,
           frameworkUrl: props.unityProvider.frameworkUrl,
           codeUrl: props.unityProvider.codeUrl,
