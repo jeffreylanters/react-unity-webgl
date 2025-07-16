@@ -16,14 +16,14 @@ export function Application() {
     unityProvider,
     isLoaded,
     requestFullscreen,
-    // requestPointerLock,
-    // sendMessage,
+    requestPointerLock,
+    sendMessage,
     initialisationError,
     // addEventListener,
     // removeEventListener,
     // takeScreenshot,
     // unload,
-    // UNSAFE__unityInstance,
+    UNSAFE__unityInstance,
   } = useUnityContext({
     codeUrl: `/unity-build/unity.wasm`,
     dataUrl: `/unity-build/unity.data`,
@@ -36,10 +36,10 @@ export function Application() {
     companyName: "Unity Technologies",
     productName: "Communication Tests",
     productVersion: "1.0.0",
-    // memoryUrl: `/unity-build/communication-tests.mem`,
-    // streamingAssetsUrl: `/unity-build/StreamingAssets`,
-    // symbolsUrl: `/unity-build/communication-tests.symbols.json`,
-    // workerUrl: `/unity-build/communication-tests.worker.js`,
+    // memoryUrl: `/unity-build/communication-tests.mem`, // <- Tested, but not implemented in the demo project
+    // streamingAssetsUrl: `/unity-build/StreamingAssets`, // <- Tested, but not implemented in the demo project
+    // symbolsUrl: `/unity-build/communication-tests.symbols.json`, // <- Tested, but not implemented in the demo project
+    // workerUrl: `/unity-build/communication-tests.worker.js`, // <- Tested, but not implemented in the demo project
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -53,7 +53,7 @@ export function Application() {
   }
 
   function handleClickRequestPointerLock() {
-    // requestPointerLock();
+    requestPointerLock();
   }
 
   function handleClickUnload() {
@@ -65,11 +65,11 @@ export function Application() {
   }
 
   function handleClickSetLogText() {
-    // sendMessage(
-    //   "Persistent",
-    //   "SetLogText",
-    //   "Hello World, the time is " + new Date().toISOString()
-    // );
+    sendMessage(
+      "Persistent",
+      "SetLogText",
+      "Hello World, the time is " + new Date().toISOString()
+    );
   }
 
   function handleClickLogCanvasRefToConsole() {
@@ -77,7 +77,7 @@ export function Application() {
   }
 
   function handleClickLogUnityInstanceRefToConsole() {
-    // console.log("Unity Instance Reference", { UNSAFE__unityInstance });
+    console.log("Unity Instance Reference", { UNSAFE__unityInstance });
   }
 
   function handleClickTakeScreenshot() {
