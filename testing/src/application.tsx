@@ -32,7 +32,7 @@ export function Application() {
     webglContextAttributes: {
       preserveDrawingBuffer: true,
     },
-    // cacheControl: handleCacheControl,
+    cacheControl: handleCacheControl,
     companyName: "Unity Technologies",
     productName: "Communication Tests",
     productVersion: "1.0.0",
