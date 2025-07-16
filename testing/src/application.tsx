@@ -168,8 +168,8 @@ export function Application() {
           // id="my-custom-cancas-id" // <- Tested, but not implemented in the demo project
           matchWebGLToCanvasSize={true}
           disabledCanvasEvents={["contextmenu"]}
-          // className="my-custom-canvas-class" // TODO: Implement this
-          // tabIndex={0} // TODO: Implement this
+          className="my-custom-canvas-class"
+          tabIndex={0}
         />
       )}
       <h2>Console</h2>
