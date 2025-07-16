@@ -87,8 +87,8 @@ const config = {
     announcementBar: {
       id: "support_me",
       content:
-        'The project is in financial need of support, if you use my module and are able, please considing <a href="/support">supporting</a> in any way you can. Thank you! ❤️',
-      backgroundColor: "#AB2329",
+        "Donations are helping me to keep this project maintained, if you find this project useful, please consider <a href='/support'>supporting</a> it. Thank you! ❤️",
+      backgroundColor: "#238babff",
       textColor: "#ffffff",
       isCloseable: false,
     },
@@ -114,6 +114,11 @@ const config = {
           to: "/made-with",
           position: "left",
           label: "Made With",
+        },
+        {
+          to: "/tutorials",
+          position: "left",
+          label: "Tutorials",
         },
         {
           to: "/support",
