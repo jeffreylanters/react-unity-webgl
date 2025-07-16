@@ -31,6 +31,10 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     dataUrl: unityConfig.dataUrl,
     frameworkUrl: unityConfig.frameworkUrl,
     loaderUrl: unityConfig.loaderUrl,
+    memoryUrl: unityConfig.memoryUrl,
+    symbolsUrl: unityConfig.symbolsUrl,
+    streamingAssetsUrl: unityConfig.streamingAssetsUrl,
+    workerUrl: unityConfig.workerUrl,
     setUnityInstance,
     setLoadingProgression,
     setIsLoaded,
@@ -45,6 +49,15 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     [unityInstance]
   );
 
+  /**
+   * Requests the Unity Instance to enter pointer lock mode.
+   * Pointer lock mode allows the Unity Instance to capture mouse movements
+   * without the cursor leaving the Unity canvas.
+   */
+  const requestPointerLock = useCallback(() => {
+    unityInstance?.Module.canvas?.requestPointerLock();
+  }, [unityInstance]);
+
   // Initialize the UnityProvider with the provided configuration
   // This is where you would typically load the Unity instance
   // and set up event listeners, etc.
@@ -54,6 +67,8 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     isLoaded,
     initialisationError,
     requestFullscreen,
+    requestPointerLock,
+    UNSAFE__unityInstance: unityInstance,
   };
 };
 
