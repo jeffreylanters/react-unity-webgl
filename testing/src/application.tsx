@@ -29,9 +29,9 @@ export function Application() {
     dataUrl: `/unity-build/unity.data`,
     frameworkUrl: `/unity-build/unity.framework.js`,
     loaderUrl: `/unity-build/unity.loader.js`,
-    // webglContextAttributes: {
-    //   preserveDrawingBuffer: true,
-    // },
+    webglContextAttributes: {
+      preserveDrawingBuffer: true,
+    },
     // cacheControl: handleCacheControl,
     companyName: "Unity Technologies",
     productName: "Communication Tests",
