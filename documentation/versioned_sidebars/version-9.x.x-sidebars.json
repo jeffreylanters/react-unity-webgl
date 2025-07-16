@@ -184,6 +184,11 @@
         },
         {
           "type": "doc",
+          "id": "api/unsafe-detach-unmount-immediate",
+          "label": "Detach and Unmount Immediate"
+        },
+        {
+          "type": "doc",
           "id": "api/cache-control",
           "label": "Custom Cache Control"
         },

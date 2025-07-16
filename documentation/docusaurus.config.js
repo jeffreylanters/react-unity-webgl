@@ -36,8 +36,14 @@ const config = {
               badge: true,
               path: "",
             },
+            "9.x.x": {
+              label: "Version 9 (Maintenance LTS)",
+              banner: "unmaintained",
+              badge: true,
+              path: "9.x.x",
+            },
             "8.x.x": {
-              label: "Version 8 (Active LTS)",
+              label: "Version 8 (Maintenance LTS)",
               banner: "unmaintained",
               badge: true,
               path: "8.x.x",
