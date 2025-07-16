@@ -1,6 +1,6 @@
 {
   "name": "react-unity-webgl",
-  "version": "10.1.0",
+  "version": "10.1.1",
   "description": "React Unity WebGL provides a modern solution for embedding Unity WebGL builds in your React Application while providing advanced APIs for two way communication and interaction between Unity and React.",
   "keywords": [
     "React",
