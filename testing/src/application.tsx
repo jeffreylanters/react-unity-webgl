@@ -25,10 +25,10 @@ export function Application() {
     unload,
     UNSAFE__unityInstance,
   } = useUnityContext({
-    codeUrl: `/unity-build-2022.1/communication.wasm`,
-    dataUrl: `/unity-build-2022.1/communication.data`,
-    frameworkUrl: `/unity-build-2022.1/communication.framework.js`,
-    loaderUrl: `/unity-build-2022.1/communication.loader.js`,
+    codeUrl: `/unity-build-6000.1/communication.wasm`,
+    dataUrl: `/unity-build-6000.1/communication.data`,
+    frameworkUrl: `/unity-build-6000.1/communication.framework.js`,
+    loaderUrl: `/unity-build-6000.1/communication.loader.js`,
     webglContextAttributes: {
       preserveDrawingBuffer: true,
     },
