@@ -33,6 +33,13 @@ export function Application() {
     //   preserveDrawingBuffer: true,
     // },
     // cacheControl: handleCacheControl,
+    companyName: "Unity Technologies",
+    productName: "Communication Tests",
+    productVersion: "1.0.0",
+    // memoryUrl: `/unity-build/communication-tests.mem`,
+    // streamingAssetsUrl: `/unity-build/StreamingAssets`,
+    // symbolsUrl: `/unity-build/communication-tests.symbols.json`,
+    // workerUrl: `/unity-build/communication-tests.worker.js`,
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -42,7 +49,7 @@ export function Application() {
   const [canvasWidth, setCanvasWidth] = useState(500);
 
   function handleClickRequestFullScreen() {
-    // requestFullscreen(true);
+    requestFullscreen(true);
   }
 
   function handleClickRequestPointerLock() {
