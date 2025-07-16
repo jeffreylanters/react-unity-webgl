@@ -132,6 +132,33 @@ function App() {
 ```
 
 </TabItem>
+<TabItem value="Profiling" label="Profiling">
+
+```jsx showLineNumbers title="A basic example showing how to profile your Unity Applicationimport React, { Fragment } from "react";
+import { Unity, useUnityContext, useUnityMetricsInfo } from "react-unity-webgl";
+
+function App() {
+  const { unityProvider, getMetricsInfo } = useUnityContext({
+    loaderUrl: "build/myunityapp.loader.js",
+    dataUrl: "build/myunityapp.data",
+    frameworkUrl: "build/myunityapp.framework.js",
+    codeUrl: "build/myunityapp.wasm",
+  });
+
+  const { fps } = useUnityMetricsInfo(getMetricsInfo, {
+    interval: 1000 / 60,
+  });
+
+  return (
+    <Fragment>
+      <Unity unityProvider={unityProvider} />
+      <p>FPS: {fps}</p>
+    </Fragment>
+  );
+}
+```
+
+</TabItem>
 </Tabs>
 
  </div>
