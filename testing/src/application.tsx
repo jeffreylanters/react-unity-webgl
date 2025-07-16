@@ -19,8 +19,8 @@ export function Application() {
     requestPointerLock,
     sendMessage,
     initialisationError,
-    // addEventListener, // TODO: Implement this
-    // removeEventListener, // TODO: Implement this
+    addEventListener,
+    removeEventListener,
     takeScreenshot,
     unload,
     UNSAFE__unityInstance,
@@ -96,19 +96,19 @@ export function Application() {
       ]);
     }
 
-    // addEventListener("ClickedTestButton", logParametersToConsole);
-    // addEventListener("ClickedStringTestButton", logParametersToConsole);
-    // addEventListener("ClickedNumberTestButton", logParametersToConsole);
-    // addEventListener("ClickedNumbersTestButton", logParametersToConsole);
-    // addEventListener("ClickedBoolTestButton", logParametersToConsole);
-    // addEventListener("ClickedObjectTestButton", logParametersToConsole);
+    addEventListener("ClickedTestButton", logParametersToConsole);
+    addEventListener("ClickedStringTestButton", logParametersToConsole);
+    addEventListener("ClickedNumberTestButton", logParametersToConsole);
+    addEventListener("ClickedNumbersTestButton", logParametersToConsole);
+    addEventListener("ClickedBoolTestButton", logParametersToConsole);
+    addEventListener("ClickedObjectTestButton", logParametersToConsole);
     return () => {
-      // removeEventListener("ClickedTestButton", logParametersToConsole);
-      // removeEventListener("ClickedStringTestButton", logParametersToConsole);
-      // removeEventListener("ClickedNumberTestButton", logParametersToConsole);
-      // removeEventListener("ClickedNumbersTestButton", logParametersToConsole);
-      // removeEventListener("ClickedBoolTestButton", logParametersToConsole);
-      // removeEventListener("ClickedObjectTestButton", logParametersToConsole);
+      removeEventListener("ClickedTestButton", logParametersToConsole);
+      removeEventListener("ClickedStringTestButton", logParametersToConsole);
+      removeEventListener("ClickedNumberTestButton", logParametersToConsole);
+      removeEventListener("ClickedNumbersTestButton", logParametersToConsole);
+      removeEventListener("ClickedBoolTestButton", logParametersToConsole);
+      removeEventListener("ClickedObjectTestButton", logParametersToConsole);
     };
   }, [addEventListener, removeEventListener]);
 
