@@ -2,7 +2,13 @@ import { UnityConfig } from "./unity-config";
 
 type UnityProvider = Pick<
   UnityConfig,
-  "loaderUrl" | "dataUrl" | "frameworkUrl" | "codeUrl"
+  | "loaderUrl"
+  | "dataUrl"
+  | "frameworkUrl"
+  | "codeUrl"
+  | "companyName"
+  | "productName"
+  | "productVersion"
 > & {
   /**
    * Sets the Unity Context's loading progression.
