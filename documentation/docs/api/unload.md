@@ -28,7 +28,7 @@ const { unload } = useUnityContext();
 
 Next you'll be able to invoke the awaitable unload function to unload the Unity Application.
 
-```jsx showLineNumbers title="Example: Using the take screenshot function"
+```jsx showLineNumbers title="Example: Using the unload function"
 async function handleClick() {
   await unload();
 }
