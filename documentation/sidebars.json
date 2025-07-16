@@ -160,6 +160,20 @@
     },
     {
       "type": "category",
+      "label": "Debugging and Profiling",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/get-metrics-info"
+        },
+        {
+          "type": "doc",
+          "id": "api/use-unity-metrics-info"
+        }
+      ]
+    },
+    {
+      "type": "category",
       "label": "Miscellaneous",
       "items": [
         {
