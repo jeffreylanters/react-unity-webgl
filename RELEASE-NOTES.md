@@ -1,1 +1,1 @@
-- Added new Unity Metrics Info API and hook to retrieve performance metrics from Unity builds.
+- Resolved an issue where not providing a cache control method or webgl context attributes would result in an error while loading the Unity build.
