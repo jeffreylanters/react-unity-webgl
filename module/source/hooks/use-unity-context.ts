@@ -71,6 +71,19 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     [unityInstance]
   );
 
+  /**
+   * Takes a screenshot of the Unity Instance and returns a base64 encoded
+   * string.
+   * @param dataType Defines the type of screenshot to take.
+   * @param quality Defines the quality of the screenshot.
+   * @returns A base 64 encoded string of the screenshot.
+   */
+  const takeScreenshot = useCallback(
+    (dataType: string, quality: number): string | undefined =>
+      unityInstance?.Module.canvas?.toDataURL(dataType, quality),
+    [unityInstance]
+  );
+
   // Initialize the UnityProvider with the provided configuration
   // This is where you would typically load the Unity instance
   // and set up event listeners, etc.
@@ -82,6 +95,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     requestFullscreen,
     requestPointerLock,
     sendMessage,
+    takeScreenshot,
     UNSAFE__unityInstance: unityInstance,
   };
 };
