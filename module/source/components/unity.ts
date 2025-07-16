@@ -108,6 +108,7 @@ const Unity: ForwardRefExoticComponent<
           symbolsUrl: props.unityProvider.symbolsUrl,
           streamingAssetsUrl: props.unityProvider.streamingAssetsUrl,
           devicePixelRatio: props.devicePixelRatio,
+          webglContextAttributes: props.unityProvider.webglContextAttributes,
         };
 
         // The createUnityInstance function is provided by the Unity loader script.
