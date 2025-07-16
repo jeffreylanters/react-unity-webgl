@@ -66,6 +66,15 @@ type UnityContext = {
   ) => string | undefined;
 
   /**
+   * Unloads the Unity Instance, freeing up resources and memory.
+   * This method should be called when the Unity Instance is no longer needed
+   * to ensure proper cleanup. Note that this is done automatically when the
+   * Unity Context is unmounted, so manual unloading is typically not necessary
+   * no longer needed.
+   */
+  readonly unload: () => Promise<void>;
+
+  /**
    * An unsafe reference to the Unity Instance.
    * This reference should be used with caution, as it may not be available
    * at all times, and accessing it may lead to unexpected behavior if the
