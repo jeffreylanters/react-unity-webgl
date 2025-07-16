@@ -14,6 +14,7 @@ import { useCanvasIdentifier } from "../hooks/use-canvas-identifier";
 import { useUnityLoader } from "../hooks/use-unity-loader";
 import { UnityArguments } from "../types/unity-arguments";
 import { defaultCacheControl } from "../constants/default-cache-control";
+import { webglContextAttributes } from "../constants/default-webgl-context-attributes";
 
 const Unity: ForwardRefExoticComponent<
   UnityProps & React.RefAttributes<HTMLCanvasElement>
@@ -109,7 +110,9 @@ const Unity: ForwardRefExoticComponent<
           symbolsUrl: props.unityProvider.symbolsUrl,
           streamingAssetsUrl: props.unityProvider.streamingAssetsUrl,
           devicePixelRatio: props.devicePixelRatio,
-          webglContextAttributes: props.unityProvider.webglContextAttributes,
+          webglContextAttributes:
+            props.unityProvider.webglContextAttributes ??
+            webglContextAttributes,
           cacheControl: props.unityProvider.cacheControl ?? defaultCacheControl,
           autoSyncPersistentDataPath:
             props.unityProvider.autoSyncPersistentDataPath,
