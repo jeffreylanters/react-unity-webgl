@@ -54,6 +54,18 @@ type UnityContext = {
   ) => void;
 
   /**
+   * Takes a screenshot of the Unity Instance and returns a base64 encoded
+   * string.
+   * @param type Defines the type of screenshot to take.
+   * @param quality Defines the quality of the screenshot.
+   * @returns A base 64 encoded string of the screenshot.
+   */
+  readonly takeScreenshot: (
+    dataType?: string,
+    quality?: number
+  ) => string | undefined;
+
+  /**
    * An unsafe reference to the Unity Instance.
    * This reference should be used with caution, as it may not be available
    * at all times, and accessing it may lead to unexpected behavior if the
