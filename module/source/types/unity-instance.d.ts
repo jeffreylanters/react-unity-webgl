@@ -9,7 +9,7 @@ type UnityInstance = Pick<UnityModule, "SendMessage" | "SetFullscreen"> & {
    * Quits the Unity WebGL application and removes it from the memory.
    * @returns a promise which resolves when the application did quit.
    */
-  Quit(): Promise<void>;
+  readonly Quit: () => Promise<void>;
 
   /**
    * Returns the current system information of the UnityInstance.
@@ -17,12 +17,12 @@ type UnityInstance = Pick<UnityModule, "SendMessage" | "SetFullscreen"> & {
    * @returns the system information of the UnityInstance.
    * @remark only available in Unity 6000.1 and later.
    */
-  GetMetricsInfo?(): UnityMetricsInfo;
+  readonly GetMetricsInfo?: () => UnityMetricsInfo;
 
   /**
    * The internal Unity Module.
    */
-  Module: UnityModule;
+  readonly Module: UnityModule;
 };
 
 export type { UnityInstance };
