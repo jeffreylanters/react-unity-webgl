@@ -8,7 +8,6 @@ import { UnityEventParameter } from "../exports";
 /**
  * Custom hook to create a Unity context.
  * This hook initializes the Unity instance and provides the necessary state and methods.
- *
  * @param unityConfig - Configuration object for the Unity instance.
  * @returns An object containing the Unity context state and methods.
  */
@@ -37,6 +36,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     streamingAssetsUrl: unityConfig.streamingAssetsUrl,
     workerUrl: unityConfig.workerUrl,
     webglContextAttributes: unityConfig.webglContextAttributes,
+    cacheControl: unityConfig.cacheControl,
     setUnityInstance,
     setLoadingProgression,
     setIsLoaded,
