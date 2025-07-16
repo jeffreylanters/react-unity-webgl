@@ -3,6 +3,7 @@ import { UnityConfig } from "../types/unity-config";
 import { UnityContext } from "../types/unity-context";
 import { UnityProvider } from "../types/unity-provider";
 import { UnityInstance } from "../types/unity-instance";
+import { UnityEventParameter } from "../exports";
 
 /**
  * Custom hook to create a Unity context.
@@ -58,6 +59,18 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     unityInstance?.Module.canvas?.requestPointerLock();
   }, [unityInstance]);
 
+  /**
+   * Sends a message to the Unity Instance to invoke a public method.
+   */
+  const sendMessage = useCallback(
+    (
+      gameObjectName: string,
+      methodName: string,
+      parameter?: UnityEventParameter
+    ) => unityInstance?.SendMessage(gameObjectName, methodName, parameter),
+    [unityInstance]
+  );
+
   // Initialize the UnityProvider with the provided configuration
   // This is where you would typically load the Unity instance
   // and set up event listeners, etc.
@@ -68,6 +81,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     initialisationError,
     requestFullscreen,
     requestPointerLock,
+    sendMessage,
     UNSAFE__unityInstance: unityInstance,
   };
 };
