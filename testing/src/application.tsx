@@ -22,7 +22,7 @@ export function Application() {
     // addEventListener,
     // removeEventListener,
     takeScreenshot,
-    // unload,
+    unload,
     UNSAFE__unityInstance,
   } = useUnityContext({
     codeUrl: `/unity-build/unity.wasm`,
@@ -57,7 +57,7 @@ export function Application() {
   }
 
   function handleClickUnload() {
-    // unload();
+    unload();
   }
 
   function handleClickSetRandomCanvasWidth() {
