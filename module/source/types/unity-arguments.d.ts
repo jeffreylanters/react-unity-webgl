@@ -1,5 +1,5 @@
 import { UnityCacheControlMode } from "./unity-cache-control-mode";
-import { UnityInstanceBannerType } from "./unity-instance-banner-type";
+import { UnityBannerType } from "./unity-banner-type";
 
 /**
  * The Unity Arguments can be passed to a create Unity instance method in order
@@ -134,10 +134,7 @@ type UnityArguments = {
    * Add an event listener using this function to receive non-critical warnings
    * and error messages from the Unity Instance.
    */
-  readonly showBanner?: (
-    message: string,
-    type?: UnityInstanceBannerType
-  ) => void;
+  readonly showBanner?: (message: string, type?: UnityBannerType) => void;
 
   /**
    * When assigned this method will intercept all incomming messages from the
