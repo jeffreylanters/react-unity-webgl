@@ -31,7 +31,7 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "Current version",
+              label: "Version 10 (Current)",
               banner: "none",
               badge: true,
               path: "",
