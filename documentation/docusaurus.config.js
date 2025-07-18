@@ -126,6 +126,11 @@ const config = {
           label: "Support",
         },
         {
+          to: "https://template.react-unity-webgl.dev",
+          position: "right",
+          label: "Demo",
+        },
+        {
           type: "docsVersionDropdown",
           position: "right",
           dropdownActiveClassDisabled: true,
