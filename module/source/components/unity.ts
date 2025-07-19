@@ -13,8 +13,6 @@ import { UnityProps } from "../types/unity-props";
 import { useCanvasIdentifier } from "../hooks/use-canvas-identifier";
 import { useUnityLoader } from "../hooks/use-unity-loader";
 import { UnityArguments } from "../types/unity-arguments";
-import { defaultCacheControl } from "../constants/default-cache-control";
-import { webglContextAttributes } from "../constants/default-webgl-context-attributes";
 
 const Unity: ForwardRefExoticComponent<
   UnityProps & React.RefAttributes<HTMLCanvasElement>
@@ -110,15 +108,27 @@ const Unity: ForwardRefExoticComponent<
           symbolsUrl: props.unityProvider.symbolsUrl,
           streamingAssetsUrl: props.unityProvider.streamingAssetsUrl,
           devicePixelRatio: props.devicePixelRatio,
-          webglContextAttributes:
-            props.unityProvider.webglContextAttributes ??
-            webglContextAttributes,
-          cacheControl: props.unityProvider.cacheControl ?? defaultCacheControl,
+          webglContextAttributes: props.unityProvider.webglContextAttributes,
+          cacheControl: props.unityProvider.cacheControl,
           autoSyncPersistentDataPath:
             props.unityProvider.autoSyncPersistentDataPath,
           matchWebGLToCanvasSize: props.matchWebGLToCanvasSize,
-          disabledCanvasEvents: props.disabledCanvasEvents ?? [],
+          disabledCanvasEvents: props.disabledCanvasEvents,
         };
+
+        // Remove properties that are null or undefined. This is important to
+        // avoid passing undefined properties to the Unity instance, which can
+        // cause errors during initialization.
+        Object.keys(unityArguments).forEach((key) => {
+          if (
+            unityArguments[key as keyof UnityArguments] === null ||
+            unityArguments[key as keyof UnityArguments] === undefined
+          ) {
+            delete unityArguments[key as keyof UnityArguments];
+          }
+        });
+
+        console.log({ unityArguments });
 
         // The createUnityInstance function is provided by the Unity loader script.
         // It initializes the Unity instance with the provided canvas and arguments.
