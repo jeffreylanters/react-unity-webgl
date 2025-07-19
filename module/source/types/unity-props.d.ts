@@ -1,40 +1,22 @@
-import { CSSProperties } from "react";
 import { UnityProvider } from "./unity-provider";
 import { UnityArguments } from "./unity-arguments";
+import { CanvasHTMLAttributes, DetailedHTMLProps } from "react";
+
+type HTMLCanvasElementProps = DetailedHTMLProps<
+  CanvasHTMLAttributes<HTMLCanvasElement>,
+  HTMLCanvasElement
+>;
 
 type UnityProps = Pick<
   UnityArguments,
   "devicePixelRatio" | "matchWebGLToCanvasSize" | "disabledCanvasEvents"
-> & {
-  /**
-   * The Unity provider that contains the necessary URLs to load the Unity
-   * instance. This is required to load the Unity WebGL build.
-   */
-  unityProvider: UnityProvider;
-
-  /**
-   * The ID of the Unity canvas element. If not provided, a unique ID will be
-   * generated. It is recommended to let the library generate a unique ID
-   * unless you have a specific reason to use a custom ID.
-   */
-  id?: string;
-
-  /**
-   * The style of the Unity canvas element.
-   */
-  style?: CSSProperties;
-
-  /**
-   * The class name of the Unity canvas element. This can be used to apply
-   * custom styles to the canvas.
-   */
-  className?: string;
-
-  /**
-   * The tab index of the Unity canvas element. This can be used to make the
-   * canvas focusable.
-   */
-  tabIndex?: number;
-};
+> &
+  Pick<HTMLCanvasElementProps, "id" | "style" | "className" | "tabIndex"> & {
+    /**
+     * The Unity provider that contains the necessary URLs to load the Unity
+     * instance. This is required to load the Unity WebGL build.
+     */
+    unityProvider: UnityProvider;
+  };
 
 export type { UnityProps };
