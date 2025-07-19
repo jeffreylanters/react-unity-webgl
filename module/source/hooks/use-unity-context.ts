@@ -63,9 +63,10 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
    * Pointer lock mode allows the Unity Instance to capture mouse movements
    * without the cursor leaving the Unity canvas.
    */
-  const requestPointerLock = useCallback(() => {
-    unityInstance?.Module.canvas?.requestPointerLock();
-  }, [unityInstance]);
+  const requestPointerLock = useCallback(
+    () => unityInstance?.Module.canvas?.requestPointerLock(),
+    [unityInstance]
+  );
 
   /**
    * Sends a message to the Unity Instance to invoke a public method.
