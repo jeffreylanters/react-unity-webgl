@@ -7,6 +7,7 @@ import {
   JSX,
   useImperativeHandle,
   useCallback,
+  RefAttributes,
 } from "react";
 import { UnityInstance } from "../types/unity-instance";
 import { UnityProps } from "../types/unity-props";
@@ -15,7 +16,7 @@ import { useUnityLoader } from "../hooks/use-unity-loader";
 import { UnityArguments } from "../types/unity-arguments";
 
 const Unity: ForwardRefExoticComponent<
-  UnityProps & React.RefAttributes<HTMLCanvasElement>
+  UnityProps & RefAttributes<HTMLCanvasElement>
 > = forwardRef<HTMLCanvasElement, UnityProps>(
   /**
    * @param unityProps The Unity props provided the the Unity component.
