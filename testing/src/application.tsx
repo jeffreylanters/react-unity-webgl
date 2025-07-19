@@ -35,7 +35,7 @@ export function Application() {
       preserveDrawingBuffer: true,
     },
     cacheControl: handleCacheControl,
-    companyName: "Unity Technologies",
+    companyName: "Jeffrey Lanters",
     productName: "Communication Tests",
     productVersion: "1.0.0",
     autoSyncPersistentDataPath: true,
