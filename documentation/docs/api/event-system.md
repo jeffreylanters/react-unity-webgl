@@ -24,12 +24,12 @@ function removeEventListener(
 ```tsx title="Type Definition"
 function dispatchReactUnityEvent(
   eventName: string,
-  ...parameters: ReactUnityEventParameterType[]
+  ...parameters: UnityEventParameter[]
 ): void;
 ```
 
 ```tsx title="Type Definition"
-type ReactUnityEventParameter = any | undefined | void;
+type UnityEventParameter = any | undefined | void;
 ```
 
 ## Implementation
