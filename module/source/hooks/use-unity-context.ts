@@ -3,8 +3,8 @@ import { UnityConfig } from "../types/unity-config";
 import { UnityContext } from "../types/unity-context";
 import { UnityProvider } from "../types/unity-provider";
 import { UnityInstance } from "../types/unity-instance";
-import { UnityEventParameter } from "../exports";
 import { useEventSystem } from "./use-event-system";
+import { UnityMessageParameter } from "../types/unity-message-parameters";
 
 /**
  * Custom hook to create a Unity context.
@@ -75,7 +75,7 @@ const useUnityContext = (unityConfig: UnityConfig): UnityContext => {
     (
       gameObjectName: string,
       methodName: string,
-      parameter?: UnityEventParameter
+      parameter?: UnityMessageParameter
     ) => unityInstance?.SendMessage(gameObjectName, methodName, parameter),
     [unityInstance]
   );
