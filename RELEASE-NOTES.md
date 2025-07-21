@@ -1,1 +1,1 @@
-- Resolved an issue where the internal types of the module were not being exported correctly, causing any type in TypeScript projects.
+- Separated the typings for Untity Message and Unity Event parameters to allow for more granular type checking.
