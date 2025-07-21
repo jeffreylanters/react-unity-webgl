@@ -1,6 +1,6 @@
 import { UnitySystemInfo } from "./unity-system-info";
 import { UnityBooleanLike } from "./unity-boolean-like";
-import { UnityEventParameter } from "./unity-event-parameters";
+import { UnityMessageParameter } from "./unity-message-parameters";
 
 /**
  * Type declaration for the UnityModule.
@@ -37,7 +37,7 @@ type UnityModule = {
   SendMessage(
     gameObjectName: string,
     methodName: string,
-    parameter?: UnityEventParameter
+    parameter?: UnityMessageParameter
   ): void;
 
   /**
