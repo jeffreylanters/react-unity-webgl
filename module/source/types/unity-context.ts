@@ -1,6 +1,6 @@
 import { EventSystem } from "./event-system";
-import { UnityEventParameter } from "./unity-event-parameters";
 import { UnityInstance } from "./unity-instance";
+import { UnityMessageParameter } from "./unity-message-parameters";
 import { UnityMetricsInfo } from "./unity-metrics-info";
 import { UnityProvider } from "./unity-provider";
 
@@ -55,7 +55,7 @@ type UnityContext = Pick<
   readonly sendMessage: (
     gameObjectName: string,
     methodName: string,
-    parameter?: UnityEventParameter
+    parameter?: UnityMessageParameter
   ) => void;
 
   /**
