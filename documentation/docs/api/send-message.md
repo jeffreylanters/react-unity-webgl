@@ -11,12 +11,12 @@ The send message function lets you asynchronously invoke a method in the Unity g
 function sendMessage(
   gameObjectName: string,
   methodName: string,
-  parameter?: ReactUnityEventParameterType
+  parameter?: UnityMessageParameter
 ): void;
 ```
 
 ```tsx title="Type Definition"
-type ReactUnityEventParameter = string | number | undefined;
+type UnityMessageParameter = string | number | undefined | void;
 ```
 
 ## Implementation
@@ -32,7 +32,7 @@ When invoking a C-Sharp method by sending a message, the name of the mono behavi
 :::
 
 :::warning
-Make sure the parameter matches the actual existence and type of the C-Sharp method you're trying to invoke. Not 
+Make sure the parameter matches the actual existence and type of the C-Sharp method you're trying to invoke. Not
 doing so may cause unintended behaviour or even a crash of the Unity Application.
 :::
 
