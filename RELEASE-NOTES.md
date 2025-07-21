@@ -1,1 +1,1 @@
-- Resolved an issue where not providing a cache control method or webgl context attributes would result in an error while loading the Unity build.
+- Replaced the default cache control method with a more robust implementation that handles various scenarios.
