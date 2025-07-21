@@ -129,8 +129,6 @@ const Unity: ForwardRefExoticComponent<
           }
         });
 
-        console.log({ unityArguments });
-
         // The createUnityInstance function is provided by the Unity loader script.
         // It initializes the Unity instance with the provided canvas and arguments.
         // The function returns a Promise that resolves to the Unity instance.
