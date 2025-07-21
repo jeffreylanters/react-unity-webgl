@@ -29,7 +29,7 @@ function dispatchReactUnityEvent(
 ```
 
 ```tsx title="Type Definition"
-type ReactUnityEventParameter = string | number | undefined;
+type ReactUnityEventParameter = any | undefined | void;
 ```
 
 ## Implementation
