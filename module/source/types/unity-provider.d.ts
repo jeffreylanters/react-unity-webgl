@@ -1,6 +1,13 @@
 import { UnityConfig } from "./unity-config";
 import { UnityInstance } from "./unity-instance";
 
+/**
+ * The UnityProvider interface defines the properties and methods required to
+ * create and manage a Unity instance within a React application. It is used for
+ * internal management of the Unity instance and provides methods to interact
+ * with the Unity instance, such as setting the loading progression, handling
+ * fullscreen requests, and managing the Unity instance's state.
+ */
 type UnityProvider = Pick<
   UnityConfig,
   | "loaderUrl"
