@@ -1,1 +1,2 @@
 - Replaced the default cache control method with a more robust implementation that handles various scenarios.
+- Resolved an issue where the internal types of the module were not being exported correctly, causing any type in TypeScript projects.
