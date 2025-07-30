@@ -197,6 +197,7 @@ const Unity: ForwardRefExoticComponent<
         const cleanupCanvasRef = document.createElement("canvas");
         cleanupCanvasRef.id = canvasRef.id;
         cleanupCanvasRef.setAttribute("react-unity-webgl-role", "cleanup");
+        cleanupCanvasRef.style.display = "none";
         document.body.appendChild(cleanupCanvasRef);
         unityInstance.Module.canvas = cleanupCanvasRef;
         setUnityInstance(null);
