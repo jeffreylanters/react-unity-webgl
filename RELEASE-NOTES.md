@@ -1,1 +1,1 @@
-- The cleanup canvas element is now hidden by default to prevent display issues in the DOM. This change ensures that the cleanup canvas does not interfere with the layout or visibility of other elements on the page.
+- Updated TypeScript compiler version and bumped packages.
