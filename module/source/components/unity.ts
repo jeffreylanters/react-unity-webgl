@@ -115,6 +115,9 @@ const Unity: ForwardRefExoticComponent<
             props.unityProvider.autoSyncPersistentDataPath,
           matchWebGLToCanvasSize: props.matchWebGLToCanvasSize,
           disabledCanvasEvents: props.disabledCanvasEvents,
+          showBanner: props.unityProvider.showBanner,
+          print: props.unityProvider.print,
+          printErr: props.unityProvider.printErr,
         };
 
         // Remove properties that are null or undefined. This is important to
