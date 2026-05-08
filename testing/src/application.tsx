@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import {
   Unity,
+  UnityBannerType,
   UnityEventParameter,
   useUnityContext,
   useUnityMetricsInfo,
@@ -39,11 +40,26 @@ export function Application() {
     productName: "Communication Tests",
     productVersion: "1.0.0",
     autoSyncPersistentDataPath: true,
+    print: handlePrint,
+    printErr: handlePrintErr,
+    showBanner: handleShowBanner,
     // memoryUrl: `/unity-build/communication-tests.mem`, // <- Tested, but not implemented in the demo project
     // streamingAssetsUrl: `/unity-build/StreamingAssets`, // <- Tested, but not implemented in the demo project
     // symbolsUrl: `/unity-build/communication-tests.symbols.json`, // <- Tested, but not implemented in the demo project
     // workerUrl: `/unity-build/communication-tests.worker.js`, // <- Tested, but not implemented in the demo project
   });
+
+  function handlePrint(message: string) {
+    console.log("Unity Print:", message);
+  }
+
+  function handlePrintErr(message: string) {
+    console.error("Unity PrintErr:", message);
+  }
+
+  function handleShowBanner(message: string, type?: UnityBannerType) {
+    console.log(`Unity ShowBanner [${type}]:`, message);
+  }
 
   const { fps } = useUnityMetricsInfo(getMetricsInfo, {
     interval: 1000 / 60,
