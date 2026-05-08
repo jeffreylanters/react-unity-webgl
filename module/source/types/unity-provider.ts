@@ -24,6 +24,9 @@ type UnityProvider = Pick<
   | "webglContextAttributes"
   | "cacheControl"
   | "autoSyncPersistentDataPath"
+  | "showBanner"
+  | "print"
+  | "printErr"
 > & {
   /**
    * Sets the Unity Context's loading progression.
