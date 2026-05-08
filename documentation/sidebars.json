@@ -169,6 +169,19 @@
         {
           "type": "doc",
           "id": "api/use-unity-metrics-info"
+        },
+        {
+          "type": "doc",
+          "id": "api/print"
+        },
+        {
+          "type": "doc",
+          "id": "api/print-err",
+          "label": "Print Errors"
+        },
+        {
+          "type": "doc",
+          "id": "api/show-banner"
         }
       ]
     },
