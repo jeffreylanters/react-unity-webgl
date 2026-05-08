@@ -1,1 +1,4 @@
 - Updated TypeScript compiler version and bumped packages.
+- Bumped the TypeScript compilation target from `es5` to `es6` to align with current browser support and reduce the amount of legacy polyfill output in the compiled module.
+- Exposed the `showBanner`, `print` and `printErr` callbacks on the Unity Config. These were already supported by the underlying Unity loader but were previously not selectable via `useUnityContext`. Consumers can now intercept Unity's non-critical warning and error banners (officially supported since Unity 6.3) as well as standard log and error output, and route them into custom UI, telemetry or error reporting instead of relying on the default DOM banner and browser console.
+- Added the `UnityBannerType` type to the public API so consumers can strongly type their `showBanner` handler without reaching into internal module paths.
