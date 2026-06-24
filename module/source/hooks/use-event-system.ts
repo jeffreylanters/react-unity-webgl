@@ -87,7 +87,7 @@ const useEventSystem = (): EventSystem => {
       // based on its name and the reference to the callback.
       eventListeners.current = eventListeners.current.filter(
         (eventListener) =>
-          eventListener.eventName !== eventName &&
+          eventListener.eventName !== eventName || 
           eventListener.callback !== callback
       );
     },
