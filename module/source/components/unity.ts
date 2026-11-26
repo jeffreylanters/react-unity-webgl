@@ -24,12 +24,9 @@ const Unity: ForwardRefExoticComponent<
    * @returns The Unity canvas renderer.
    */
   (props, forwardedRef): JSX.Element => {
-    // State to hold the canvas reference and Unity instance.
+    // State to hold the canvas reference.
     // The canvas reference is used to render the Unity instance.
     const [canvasRef, setCanvasRef] = useState<HTMLCanvasElement | null>(null);
-    const [unityInstance, setUnityInstance] = useState<UnityInstance | null>(
-      null
-    );
 
     // Use a custom hook to generate a unique canvas ID or use the provided one.
     // This ensures that each Unity instance has a unique canvas ID.
@@ -65,23 +62,27 @@ const Unity: ForwardRefExoticComponent<
     // Effect to initialize the Unity instance when the component mounts or
     // when the canvas reference or Unity loader status changes.
     useEffect(() => {
+      if (!canvasRef || unityLoaderStatus !== "Loaded") {
+        // If there is no canvas reference, or if the Unity loader is not ready
+        // yet, we simply return.
+        return;
+      }
+
+      // Set to false when this effect is cleaned up. A Unity instance that
+      // finishes loading after that is no longer reported to the Unity
+      // provider, it is quit by detachUnity instead.
+      let isActive = true;
+
       // Function to initialize the Unity instance.
       // This function is called when the component mounts or when the
-      // canvas reference or Unity loader status changes.
-      const initializeUnity = async () => {
-        if (!canvasRef || unityInstance || unityLoaderStatus !== "Loaded") {
-          // If there is no canvas reference, or if the Unity instance is already
-          // initialized, or if the Unity loader is not ready yet, we simply return.
-          // This prevents unnecessary re-initialization of the Unity instance.
-          return;
-        }
-
+      // canvas reference or Unity loader status changes. It resolves to the
+      // Unity instance, or to null if the initialization failed.
+      const initializeUnity = async (): Promise<UnityInstance | null> => {
         console.log("React Unity WebGL: Initializing Unity instance...");
 
         // Remove the reference to the previous Unity instance if it exists and
         // set the Unity instance in the Unity provider to null.
         props.unityProvider.setUnityInstance(null);
-        setUnityInstance(null);
 
         // Reset the loading progression and isLoaded state to their initial
         // values. This is important to ensure that the Unity context is
@@ -135,23 +136,27 @@ const Unity: ForwardRefExoticComponent<
         // The createUnityInstance function is provided by the Unity loader script.
         // It initializes the Unity instance with the provided canvas and arguments.
         // The function returns a Promise that resolves to the Unity instance.
-        // We await the Promise to get the Unity instance and set it in the state.
-        // This allows us to use the Unity instance in the component.
         try {
           const unityInstance = await window.createUnityInstance(
             canvasRef,
             unityArguments,
-            onUnityProgress
+            (progress) => isActive && onUnityProgress(progress)
           );
 
-          // If the Unity instance is successfully created, we set it in the state.
-          // This allows us to use the Unity instance in the component.
-          setUnityInstance(unityInstance);
-          // We also set the Unity instance in the Unity provider.
-          // This allows the Unity provider to access the Unity instance and
-          // call its internal methods.
-          props.unityProvider.setUnityInstance(unityInstance);
+          // If the Unity instance is successfully created, we set it in the
+          // Unity provider. This allows the Unity provider to access the Unity
+          // instance and call its internal methods.
+          if (isActive) {
+            props.unityProvider.setUnityInstance(unityInstance);
+          }
+          return unityInstance;
         } catch (error) {
+          if (!isActive) {
+            // The Unity instance was detached while it was loading, so there
+            // is no one left to report the error to.
+            return null;
+          }
+
           // If there is an error during the initialization, we log it to the console.
           // This is important for debugging purposes.
           console.error(
@@ -164,61 +169,62 @@ const Unity: ForwardRefExoticComponent<
           // The initialisation error can be used to display an error message or
           // take other actions based on the error.
           props.unityProvider.setInitialisationError(error as Error);
+          return null;
         }
       };
 
       // Function to detach the Unity instance and clean up the canvas.
       // This function is called when the component unmounts or when the
-      // Unity instance is no longer needed.
-      const detachUnity = async () => {
-        if (!unityInstance || !canvasRef) {
-          // If there is no Unity instance or canvas reference available,
-          // we simply return to avoid any errors.
-          return;
-        }
-
+      // Unity instance is no longer needed. The Unity instance might still be
+      // loading at this point, in which case it is quit once it has loaded.
+      const detachUnity = async (
+        unityInstancePromise: Promise<UnityInstance | null>
+      ) => {
         console.log("React Unity WebGL: Detaching Unity instance...");
 
-        // Remove the reference to the previous Unity instance if it exists and
-        // set the Unity instance in the Unity provider to null.
+        // Remove the reference to the Unity instance from the Unity provider.
         props.unityProvider.setUnityInstance(null);
-        setUnityInstance(null);
 
         // Reset the loading progression and isLoaded state to their initial
         // values. This is important to ensure that the Unity context is
         // properly reset when the Unity instance is detached.
         props.unityProvider.setLoadingProgression(0);
         props.unityProvider.setIsLoaded?.(false);
-        props.unityProvider.setInitialisationError(undefined);
 
         // Create a new canvas element to clean up the Unity instance.
         // This is necessary to ensure that the Unity instance is properly
         // disposed of and the canvas is removed from the DOM.
         // The new canvas element is created with the same ID as the original
         // canvas element, but with a special attribute to indicate that it is
-        // a cleanup canvas.
+        // a cleanup canvas. Unity looks up its canvas by this ID, so the
+        // cleanup canvas is added right away: a Unity instance that is still
+        // loading needs it as soon as it finishes loading.
         const cleanupCanvasRef = document.createElement("canvas");
         cleanupCanvasRef.id = canvasRef.id;
         cleanupCanvasRef.setAttribute("react-unity-webgl-role", "cleanup");
         cleanupCanvasRef.style.display = "none";
         document.body.appendChild(cleanupCanvasRef);
-        unityInstance.Module.canvas = cleanupCanvasRef;
-        setUnityInstance(null);
-        await unityInstance.Quit();
+
+        const unityInstance = await unityInstancePromise;
+        if (unityInstance) {
+          unityInstance.Module.canvas = cleanupCanvasRef;
+          await unityInstance.Quit();
+        }
         document.body.removeChild(cleanupCanvasRef);
       };
 
       // Initialize the Unity instance when the component mounts or when the
       // canvas reference or Unity loader status changes.
-      initializeUnity();
+      const unityInstancePromise = initializeUnity();
 
       return () => {
         // Cleanup the Unity instance and canvas when the component unmounts.
         // This ensures that the Unity instance is properly disposed of and
         // the canvas is removed from the DOM.
-        detachUnity();
+        isActive = false;
+        detachUnity(unityInstancePromise);
       };
-    }, [canvasRef, unityInstance, unityLoaderStatus, props.unityProvider]);
+    }, [canvasRef, unityLoaderStatus, props.unityProvider]);
 
     // Use the forwarded ref to expose the canvas reference to the parent
     // component. This allows the parent component to access the canvas element
